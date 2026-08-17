@@ -146,6 +146,15 @@ def home() -> FileResponse:
     return FileResponse(_DIR / "static" / "index.html", media_type="text/html; charset=utf-8")
 
 
+@app.get("/brief")
+def brief_page() -> FileResponse:
+    """One-page Demo Day brief — stranger-readable; no API key."""
+    path = _DIR / "static" / "brief.html"
+    if not path.is_file():
+        raise HTTPException(status_code=404, detail="brief page missing")
+    return FileResponse(path, media_type="text/html; charset=utf-8")
+
+
 @app.get("/favicon.png", include_in_schema=False)
 @app.get("/favicon.ico", include_in_schema=False)
 def favicon() -> FileResponse:

@@ -16,6 +16,8 @@ She reviews and signs — the tool drafts, never decides.
 Every request must set `"confirm_synthetic": true`. Missing/false → refuse before any model call.
 Nothing is persisted — the ledger is returned to the caller, never stored.
 
+**Stranger brief (live):** [https://report-builder-wc2k.onrender.com/brief](https://report-builder-wc2k.onrender.com/brief) — problem, architecture, stack, TRACE, memory, Demo Day walkthrough.
+
 ## Architecture
 
 ```
@@ -42,6 +44,10 @@ sources → /extract → LEDGER + gap_report + timelines
 
 The ruling ledger (`DECISIONS.md`) stays in the parent workspace, outside this repository, by design; `voice_store.json` is what ships. Runtime `/memory` treats a missing ledger as local-by-design.
 
+## Stack
+
+FastAPI · OpenAI (synthetic-only on this host) · Langfuse · `voice_store.json` · pytest and smoke traces · Render. Not LangGraph, not ADK, not a vector RAG store. The case “memory” for a request is the fact ledger; clinician voice rules are the compiled store.
+
 ## Setup
 
 ```bash
@@ -60,9 +66,11 @@ uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 
 | URL | What you get |
 |-----|----------------|
-| http://127.0.0.1:8000/ | Demo UI — pipeline stages visible before prose |
+| http://127.0.0.1:8000/brief | One-page Demo Day brief |
+| http://127.0.0.1:8000/operator/ | Phase 1 operator console |
+| http://127.0.0.1:8000/ | Pipeline demo UI |
 | http://127.0.0.1:8000/memory | Voice-gate store and write-then-recall (read-only; no API key) |
-| https://ai-internship-c7lr.onrender.com/memory | Same page on the public deploy |
+| https://report-builder-wc2k.onrender.com/brief | Same brief on the public deploy |
 | http://127.0.0.1:8000/docs | OpenAPI |
 | http://127.0.0.1:8000/health | Liveness |
 
@@ -78,7 +86,7 @@ Baseline at extraction (WP1, 2026-08-17): **150 collected, 147 passed, 3 pre-exi
 
 ## Memory (voice-gate store)
 
-Public page: [https://ai-internship-c7lr.onrender.com/memory](https://ai-internship-c7lr.onrender.com/memory). Terminal proof: `python prove_voice_recall.py`.
+Public page: [https://report-builder-wc2k.onrender.com/memory](https://report-builder-wc2k.onrender.com/memory). Terminal proof: `python prove_voice_recall.py`. One-page brief: [https://report-builder-wc2k.onrender.com/brief](https://report-builder-wc2k.onrender.com/brief).
 
 **What do I keep?** Class A only — what Molly stated. Eight records, A1–A8. The *positive* voice is the phase-1 few-shot registry (`history_fewshots/phase1/`).
 
@@ -87,6 +95,8 @@ Public page: [https://ai-internship-c7lr.onrender.com/memory](https://ai-interns
 **Where does it live?** `voice_store.json`, version-controlled beside the code.
 
 **How do I get it back?** `evaluate_voice_gates` loads the store from disk at review time. Cross-session proof: `python voice_store.py`, then `python voice_recall.py <draft.json>` — the recall argv never contains the rule text.
+
+**When do I forget?** Never by deletion. The ruling ledger is append-only; the store compiles the live, non-superseded set. Retraction is a new entry. A4/A5 are inert without a case ledger — different from forgotten.
 
 ## Reason for Referral (`POST /draft/referral`)
 
@@ -159,6 +169,7 @@ History smoke (cached fixture_001 ledger): `python evals/history/run_smoke.py`
 ├── schemas.py / predicates.py / validators.py / draft_validators.py
 ├── provider.py             # sole OpenAI client import (default); Bastion opt-in
 ├── static/index.html       # pipeline-visible demo UI
+├── static/brief.html       # Demo Day one-pager (GET /brief)
 ├── static/operator/        # Phase 1 operator console (GET /operator/)
 ├── fixtures/               # synthetic cases + sibling expected_* fields
 ├── extract_prompt.md / history_policy.md / history_writer_prompt.md / referral_prompt.md
