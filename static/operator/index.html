@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="./operator_live.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/design-system-2fdbf788-5a72-40e3-b824-c2771ec2d432/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/design-system-2fdbf788-5a72-40e3-b824-c2771ec2d432/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/design-system-2fdbf788-5a72-40e3-b824-c2771ec2d432/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/design-system-2fdbf788-5a72-40e3-b824-c2771ec2d432/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/design-system-2fdbf788-5a72-40e3-b824-c2771ec2d432/styles.css">
+  <script src="_ds/design-system-2fdbf788-5a72-40e3-b824-c2771ec2d432/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #F5F0EB; color: #28211E; font-family: "DM Sans", sans-serif; }
+    a { color: #28211E; } a:hover { color: #6E6258; }
+    ::selection { background: #8DD9BF; }
+  </style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+  <header style="display:flex;align-items:center;gap:24px;padding:14px 28px;border-bottom:1px solid #DCD2C6;background:rgba(245,240,235,.92);position:sticky;top:0;z-index:20;backdrop-filter:blur(6px)">
+    <div style="display:flex;align-items:baseline;gap:12px">
+      <div style="font-family:Hillman,'DM Sans',sans-serif;font-size:28px;letter-spacing:-0.01em">Report builder</div>
+      <div style="font-size:13px;color:#6E6258;font-weight:500">operator · phase 1</div>
+    </div>
+    <div style="display:flex;gap:8px" data-screen-label="case switcher">
+      <sc-for list="{{ caseChips }}" as="c" hint-placeholder-count="2">
+        <button onClick="{{ c.pick }}" style="{{ c.style }}"><span style="font-family:ui-monospace,Menlo,monospace;font-size:12px">{{ c.id }}</span> {{ c.name }}</button>
+      </sc-for>
+    </div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:16px">
+      <span style="font-size:12px;color:#6E6258">{{ liveStatus }}</span>
+      <a href="/memory" title="read-only voice store" style="font-size:13px;font-weight:500;color:#6E6258;border:1px solid #DCD2C6;border-radius:999px;padding:4px 12px;text-decoration:none">voice store → read-only</a>
+    </div>
+  </header>
+
+  <div style="display:flex;gap:2px;padding:0 28px;border-bottom:1px solid #DCD2C6;background:#F5F0EB">
+    <sc-for list="{{ tabChips }}" as="t" hint-placeholder-count="5">
+      <button onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}<sc-if value="{{ t.badge }}" hint-placeholder-val="{{ false }}"><span style="{{ t.badgeStyle }}">{{ t.badge }}</span></sc-if></button>
+    </sc-for>
+    <div style="margin-left:auto;align-self:center;font-size:12px;color:#6E6258;padding-bottom:2px">{{ caseMetaLine }}</div>
+  </div>
+
+  <main style="flex:1;padding:24px 28px 64px;max-width:1600px;width:100%;box-sizing:border-box;margin:0 auto">
+
+    <sc-if value="{{ tabIngest }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="Ingest" style="display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <section style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;padding:16px">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <h2 style="margin:0;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258">Case files</h2>
+            </div>
+            <div style="font-size:12px;color:#6E6258;margin:6px 0 10px">{{ filesSummary }}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+              <button onClick="{{ loadPacket }}" style="background:#8DD9BF;color:#28211E;border:none;border-radius:10px;padding:7px 14px;font:500 13px 'DM Sans',sans-serif;cursor:pointer">Load fixture packet</button>
+              <button onClick="{{ loadCached }}" style="background:#28211E;color:#F5F0EB;border:none;border-radius:10px;padding:7px 14px;font:500 13px 'DM Sans',sans-serif;cursor:pointer">Load cached ledger</button>
+              <button onClick="{{ extractLive }}" style="background:transparent;color:#28211E;border:1px solid #C4B5A5;border-radius:10px;padding:7px 14px;font:500 13px 'DM Sans',sans-serif;cursor:pointer">Extract ledger</button>
+            </div>
+            <div style="font-size:11px;color:#6E6258;margin:-4px 0 10px">Raw file upload is later. 001 cached ledger is the fixture_001 smoke parent; 005 uses synthetic_history_case. Extract is a model call.</div>
+            <sc-for list="{{ pendingUploads }}" as="p" hint-placeholder-count="0">
+              <div style="border:1px solid #8DD9BF;border-radius:10px;padding:10px 12px;margin-bottom:10px;background:#F5F0EB">
+                <div style="font-size:13px;font-weight:500">{{ p.name }}</div>
+                <div style="font-size:12px;color:#6E6258;margin:4px 0 8px">suggests <span style="font-family:ui-monospace,Menlo,monospace">{{ p.type }}</span> · {{ p.date }} · {{ p.docClass }} — confirm before it enters the packet</div>
+                <div style="display:flex;gap:8px">
+                  <button onClick="{{ p.confirm }}" style="background:#28211E;color:#F5F0EB;border:none;border-radius:8px;padding:5px 12px;font:500 12px 'DM Sans',sans-serif;cursor:pointer">Confirm source</button>
+                  <button onClick="{{ p.discard }}" style="background:transparent;color:#6E6258;border:1px solid #C4B5A5;border-radius:8px;padding:5px 12px;font:500 12px 'DM Sans',sans-serif;cursor:pointer">Discard</button>
+                </div>
+              </div>
+            </sc-for>
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ files }}" as="f" hint-placeholder-count="6">
+                <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid #EFE8DF;align-items:baseline">
+                  <span style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#6E6258;flex:0 0 52px">{{ f.id }}</span>
+                  <div style="flex:1;min-width:0">
+                    <div style="font-size:13px;line-height:1.35">{{ f.label }}</div>
+                    <div style="font-size:11px;color:#6E6258">{{ f.type }} · {{ f.date }}</div>
+                  </div>
+                  <span style="{{ f.chipStyle }}">{{ f.docClass }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+          <section style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;padding:16px">
+            <h2 style="margin:0 0 10px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258">Timelines <span style="font-weight:400;text-transform:none;letter-spacing:0">— as_of change, not conflict</span></h2>
+            <sc-for list="{{ timelines }}" as="tl" hint-placeholder-count="3">
+              <div style="padding:8px 0;border-bottom:1px solid #EFE8DF">
+                <div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:500">{{ tl.topic }}</div>
+                <div style="font-size:12px;color:#6E6258;line-height:1.5">{{ tl.seq }}</div>
+              </div>
+            </sc-for>
+          </section>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+          <section style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;padding:16px">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap">
+              <h2 style="margin:0;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258">Fact ledger</h2>
+              <span style="font-size:12px;color:#6E6258">{{ ledgerMeta }}</span>
+            </div>
+            <div style="overflow-x:auto;min-width:0">
+            <table style="width:100%;border-collapse:collapse;margin-top:10px;font-size:13px">
+              <thead>
+                <tr>
+                  <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">fact</th>
+                  <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">predicate</th>
+                  <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">value</th>
+                  <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">attribution</th>
+                  <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">provenance</th>
+                  <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">flags</th>
+                </tr>
+              </thead>
+              <tbody>
+                <sc-for list="{{ facts }}" as="fa" hint-placeholder-count="8">
+                  <tr>
+                    <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#6E6258;white-space:nowrap;vertical-align:top">{{ fa.id }}</td>
+                    <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;vertical-align:top;white-space:nowrap"><span style="color:#6E6258">{{ fa.subject }} ·</span> <span style="font-family:ui-monospace,Menlo,monospace;font-size:12px">{{ fa.predicate }}</span></td>
+                    <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;vertical-align:top;min-width:180px"><span style="{{ fa.valueStyle }}">{{ fa.value }}</span><sc-if value="{{ fa.quote }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px;color:#6E6258;font-style:italic;margin-top:2px">“{{ fa.quote }}”</div></sc-if></td>
+                    <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;vertical-align:top;font-size:12px;color:#6E6258">{{ fa.reporter }}</td>
+                    <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;vertical-align:top;font-size:12px;white-space:nowrap"><span style="font-family:ui-monospace,Menlo,monospace;font-size:11px">{{ fa.sourceId }}</span> <span style="color:#6E6258">{{ fa.dates }}</span></td>
+                    <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;vertical-align:top;white-space:nowrap"><span style="font-size:11px;color:#6E6258">{{ fa.flags }}</span></td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+            </div>
+          </section>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <section style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;padding:16px">
+              <h2 style="margin:0 0 4px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258">Record conflicts</h2>
+              <div style="font-size:12px;color:#6E6258;margin-bottom:8px">a source is wrong — surfaced, never auto-resolved</div>
+              <sc-if value="{{ noConflicts }}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;color:#6E6258;padding:10px;border:1px dashed #C4B5A5;border-radius:8px">No record conflicts detected in this ledger.</div></sc-if>
+              <sc-for list="{{ conflicts }}" as="cf" hint-placeholder-count="0">
+                <div style="border:1px solid #A33D2E;border-radius:8px;padding:10px 12px;margin-bottom:8px">
+                  <div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:500;color:#A33D2E">{{ cf.topic }}</div>
+                  <sc-for list="{{ cf.versions }}" as="v" hint-placeholder-count="2"><div style="font-size:12px;margin-top:4px"><b>{{ v.value }}</b> — <span style="color:#6E6258">{{ v.who }}</span></div></sc-for>
+                </div>
+              </sc-for>
+            </section>
+            <section style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;padding:16px">
+              <h2 style="margin:0 0 4px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258">Perspectival variance</h2>
+              <div style="font-size:12px;color:#6E6258;margin-bottom:8px">informants differ — presented as comparison, not error</div>
+              <sc-for list="{{ variance }}" as="va" hint-placeholder-count="1">
+                <div style="border:1px solid #DCD2C6;border-radius:8px;padding:10px 12px;margin-bottom:8px;background:#F5F0EB">
+                  <div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:500">{{ va.topic }}</div>
+                  <sc-for list="{{ va.versions }}" as="v" hint-placeholder-count="2"><div style="font-size:12px;margin-top:4px"><b>{{ v.value }}</b> — <span style="color:#6E6258">{{ v.who }}</span></div></sc-for>
+                </div>
+              </sc-for>
+              <sc-if value="{{ noVariance }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#6E6258;padding:10px;border:1px dashed #C4B5A5;border-radius:8px">No perspectival variance detected.</div></sc-if>
+            </section>
+          </div>
+
+          <section style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;padding:16px;border-top:3px solid #8DD9BF">
+            <h2 style="margin:0 0 4px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258">Held for review</h2>
+            <div style="font-size:12px;color:#6E6258;margin-bottom:10px">items awaiting human judgment — never silently accepted</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div>
+                <div style="font-size:12px;font-weight:500;margin-bottom:6px">Proposed / unregistered predicates</div>
+                <sc-for list="{{ heldPredicates }}" as="hp" hint-placeholder-count="1">
+                  <div style="display:flex;gap:8px;align-items:baseline;padding:6px 0;border-bottom:1px solid #EFE8DF"><span style="font-family:ui-monospace,Menlo,monospace;font-size:12px">{{ hp.name }}</span><span style="font-size:12px;color:#6E6258">{{ hp.note }}</span></div>
+                </sc-for>
+              </div>
+              <div>
+                <div style="font-size:12px;font-weight:500;margin-bottom:6px">Candidate facts</div>
+                <sc-for list="{{ heldCandidates }}" as="hc" hint-placeholder-count="3">
+                  <div style="padding:6px 0;border-bottom:1px solid #EFE8DF"><div style="font-size:13px">{{ hc.candidate }}</div><div style="font-size:12px;color:#6E6258"><span style="font-family:ui-monospace,Menlo,monospace;font-size:11px">{{ hc.sourceId }}</span> — {{ hc.reason }}</div></div>
+                </sc-for>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ tabDraft }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Draft" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
+        <sc-for list="{{ draftCards }}" as="d" hint-placeholder-count="2">
+          <section style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;overflow:hidden">
+            <div style="display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid #EFE8DF">
+              <div>
+                <div style="font-family:Hillman,'DM Sans',sans-serif;font-size:28px">{{ d.title }}</div>
+                <div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#6E6258">{{ d.endpoint }}</div>
+              </div>
+              <button onClick="{{ d.run }}" style="{{ d.runStyle }}">{{ d.runLabel }}</button>
+            </div>
+            <div style="{{ d.bannerStyle }}">{{ d.bannerText }}</div>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;padding:10px 18px;border-bottom:1px solid #EFE8DF;font-size:12px;color:#6E6258">
+              <sc-for list="{{ d.meta }}" as="m" hint-placeholder-count="4"><span><b style="color:#28211E;font-weight:500">{{ m.v }}</b> {{ m.k }}</span></sc-for>
+            </div>
+            <div style="padding:16px 18px">
+              <sc-if value="{{ d.blocked }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:13px;color:#6E6258;margin-bottom:10px">Context incomplete — zero model tokens spent. Resolve before drafting:</div>
+                <sc-for list="{{ d.fields }}" as="fi" hint-placeholder-count="2">
+                  <div style="border:1px solid #DCD2C6;border-radius:8px;padding:10px 12px;margin-bottom:8px;background:#F5F0EB">
+                    <div style="display:flex;gap:8px;align-items:baseline"><span style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:500">{{ fi.field }}</span><span style="{{ fi.stateStyle }}">{{ fi.state }}</span></div>
+                    <div style="font-size:12px;color:#6E6258;margin-top:3px">{{ fi.reason }}</div>
+                    <sc-if value="{{ fi.candidates }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px;margin-top:4px">candidates: {{ fi.candidates }}</div></sc-if>
+                  </div>
+                </sc-for>
+              </sc-if>
+              <sc-if value="{{ d.hasProse }}" hint-placeholder-val="{{ false }}">
+                <sc-for list="{{ d.paragraphs }}" as="p" hint-placeholder-count="2">
+                  <sc-if value="{{ p.label }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258;margin:14px 0 4px">{{ p.label }}</div></sc-if>
+                  <p style="margin:0 0 12px;font-size:15px;line-height:1.65;max-width:680px;text-wrap:pretty">{{ p.text }}</p>
+                </sc-for>
+              </sc-if>
+              <div style="font-size:12px;color:#6E6258;margin-top:8px;border-top:1px solid #EFE8DF;padding-top:8px">{{ d.footNote }}</div>
+            </div>
+          </section>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px;font-size:12px;color:#6E6258">Additional draft sections land here in later versions — this grid grows, one card per section.</div>
+    </sc-if>
+
+    <sc-if value="{{ tabVerify }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Verify">
+        <div style="display:flex;gap:8px;margin-bottom:16px;align-items:center">
+          <sc-for list="{{ verifyTargets }}" as="vt" hint-placeholder-count="2">
+            <button onClick="{{ vt.pick }}" style="{{ vt.style }}">{{ vt.label }}<span style="{{ vt.dotStyle }}"></span></button>
+          </sc-for>
+          <span style="font-size:12px;color:#6E6258;margin-left:8px">verification is a separate surface from prose by ruling — Molly never sees this view</span>
+        </div>
+        <sc-if value="{{ verifyEmpty }}" hint-placeholder-val="{{ false }}">
+          <div style="border:1px dashed #C4B5A5;border-radius:10px;padding:32px;text-align:center;color:#6E6258;font-size:14px">{{ verifyEmptyMsg }}</div>
+        </sc-if>
+        <sc-if value="{{ verifyBody }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:320px 1fr 340px;gap:20px;align-items:start">
+            <section style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;padding:16px">
+              <h2 style="margin:0 0 10px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258">Validation results</h2>
+              <sc-for list="{{ checks }}" as="ck" hint-placeholder-count="4">
+                <div style="padding:9px 0;border-bottom:1px solid #EFE8DF">
+                  <div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><span style="font-size:13px;font-weight:500">{{ ck.label }}</span><span style="{{ ck.resultStyle }}">{{ ck.result }}</span></div>
+                  <div style="font-size:12px;color:#6E6258;margin-top:2px;line-height:1.45">{{ ck.detail }}</div>
+                </div>
+              </sc-for>
+              <div style="margin-top:12px">
+                <div style="font-size:12px;font-weight:500;margin-bottom:4px">Review queue</div>
+                <sc-for list="{{ reviewItems }}" as="ri" hint-placeholder-count="0">
+                  <div style="border-left:2px solid #A33D2E;padding:4px 0 4px 10px;margin-bottom:6px"><span style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#A33D2E">{{ ri.kind }}</span><div style="font-size:12px;line-height:1.45">{{ ri.summary }}</div></div>
+                </sc-for>
+                <sc-if value="{{ noReviewItems }}" hint-placeholder-val="{{ true }}"><div style="font-size:12px;color:#6E6258">Empty — nothing requires a decision.</div></sc-if>
+              </div>
+            </section>
+            <section style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;padding:20px 24px;min-width:0">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px"><h2 style="margin:0;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258">Annotated prose</h2><span style="font-size:12px;color:#6E6258">click a traced span to pin its evidence</span></div>
+              <div style="font-size:15px;line-height:1.85;max-width:760px;text-wrap:pretty">{{ annotatedProse }}</div>
+              <sc-if value="{{ unanchored }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:16px;border-top:1px solid #EFE8DF;padding-top:10px;font-size:12px;color:#A33D2E;font-family:ui-monospace,Menlo,monospace">{{ unanchored }}</div>
+              </sc-if>
+            </section>
+            <section style="background:#28211E;color:#F5F0EB;border-radius:10px;padding:18px;position:sticky;top:120px">
+              <h2 style="margin:0 0 10px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#C4B5A5">Evidence pin</h2>
+              <sc-if value="{{ pinEmpty }}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;color:#C4B5A5;line-height:1.5">Nothing pinned. Click any underlined span in the prose to trace it back to ledger facts and sources.</div></sc-if>
+              <sc-if value="{{ pin }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:12px;color:#C4B5A5">claim</div>
+                <div style="font-size:14px;line-height:1.5;margin:2px 0 10px">{{ pinStatement }}</div>
+                <div style="font-size:12px;color:#C4B5A5">quote span</div>
+                <div style="font-size:13px;font-style:italic;line-height:1.5;margin:2px 0 12px">“{{ pinQuote }}”</div>
+                <sc-for list="{{ pinFacts }}" as="pf" hint-placeholder-count="1">
+                  <div style="border:1px solid rgba(196,181,165,.35);border-radius:8px;padding:10px 12px;margin-bottom:8px">
+                    <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#8DD9BF">{{ pf.id }}</div>
+                    <div style="font-size:13px;margin:4px 0"><span style="font-family:ui-monospace,Menlo,monospace;font-size:12px">{{ pf.predicate }}</span> = <b>{{ pf.value }}</b></div>
+                    <sc-if value="{{ pf.quote }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px;font-style:italic;color:#C4B5A5;line-height:1.45">“{{ pf.quote }}”</div></sc-if>
+                    <div style="font-size:11px;color:#C4B5A5;margin-top:6px">{{ pf.chain }}</div>
+                  </div>
+                </sc-for>
+              </sc-if>
+            </section>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ tabRuns }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="Runs" style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;padding:16px">
+        <div style="display:flex;align-items:baseline;gap:12px"><h2 style="margin:0;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258">Run metadata</h2><span style="font-size:12px;color:#6E6258">both cases · newest first · shape matches the Streamlit evals panel</span></div>
+        <div style="overflow-x:auto;min-width:0">
+        <table style="width:100%;border-collapse:collapse;margin-top:10px;font-size:13px">
+          <thead><tr>
+            <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">when</th>
+            <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">endpoint</th>
+            <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">case</th>
+            <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">outcome</th>
+            <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">model · temp</th>
+            <th style="text-align:right;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">tokens</th>
+            <th style="text-align:right;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">latency</th>
+            <th style="text-align:right;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">cost</th>
+            <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">prompt sha</th>
+            <th style="text-align:left;padding:6px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#6E6258;border-bottom:1px solid #C4B5A5">trace</th>
+          </tr></thead>
+          <tbody>
+            <sc-for list="{{ runs }}" as="r" hint-placeholder-count="7">
+              <tr>
+                <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;white-space:nowrap;font-size:12px;color:#6E6258">{{ r.when }}</td>
+                <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;font-family:ui-monospace,Menlo,monospace;font-size:12px;white-space:nowrap">{{ r.endpoint }}</td>
+                <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;font-family:ui-monospace,Menlo,monospace;font-size:12px">{{ r.caseId }}</td>
+                <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF"><span style="{{ r.outcomeStyle }}">{{ r.outcome }}</span><div style="font-size:11px;color:#6E6258">{{ r.outcomeNote }}</div></td>
+                <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;font-size:12px;white-space:nowrap">{{ r.model }}</td>
+                <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;text-align:right;white-space:nowrap">{{ r.tokens }}<div style="font-size:11px;color:#6E6258">{{ r.tokensByStage }}</div></td>
+                <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;text-align:right;white-space:nowrap">{{ r.latency }}</td>
+                <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;text-align:right;white-space:nowrap">{{ r.cost }}</td>
+                <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#6E6258">{{ r.sha }}</td>
+                <td style="padding:7px 8px;border-bottom:1px solid #EFE8DF;font-size:12px">{{ r.trace }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ tabCollect }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Collect" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
+        <section style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;padding:16px">
+          <h2 style="margin:0 0 4px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258">Gap report — {{ collectSection }}</h2>
+          <div style="font-size:12px;color:#6E6258;margin-bottom:12px">deterministic set arithmetic over the ledger · describes, never grades</div>
+          <div style="font-size:12px;font-weight:500;margin-bottom:6px">Predicates missing</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px">
+            <sc-for list="{{ gapMissing }}" as="gm" hint-placeholder-count="4"><span style="font-family:ui-monospace,Menlo,monospace;font-size:12px;border:1px solid #C4B5A5;border-radius:999px;padding:3px 10px">{{ gm.name }}</span></sc-for>
+          </div>
+          <div style="font-size:12px;font-weight:500;margin-bottom:6px">Freshness — as_of predicates</div>
+          <sc-for list="{{ gapFreshness }}" as="gf" hint-placeholder-count="3">
+            <div style="display:flex;gap:10px;align-items:baseline;padding:6px 0;border-bottom:1px solid #EFE8DF"><span style="{{ gf.stateStyle }}">{{ gf.state }}</span><span style="font-family:ui-monospace,Menlo,monospace;font-size:12px">{{ gf.predicate }}</span><span style="font-size:12px;color:#6E6258">{{ gf.detail }}</span></div>
+          </sc-for>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px">
+            <div><div style="font-size:12px;font-weight:500;margin-bottom:6px">Life stages empty</div><div style="font-size:13px">{{ gapStages }}</div></div>
+            <div><div style="font-size:12px;font-weight:500;margin-bottom:6px">Source types missing</div><div style="font-size:13px">{{ gapSourceTypes }}</div></div>
+          </div>
+        </section>
+        <section style="background:#FBF8F4;border:1px solid #DCD2C6;border-radius:10px;padding:16px">
+          <h2 style="margin:0 0 4px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#6E6258">Still to collect</h2>
+          <div style="font-size:12px;color:#6E6258;margin-bottom:10px">known case material not yet representable or not yet gathered</div>
+          <sc-for list="{{ collectItems }}" as="ci" hint-placeholder-count="4">
+            <div style="padding:8px 0;border-bottom:1px solid #EFE8DF"><div style="font-size:13px;line-height:1.45">{{ ci.item }}</div><div style="font-size:11px;color:#6E6258;font-family:ui-monospace,Menlo,monospace;margin-top:2px">{{ ci.sourceId }}</div></div>
+          </sc-for>
+          <sc-if value="{{ noCollectItems }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#6E6258;padding:10px;border:1px dashed #C4B5A5;border-radius:8px">Collection list is empty for this case.</div></sc-if>
+        </section>
+      </div>
+    </sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1500, &quot;height&quot;: 950}}">
+class Component extends DCLogic {
+  state = { caseId: "001", tab: "ingest", verifySection: "history", pin: null, pending: [], extraFiles: { "001": [], "005": [] }, running: {}, live: {}, liveStatus: "synthetic only · openai build · no persistence · file upload later" };
+
+  patchLive(cid, mutator) {
+    this.setState((s) => {
+      const cur = Object.assign({ drafts: {}, runs: [] }, (s.live || {})[cid] || {});
+      mutator(cur);
+      return { live: Object.assign({}, s.live || {}, { [cid]: cur }), liveStatus: cur.statusLine || s.liveStatus };
+    });
+  }
+
+  async loadPacketLive() {
+    const cid = this.state.caseId;
+    const OL = window.OperatorLive;
+    this.patchLive(cid, (live) => { live.statusLine = "Loading fixture packet…"; });
+    try {
+      const packet = await OL.loadPacket(cid);
+      this.patchLive(cid, (live) => OL.applyPacket(live, packet));
+    } catch (err) {
+      this.patchLive(cid, (live) => { live.statusLine = String(err.message || err); });
+    }
+  }
+
+  async loadCachedLive() {
+    const cid = this.state.caseId;
+    const OL = window.OperatorLive;
+    if (cid !== "001") {
+      this.patchLive(cid, (live) => { live.statusLine = "Cached ledger is fixture_001 only. For 005, load the packet then Extract ledger."; });
+      return;
+    }
+    this.patchLive(cid, (live) => { live.statusLine = "Loading cached fixture_001 ledger + conflicts…"; });
+    try {
+      const payload = await OL.loadCached001();
+      this.patchLive(cid, (live) => OL.applyLedger(live, payload, "Cached fixture_001 ledger loaded (read-only parent). Conflicts computed locally. Gap report needs Extract."));
+    } catch (err) {
+      this.patchLive(cid, (live) => { live.statusLine = String(err.message || err); });
+    }
+  }
+
+  async extractLiveRun() {
+    const cid = this.state.caseId;
+    const OL = window.OperatorLive;
+    this.patchLive(cid, (live) => { live.statusLine = "Extracting ledger (model call)…"; });
+    try {
+      let live = Object.assign({}, (this.state.live || {})[cid] || {});
+      if (!live.sources || !live.sources.length) {
+        const packet = await OL.loadPacket(cid);
+        live = OL.applyPacket(live, packet);
+      }
+      const payload = await OL.extractLedger(live.child, live.sources);
+      const n = (payload.ledger.facts || []).length;
+      this.patchLive(cid, (cur) => {
+        Object.assign(cur, live);
+        OL.applyLedger(cur, payload, "Extracted " + n + " facts · $" + (payload.cost_usd ?? "?") + " · then conflicts (no model).");
+        cur.runs = [OL.runRow("POST /extract", cid, payload, "ok", "live extract")].concat(cur.runs || []);
+      });
+    } catch (err) {
+      this.patchLive(cid, (live) => { live.statusLine = String(err.message || err); });
+    }
+  }
+
+  async runLiveDraft(section) {
+    const cid = this.state.caseId;
+    const key = cid + section;
+    const OL = window.OperatorLive;
+    const live = (this.state.live || {})[cid] || {};
+    if (!live.ledger) {
+      this.patchLive(cid, (cur) => { cur.statusLine = "Load a cached ledger or extract first."; });
+      return;
+    }
+    this.setState((s) => ({ running: Object.assign({}, s.running, { [key]: true }) }));
+    this.patchLive(cid, (cur) => { cur.statusLine = "Running POST /draft/" + section + "…"; });
+    try {
+      let mapped;
+      let resp;
+      let outcome = "accepted";
+      if (section === "referral") {
+        resp = await OL.draftReferral(live.ledger);
+        mapped = OL.mapReferral(resp);
+        outcome = mapped.status;
+      } else {
+        resp = await OL.draftHistory(live.ledger, live.conflicts, live.variance);
+        mapped = OL.mapHistory(resp);
+        outcome = mapped.status;
+      }
+      this.patchLive(cid, (cur) => {
+        cur.drafts = Object.assign({}, cur.drafts, { [section]: mapped });
+        cur.runs = [OL.runRow("POST /draft/" + section, cid, resp, outcome, mapped.footNote || "")].concat(cur.runs || []);
+        cur.statusLine = "Live " + section + " draft: " + outcome + ".";
+      });
+    } catch (err) {
+      const msg = String(err.message || err);
+      this.patchLive(cid, (cur) => {
+        cur.drafts = Object.assign({}, cur.drafts, {
+          [section]: Object.assign(OL.emptyDraft("POST /draft/" + section), {
+            status: "rejected",
+            footNote: msg,
+            paragraphs: [{ label: "Request failed", text: msg }]
+          })
+        });
+        cur.statusLine = msg;
+      });
+    } finally {
+      this.setState((s) => ({ running: Object.assign({}, s.running, { [key]: false }) }));
+    }
+  }
+
+  data() {
+    if (this._data) return this._data;
+    const D = {};
+    D["001"] = {
+      name: "Emma Rose Callahan", dob: "2010-03-22", evalDate: "2025-07-11",
+      ledgerMeta: "ledger v7 · built 2025-07-11T18:22:04Z · 23 sources · 19 facts (showing key rows)",
+      files: [
+        ["doc_01","Assessment invoice","other","2025-12-27","narrative"],
+        ["doc_02","BASC-3 Self-report","assessment","2025-04-26","score_report"],
+        ["doc_03","Sensory Profile-2 (self)","assessment","2025-05-10","score_report"],
+        ["doc_04","ABAS Adaptive Behavior — Parent","parent","2024-12-01","score_report"],
+        ["doc_05","ABAS Adaptive Behavior — Teacher","teacher","2025-02-01","score_report"],
+        ["doc_06","BASC-3 Teacher","teacher","2025-05-15","score_report"],
+        ["doc_07","BASC-3 Parent","parent","2025-04-19","score_report"],
+        ["doc_08","Brown EF/A Scales — Self-report","assessment","2025-04-26","score_report"],
+        ["doc_09","D-REF Executive Functions — Teacher","teacher","2025-06-19","score_report"],
+        ["doc_10","DAS-II cognitive score report","assessment","2025-04-22","score_report"],
+        ["doc_11","IEP — current school records","school","2024-10-02","narrative"],
+        ["doc_12","KTEA-3 achievement score report","assessment","2025-04-26","score_report"],
+        ["doc_13","WRAP services need letter","other","2025-12-15","narrative"],
+        ["doc_14","Permission to exchange information","other","2025-05-27","narrative"],
+        ["doc_17","RIAS-2 memory and processing speed","assessment","2025-06-23","score_report"],
+        ["doc_20","SRS Social Responsiveness — Parent","parent","2025-04-19","score_report"],
+        ["doc_21","Student profile and interview","observation","2025-04-19","narrative"],
+        ["doc_22","Assessment plan and contract","other","2025-04-12","narrative"],
+        ["doc_23","Brown EF/A — Multirater","assessment","2025-04-22","score_report"],
+        ["doc_24","Brown EF/A — Parent","parent","2025-04-22","score_report"],
+        ["doc_25","IEP — Fairhaven initial (4th grade)","school","2019-05-29","narrative"],
+        ["doc_26","Prior early childhood diagnostic (age 3)","prior_eval","2013-09-10","narrative"],
+        ["doc_28","SSIS-SEL self-report","assessment","2025-04-26","score_report"]
+      ],
+      facts: [
+        ["f_doc26_001","child","walked_age_months",null,"19","began walking at 19 months","asserted",null,"doc_26","2013-09-10",null,"infancy","durable","stated","neutral"],
+        ["f_doc25_004","child","walked_age_months",null,"19","walked at 19 months per parent history","asserted",null,"doc_25","2019-05-29",null,"infancy","durable","stated","neutral"],
+        ["f_doc11_009","child","walked_age_months",null,"19","walked at 19 months","asserted",null,"doc_11","2024-10-02",null,"infancy","durable","stated","neutral"],
+        ["f_doc26_002","child","iep_status",null,"ineligible","did not qualify for special education services","asserted",null,"doc_26","2013-09-10","2013-09-10","preschool","as_of","stated","neutral"],
+        ["f_doc25_001","child","iep_status",null,"eligible: SLD, OHI","found eligible under SLD and OHI","asserted",null,"doc_25","2019-05-29","2019-05-29","school-age","as_of","stated","neutral"],
+        ["f_doc11_001","child","iep_status",null,"eligible: SLD","IEP in place under SLD","asserted",null,"doc_11","2024-10-02","2024-10-02","current","as_of","stated","neutral"],
+        ["f_doc25_002","child","grade",null,"4","currently in fourth grade","asserted",null,"doc_25","2019-05-29","2019-05-29","school-age","as_of","stated","neutral"],
+        ["f_doc11_002","child","grade",null,"9","ninth grade student","asserted",null,"doc_11","2024-10-02","2024-10-02","current","as_of","stated","neutral"],
+        ["f_doc09_001","child","grade",null,"10","tenth grade","asserted",null,"doc_09","2025-06-19","2025-06-19","current","as_of","stated","neutral"],
+        ["f_doc26_007","child","medications",null,"none","takes no medications","denied",null,"doc_26","2013-09-10","2013-09-10","preschool","as_of","stated","neutral"],
+        ["f_doc25_003","child","medications",null,"guanfacine; Singulair; melatonin","current medications listed as guanfacine, Singulair, melatonin","asserted",null,"doc_25","2019-05-29","2019-05-29","school-age","as_of","stated","neutral"],
+        ["f_doc11_003","child","medications",null,"Geodon; Trileptal; Vyvanse","current medications: Geodon, Trileptal, Vyvanse","asserted",null,"doc_11","2024-10-02","2024-10-02","current","as_of","stated","neutral"],
+        ["f_doc11_004","child","allergy_status",null,"no known allergies","no known allergies","denied",null,"doc_11","2024-10-02","2024-10-02","current","as_of","stated","neutral"],
+        ["f_doc25_005","child","allergy_status",null,"seasonal","seasonal allergies noted","asserted",null,"doc_25","2019-05-29","2019-05-29","school-age","as_of","stated","neutral"],
+        ["f_doc26_008","child","allergy_status",null,"none","no allergies reported","denied",null,"doc_26","2013-09-10","2013-09-10","preschool","as_of","stated","neutral"],
+        ["f_doc26_005","child","sleep",null,"sleeps well","sleeps well at night","asserted","parent report","doc_26","2013-09-10","2013-09-10","preschool","as_of","stated","neutral"],
+        ["f_doc25_006","child","sleep",null,"sleep problems; CPAP","sleep problems; uses CPAP","asserted","parent report","doc_25","2019-05-29","2019-05-29","school-age","as_of","stated","concern"],
+        ["f_doc21_001","child","sleep",null,"poor without medication","sleeps poorly without meds","asserted","student self-report","doc_21","2025-04-19","2025-04-19","current","as_of","hedged","concern"],
+        ["f_doc26_006","child","dob",null,"2010-03-22","date of birth March 22, 2010","asserted",null,"doc_26","2013-09-10",null,"birth","durable","stated","neutral"]
+      ],
+      conflicts: [],
+      variance: [{ topic: "sleep", versions: [
+        ["sleeps well","parent report · doc_26 · 2013-09-10"],
+        ["sleep problems; CPAP","parent report · doc_25 · 2019-05-29"],
+        ["poor without medication","student self-report · doc_21 · 2025-04-19"]
+      ]}],
+      timelines: [
+        ["grade","4 (2019-05) → 9 (2024-10) → 10 (2025-06)"],
+        ["age_years","3 (2013) → 8 (2019) → 14 (2024/2025) — validator recomputes 15 from dob"],
+        ["iep_status","ineligible (2013) → SLD+OHI (2019) → SLD (2024)"],
+        ["medications","none (2013) → guanfacine/Singulair/melatonin (2019) → Geodon/Trileptal/Vyvanse (2024)"],
+        ["allergy_status","none (2013) → seasonal (2019) → no known (2024)"]
+      ],
+      heldPredicates: [
+        ["placement_history","proposed for adoption / foster placement content in doc_26 — no registered predicate"],
+        ["wrap_services_need","proposed from doc_13 — awaiting vocabulary ruling"]
+      ],
+      heldCandidates: [
+        ["tonsillectomy → hospitalizations","doc_21","mentioned in passing; durable-collision hazard"],
+        ["appendectomy 4/1/19 → hospitalizations","doc_25","explicit but durable-collision hazard"],
+        ["talking ~2 yrs → first_words_age_months=24","doc_25","'talking' ≠ first words; hedged 'about'"],
+        ["suspected prenatal meth exposure → pregnancy_course","doc_26","hedged ('alleged'/'suspected')"],
+        ["reading at 7th-grade level → reading_*","doc_11","vocabulary splits basic/fluency/comprehension"],
+        ["falls asleep in class → sleep / classroom_engagement","doc_11","predicate ambiguous"]
+      ],
+      gap: {
+        missing: ["pregnancy_course","birth_term","first_words_age_months","attendance"],
+        freshness: [
+          ["current","medications","latest 2024-10-02 · within 365d threshold"],
+          ["stale","reading_fluency","latest entry predates threshold before 2025-07-11"],
+          ["absent","attendance","no timeline entries in ledger"]
+        ],
+        stages: "infancy (beyond milestones)",
+        sourceTypes: "— all declared types present"
+      },
+      collectItems: [
+        ["Diagnosis: Adjustment Disorder w/ Depressed Mood (309.0)","doc_26"],
+        ["Diagnoses: ASD L2, ADHD-PI (severe), PTSD, Bipolar, SLD (written expression, math)","doc_13"],
+        ["Diagnoses: RAD and ADHD","doc_11"],
+        ["Diagnosis: ADHD (AD/HD)","doc_25"],
+        ["Adoption / foster placement / multiple placements — no predicate yet","doc_26"]
+      ],
+      drafts: {
+        referral: {
+          status: "blocked", endpoint: "POST /draft/referral",
+          meta: [["tokens","0"],["latency","412 ms"],["cost","$0.0000"],["model","gpt-4o-mini"]],
+          fields: [
+            ["evaluation_type","not_yet_collected","No confirmed evaluation type on the referral context.","private_psychoeducational_evaluation · iee"],
+            ["referral_trigger","not_yet_collected","No confirmed statement of why the evaluation was initiated.",null],
+            ["suspected_disabilities","conflicting","Candidate categories present; requires clinician selection.","specific_learning_disability · other_health_impairment · autism"]
+          ],
+          footNote: "ready_for_draft: false — typed completion response; nothing was sent to a model."
+        },
+        history: {
+          status: "accepted", endpoint: "POST /draft/history",
+          meta: [["tokens","18,432"],["latency","41.2 s"],["cost","$0.0128"],["model","gpt-4o-mini · temp 0.2"],["structure","provisional_tj_v1"],["prompt","9c2f41ab"]],
+          paragraphs: [
+            { label: "Developmental history", text: "Emma began walking at 19 months, a milestone reported consistently across the 2013 diagnostic assessment, the 2019 Fairhaven IEP, and current school records." },
+            { label: "Educational history", text: "An early childhood diagnostic assessment in September 2013 found Emma ineligible for special education services. She was found eligible under Specific Learning Disability and Other Health Impairment at Fairhaven in May 2019, during fourth grade. The current IEP, dated October 2024, lists eligibility under Specific Learning Disability; Emma was in ninth grade at that time." },
+            { label: "Health history", text: "As of the October 2024 IEP, Emma's medications were Geodon, Trileptal, and Vyvanse, and no known allergies were reported. Reports of sleep differ by informant: a 2013 parent report describes Emma as sleeping well, a 2019 report notes sleep problems and CPAP use, and Emma's 2025 self-report describes poor sleep without medication." }
+          ],
+          statements: [
+            ["began walking at 19 months","Emma walked at 19 months.",["f_doc26_001","f_doc25_004","f_doc11_009"]],
+            ["found Emma ineligible for special education services","2013 assessment found her ineligible.",["f_doc26_002"]],
+            ["eligible under Specific Learning Disability and Other Health Impairment at Fairhaven in May 2019, during fourth grade","2019 IEP eligibility SLD + OHI; grade 4.",["f_doc25_001","f_doc25_002"]],
+            ["dated October 2024, lists eligibility under Specific Learning Disability","Current IEP eligibility is SLD.",["f_doc11_001"]],
+            ["Emma was in ninth grade at that time","Grade 9 as of the 2024 IEP.",["f_doc11_002"]],
+            ["medications were Geodon, Trileptal, and Vyvanse","Current medications per 2024 IEP.",["f_doc11_003"]],
+            ["no known allergies were reported","No known allergies as of 2024.",["f_doc11_004"]],
+            ["a 2013 parent report describes Emma as sleeping well","Parent 2013: sleeps well.",["f_doc26_005"]],
+            ["a 2019 report notes sleep problems and CPAP use","Parent 2019: sleep problems, CPAP.",["f_doc25_006"]],
+            ["Emma's 2025 self-report describes poor sleep without medication","Self-report 2025: poor sleep without meds.",["f_doc21_001"]]
+          ],
+          checks: [
+            ["Quote anchoring","pass","10/10 statement quotes found verbatim in rendered prose"],
+            ["Entailment","pass","10/10 statements entailed by cited source text (gpt-4o-mini)"],
+            ["Fact-id trace coverage","pass","Every substantive span carries at least one ledger fact id"],
+            ["Voice gate","pass","8/8 Class A rules pass · store_sha 41d7…c09a"],
+            ["Age consistency","warn","Sources state 14; dob 2010-03-22 recomputes 15 at evaluation — known fixture quirk, flagged not fatal"]
+          ],
+          reviewItems: [["variance","Sleep reported differently by parent (2013, 2019) and student (2025) — present as comparison."]],
+          unanchored: [],
+          footNote: "Accepted on attempt 1 of 3. Rendered from blocks server-side; clean prose above is the Molly-facing copy."
+        }
+      },
+      runs: [
+        ["2025-07-11 18:24","POST /draft/history","001","accepted","attempt 1/3","gpt-4o-mini · 0.2","18,432","draft 9,210 · entail 9,222","41.2 s","$0.0128","9c2f41ab","lf-7d21 ↗"],
+        ["2025-07-11 18:23","POST /draft/referral","001","blocked","context incomplete · 0 model calls","gpt-4o-mini · —","0","—","0.4 s","$0.0000","—","—"],
+        ["2025-07-11 18:22","POST /conflicts","001","ok","deterministic · no model call","— · —","0","—","6 ms","$0.0000","—","—"],
+        ["2025-07-11 18:12","POST /extract ×23","001","ok","one call per source, merged","gpt-4o-mini · 0.0","96,410","per-source in evals panel","9.6 m","$0.1902","a119e3d0","lf-7c9e ↗"]
+      ]
+    };
+    D["005"] = {
+      name: "Alex Rivera", dob: "2017-03-15", evalDate: "2026-07-16",
+      ledgerMeta: "ledger v2 · built 2026-07-16T09:41:52Z · 5 sources · 14 facts",
+      files: [
+        ["assess-2026-wisc","Current psycho-educational assessment notes","assessment","2026-07-10","narrative"],
+        ["school-cum-2024","School cumulative file summary","school","2024-09-01","narrative"],
+        ["school-iep-none-2025","School records — intervention log","school","2025-05-20","narrative"],
+        ["parent-dev-2026","Parent developmental history form","parent","2026-06-01","narrative"],
+        ["teacher-2026","Current classroom teacher questionnaire","teacher","2026-06-15","narrative"]
+      ],
+      facts: [
+        ["f_assess_001","child","referral_concern",null,"reading fluency; written expression","referral for learning concerns in reading fluency and written expression","asserted",null,"assess-2026-wisc","2026-07-10",null,"current","as_of","stated","concern"],
+        ["f_assess_002","child","birth_term",null,"full-term","full-term birth per parent report collected at intake","asserted","parent report","assess-2026-wisc","2026-07-10",null,"birth","durable","stated","neutral"],
+        ["f_assess_003","child","iep_status",null,"none","no prior IEP documented in the referral packet","denied",null,"assess-2026-wisc","2026-07-10","2026-07-10","current","as_of","stated","neutral"],
+        ["f_cum_001","child","grade",null,"2","student is 7 years old and in 2nd grade","asserted",null,"school-cum-2024","2024-09-01","2024-09-01","school-age","as_of","stated","neutral"],
+        ["f_cum_002","child","attendance",null,"generally regular","attendance generally regular","asserted",null,"school-cum-2024","2024-09-01","2024-09-01","school-age","as_of","stated","neutral"],
+        ["f_cum_003","child","phonics_progress",null,"slow","teacher notes slow progress in phonics","asserted","teacher","school-cum-2024","2024-09-01","2024-09-01","school-age","as_of","stated","concern"],
+        ["f_int_001","child","intervention_tier",null,"Tier 2 reading, 3x/week","Tier 2 reading intervention 3x/week starting October 2024","asserted",null,"school-iep-none-2025","2025-05-20","2024-10-01","school-age","as_of","stated","neutral"],
+        ["f_int_002","child","iep_status",null,"none","no IEP or 504 plan in place as of May 2025","denied",null,"school-iep-none-2025","2025-05-20","2025-05-20","school-age","as_of","stated","neutral"],
+        ["f_par_001","child","walked_age_months",null,"13","walked at 13 months","asserted","parent","parent-dev-2026","2026-06-01",null,"infancy","durable","stated","neutral"],
+        ["f_par_002","child","first_words_age_months",null,"12","first words around 12 months","asserted","parent","parent-dev-2026","2026-06-01",null,"infancy","durable","hedged","neutral"],
+        ["f_par_003","child","concern_onset",null,"kindergarten — letter-sound learning","concerns began in kindergarten with letter-sound learning","asserted","parent","parent-dev-2026","2026-06-01",null,"preschool","durable","stated","concern"],
+        ["f_par_004","child","tutoring",null,"private, 1st grade","received private tutoring in 1st grade","asserted","parent","parent-dev-2026","2026-06-01",null,"school-age","as_of","stated","neutral"],
+        ["f_tch_001","child","reading_fluency",null,"below grade peers","reading fluency below grade peers","asserted","grade 4 teacher","teacher-2026","2026-06-15","2026-06-15","current","as_of","stated","concern"],
+        ["f_tch_002","child","read_aloud_anxiety",null,"anxious when called on","anxious when called on to read aloud","asserted","grade 4 teacher","teacher-2026","2026-06-15","2026-06-15","current","as_of","stated","concern"]
+      ],
+      conflicts: [],
+      variance: [],
+      timelines: [
+        ["grade","2 (2024-09) → 4 (2026-06, teacher form)"],
+        ["iep_status","none (2025-05) → none (2026-07)"],
+        ["reading_fluency","slow phonics (2024-09) → below grade peers (2026-06)"]
+      ],
+      heldPredicates: [["homework_completion_conditional","proposed from teacher form ('inconsistent when writing is required') — qualifier design open"]],
+      heldCandidates: [
+        ["private tutoring in 1st grade → intervention?","parent-dev-2026","tutoring is not a school intervention tier; vocabulary gap"],
+        ["'no major medical hospitalizations' → hospitalizations","parent-dev-2026","denial phrasing hedged with 'major'"]
+      ],
+      gap: {
+        missing: ["medications","allergy_status","hospitalizations","sleep"],
+        freshness: [
+          ["current","reading_fluency","latest 2026-06-15 · within threshold"],
+          ["stale","grade","cumulative-file grade is 2024; confirm current grade"],
+          ["absent","medications","no timeline entries in ledger"]
+        ],
+        stages: "— none",
+        sourceTypes: "prior_eval, observation"
+      },
+      collectItems: [
+        ["Health / medical history beyond parent form (medications, allergies, hospitalizations)","—"],
+        ["Any prior evaluation records (none in packet; referral states no prior IEP)","assess-2026-wisc"]
+      ],
+      drafts: {
+        referral: {
+          status: "accepted", endpoint: "POST /draft/referral",
+          meta: [["tokens","3,104"],["latency","6.8 s"],["cost","$0.0021"],["model","gpt-4o-mini · temp 0.2"],["prompt","f7d1b2a9"]],
+          paragraphs: [
+            { label: null, text: "Alex Rivera was referred for a psychoeducational evaluation due to concerns with reading fluency and written expression. Concerns were first noted by his parents in kindergarten around letter-sound learning, and Alex received Tier 2 reading intervention beginning in October 2024, with no IEP or 504 plan in place as of May 2025." }
+          ],
+          statements: [
+            ["referred for a psychoeducational evaluation due to concerns with reading fluency and written expression","Referral concern per assessment intake.",["f_assess_001"]],
+            ["first noted by his parents in kindergarten around letter-sound learning","Concern onset per parent history.",["f_par_003"]],
+            ["Tier 2 reading intervention beginning in October 2024","Intervention log Tier 2.",["f_int_001"]],
+            ["no IEP or 504 plan in place as of May 2025","IEP status denied as of May 2025.",["f_int_002"]]
+          ],
+          checks: [
+            ["Quote anchoring","pass","4/4 statement quotes found verbatim in prose"],
+            ["Entailment","pass","4/4 statements entailed by cited context values"],
+            ["Fact-id trace coverage","pass","Every span carries context/fact ids"],
+            ["Voice gate","pass","8/8 Class A rules pass · store_sha 41d7…c09a"]
+          ],
+          reviewItems: [],
+          unanchored: [],
+          footNote: "Accepted on attempt 1 of 3."
+        },
+        history: {
+          status: "rejected", endpoint: "POST /draft/history",
+          meta: [["tokens","31,877"],["latency","96.4 s"],["cost","$0.0221"],["model","gpt-4o-mini · temp 0.2"],["structure","provisional_tj_v1"],["prompt","9c2f41ab"]],
+          paragraphs: [
+            { label: "Final failed attempt (3/3) — do not use", text: "Alex's early development was unremarkable: he walked at 13 months and spoke his first words around 12 months. Concerns began in kindergarten with letter-sound learning, and Alex received daily private tutoring throughout elementary school. His current teacher reports reading fluency below grade peers and anxiety when called on to read aloud. This history paints a picture of a persistent, narrowing struggle with print." }
+          ],
+          statements: [
+            ["walked at 13 months and spoke his first words around 12 months","Early milestones per parent form.",["f_par_001","f_par_002"]],
+            ["Concerns began in kindergarten with letter-sound learning","Concern onset per parent form.",["f_par_003"]],
+            ["received daily private tutoring throughout elementary school","Tutoring claim — OVERREACH.",["f_par_004"]],
+            ["reading fluency below grade peers and anxiety when called on to read aloud","Teacher-reported current presentation.",["f_tch_001","f_tch_002"]]
+          ],
+          checks: [
+            ["Quote anchoring","fail","1 unanchored quote — a statement span not found verbatim in rendered prose"],
+            ["Entailment","fail","1/4 failed: 'daily private tutoring throughout elementary school' is not entailed by f_par_004 ('private tutoring in 1st grade')"],
+            ["Fact-id trace coverage","pass","All spans carry fact ids"],
+            ["Voice gate","fail","voice.no_meta_narration — draft closes on the narrative itself ('This history paints a picture…')"]
+          ],
+          reviewItems: [
+            ["entailment_failure","'daily private tutoring throughout elementary school' exceeds f_par_004: source states private tutoring in 1st grade only."],
+            ["voice_gate","A8 voice.no_meta_narration: closing sentence narrates the history instead of the child."],
+            ["visible_fact_id","Unanchored quote listed in annotated footer — quote drifted from rendered prose across retry."]
+          ],
+          unanchored: ["Concerns with letter-sound learning emerged in kindergarten"],
+          footNote: "REJECTED — failed validation after 3 retry attempts (retries.py budget). Prose shown is the final failed attempt for diagnosis only."
+        }
+      },
+      runs: [
+        ["2026-07-16 10:02","POST /draft/history","005","rejected","failed validation after 3 attempts","gpt-4o-mini · 0.2","31,877","draft 18,020 · entail 13,857","96.4 s","$0.0221","9c2f41ab","lf-8a44 ↗"],
+        ["2026-07-16 09:55","POST /draft/referral","005","accepted","attempt 1/3","gpt-4o-mini · 0.2","3,104","draft 2,411 · entail 693","6.8 s","$0.0021","f7d1b2a9","lf-8a12 ↗"],
+        ["2026-07-16 09:44","POST /conflicts","005","ok","deterministic · no model call","— · —","0","—","4 ms","$0.0000","—","—"],
+        ["2026-07-16 09:42","POST /extract ×5","005","ok","one call per source","gpt-4o-mini · 0.0","21,204","per-source in evals panel","2.1 m","$0.0402","a119e3d0","lf-89f0 ↗"]
+      ]
+    };
+    // index facts by id for the evidence pin
+    for (const k of Object.keys(D)) {
+      D[k].factById = {};
+      for (const f of D[k].facts) D[k].factById[f[0]] = f;
+    }
+    this._data = D;
+    return D;
+  }
+
+  chip(bg, fg) { return `display:inline-block;font-size:11px;font-weight:500;border-radius:999px;padding:2px 9px;background:${bg};color:${fg}`; }
+
+  outcomeStyle(o) {
+    if (o === "accepted" || o === "ok") return this.chip("#8DD9BF", "#28211E");
+    if (o === "rejected" || o === "fail") return this.chip("#A33D2E", "#F5F0EB");
+    if (o === "blocked" || o === "warn") return this.chip("#C4B5A5", "#28211E");
+    return this.chip("#EFE8DF", "#6E6258");
+  }
+
+  annotated(draft, C) {
+    const R = React;
+    const pinned = this.state.pin;
+    const out = [];
+    (draft.paragraphs || []).forEach((para, pi) => {
+      const text = para.text;
+      const marks = [];
+      for (const [quote, statement, ids] of draft.statements) {
+        const idx = text.indexOf(quote);
+        if (idx >= 0) marks.push({ start: idx, end: idx + quote.length, quote, statement, ids });
+      }
+      marks.sort((a, b) => a.start - b.start);
+      const nodes = [];
+      let pos = 0;
+      marks.forEach((m, mi) => {
+        if (m.start < pos) return; // skip overlap
+        if (m.start > pos) nodes.push(text.slice(pos, m.start));
+        const isPinned = pinned && pinned.quote === m.quote;
+        const bad = draft.status === "rejected" && (m.statement.indexOf("OVERREACH") >= 0 || m.quote.indexOf("paints a picture") >= 0);
+        nodes.push(R.createElement("span", {
+          key: "s" + pi + "_" + mi,
+          onClick: () => this.setState({ pin: { quote: m.quote, statement: m.statement, ids: m.ids } }),
+          style: {
+            cursor: "pointer",
+            borderBottom: bad ? "2px solid #A33D2E" : "2px solid #8DD9BF",
+            background: isPinned ? (bad ? "rgba(163,61,46,.14)" : "rgba(141,217,191,.28)") : "transparent",
+            transition: "background 140ms cubic-bezier(.4,0,.2,1)"
+          }
+        }, text.slice(m.start, m.end),
+          R.createElement("span", { style: { fontFamily: "ui-monospace,Menlo,monospace", fontSize: "10px", color: bad ? "#A33D2E" : "#6E6258", verticalAlign: "super", marginLeft: "2px" } }, "[" + m.ids.join(", ") + "]")));
+        pos = m.end;
+      });
+      if (pos < text.length) nodes.push(text.slice(pos));
+      if (para.label) out.push(R.createElement("div", { key: "l" + pi, style: { fontSize: "12px", fontWeight: 500, textTransform: "uppercase", letterSpacing: ".06em", color: draft.status === "rejected" ? "#A33D2E" : "#6E6258", margin: "14px 0 4px" } }, para.label));
+      out.push(R.createElement("p", { key: "p" + pi, style: { margin: "0 0 14px" } }, nodes));
+    });
+    return R.createElement("div", null, out);
+  }
+
+  renderVals() {
+    const D = this.data();
+    const cid = this.state.caseId;
+    const live = (this.state.live || {})[cid];
+    const C = (live && window.OperatorLive) ? window.OperatorLive.viewFromLive(D[cid], live) : D[cid];
+    const tab = this.state.tab;
+    const set = (patch) => () => this.setState(patch);
+
+    const caseChips = Object.keys(D).map((id) => ({
+      id, name: D[id].name, pick: set({ caseId: id, pin: null }),
+      style: `display:flex;gap:6px;align-items:baseline;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;border-radius:999px;padding:6px 14px;transition:background 140ms;${id === cid ? "background:#28211E;color:#F5F0EB;border:1px solid #28211E" : "background:transparent;color:#28211E;border:1px solid #C4B5A5"}`
+    }));
+
+    const failCount = C.drafts.history.status === "rejected" || C.drafts.referral.status === "rejected" ? "!" : null;
+    const tabs = [
+      ["ingest", "Ingest", null], ["draft", "Draft", null], ["verify", "Verify", failCount],
+      ["runs", "Runs", null], ["collect", "Collect", null]
+    ];
+    const tabChips = tabs.map(([key, label, badge]) => ({
+      label, badge, pick: set({ tab: key }),
+      badgeStyle: "display:inline-block;margin-left:6px;background:#A33D2E;color:#F5F0EB;border-radius:999px;font-size:11px;font-weight:700;padding:0 7px",
+      style: `cursor:pointer;background:transparent;border:none;font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 16px;font-weight:500;color:${tab === key ? "#28211E" : "#6E6258"};border-bottom:2px solid ${tab === key ? "#8DD9BF" : "transparent"};margin-bottom:-1px`
+    }));
+
+    const extra = this.state.extraFiles[cid] || [];
+    const allFiles = C.files.concat(extra);
+    const files = allFiles.map(([id, label, type, date, docClass]) => ({
+      id, label, type, date, docClass,
+      chipStyle: this.chip(docClass === "narrative" ? "#8DD9BF" : "#EFE8DF", "#28211E")
+    }));
+    const narrative = allFiles.filter((f) => f[4] === "narrative").length;
+
+    const facts = C.facts.map((f) => ({
+      id: f[0], subject: f[1],
+      predicate: f[2] + (f[3] ? ":" + f[3] : ""),
+      value: f[4], quote: f[5],
+      valueStyle: `font-weight:500;${f[6] === "denied" ? "color:#6E6258" : ""}`,
+      reporter: f[7] || "—",
+      sourceId: f[8],
+      dates: f[9] + (f[10] && f[10] !== f[9] ? " · as_of " + f[10] : ""),
+      flags: [f[6] === "denied" ? "denied" : null, f[11], f[12], f[13] === "hedged" ? "hedged" : null, f[14] !== "neutral" ? f[14] : null].filter(Boolean).join(" · ")
+    }));
+
+    const mkVersions = (vs) => vs.map(([value, who]) => ({ value, who }));
+    const conflicts = C.conflicts.map((c) => ({ topic: c.topic, versions: mkVersions(c.versions) }));
+    const variance = C.variance.map((v) => ({ topic: v.topic, versions: mkVersions(v.versions) }));
+
+    // uploads
+    const pendingUploads = this.state.pending.filter((p) => p.caseId === cid).map((p) => ({
+      name: p.name, type: p.type, date: p.date, docClass: p.docClass,
+      confirm: () => {
+        const nid = "up_" + Math.random().toString(36).slice(2, 6);
+        this.setState((s) => ({
+          pending: s.pending.filter((x) => x !== p),
+          extraFiles: { ...s.extraFiles, [cid]: [...s.extraFiles[cid], [nid, p.name, p.type, p.date, p.docClass]] }
+        }));
+      },
+      discard: () => this.setState((s) => ({ pending: s.pending.filter((x) => x !== p) }))
+    }));
+
+    // drafts
+    const runBtn = (key, section) => {
+      const running = this.state.running[key];
+      return {
+        run: () => this.runLiveDraft(section),
+        runLabel: running ? "Running…" : "Run draft",
+        runStyle: `margin-left:auto;cursor:pointer;border:none;border-radius:10px;padding:8px 16px;font:500 13px 'DM Sans',sans-serif;${running ? "background:#C4B5A5;color:#28211E" : "background:#28211E;color:#F5F0EB"}`
+      };
+    };
+    const bannerFor = (d) => {
+      if (d.status === "accepted") return { t: "ACCEPTED — passed validation", s: "padding:8px 18px;font-size:13px;font-weight:500;background:#8DD9BF;color:#28211E" };
+      if (d.status === "rejected") return { t: "REJECTED — failed validation after 3 attempts. Not usable. See Verify.", s: "padding:10px 18px;font-size:14px;font-weight:700;letter-spacing:.02em;background:#A33D2E;color:#F5F0EB" };
+      return { t: "BLOCKED — context incomplete, no draft produced", s: "padding:8px 18px;font-size:13px;font-weight:500;background:#C4B5A5;color:#28211E" };
+    };
+    const stateChipStyle = (st) => st === "conflicting" ? this.chip("#A33D2E", "#F5F0EB") : this.chip("#C4B5A5", "#28211E");
+    const draftCards = ["referral", "history"].map((sec) => {
+      const d = C.drafts[sec];
+      const b = bannerFor(d);
+      return {
+        title: sec === "referral" ? "Reason for referral" : "History",
+        endpoint: d.endpoint,
+        ...runBtn(cid + sec, sec),
+        bannerText: b.t, bannerStyle: b.s,
+        meta: d.meta.map(([k, v]) => ({ k, v })),
+        blocked: d.status === "blocked",
+        fields: (d.fields || []).map(([field, state, reason, candidates]) => ({ field, state, reason, candidates, stateStyle: stateChipStyle(state) })),
+        hasProse: d.status !== "blocked",
+        paragraphs: (d.paragraphs || []).map((p) => ({ label: d.status === "rejected" ? p.label : p.label, text: p.text })),
+        footNote: d.footNote
+      };
+    });
+
+    // verify
+    const vsec = this.state.verifySection;
+    const vd = C.drafts[vsec];
+    const verifyTargets = ["referral", "history"].map((sec) => {
+      const d = C.drafts[sec];
+      const failing = (d.checks || []).some((c) => c[1] === "fail");
+      return {
+        label: (sec === "referral" ? "Reason for referral" : "History") + " — " + d.status,
+        pick: set({ verifySection: sec, pin: null }),
+        style: `display:flex;align-items:center;gap:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;border-radius:999px;padding:7px 16px;${vsec === sec ? "background:#28211E;color:#F5F0EB;border:1px solid #28211E" : "background:transparent;color:#28211E;border:1px solid #C4B5A5"}`,
+        dotStyle: `width:8px;height:8px;border-radius:50%;background:${d.status === "blocked" ? "#C4B5A5" : failing ? "#A33D2E" : "#8DD9BF"}`
+      };
+    });
+    const verifyEmpty = vd.status === "blocked";
+    const checks = (vd.checks || []).map(([label, result, detail]) => ({
+      label, result, detail,
+      resultStyle: this.outcomeStyle(result === "pass" ? "accepted" : result === "fail" ? "rejected" : "warn")
+    }));
+    const reviewItems = (vd.reviewItems || []).map(([kind, summary]) => ({ kind, summary }));
+    const pin = this.state.pin;
+    const pinFacts = pin ? pin.ids.map((id) => {
+      const f = C.factById[id];
+      if (!f) return { id, predicate: "context value", value: "—", quote: null, chain: "ReferralContext context_id" };
+      return {
+        id, predicate: f[2] + (f[3] ? ":" + f[3] : ""), value: f[4], quote: f[5],
+        chain: f[8] + " · " + f[9] + (f[7] ? " · reported by " + f[7] : "") + " · " + f[11] + " · " + f[12]
+      };
+    }) : [];
+
+    return {
+      caseChips, tabChips,
+      caseMetaLine: `${C.name} · dob ${C.dob} · evaluation ${C.evalDate}`,
+      liveStatus: this.state.liveStatus || "synthetic only · openai build · no persistence · file upload later",
+      tabIngest: tab === "ingest", tabDraft: tab === "draft", tabVerify: tab === "verify", tabRuns: tab === "runs", tabCollect: tab === "collect",
+      loadPacket: () => this.loadPacketLive(),
+      loadCached: () => this.loadCachedLive(),
+      extractLive: () => this.extractLiveRun(),
+      filesSummary: `${allFiles.length} sources · ${narrative} narrative · ${allFiles.length - narrative} score_report — load a fixture packet, then cached ledger (001) or extract`,
+      pendingUploads, files,
+      ledgerMeta: C.ledgerMeta, facts,
+      conflicts, noConflicts: conflicts.length === 0,
+      variance, noVariance: variance.length === 0,
+      timelines: C.timelines.map(([topic, seq]) => ({ topic, seq })),
+      heldPredicates: C.heldPredicates.map(([name, note]) => ({ name, note })),
+      heldCandidates: C.heldCandidates.map(([candidate, sourceId, reason]) => ({ candidate, sourceId, reason })),
+      // draft
+      draftCards,
+      // verify
+      verifyTargets, verifyEmpty, verifyBody: !verifyEmpty,
+      verifyEmptyMsg: "No draft to verify — the referral context is incomplete and no prose was produced. Resolve the typed field list on the Draft tab first.",
+      checks, reviewItems, noReviewItems: reviewItems.length === 0,
+      annotatedProse: verifyEmpty ? null : this.annotated(vd, C),
+      unanchored: (vd.unanchored || []).length ? (vd.unanchored || []).map((q) => "unanchored: " + q).join("\n") : null,
+      pin: !!pin, pinEmpty: !pin,
+      pinStatement: pin ? pin.statement.replace(" — OVERREACH.", " (flagged: exceeds cited fact)") : "",
+      pinQuote: pin ? pin.quote : "",
+      pinFacts,
+      // runs
+      runs: ((live && live.runs && live.runs.length) ? live.runs : [...D["005"].runs, ...D["001"].runs]).map((r) => ({
+        when: r[0], endpoint: r[1], caseId: r[2], outcome: r[3], outcomeStyle: this.outcomeStyle(r[3]),
+        outcomeNote: r[4], model: r[5], tokens: r[6], tokensByStage: r[7], latency: r[8], cost: r[9], sha: r[10], trace: r[11]
+      })),
+      // collect
+      collectSection: "history",
+      gapMissing: C.gap.missing.map((name) => ({ name })),
+      gapFreshness: C.gap.freshness.map(([state, predicate, detail]) => ({
+        state, predicate, detail,
+        stateStyle: this.chip(state === "current" ? "#8DD9BF" : state === "stale" ? "#C4B5A5" : "#A33D2E", state === "absent" ? "#F5F0EB" : "#28211E")
+      })),
+      gapStages: C.gap.stages, gapSourceTypes: C.gap.sourceTypes,
+      collectItems: C.collectItems.map(([item, sourceId]) => ({ item, sourceId })),
+      noCollectItems: C.collectItems.length === 0
+    };
+  }
+}
+</script>
+</body>
+</html>

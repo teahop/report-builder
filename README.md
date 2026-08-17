@@ -149,7 +149,7 @@ History smoke (cached fixture_001 ledger): `python evals/history/run_smoke.py`
 
 ```
 .
-├── main.py                 # /ingest /extract /conflicts /draft/history /draft/referral /ask /memory
+├── main.py                 # /ingest /extract /conflicts /draft/history /draft/referral /ask /memory /operator
 ├── extract.py / conflicts.py / draft.py / ingest.py / coverage.py / derived.py
 ├── history_draft.py / history_compiler.py / history_api.py / draft_output.py
 ├── voice_store.py / voice_store.json
@@ -159,6 +159,7 @@ History smoke (cached fixture_001 ledger): `python evals/history/run_smoke.py`
 ├── schemas.py / predicates.py / validators.py / draft_validators.py
 ├── provider.py             # sole OpenAI client import (default); Bastion opt-in
 ├── static/index.html       # pipeline-visible demo UI
+├── static/operator/        # Phase 1 operator console (GET /operator/)
 ├── fixtures/               # synthetic cases + sibling expected_* fields
 ├── extract_prompt.md / history_policy.md / history_writer_prompt.md / referral_prompt.md
 ├── evals/                  # harness + STATUS-cited evidence (not homework bulk)

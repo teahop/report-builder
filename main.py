@@ -9,7 +9,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import ValidationError
 
 from conflicts import detect_disagreements_from_ledger
@@ -42,6 +43,8 @@ from validators import (
 
 _DIR = Path(__file__).resolve().parent
 _FIXTURES = _DIR / "fixtures"
+_OPERATOR = _DIR / "static" / "operator"
+_CACHE_LEDGER_001 = _DIR / "evals" / "cache" / "fixture_001_ledger.json"
 load_dotenv(_DIR / ".env")
 
 app = FastAPI(
@@ -151,7 +154,7 @@ def favicon() -> FileResponse:
 
 @app.get("/fixtures/{name}", response_model=None)
 def get_fixture(name: str) -> FileResponse | JSONResponse:
-    """Serve synthetic fixtures for the multi-source home UI."""
+    """Serve synthetic fixtures for the multi-source home UI and operator console."""
 
     safe = Path(name).name
     # Per-file case: assemble ask-shaped payload from the manifest (do not
@@ -159,12 +162,27 @@ def get_fixture(name: str) -> FileResponse | JSONResponse:
     if safe in {"fixture_001", "fixture_001.json"}:
         return JSONResponse(_assemble_fixture_001_ask())
 
+    if safe in {"cached_ledger_001", "cached_ledger_001.json"}:
+        return _cached_ledger_001()
+
     if not safe.endswith(".json"):
         raise HTTPException(status_code=404, detail="Fixture not found")
     path = _FIXTURES / safe
     if not path.is_file() or not path.resolve().is_relative_to(_FIXTURES.resolve()):
         raise HTTPException(status_code=404, detail="Fixture not found")
     return FileResponse(path, media_type="application/json")
+
+
+def _cached_ledger_001() -> JSONResponse:
+    """Read-only fixture_001 ledger from evals/cache — does not overwrite the file."""
+
+    if not _CACHE_LEDGER_001.is_file():
+        raise HTTPException(status_code=404, detail="cached fixture_001 ledger not on this deploy")
+    payload = json.loads(_CACHE_LEDGER_001.read_text(encoding="utf-8"))
+    ledger = payload.get("ledger")
+    if not isinstance(ledger, dict):
+        raise HTTPException(status_code=500, detail="cache file missing ledger")
+    return JSONResponse(ledger)
 
 
 def _assemble_fixture_001_ask() -> dict:
@@ -363,3 +381,16 @@ app.include_router(build_history_router(provider))
 from memory_api import build_memory_router  # noqa: E402
 
 app.include_router(build_memory_router())
+
+
+@app.get("/operator", include_in_schema=False)
+def operator_redirect() -> RedirectResponse:
+    return RedirectResponse(url="/operator/", status_code=307)
+
+
+if _OPERATOR.is_dir():
+    app.mount(
+        "/operator",
+        StaticFiles(directory=str(_OPERATOR), html=True),
+        name="operator",
+    )

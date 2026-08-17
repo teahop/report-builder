@@ -1,0 +1,48 @@
+/* ============================================================
+   Nobox — Spacing, radius, shadow, layout tokens
+   Calm, generous, editorial. 8px base grid.
+   ============================================================ */
+
+:root {
+  /* --- Spacing scale (8px base) --- */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* --- Radii — soft, not pill. Warm paper, gentle corners. --- */
+  --radius-sm:   6px;
+  --radius-md:   10px;   /* default: cards, inputs, buttons */
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 999px;  /* tags, eyebrow chips */
+
+  /* --- Borders --- */
+  --border-width: 1px;
+  --border-width-strong: 1.5px;
+
+  /* --- Shadows — low, warm, barely-there. Brown-tinted, never gray. --- */
+  --shadow-xs: 0 1px 2px rgba(40, 33, 30, 0.06);
+  --shadow-sm: 0 2px 8px rgba(40, 33, 30, 0.07);
+  --shadow-md: 0 8px 24px rgba(40, 33, 30, 0.09);
+  --shadow-lg: 0 20px 48px rgba(40, 33, 30, 0.12);
+
+  /* --- Layout --- */
+  --container-narrow: 680px;   /* reading measure for prose */
+  --container-md:     960px;
+  --container-wide:   1200px;
+
+  /* --- Motion — quiet, considered. No bounce. --- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);   /* @kind other */
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);   /* @kind other */
+  --duration-fast: 140ms;                           /* @kind other */
+  --duration-base: 220ms;                           /* @kind other */
+  --duration-slow: 360ms;                           /* @kind other */
+}

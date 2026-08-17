@@ -1,0 +1,17 @@
+/* ============================================================
+   Nobox — Web fonts
+   Hillman (display) is the licensed BNHillman.otf — a heavy
+   geometric display SANS (matches the stacked NOBOX lockup).
+   DM Sans (body/UI) is loaded from Google Fonts.
+   ============================================================ */
+
+@font-face {
+  font-family: "Hillman";
+  src: url("../fonts/BNHillman.otf") format("opentype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* DM Sans — Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");

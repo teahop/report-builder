@@ -1,0 +1,42 @@
+/* ============================================================
+   Nobox — Color tokens
+   Four brand values, used with discipline.
+   Never pure white (#FFF) or pure black (#000).
+   ============================================================ */
+
+:root {
+  /* --- Base palette (the four values) --- */
+  --warm-brown: #28211E;     /* Primary dark: type, wordmark, strong bg */
+  --soft-teal:  #8DD9BF;     /* Accent: CTAs, highlights, active states */
+  --off-white:  #F5F0EB;     /* Primary background — warm paper, not screen */
+  --greige:     #C4B5A5;     /* Secondary: dividers, on-dark support, mid-tones */
+
+  /* --- Tints / shades (derived, used sparingly) --- */
+  --brown-900:  #1B1714;     /* deeper brown for strong contrast blocks */
+  --brown-700:  #3A302B;     /* hover/press on brown surfaces */
+  --teal-600:   #6FC4A6;     /* teal hover/press (darker) */
+  --teal-100:   #DCF1E9;     /* faint teal wash for subtle highlight bg */
+  --greige-200: #E7DFD6;     /* faint greige — hairline fills, zebra rows */
+  --greige-100: #EFE9E2;     /* between off-white and greige-200 */
+  --taupe-text: #6E6258;     /* AA-safe secondary text ON LIGHT backgrounds */
+
+  /* --- Semantic aliases --- */
+  --surface-page:        var(--off-white);
+  --surface-card:        #FBF8F4;   /* a hair lighter than page, never #fff */
+  --surface-raised:      var(--greige-100);
+  --surface-inverse:     var(--warm-brown);
+
+  --text-primary:        var(--warm-brown);    /* AA on light: 13.9:1 */
+  --text-secondary:      var(--taupe-text);    /* AA on light: 5.2:1   */
+  --text-on-inverse:     var(--off-white);     /* light on brown       */
+  --text-muted-inverse:  var(--greige);        /* greige on brown: 7.8:1 */
+  --text-on-accent:      var(--warm-brown);    /* brown on teal: 9.7:1 */
+
+  --accent:              var(--soft-teal);
+  --accent-strong:       var(--teal-600);
+  --accent-wash:         var(--teal-100);
+
+  --border-hairline:     var(--greige);
+  --border-subtle:       var(--greige-200);
+  --divider:             var(--greige);
+}
