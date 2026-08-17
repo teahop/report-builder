@@ -1,0 +1,161 @@
+{
+  "structure_spec_id": "provisional_tj_v1",
+  "status": "provisional",
+  "evidence_provenance": "molly_supplied_reference",
+  "confirmation_state": "provisional",
+  "notes": [
+    "Reaction prototype only — not Molly-confirmed clinical ground truth.",
+    "Nurse Report remains in the trigger map; SourceType has no nurse value (input_schema_gap).",
+    "Social History has no registered social-relationship predicates yet (vocabulary gap)."
+  ],
+  "sections": [
+    {
+      "section_key": "current_status_history",
+      "display_label": "Current Status & History",
+      "outline_trigger": "always",
+      "purpose": "topic_history",
+      "blocks": [
+        {
+          "block_key": "family_history",
+          "display_label": "Family History",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "family_history",
+          "purpose": "topic_history",
+          "confirmation_state": "provisional"
+        },
+        {
+          "block_key": "birth_developmental_history",
+          "display_label": "Birth and Developmental History",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "birth_developmental_history",
+          "purpose": "topic_history",
+          "confirmation_state": "provisional"
+        },
+        {
+          "block_key": "health_history",
+          "display_label": "Health History",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "health_history",
+          "purpose": "topic_history",
+          "confirmation_state": "provisional"
+        },
+        {
+          "block_key": "social_history",
+          "display_label": "Social History",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "social_history",
+          "purpose": "topic_history",
+          "confirmation_state": "provisional",
+          "input_schema_gap": "No registered peer/adult-relationship or social-activity predicates; block stays absent until vocabulary supports it."
+        },
+        {
+          "block_key": "nurse_report",
+          "display_label": "Nurse Report",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "nurse_report",
+          "purpose": "topic_history",
+          "confirmation_state": "confirmed",
+          "input_schema_gap": "SourceType has no nurse value; nurse-report sources cannot be selected without substring inference or schema expansion (out of scope)."
+        }
+      ]
+    },
+    {
+      "section_key": "educational_history",
+      "display_label": "Educational History",
+      "outline_trigger": "evidence",
+      "purpose": "topic_history",
+      "blocks": [
+        {
+          "block_key": "school_history_chart",
+          "display_label": "School History",
+          "kind": "table",
+          "emit_when": "any_supported_fact",
+          "selector": "educational_school_history",
+          "purpose": "topic_history",
+          "confirmation_state": "confirmed"
+        },
+        {
+          "block_key": "school_experience",
+          "display_label": "School Experience",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "educational_school_experience",
+          "purpose": "topic_history",
+          "confirmation_state": "confirmed"
+        },
+        {
+          "block_key": "intervention",
+          "display_label": "Intervention",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "educational_intervention",
+          "purpose": "topic_history",
+          "confirmation_state": "confirmed",
+          "legacy_trigger": "intervention_tier"
+        },
+        {
+          "block_key": "iep_services",
+          "display_label": "IEP / Special Education",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "educational_iep",
+          "purpose": "topic_history",
+          "confirmation_state": "confirmed",
+          "legacy_trigger": "iep_status"
+        },
+        {
+          "block_key": "covid_educational_experience",
+          "display_label": "COVID Educational Experience",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "covid_educational_experience",
+          "purpose": "topic_history",
+          "confirmation_state": "provisional",
+          "input_schema_gap": "No registered COVID-education predicate; omit unless vocabulary later supports explicit evidence."
+        }
+      ]
+    },
+    {
+      "section_key": "previous_evaluations",
+      "display_label": "History of Previous Evaluations",
+      "outline_trigger": "evidence",
+      "purpose": "topic_history",
+      "input_aliases": ["Previous Testing Results"],
+      "blocks": [
+        {
+          "block_key": "previous_evaluations_narrative",
+          "display_label": "Previous Evaluations",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "previous_evaluations",
+          "purpose": "topic_history",
+          "confirmation_state": "confirmed"
+        }
+      ]
+    },
+    {
+      "section_key": "rater_input",
+      "display_label": "Student / Caregiver / Teacher Input",
+      "outline_trigger": "evidence",
+      "purpose": "rater_input",
+      "input_aliases": ["Clinical Interviews"],
+      "blocks": [
+        {
+          "block_key": "rater_blocks",
+          "display_label": "(dynamic per rater)",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "rater_input",
+          "purpose": "rater_input",
+          "confirmation_state": "provisional",
+          "dynamic": true
+        }
+      ]
+    }
+  ]
+}

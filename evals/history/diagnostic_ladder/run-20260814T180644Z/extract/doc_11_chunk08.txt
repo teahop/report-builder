@@ -1,0 +1,20 @@
+{
+  "facts": [
+    {
+      "subject": "child",
+      "predicate": "iep_status",
+      "proposed_predicate": null,
+      "value": "in place",
+      "value_text": "IEP Goals to be Addressed from IEP Dated 10/2/2002.",
+      "qualifier": null,
+      "assertion": "asserted",
+      "reporter": null,
+      "life_stage": "school-age",
+      "grade": null,
+      "confidence": "stated",
+      "as_of_date": "2002-10-02",
+      "valence": "neutral",
+      "source_section": null
+    }
+  ]
+}

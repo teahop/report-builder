@@ -1,0 +1,370 @@
+{
+  "section_key": "rater_input",
+  "display_label": "Student / Caregiver / Teacher Input",
+  "example_id": "phase1_D_rater_input_case_004",
+  "example_text_sha256": "c1233d018260239d83714ff8029108bf4e2822c24c921782fc1d859631013694",
+  "evidence_brief_sha256": "e5bbbeacd15aa0d2ff53952f4a8a1c31baaa638b7e180d79adec55426a03859c",
+  "writer_prompt_hash": "23b873b1c85e87837209d400541fab8fd57a7b9a32976857676cbe51800ce3a8",
+  "messages_sha256": "5db626d2af047323821ddf4bf2f3bf2fd746d661c2a31839fb3598aaef355714",
+  "trace_alignment_status": "not_run_diagnostic",
+  "tokens": {
+    "total": 9507,
+    "prompt": 8904,
+    "completion": 603
+  },
+  "raw_output": {
+    "blocks": [
+      {
+        "label": "Student/Client/Patient Input — Student profile and interview",
+        "prose": "Emma Rose Callahan participated in a self-reflective interview on April 19, 2025. In her input, she mentioned that she previously participated in a homeschool program called Options for Youth, where she would go to her dad's house for school. Emma expressed that with her current medications, which include guanfacine, she feels better but acknowledges some ongoing challenges. She openly stated, \"My mom thinks I am depressed,\" indicating her awareness and acknowledgment of her emotional struggles. Emma described her social experience, noting, \"I felt really awkward at school,\" and expressed that her motivation is often low for tasks that do not pique her interest. While she is generally cooperative in her learning environment, she does persist and occasionally complains about challenging tasks; notably, she can laugh at herself during these moments. Emma reflected on her academic challenges, admitting to making errors at times due to lapses in attention, which she attributed to her ADHD diagnosis. Further, she articulated a feeling of social awkwardness, stating, \"I am socially awkward with everybody.\"",
+        "table_position": false
+      },
+      {
+        "label": "Parent/Caregiver Input — Mom",
+        "prose": "Emma’s mother provided crucial insights during the initial IEP process on May 29, 2019, when Emma was in fourth grade. At that time, Emma was attending Oak Meadow School and had recently exited special education services. Mrs. Callahan described Emma's attention deficits, mentioning her diagnosis of ADHD as a significant factor affecting her performance. She noted that Emma met all developmental milestones on time, except that she walked at about 19 months and began talking at around 2 years. Emma is currently on a regimen that includes 1mg of guanfacine, 5mg of Singular, and 2.5mg of melatonin at night, which helps manage her ADHD and sleep issues. The mother also expressed concerns about Emma's behaviors at home, including learning problems, executive functioning challenges, and difficulties with peer relations.",
+        "table_position": false
+      },
+      {
+        "label": "Parent/Caregiver Input — mother",
+        "prose": "In the Health and Development assessment completed by Emma's mother on April 10, 2019, it was noted that Emma has a history of ADHD, sleep problems, and sensitivity to both noise and touch, as well as seasonal allergies. Emma was adopted at 19 months, leading to limited information regarding her biological history, which may contribute to difficulties she experiences today. Throughout her educational journey, her mother has observed clinically significant levels of inattention both at home and school, ongoing challenges with sustaining focus, and difficulties in following directions. Despite these challenges, the IEP team concluded that specialized academic support was unnecessary due to her exit from special education, as they determined she could function within general education frameworks. Nonetheless, ongoing observations indicate that Emma faces notable struggles that still impact her learning and social interactions.",
+        "table_position": false
+      }
+    ]
+  },
+  "attached_blocks": [
+    {
+      "block_key": "student_input:doc_21",
+      "display_label": "Student/Client/Patient Input — Student profile and interview",
+      "kind": "prose",
+      "prose": "Emma Rose Callahan participated in a self-reflective interview on April 19, 2025. In her input, she mentioned that she previously participated in a homeschool program called Options for Youth, where she would go to her dad's house for school. Emma expressed that with her current medications, which include guanfacine, she feels better but acknowledges some ongoing challenges. She openly stated, \"My mom thinks I am depressed,\" indicating her awareness and acknowledgment of her emotional struggles. Emma described her social experience, noting, \"I felt really awkward at school,\" and expressed that her motivation is often low for tasks that do not pique her interest. While she is generally cooperative in her learning environment, she does persist and occasionally complains about challenging tasks; notably, she can laugh at herself during these moments. Emma reflected on her academic challenges, admitting to making errors at times due to lapses in attention, which she attributed to her ADHD diagnosis. Further, she articulated a feeling of social awkwardness, stating, \"I am socially awkward with everybody.\"",
+      "offered_evidence_ids": [
+        "f_doc_21_003",
+        "f_doc_21_004",
+        "f_doc_21_005",
+        "f_doc_21_006",
+        "f_doc_21_007",
+        "f_doc_21_009",
+        "f_doc_21_010",
+        "f_doc_21_011"
+      ]
+    },
+    {
+      "block_key": "caregiver_input:mom",
+      "display_label": "Parent/Caregiver Input — Mom",
+      "kind": "prose",
+      "prose": "Emma’s mother provided crucial insights during the initial IEP process on May 29, 2019, when Emma was in fourth grade. At that time, Emma was attending Oak Meadow School and had recently exited special education services. Mrs. Callahan described Emma's attention deficits, mentioning her diagnosis of ADHD as a significant factor affecting her performance. She noted that Emma met all developmental milestones on time, except that she walked at about 19 months and began talking at around 2 years. Emma is currently on a regimen that includes 1mg of guanfacine, 5mg of Singular, and 2.5mg of melatonin at night, which helps manage her ADHD and sleep issues. The mother also expressed concerns about Emma's behaviors at home, including learning problems, executive functioning challenges, and difficulties with peer relations.",
+      "offered_evidence_ids": [
+        "f_doc_25_004",
+        "f_doc_25_005",
+        "f_doc_25_006",
+        "f_doc_25_007",
+        "f_doc_25_008",
+        "f_doc_25_010",
+        "f_doc_25_011",
+        "f_doc_25_012",
+        "f_doc_25_013",
+        "f_doc_25_014",
+        "f_doc_25_015",
+        "f_doc_25_016",
+        "f_doc_25_017",
+        "f_doc_25_018",
+        "f_doc_25_019"
+      ]
+    },
+    {
+      "block_key": "caregiver_input:mother",
+      "display_label": "Parent/Caregiver Input — mother",
+      "kind": "prose",
+      "prose": "In the Health and Development assessment completed by Emma's mother on April 10, 2019, it was noted that Emma has a history of ADHD, sleep problems, and sensitivity to both noise and touch, as well as seasonal allergies. Emma was adopted at 19 months, leading to limited information regarding her biological history, which may contribute to difficulties she experiences today. Throughout her educational journey, her mother has observed clinically significant levels of inattention both at home and school, ongoing challenges with sustaining focus, and difficulties in following directions. Despite these challenges, the IEP team concluded that specialized academic support was unnecessary due to her exit from special education, as they determined she could function within general education frameworks. Nonetheless, ongoing observations indicate that Emma faces notable struggles that still impact her learning and social interactions.",
+      "offered_evidence_ids": [
+        "f_doc_25_004",
+        "f_doc_25_005",
+        "f_doc_25_006",
+        "f_doc_25_008",
+        "f_doc_25_010",
+        "f_doc_25_011",
+        "f_doc_25_012",
+        "f_doc_25_013",
+        "f_doc_25_014",
+        "f_doc_25_015",
+        "f_doc_25_016",
+        "f_doc_25_017",
+        "f_doc_25_018",
+        "f_doc_25_019",
+        "f_doc_25_020"
+      ]
+    }
+  ],
+  "offered_evidence_ids": {
+    "student_input:doc_21": [
+      "f_doc_21_003",
+      "f_doc_21_004",
+      "f_doc_21_005",
+      "f_doc_21_006",
+      "f_doc_21_007",
+      "f_doc_21_009",
+      "f_doc_21_010",
+      "f_doc_21_011"
+    ],
+    "caregiver_input:mom": [
+      "f_doc_25_004",
+      "f_doc_25_005",
+      "f_doc_25_006",
+      "f_doc_25_007",
+      "f_doc_25_008",
+      "f_doc_25_010",
+      "f_doc_25_011",
+      "f_doc_25_012",
+      "f_doc_25_013",
+      "f_doc_25_014",
+      "f_doc_25_015",
+      "f_doc_25_016",
+      "f_doc_25_017",
+      "f_doc_25_018",
+      "f_doc_25_019"
+    ],
+    "caregiver_input:mother": [
+      "f_doc_25_004",
+      "f_doc_25_005",
+      "f_doc_25_006",
+      "f_doc_25_008",
+      "f_doc_25_010",
+      "f_doc_25_011",
+      "f_doc_25_012",
+      "f_doc_25_013",
+      "f_doc_25_014",
+      "f_doc_25_015",
+      "f_doc_25_016",
+      "f_doc_25_017",
+      "f_doc_25_018",
+      "f_doc_25_019",
+      "f_doc_25_020"
+    ]
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Draft the **Student / Caregiver / Teacher Input** section of a psychoeducational report in the style demonstrated by the example.\n\nDevelop each labeled block in the form demonstrated by the provided example. A block may use one paragraph, several connected paragraphs, a table position, or structured interview responses when the section calls for them. Use the supplied evidence to select concrete details, organize events clearly over time, and preserve who reported second-hand information. Let the amount and shape of the evidence determine the block's depth.\n\nThe section should read as one part of a coherent report: factual, specific, accessible to families, and natural rather than formulaic.\n\nReturn the requested section content in the supplied output format.\n"
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"Student / Caregiver / Teacher Input\",\n  \"section_plan\": [\n    {\n      \"label\": \"PE Teacher Input\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": {\n    \"approved_case_id\": \"004\",\n    \"topics\": [\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**Parent Input\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"** Mrs. Palmer provided the following input: Sydney Palmer lives at home with her parents and older brother. Her medical history is significant for being induced prematurely and weighing four and a half pounds at birth. Sydney Palmer spent a week in the Neonatal Intensive Care Unit, including time in an incubator. She was treated for a tongue tie with a frenulum clip. Sydney Palmer is currently receiving medical care and treatment for anxiety (Social and OCD) and depression and there is also a family history of anxiety and depression. Sydney Palmer takes Zoloft with no reported side effects. No significant family stressors, trauma, illnesses or accidents are reported. Sydney Palmer does have sensory sensitivities which impact her eating. Sydney Palmer’s diet and sleep are reported as relatively normal at this time. In regards to symptoms of depression, Sydney Palmer has good days and bad days. She has become very sedentary the past few years Developmental milestones were on time except for talking which was delayed until after age three. Sydney Palmer had early intervention through Sierra Vista Regional Center and attended a language immersive preschool through her school district from ages three to four. She always struggled with math and qualified for an IEP in second grade. When asked if there was any specific social trauma, Mrs. Palmer indicates that she does not think there was any one event and Sydney Palmer was okay when she initially came back to school from Covid-19 closures in 7th grade in a hybrid model from March to end of May that year. Sydney Palmer got close with one friend, but when all students returned to campus in 8th grade, that friend went back to her previous crowd, and that was really devastating for Sydney Palmer. As the 8th grade year went on, her social circle got smaller and smaller by her own choice, I think as a way to avoid getting hurt again and possibly to avoid difficult goodbyes, as she would not be going to the same high school as her peers. This was also by her own choice; Sydney Palmer was at a charter in Sacramento and wanted to go to the neighborhood school her brothers had attended for high school). By the end of eighth grade, she didn't have any friends, but was looking forward to a fresh start in high school. In the first week or so of summer between freshman and sophomore year, Sydney Palmer got sick with a stomach bug while her dad and I were out of town. She had already been suffering with anxiety and OCD, and an extreme fear of throwing up. That event, perhaps more than anything, let to a steep decline in her mental health. She was treated for avoidant restrictive food intake disorder (ARFID) as a result, and stopped wanting to get in the car, for fear of getting carsick. She was in a very bad place, mentally, when freshman year started, and that is when the family really saw the effects of the social anxiety. Sydney Palmer had to take a leave from school (she did independent study) from late September through the beginning of January to do outpatient treatment at the Anxiety Treatment Center. When she returned to school in January, her social anxiety was as present as it had been before, although she was functioning slightly better in other ways. Sydney Palmer has been seeing this therapist for a year, was with another one for the year prior to that (that therapist moved), and before that, had a therapist with Kaiser. Mother indicates that her concerns, “have been that the school (the math teachers in particular, but also the IEP team) did not provide Sydney Palmer with a free and appropriate education in Integrated Math 2. She was not given appropriate accommodations, and the only help they offered was given outside the regular class time. We paid for private tutoring one or two times per weekly depending on whether there was a test. Sydney Palmer turned in almost all of her homework and class assignments, earning A in those areas, but she failed quizzes and tests. The onus was 100% on Sydney Palmer to pass the class, without sensitivity or consideration of her learning disability. The teachers were inflexible and admitted to not having experience in dyscalculia. Even the Education Specialist in her co-taught class did not take any responsibility for making the material more accessible for her. Sydney Palmer received an F for the first half of the course, which she made up before school with a general education teacher in the math department to a D- (that was part of an agreement that once Sydney Palmer hit a D, they would be finished). Sydney Palmer had to do this make-up while learning the material for the second half of the course simultaneously, which was just not feasible for her. She got an F for the second half as well. We pleaded for better accommodations or a modification to the weighting of the grading (it was something like 85% on tests, 10% quizzes, and 5% homework). We were told “no” over and over again by the IEP team. Mrs. Palmer states that, “The school told us the only way they would consider looking at making changes was if they did a brand new assessment, even though her triennial wasn't due until next year. We agreed (on the advice of our attorney), and what came out of that was that she no longer qualified as having a learning disability in math, and that it was her \\\"emotional disturbance\\\" that was causing her to perform so poorly in math. That led to the IEE request.”\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**Therapist Input\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"** Rachel Simmons is Sydney Palmer’s private therapist. She provided the following input: 1. Challenges: What do you perceive as Sydney Palmer's most significant challenges in the school environment? “In my work with Sydney Palmer as her individual therapist, she and I have identified her social anxiety and OCD to be her biggest challenges at school. Some of her symptomatic expressions of social anxiety include distress in asking for support from or approaching teachers; she reports she will often not ask for help for fear of being perceived as dumb, or even to prevent feeling all eyes on her/being noticed by peers. Additionally, her OCD can create obstacles to her attendance to instruction in class if she has a compulsion to erase entire class notes due to one mistake, and then be unable to recreate the information nor attend to the current information being supplied.” 2.\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**Effective Strategies:\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"** _Are there any strategies or support systems currently in place that you feel are working particularly well for her?_ “Ashely’s biggest support system comes from her parents, particularly her mom with whom she is very comfortable relating her struggles and asking for advice from. Sydney Palmer has not specifically identified interventions at school that have worked particularly well (though that may be due to our session focus being elsewhere).” 3.\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**Impact of Math Difficulties:\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"** _How has her lack of success in math class affected her overall well-being and school experience?_ “Sydney Palmer struggles with self-esteem and her perception that others are thinking negatively about her. Her struggles in math compound the feelings of low self-worth, which impact other areas of school experiences. She reports little confidence with being able to become successful in math.” 4. Diagnoses and Recommendations: Based on your sessions with Sydney Palmer, do you have any diagnoses or recommendations that could inform the school’s approach to her education? “Sydney Palmer's Social Anxiety and OCD diagnoses seem to be impacting her school experiences and performance the most. Interventions with those in mind may be more successful. It is often that she may be limiting herself from asking for help from teachers or peers due to her Social Anxiety, particularly anxiety around how they may perceive her or if she's feeling especially anxious about having any attention paid to her. Sydney Palmer's OCD symptoms are primarily covert - the struggle is often invisible driven by obsessive thoughts and compulsions usually showing up as a 'need' to abort or avoid the task at hand, or perform a compulsion that impacts her ability to keep up (as in the need to erase the entirety of class notes to rectify one mistake). When she is experiencing OCD symptoms, her attention is greatly reduced elsewhere. Sydney Palmer has great desire to do well in school, both for her future and for her families' and her own expectations. She is very frustrated by the anxiety and OCD symptoms that can often impair her in being as successful as she wants to be.” 5. School's Role: In your view, how can the school further assist Sydney Palmer in her learning journey, especially in addressing her math-related challenges? “Exploration of any anxieties/intrusive thoughts that she may be experiencing, and the compulsions that may be associated with them could aid the interventionist's understanding of the role her diagnoses may or may not be playing in that particular learning experience.”\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**Education Pathways\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**Teacher Input\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"** Education Pathways teacher, Melisa Whitcombe, provided the following input of Sydney Palmer's performance and behavior in her class. ## Work Habits and Behavior Sydney Palmer is described as a diligent student who initiates work independently, scoring an 'Above Average' rating in this area. She is persistent in her efforts and does not give up easily. While her concentration and attentiveness are rated as 'Average,' she is methodical in her approach to assignments, which often results in high-quality work. Sydney Palmer understands concepts at an average pace and is punctual in starting her work and turning it in on time. In terms of behavior, Sydney Palmer consistently follows rules and communicates effectively with the teacher, both rated as 'Far exceeds expectations.' She is generally accepted by her peers and is respectful towards others, both rated as 'Average.' Sydney Palmer's participation in class is also considered 'Average.' Academic Performance Sydney Palmer's academic abilities are rated as 'Average' in Language Arts, Writing, Classwork, and Homework. However, she is rated 'Below grade level expectations' in Test taking, which may be an area that requires additional support. Despite this, Sydney Palmer has shown remarkable improvement, as evidenced by her recent exam score of 71 out of 76. Strengths and Weaknesses Sydney Palmer's observed strengths include being hardworking, detail-oriented, and having good communication skills. She is also adept at self-advocacy. A noted weakness is that she takes longer than most to process information, but she compensates for this with her strong work ethic. ## Interventions and Support Interventions that have been tried with Sydney Palmer include providing extra time on assignments and checking for understanding. These strategies appear to be effective, as there are no current concerns regarding her behavior or social skills. Sydney Palmer observes classroom expectations, is respectful to others, and has excellent attendance, always arriving on time. Academic Summary from Melisa Whitcombe Sydney Palmer's current grade in Education Pathways 1 for Quarter 4 is an A- with a score of 554 out of 612 (90.5%). Her performance in general classwork is exceptional, with a score of 294 out of 299 (98.3%, A+). She has scored a B in both Projects (163/197, 82.7%) and Assessments (97/116, 83.6%). Notably, Sydney Palmer has no missing assignments. Sydney Palmer is described as a hardworking and conscientious student who demonstrates strong work habits and respectful behavior in the classroom. While she may require additional time to process information, her improvement and high-quality work reflect her dedication to her studies. Her academic performance is solid, with no current areas of concern.\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"PE Teacher Input\",\n        \"text\": \"Malcolm Ferris, the PE 10 teacher, has shared his observations and insights regarding Sydney Palmer's performance and behavior in his class. While specific ratings on her work and academic abilities were not provided due to the nature of PE, his narrative offers a clear picture of Sydney Palmer's current situation. Strengths and Weaknesses Sydney Palmer is recognized for her respectful demeanor and her willingness to advocate for herself. She is proactive in seeking help or clarification when needed, which is a positive trait in her approach to learning and participation. However, she is noted to be quite shy, which seems to affect her interaction with peers and can lead to her feeling overwhelmed. In such instances, Sydney Palmer tends to seek solitude and visit the restroom, nurse or wellness center. Behavior In terms of her behavior, Sydney Palmer is punctual and arrives prepared for class, demonstrating respect towards both her teacher and her classmates. She adheres to class rules and participates in activities to the best of her ability. Her shyness, however, presents itself as a challenge, particularly in the context of group work, which is a significant component of the PE 10 curriculum. ## Interventions and Support To support Sydney Palmer, Malcolm Ferris has implemented an intervention where he actively places her in groups where she feels more at ease. This strategy aims to alleviate the anxiety she experiences in team sports and group activities. While there has been some improvement, Malcolm Ferris expresses a desire to see Sydney Palmer become more comfortable in group settings, as this is an important skill for both her academic and real-world interactions. Overall, Malcolm Ferris input highlights Sydney Palmer's strengths in self-advocacy and respectfulness, while also drawing attention to the areas where she could benefit from further support, particularly in overcoming her shyness and anxiety in group interactions. Sydney Palmer's academic standing in PE 10 is strong, with a current grade of \\\"A-\\\".\",\n        \"source\": \"approved-anonymized case 004 (signed section excerpt)\"\n      }\n    ]\n  }\n}"
+    },
+    {
+      "role": "assistant",
+      "content": "**Parent Input**\n\nMrs. Palmer provided the following input:\n\nSydney Palmer lives at home with her parents and older brother. Her medical history is significant for being induced prematurely and weighing four and a half pounds at birth. Sydney Palmer spent a week in the Neonatal Intensive Care Unit, including time in an incubator. She was treated for a tongue tie with a frenulum clip. Sydney Palmer is currently receiving medical care and treatment for anxiety (Social and OCD) and depression and there is also a family history of anxiety and depression. Sydney Palmer takes Zoloft with no reported side effects. No significant family stressors, trauma, illnesses or accidents are reported. Sydney Palmer does have sensory sensitivities which impact her eating. Sydney Palmer’s diet and sleep are reported as relatively normal at this time. In regards to symptoms of depression, Sydney Palmer has good days and bad days. She has become very sedentary the past few years\n\nDevelopmental milestones were on time except for talking which was delayed until after age three. Sydney Palmer had early intervention through Sierra Vista Regional Center and attended a language immersive preschool through her school district from ages three to four. She always struggled with math and qualified for an IEP in second grade.\n\nWhen asked if there was any specific social trauma, Mrs. Palmer indicates that she does not think there was any one event and Sydney Palmer was okay when she initially came back to school from Covid-19 closures in 7th grade in a hybrid model from March to end of May that year. Sydney Palmer got close with one friend, but when all students returned to campus in 8th grade, that friend went back to her previous crowd, and that was really devastating for Sydney Palmer. As the 8th grade year went on, her social circle got smaller and smaller by her own choice, I think as a way to avoid getting hurt again and possibly to avoid difficult goodbyes, as she would not be going to the same high school as her peers. This was also by her own choice; Sydney Palmer was at a charter in Sacramento and wanted to go to the neighborhood school her brothers had attended for high school). By the end of eighth grade, she didn't have any friends, but was looking forward to a fresh start in high school.\n\nIn the first week or so of summer between freshman and sophomore year, Sydney Palmer got sick with a stomach bug while her dad and I were out of town. She had already been suffering with anxiety and OCD, and an extreme fear of throwing up. That event, perhaps more than anything, let to a steep decline in her mental health. She was treated for avoidant restrictive food intake disorder (ARFID) as a result, and stopped wanting to get in the car, for fear of getting carsick. She was in a very bad place, mentally, when freshman year started, and that is when the family really saw the effects of the social anxiety. Sydney Palmer had to take a leave from school (she did independent study) from late September through the beginning of January to do outpatient treatment at the Anxiety Treatment Center. When she returned to school in January, her social anxiety was as present as it had been before, although she was functioning slightly better in other ways. Sydney Palmer has been seeing this therapist for a year, was with another one for the year prior to that (that therapist moved), and before that, had a therapist with Kaiser.\n\nMother indicates that her concerns, “have been that the school (the math teachers in particular, but also the IEP team) did not provide Sydney Palmer with a free and appropriate education in Integrated Math 2. She was not given appropriate accommodations, and the only help they offered was given outside the regular class time. We paid for private tutoring one or two times per weekly depending on whether there was a test. Sydney Palmer turned in almost all of her homework and class assignments, earning A in those areas, but she failed quizzes and tests.  The onus was 100% on Sydney Palmer to pass the class, without sensitivity or consideration of her learning disability. The teachers were inflexible and admitted to not having experience in dyscalculia. Even the Education Specialist in her co-taught class did not take any responsibility for making the material more accessible for her. Sydney Palmer received an F for the first half of the course, which she made up before school with a general education teacher in the math department to a D- (that was part of an agreement that once Sydney Palmer hit a D, they would be finished). Sydney Palmer had to do this make-up while learning the material for the second half of the course simultaneously, which was just not feasible for her. She got an F for the second half as well. We pleaded for better accommodations or a modification to the weighting of the grading (it was something like 85% on tests, 10% quizzes, and 5% homework). We were told “no” over and over again by the IEP team. Mrs. Palmer states that, “The school told us the only way they would consider looking at making changes was if they did a brand new assessment, even though her triennial wasn't due until next year. We agreed (on the advice of our attorney), and what came out of that was that she no longer qualified as having a learning disability in math, and that it was her \"emotional disturbance\" that was causing her to perform so poorly in math. That led to the IEE request.”\n\n**Therapist Input**\n\nRachel Simmons is Sydney Palmer’s private therapist. She provided the following input:\n\n1.      Challenges: What do you perceive as Sydney Palmer's most significant challenges in the school environment?\n\n     “In my work with Sydney Palmer as her individual therapist, she and I have identified her social anxiety and OCD to be her biggest challenges at school. Some of her symptomatic expressions of social anxiety include distress in asking for support from or approaching teachers; she reports she will often not ask for help for fear of being perceived as dumb, or even to prevent feeling all eyes on her/being noticed by peers. Additionally, her OCD can create obstacles to her attendance to instruction in class if she has a compulsion to erase entire class notes due to one mistake, and then be unable to recreate the information nor attend to the current information being supplied.” \n\n2.      **Effective Strategies:** _Are there any strategies or support systems currently in place that you feel are working particularly well for her?_\n\n   “Ashely’s biggest support system comes from her parents, particularly her mom with whom she is very comfortable relating her struggles and asking for advice from. Sydney Palmer has not specifically identified interventions at school that have worked particularly well (though that may be due to our session focus being elsewhere).”\n\n3.      **Impact of Math Difficulties:** _How has her lack of success in math class affected her overall well-being and school experience?_\n\n    “Sydney Palmer struggles with self-esteem and her perception that others are thinking negatively about her. Her struggles in math compound the feelings of low self-worth, which impact other areas of school experiences. She reports little confidence with being able to become successful in math.”\n\n4.      Diagnoses and Recommendations: Based on your sessions with Sydney Palmer, do you have any diagnoses or recommendations that could inform the school’s approach to her education?\n\n  “Sydney Palmer's Social Anxiety and OCD diagnoses seem to be impacting her school experiences and performance the most. Interventions with those in mind may be more successful. It is often that she may be limiting herself from asking for help from teachers or peers due to her Social Anxiety, particularly anxiety around how they may perceive her or if she's feeling especially anxious about having any attention paid to her. Sydney Palmer's OCD symptoms are primarily covert - the struggle is often invisible driven by obsessive thoughts and compulsions usually showing up as a 'need' to abort or avoid the task at hand, or perform a compulsion that impacts her ability to keep up (as in the need to erase the entirety of class notes to rectify one mistake). When she is experiencing OCD symptoms, her attention is greatly reduced elsewhere.  Sydney Palmer has great desire to do well in school, both for her future and for her families' and her own expectations. She is very frustrated by the anxiety and OCD symptoms that can often impair her in being as successful as she wants to be.”\n\n5.      School's Role: In your view, how can the school further assist Sydney Palmer in her learning journey, especially in addressing her math-related challenges?\n\n    “Exploration of any anxieties/intrusive thoughts that she may be experiencing, and the compulsions that may be associated with them could aid the interventionist's understanding of the role her diagnoses may or may not be playing in that particular learning experience.”\n    \n    **Education Pathways** **Teacher Input**\n\nEducation Pathways teacher, Melisa Whitcombe, provided the following input of Sydney Palmer's performance and behavior in her class.\n\n## Work Habits and Behavior\n\nSydney Palmer is described as a diligent student who initiates work independently, scoring an 'Above Average' rating in this area. She is persistent in her efforts and does not give up easily. While her concentration and attentiveness are rated as 'Average,' she is methodical in her approach to assignments, which often results in high-quality work. Sydney Palmer understands concepts at an average pace and is punctual in starting her work and turning it in on time.\n\nIn terms of behavior, Sydney Palmer consistently follows rules and communicates effectively with the teacher, both rated as 'Far exceeds expectations.' She is generally accepted by her peers and is respectful towards others, both rated as 'Average.' Sydney Palmer's participation in class is also considered 'Average.'\n\nAcademic Performance\n\nSydney Palmer's academic abilities are rated as 'Average' in Language Arts, Writing, Classwork, and Homework. However, she is rated 'Below grade level expectations' in Test taking, which may be an area that requires additional support. Despite this, Sydney Palmer has shown remarkable improvement, as evidenced by her recent exam score of 71 out of 76.\n\nStrengths and Weaknesses\n\nSydney Palmer's observed strengths include being hardworking, detail-oriented, and having good communication skills. She is also adept at self-advocacy. A noted weakness is that she takes longer than most to process information, but she compensates for this with her strong work ethic.\n\n## Interventions and Support\n\nInterventions that have been tried with Sydney Palmer include providing extra time on assignments and checking for understanding. These strategies appear to be effective, as there are no current concerns regarding her behavior or social skills. Sydney Palmer observes classroom expectations, is respectful to others, and has excellent attendance, always arriving on time.\n\nAcademic Summary from Melisa Whitcombe\n\nSydney Palmer's current grade in Education Pathways 1 for Quarter 4 is an A- with a score of 554 out of 612 (90.5%). Her performance in general classwork is exceptional, with a score of 294 out of 299 (98.3%, A+). She has scored a B in both Projects (163/197, 82.7%) and Assessments (97/116, 83.6%). Notably, Sydney Palmer has no missing assignments.\n\nSydney Palmer is described as a hardworking and conscientious student who demonstrates strong work habits and respectful behavior in the classroom. While she may require additional time to process information, her improvement and high-quality work reflect her dedication to her studies. Her academic performance is solid, with no current areas of concern.\n\n**PE Teacher Input**\n\nMalcolm Ferris, the PE 10 teacher, has shared his observations and insights regarding Sydney Palmer's performance and behavior in his class. While specific ratings on her work and academic abilities were not provided due to the nature of PE, his narrative offers a clear picture of Sydney Palmer's current situation.\n\nStrengths and Weaknesses\n\nSydney Palmer is recognized for her respectful demeanor and her willingness to advocate for herself. She is proactive in seeking help or clarification when needed, which is a positive trait in her approach to learning and participation. However, she is noted to be quite shy, which seems to affect her interaction with peers and can lead to her feeling overwhelmed. In such instances, Sydney Palmer tends to seek solitude and visit the restroom, nurse or wellness center.\n\nBehavior\n\nIn terms of her behavior, Sydney Palmer is punctual and arrives prepared for class, demonstrating respect towards both her teacher and her classmates. She adheres to class rules and participates in activities to the best of her ability. Her shyness, however, presents itself as a challenge, particularly in the context of group work, which is a significant component of the PE 10 curriculum.\n\n## Interventions and Support\n\nTo support Sydney Palmer, Malcolm Ferris has implemented an intervention where he actively places her in groups where she feels more at ease. This strategy aims to alleviate the anxiety she experiences in team sports and group activities. While there has been some improvement, Malcolm Ferris expresses a desire to see Sydney Palmer become more comfortable in group settings, as this is an important skill for both her academic and real-world interactions.\n\nOverall, Malcolm Ferris input highlights Sydney Palmer's strengths in self-advocacy and respectfulness, while also drawing attention to the areas where she could benefit from further support, particularly in overcoming her shyness and anxiety in group interactions. Sydney Palmer's academic standing in PE 10 is strong, with a current grade of \"A-\"."
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"Student / Caregiver / Teacher Input\",\n  \"student_name\": \"Emma Rose Callahan\",\n  \"section_plan\": [\n    {\n      \"label\": \"Student/Client/Patient Input — Student profile and interview\",\n      \"kind\": \"prose\"\n    },\n    {\n      \"label\": \"Parent/Caregiver Input — Mom\",\n      \"kind\": \"prose\"\n    },\n    {\n      \"label\": \"Parent/Caregiver Input — mother\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": [\n    {\n      \"topic\": \"Student/Client/Patient Input — Student profile and interview\",\n      \"text\": \"used to go to dad’s and do for school- Options for Youth home school\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"Student/Client/Patient Input — Student profile and interview\",\n      \"text\": \"with meds it’s fine\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"Student/Client/Patient Input — Student profile and interview\",\n      \"text\": \"My mom thinks I am depressed\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"Student/Client/Patient Input — Student profile and interview\",\n      \"text\": \"I felt really awkward at school\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"Student/Client/Patient Input — Student profile and interview\",\n      \"text\": \"my motivation is low for things that don’t interest me\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"Student/Client/Patient Input — Student profile and interview\",\n      \"text\": \"Level of cooperation: cooperative, persisted, complained about hard things, but could laugh at herself\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"Student/Client/Patient Input — Student profile and interview\",\n      \"text\": \"made errors at time due to poor attention\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"Student/Client/Patient Input — Student profile and interview\",\n      \"text\": \"I am socially awkward with everybody\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"Grade: 04 Fourth grade\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"Residence School: Oak Meadow School\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"Not Eligible for Special Education   Exiting from Special Education (returned to reg. ed/no longer eligible)\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"she presents with attention deficits associated with her diagnosis of AD/HD\",\n      \"who\": \"Mom\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"Emma Rose Callahan has a history of seasonal allergies\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"demonstrates clinically significant levels of inattention in both the home and school setting\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"ongoing concerns with difficulty sustaining attention, following directions, and focusing in the classroom\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"Clinically Significant behaviors observed in the home including learning problems, executive functioning, defiance/aggression, and struggles with peer relations\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"the IEP team considered a services including General Education, General Education with accommodations, and Specialized Academic Instruction support\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"The IEP team discussed and determined other supports for school personnel, or for student, or on behalf of the student are not needed.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — Mom\",\n      \"text\": \"Emma Rose Callahan was adopted at 19 months so information on birth is limited.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Parent/Caregiver Input — mother\",\n      \"text\": \"According to the H&D completed on 4/10/19 by mom, Emma Rose Callahan has a history of ADHD, a sensitivity to noise/touch, sleep problems, and seasonal allergies.\",\n      \"who\": \"mother\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    }\n  ],\n  \"must_mention\": [\n    {\n      \"topic\": \"medications\",\n      \"text\": \"She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night; The IEP team discussed and determined other supports for school personnel, or for student, or on behalf of the student are not needed.; She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.\"\n    },\n    {\n      \"topic\": \"developmental_history\",\n      \"text\": \"She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; Development: delays in speech and languages and suspected delays in overall cognitive development\"\n    }\n  ],\n  \"comparisons\": [\n    {\n      \"topic\": \"behavioral_concern\",\n      \"text\": \"My mom thinks I am depressed; I felt really awkward at school; my motivation is low for things that don’t interest me\"\n    },\n    {\n      \"topic\": \"behavioral_concern\",\n      \"text\": \"she presents with attention deficits associated with her diagnosis of AD/HD; demonstrates clinically significant levels of inattention in both the home and school setting; ongoing concerns with difficulty sustaining attention, following directions, and focusing in the classroom; Clinically Significant behaviors observed in the home including learning problems, executive functioning, defiance/aggression, and struggles with peer relations; According to the H&D completed on 4/10/19 by mom, Emma Rose Callahan has a history of ADHD, a sensitivity to noise/touch, sleep problems, and seasonal allergies.\"\n    },\n    {\n      \"topic\": \"trauma_history\",\n      \"text\": \"Emma Rose Callahan has RAD and ADHD.; Emma Rose Callahan was adopted at 19 months so information on birth is limited.\"\n    }\n  ],\n  \"reuse_notes\": [\n    \"This section should present this evidence again for rater_input; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in current_status_history/health_history as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in current_status_history/health_history as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in current_status_history/health_history as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in current_status_history/health_history as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in current_status_history/health_history as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in educational_history/school_history_chart as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in educational_history/school_history_chart as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in educational_history/school_history_chart as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in educational_history/school_experience as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in educational_history/school_experience as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in educational_history/school_experience as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in educational_history/intervention as topic_history.\",\n    \"This section should present this evidence again for rater_input; it already appeared in educational_history/iep_services as topic_history.\"\n  ]\n}"
+    }
+  ],
+  "case_payload": {
+    "section_label": "Student / Caregiver / Teacher Input",
+    "student_name": "Emma Rose Callahan",
+    "section_plan": [
+      {
+        "label": "Student/Client/Patient Input — Student profile and interview",
+        "kind": "prose"
+      },
+      {
+        "label": "Parent/Caregiver Input — Mom",
+        "kind": "prose"
+      },
+      {
+        "label": "Parent/Caregiver Input — mother",
+        "kind": "prose"
+      }
+    ],
+    "evidence": [
+      {
+        "topic": "Student/Client/Patient Input — Student profile and interview",
+        "text": "used to go to dad’s and do for school- Options for Youth home school",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "Student/Client/Patient Input — Student profile and interview",
+        "text": "with meds it’s fine",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "Student/Client/Patient Input — Student profile and interview",
+        "text": "My mom thinks I am depressed",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "Student/Client/Patient Input — Student profile and interview",
+        "text": "I felt really awkward at school",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "Student/Client/Patient Input — Student profile and interview",
+        "text": "my motivation is low for things that don’t interest me",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "Student/Client/Patient Input — Student profile and interview",
+        "text": "Level of cooperation: cooperative, persisted, complained about hard things, but could laugh at herself",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "Student/Client/Patient Input — Student profile and interview",
+        "text": "made errors at time due to poor attention",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "Student/Client/Patient Input — Student profile and interview",
+        "text": "I am socially awkward with everybody",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "Grade: 04 Fourth grade",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "Residence School: Oak Meadow School",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "Not Eligible for Special Education   Exiting from Special Education (returned to reg. ed/no longer eligible)",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "she presents with attention deficits associated with her diagnosis of AD/HD",
+        "who": "Mom",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "Emma Rose Callahan has a history of seasonal allergies",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "demonstrates clinically significant levels of inattention in both the home and school setting",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "ongoing concerns with difficulty sustaining attention, following directions, and focusing in the classroom",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "Clinically Significant behaviors observed in the home including learning problems, executive functioning, defiance/aggression, and struggles with peer relations",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "the IEP team considered a services including General Education, General Education with accommodations, and Specialized Academic Instruction support",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "The IEP team discussed and determined other supports for school personnel, or for student, or on behalf of the student are not needed.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — Mom",
+        "text": "Emma Rose Callahan was adopted at 19 months so information on birth is limited.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Parent/Caregiver Input — mother",
+        "text": "According to the H&D completed on 4/10/19 by mom, Emma Rose Callahan has a history of ADHD, a sensitivity to noise/touch, sleep problems, and seasonal allergies.",
+        "who": "mother",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      }
+    ],
+    "must_mention": [
+      {
+        "topic": "medications",
+        "text": "She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night; The IEP team discussed and determined other supports for school personnel, or for student, or on behalf of the student are not needed.; She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night."
+      },
+      {
+        "topic": "developmental_history",
+        "text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; Development: delays in speech and languages and suspected delays in overall cognitive development"
+      }
+    ],
+    "comparisons": [
+      {
+        "topic": "behavioral_concern",
+        "text": "My mom thinks I am depressed; I felt really awkward at school; my motivation is low for things that don’t interest me"
+      },
+      {
+        "topic": "behavioral_concern",
+        "text": "she presents with attention deficits associated with her diagnosis of AD/HD; demonstrates clinically significant levels of inattention in both the home and school setting; ongoing concerns with difficulty sustaining attention, following directions, and focusing in the classroom; Clinically Significant behaviors observed in the home including learning problems, executive functioning, defiance/aggression, and struggles with peer relations; According to the H&D completed on 4/10/19 by mom, Emma Rose Callahan has a history of ADHD, a sensitivity to noise/touch, sleep problems, and seasonal allergies."
+      },
+      {
+        "topic": "trauma_history",
+        "text": "Emma Rose Callahan has RAD and ADHD.; Emma Rose Callahan was adopted at 19 months so information on birth is limited."
+      }
+    ],
+    "reuse_notes": [
+      "This section should present this evidence again for rater_input; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in current_status_history/health_history as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in current_status_history/health_history as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in current_status_history/health_history as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in current_status_history/health_history as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in current_status_history/health_history as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in educational_history/school_history_chart as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in educational_history/school_history_chart as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in educational_history/school_history_chart as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in educational_history/school_experience as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in educational_history/school_experience as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in educational_history/school_experience as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in educational_history/intervention as topic_history.",
+      "This section should present this evidence again for rater_input; it already appeared in educational_history/iep_services as topic_history."
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+# Dev / test dependencies for week-1 (not required at runtime).
+pytest>=8.0.0

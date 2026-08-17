@@ -1,0 +1,18 @@
+{
+  "source": "Langfuse session sweep-20260807-132534-c9e20e",
+  "n": 20,
+  "hand_coded_pass": 0,
+  "note": "Open-coded 2026-08-07. JSONL is not in this tree; drop it at evals/traces/ to live-score. Do not treat these counts as a live rerun.",
+  "checks": {
+    "no_dob_age_opener": {
+      "pass": 0,
+      "n": 20,
+      "detail": "Draft opens by reciting DOB and/or computed age — 20/20"
+    },
+    "no_summarative_register": {
+      "pass": null,
+      "n": 20,
+      "detail": "Same coded category as the opener; phrase hits in taxonomy.json"
+    }
+  }
+}

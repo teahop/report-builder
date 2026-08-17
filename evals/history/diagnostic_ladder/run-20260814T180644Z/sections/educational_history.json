@@ -1,0 +1,967 @@
+{
+  "section_key": "educational_history",
+  "display_label": "Educational History",
+  "example_id": "phase1_B_educational_history_case_005",
+  "example_text_sha256": "f040296c8837e76902429bd3dd0990457cf61627d9c9b66dbfc6770c65255184",
+  "evidence_brief_sha256": "3d4315e7109a0bf433e77a94569365307350f868327437b79fbdab5a97ccc391",
+  "writer_prompt_hash": "b025b7cc03d1790f94e704c0375459dcec6a32361fa5290d05f245badaca61e9",
+  "provider": "bastion",
+  "model": "bastiongpt-auto",
+  "messages_sha256": "90ef8c86525c6d4b6429b4ed8500f0bbed52aa194ec4c9ad23d881eb914041b2",
+  "trace_alignment_status": "not_run_diagnostic",
+  "tokens": {
+    "total": 9576,
+    "prompt": 8535,
+    "completion": 1041
+  },
+  "raw_output": {
+    "blocks": [
+      {
+        "label": "School History",
+        "prose": "",
+        "table_position": true
+      },
+      {
+        "label": "School Experience",
+        "prose": "Emma Rose Callahan is currently a ninth grade student enrolled at Ridgeway High School, under the RIDGEWAY-CORDOVA Special Education Local Plan Area (SELPA). She attends through a virtual meeting format and has previously been enrolled by her parents in a private school and Options for Youth Home School. Emma Rose began formal schooling in a Chinese/English bilingual preschool setting, including Sunshine Bilingual Preschool and Bright Start Preschool, prior to entering elementary school. During her elementary years, Emma Rose attended Oak Meadow School and Creekside Oaks and was first assessed for special education services in fourth grade (Fairhaven initial IEP).\n\nEmma Rose has consistently demonstrated academic strengths in basic reading, oral reading fluency, reading comprehension, and spelling. Early assessments highlight relative strengths, such as oral reading fluency and essay composition, while math problem solving and written expression emerged as areas of need. Oral reading fluency scores were strong, with Emma Rose reading grade level text at 52 correct words per minute (CWPM) and showing accuracy gains through elementary years. She is currently reading at a seventh-grade level based on her edmentum diagnostic, and her recent diagnostic score (989) places her at the 18th national percentile. Vocabulary development and comprehension have also been noted, with a recent vocabulary quiz score of 15/25 and performance in reading literature and informational text near basic proficiency.\n\nMath fluency and numerical operations remain significant challenges. Current school reports describe ongoing areas of academic weakness in math fluency and numerical operations, supported by subtest scores in Algebra & Expressions (3/11), Fractions & Ratios (3/11), Geometry (3/10), Measurement, Data & Statistics (1/11), and Numbers & Operations (5/11). Emma Rose’s proficiency in addition, subtraction, and multiplication within 100 is relatively strong, though multi-step word problems and higher-level math reasoning tasks are inconsistent. The need for continued support in math reasoning is reflected in goal statements, and Emma Rose’s recent summative assessment indicates improvement with an 86% accuracy score.\n\nWritten expression has been a persistent area of difficulty. Emma Rose can write expository essays with emerging topic sentences and supporting details with moderate accuracy (approximately 75%). She expresses creativity in her writing, utilizing metaphors and engaging in reflective essay topics. Despite growth, she formulates responses with frequent errors in grammar, punctuation, and sentence structure, which are targeted in her IEP goals. Emma Rose’s teachers note that she is capable of summarizing articles for health and physical education and shows potential in public speaking. School staff report good attendance, ability to follow directions, and evidence of self-confidence, though she reports a personal dislike for math.\n\nEmma Rose is currently participating in SAI English and Study Skills courses, and areas of need continue to focus on math fluency, written expression, and transition planning.",
+        "table_position": false
+      },
+      {
+        "label": "Intervention",
+        "prose": "Emma Rose Callahan’s intervention history has included a range of supports tailored to her academic and social-emotional needs. Currently, she receives Specialized Academic Instruction (SAI) in Study Skills for 258 minutes each week, in addition to monthly college and career awareness services (15 minutes each). SAI support is provided in both the general education setting (with accommodations) and in a pull-out format through the Resource Specialist Program (RSP). Specialized Academic Instruction is also targeted toward math, reflecting her ongoing challenges with math fluency and reasoning.\n\nEmma Rose’s intervention plan includes support in study skills and transition. Early intervention during fourth grade included short-term counseling with the school psychologist for self-regulation, coping strategies, and transition support—meeting twice monthly for 30 minutes from May to November 2019. Current goals continue to focus on improving math fluency, written expression, and transition skills as measured by classwork and teacher records.",
+        "table_position": false
+      },
+      {
+        "label": "IEP / Special Education",
+        "prose": "An Individualized Education Program (IEP) is currently in place for Emma Rose Callahan, with a primary eligibility of Specific Learning Disability (SLD). Her IEP outlines areas of need, including math fluency, written expression, and transition skills. No 504 plan is noted as being in place. Emma’s initial IEP was developed during her fourth grade year, and she has continued to receive special education services since that time, including resource support and Specialized Academic Instruction.\n\nIEP meetings are scheduled regularly to review her progress and update her goals. Accommodations and services described in her plan, such as SAI English, study skills, and targeted math support, are provided to address her specific learning needs and to help her access the general education curriculum.",
+        "table_position": false
+      }
+    ]
+  },
+  "attached_blocks": [
+    {
+      "block_key": "school_history_chart",
+      "display_label": "School History",
+      "kind": "table_position",
+      "prose": "[SCHOOL HISTORY CHART — server-owned; do not generate cells]",
+      "offered_evidence_ids": [
+        "f_doc_11_004",
+        "f_doc_11_005",
+        "f_doc_11_007",
+        "f_doc_11_008",
+        "f_doc_11_009",
+        "f_doc_11_010",
+        "f_doc_11_013",
+        "f_doc_11_018",
+        "f_doc_11_019",
+        "f_doc_11_020",
+        "f_doc_11_021",
+        "f_doc_11_022",
+        "f_doc_11_023",
+        "f_doc_11_024",
+        "f_doc_11_035",
+        "f_doc_11_036",
+        "f_doc_11_037",
+        "f_doc_11_038",
+        "f_doc_11_039",
+        "f_doc_11_047",
+        "f_doc_11_048",
+        "f_doc_11_049",
+        "f_doc_11_050",
+        "f_doc_11_051",
+        "f_doc_11_054",
+        "f_doc_11_055",
+        "f_doc_11_056",
+        "f_doc_11_066",
+        "f_doc_11_072",
+        "f_doc_11_073",
+        "f_doc_11_074",
+        "f_doc_21_005",
+        "f_doc_21_006",
+        "f_doc_21_007",
+        "f_doc_21_008",
+        "f_doc_21_009",
+        "f_doc_21_010",
+        "f_doc_25_004",
+        "f_doc_25_005",
+        "f_doc_25_013",
+        "f_doc_25_014",
+        "f_doc_25_015",
+        "f_doc_25_016",
+        "f_doc_25_017",
+        "f_doc_25_018",
+        "f_doc_25_019",
+        "f_doc_25_020",
+        "f_doc_25_021",
+        "f_doc_25_026",
+        "f_doc_25_053",
+        "f_doc_25_054",
+        "f_doc_25_055",
+        "f_doc_25_056",
+        "f_doc_25_057",
+        "f_doc_25_058",
+        "f_doc_25_059",
+        "f_doc_25_060",
+        "f_doc_25_061",
+        "f_doc_25_062",
+        "f_doc_25_063",
+        "f_doc_25_064",
+        "f_doc_25_065",
+        "f_doc_25_066",
+        "f_doc_26_008",
+        "f_doc_26_009",
+        "f_doc_26_015"
+      ]
+    },
+    {
+      "block_key": "school_experience",
+      "display_label": "School Experience",
+      "kind": "prose",
+      "prose": "Emma Rose Callahan is currently a ninth grade student enrolled at Ridgeway High School, under the RIDGEWAY-CORDOVA Special Education Local Plan Area (SELPA). She attends through a virtual meeting format and has previously been enrolled by her parents in a private school and Options for Youth Home School. Emma Rose began formal schooling in a Chinese/English bilingual preschool setting, including Sunshine Bilingual Preschool and Bright Start Preschool, prior to entering elementary school. During her elementary years, Emma Rose attended Oak Meadow School and Creekside Oaks and was first assessed for special education services in fourth grade (Fairhaven initial IEP).\n\nEmma Rose has consistently demonstrated academic strengths in basic reading, oral reading fluency, reading comprehension, and spelling. Early assessments highlight relative strengths, such as oral reading fluency and essay composition, while math problem solving and written expression emerged as areas of need. Oral reading fluency scores were strong, with Emma Rose reading grade level text at 52 correct words per minute (CWPM) and showing accuracy gains through elementary years. She is currently reading at a seventh-grade level based on her edmentum diagnostic, and her recent diagnostic score (989) places her at the 18th national percentile. Vocabulary development and comprehension have also been noted, with a recent vocabulary quiz score of 15/25 and performance in reading literature and informational text near basic proficiency.\n\nMath fluency and numerical operations remain significant challenges. Current school reports describe ongoing areas of academic weakness in math fluency and numerical operations, supported by subtest scores in Algebra & Expressions (3/11), Fractions & Ratios (3/11), Geometry (3/10), Measurement, Data & Statistics (1/11), and Numbers & Operations (5/11). Emma Rose’s proficiency in addition, subtraction, and multiplication within 100 is relatively strong, though multi-step word problems and higher-level math reasoning tasks are inconsistent. The need for continued support in math reasoning is reflected in goal statements, and Emma Rose’s recent summative assessment indicates improvement with an 86% accuracy score.\n\nWritten expression has been a persistent area of difficulty. Emma Rose can write expository essays with emerging topic sentences and supporting details with moderate accuracy (approximately 75%). She expresses creativity in her writing, utilizing metaphors and engaging in reflective essay topics. Despite growth, she formulates responses with frequent errors in grammar, punctuation, and sentence structure, which are targeted in her IEP goals. Emma Rose’s teachers note that she is capable of summarizing articles for health and physical education and shows potential in public speaking. School staff report good attendance, ability to follow directions, and evidence of self-confidence, though she reports a personal dislike for math.\n\nEmma Rose is currently participating in SAI English and Study Skills courses, and areas of need continue to focus on math fluency, written expression, and transition planning.",
+      "offered_evidence_ids": [
+        "f_doc_11_004",
+        "f_doc_11_005",
+        "f_doc_11_007",
+        "f_doc_11_008",
+        "f_doc_11_009",
+        "f_doc_11_010",
+        "f_doc_11_013",
+        "f_doc_11_018",
+        "f_doc_11_019",
+        "f_doc_11_020",
+        "f_doc_11_021",
+        "f_doc_11_022",
+        "f_doc_11_023",
+        "f_doc_11_024",
+        "f_doc_11_035",
+        "f_doc_11_036",
+        "f_doc_11_037",
+        "f_doc_11_038",
+        "f_doc_11_039",
+        "f_doc_11_047",
+        "f_doc_11_048",
+        "f_doc_11_049",
+        "f_doc_11_050",
+        "f_doc_11_051",
+        "f_doc_11_054",
+        "f_doc_11_055",
+        "f_doc_11_056",
+        "f_doc_11_066",
+        "f_doc_11_072",
+        "f_doc_11_073",
+        "f_doc_11_074",
+        "f_doc_21_005",
+        "f_doc_21_006",
+        "f_doc_21_007",
+        "f_doc_21_008",
+        "f_doc_21_009",
+        "f_doc_21_010",
+        "f_doc_25_004",
+        "f_doc_25_005",
+        "f_doc_25_013",
+        "f_doc_25_014",
+        "f_doc_25_015",
+        "f_doc_25_016",
+        "f_doc_25_017",
+        "f_doc_25_018",
+        "f_doc_25_019",
+        "f_doc_25_020",
+        "f_doc_25_021",
+        "f_doc_25_026",
+        "f_doc_25_053",
+        "f_doc_25_054",
+        "f_doc_25_055",
+        "f_doc_25_056",
+        "f_doc_25_057",
+        "f_doc_25_058",
+        "f_doc_25_059",
+        "f_doc_25_060",
+        "f_doc_25_061",
+        "f_doc_25_062",
+        "f_doc_25_063",
+        "f_doc_25_064",
+        "f_doc_25_065",
+        "f_doc_25_066",
+        "f_doc_26_008",
+        "f_doc_26_009",
+        "f_doc_26_015"
+      ]
+    },
+    {
+      "block_key": "intervention",
+      "display_label": "Intervention",
+      "kind": "prose",
+      "prose": "Emma Rose Callahan’s intervention history has included a range of supports tailored to her academic and social-emotional needs. Currently, she receives Specialized Academic Instruction (SAI) in Study Skills for 258 minutes each week, in addition to monthly college and career awareness services (15 minutes each). SAI support is provided in both the general education setting (with accommodations) and in a pull-out format through the Resource Specialist Program (RSP). Specialized Academic Instruction is also targeted toward math, reflecting her ongoing challenges with math fluency and reasoning.\n\nEmma Rose’s intervention plan includes support in study skills and transition. Early intervention during fourth grade included short-term counseling with the school psychologist for self-regulation, coping strategies, and transition support—meeting twice monthly for 30 minutes from May to November 2019. Current goals continue to focus on improving math fluency, written expression, and transition skills as measured by classwork and teacher records.",
+      "offered_evidence_ids": [
+        "f_doc_11_017",
+        "f_doc_11_067",
+        "f_doc_11_068",
+        "f_doc_11_069",
+        "f_doc_11_070",
+        "f_doc_11_071",
+        "f_doc_11_078",
+        "f_doc_25_067",
+        "f_doc_25_068"
+      ]
+    },
+    {
+      "block_key": "iep_services",
+      "display_label": "IEP / Special Education",
+      "kind": "prose",
+      "prose": "An Individualized Education Program (IEP) is currently in place for Emma Rose Callahan, with a primary eligibility of Specific Learning Disability (SLD). Her IEP outlines areas of need, including math fluency, written expression, and transition skills. No 504 plan is noted as being in place. Emma’s initial IEP was developed during her fourth grade year, and she has continued to receive special education services since that time, including resource support and Specialized Academic Instruction.\n\nIEP meetings are scheduled regularly to review her progress and update her goals. Accommodations and services described in her plan, such as SAI English, study skills, and targeted math support, are provided to address her specific learning needs and to help her access the general education curriculum.",
+      "offered_evidence_ids": [
+        "f_doc_11_006",
+        "f_doc_11_016",
+        "f_doc_11_077",
+        "f_doc_25_006"
+      ]
+    }
+  ],
+  "offered_evidence_ids": {
+    "school_history_chart": [
+      "f_doc_11_004",
+      "f_doc_11_005",
+      "f_doc_11_007",
+      "f_doc_11_008",
+      "f_doc_11_009",
+      "f_doc_11_010",
+      "f_doc_11_013",
+      "f_doc_11_018",
+      "f_doc_11_019",
+      "f_doc_11_020",
+      "f_doc_11_021",
+      "f_doc_11_022",
+      "f_doc_11_023",
+      "f_doc_11_024",
+      "f_doc_11_035",
+      "f_doc_11_036",
+      "f_doc_11_037",
+      "f_doc_11_038",
+      "f_doc_11_039",
+      "f_doc_11_047",
+      "f_doc_11_048",
+      "f_doc_11_049",
+      "f_doc_11_050",
+      "f_doc_11_051",
+      "f_doc_11_054",
+      "f_doc_11_055",
+      "f_doc_11_056",
+      "f_doc_11_066",
+      "f_doc_11_072",
+      "f_doc_11_073",
+      "f_doc_11_074",
+      "f_doc_21_005",
+      "f_doc_21_006",
+      "f_doc_21_007",
+      "f_doc_21_008",
+      "f_doc_21_009",
+      "f_doc_21_010",
+      "f_doc_25_004",
+      "f_doc_25_005",
+      "f_doc_25_013",
+      "f_doc_25_014",
+      "f_doc_25_015",
+      "f_doc_25_016",
+      "f_doc_25_017",
+      "f_doc_25_018",
+      "f_doc_25_019",
+      "f_doc_25_020",
+      "f_doc_25_021",
+      "f_doc_25_026",
+      "f_doc_25_053",
+      "f_doc_25_054",
+      "f_doc_25_055",
+      "f_doc_25_056",
+      "f_doc_25_057",
+      "f_doc_25_058",
+      "f_doc_25_059",
+      "f_doc_25_060",
+      "f_doc_25_061",
+      "f_doc_25_062",
+      "f_doc_25_063",
+      "f_doc_25_064",
+      "f_doc_25_065",
+      "f_doc_25_066",
+      "f_doc_26_008",
+      "f_doc_26_009",
+      "f_doc_26_015"
+    ],
+    "school_experience": [
+      "f_doc_11_004",
+      "f_doc_11_005",
+      "f_doc_11_007",
+      "f_doc_11_008",
+      "f_doc_11_009",
+      "f_doc_11_010",
+      "f_doc_11_013",
+      "f_doc_11_018",
+      "f_doc_11_019",
+      "f_doc_11_020",
+      "f_doc_11_021",
+      "f_doc_11_022",
+      "f_doc_11_023",
+      "f_doc_11_024",
+      "f_doc_11_035",
+      "f_doc_11_036",
+      "f_doc_11_037",
+      "f_doc_11_038",
+      "f_doc_11_039",
+      "f_doc_11_047",
+      "f_doc_11_048",
+      "f_doc_11_049",
+      "f_doc_11_050",
+      "f_doc_11_051",
+      "f_doc_11_054",
+      "f_doc_11_055",
+      "f_doc_11_056",
+      "f_doc_11_066",
+      "f_doc_11_072",
+      "f_doc_11_073",
+      "f_doc_11_074",
+      "f_doc_21_005",
+      "f_doc_21_006",
+      "f_doc_21_007",
+      "f_doc_21_008",
+      "f_doc_21_009",
+      "f_doc_21_010",
+      "f_doc_25_004",
+      "f_doc_25_005",
+      "f_doc_25_013",
+      "f_doc_25_014",
+      "f_doc_25_015",
+      "f_doc_25_016",
+      "f_doc_25_017",
+      "f_doc_25_018",
+      "f_doc_25_019",
+      "f_doc_25_020",
+      "f_doc_25_021",
+      "f_doc_25_026",
+      "f_doc_25_053",
+      "f_doc_25_054",
+      "f_doc_25_055",
+      "f_doc_25_056",
+      "f_doc_25_057",
+      "f_doc_25_058",
+      "f_doc_25_059",
+      "f_doc_25_060",
+      "f_doc_25_061",
+      "f_doc_25_062",
+      "f_doc_25_063",
+      "f_doc_25_064",
+      "f_doc_25_065",
+      "f_doc_25_066",
+      "f_doc_26_008",
+      "f_doc_26_009",
+      "f_doc_26_015"
+    ],
+    "intervention": [
+      "f_doc_11_017",
+      "f_doc_11_067",
+      "f_doc_11_068",
+      "f_doc_11_069",
+      "f_doc_11_070",
+      "f_doc_11_071",
+      "f_doc_11_078",
+      "f_doc_25_067",
+      "f_doc_25_068"
+    ],
+    "iep_services": [
+      "f_doc_11_006",
+      "f_doc_11_016",
+      "f_doc_11_077",
+      "f_doc_25_006"
+    ]
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Draft the **Educational History** section of a psychoeducational report in the style demonstrated by the example.\n\nDevelop each labeled block in the form demonstrated by the provided example. A block may use one paragraph, several connected paragraphs, a table position, or structured interview responses when the section calls for them. Use the supplied evidence to select concrete details, organize events clearly over time, and preserve who reported second-hand information. Let the amount and shape of the evidence determine the block's depth.\n\nThe section should read as one part of a coherent report: factual, specific, accessible to families, and natural rather than formulaic.\n\nReturn the requested section content in the supplied output format.\n"
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"Educational History\",\n  \"section_plan\": [\n    {\n      \"label\": \"SCHOOL HISTORY\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": {\n    \"approved_case_id\": \"005\",\n    \"topics\": [\n      {\n        \"topic\": \"SCHOOL HISTORY\",\n        \"text\": \"Complete cumulative school records were viewed by this evaluator and are summarized as follows: Diego Fenton was a student in the Fairview City School District from kindergarten through 8th grades where he attended Green Oaks Elementary and Hartwell Middle School. Attendance was consistently good. In kindergarten and first grades he was noted to need to work on handwriting but met all other expectations. Diego Fenton received additional small group writing instruction for handwriting (letter formation and spacing) in first grade and for punctuation and handwriting in second grade. Behaviorally, Diego Fenton was noted to be socially enthusiastic about learning, but needed improvement in staying on task, following rules and focusing on precision and accuracy. He was at grade level in all areas except writing, which was slightly below. Diego Fenton met standards in third grade but continued to demonstrate attention difficulties. In fourth grade during the first trimester, in Language Arts, Diego Fenton was noted to “exhibit poor listening skills by engaging in side conversations.” There were no other concerns noted through fifth grades and all areas socially, behaviorally, and academically were rated at the proficient or basic levels. The COVID-19 Pandemic caused schools to move to distance learning during the third semester of seventh grade. Prior to lock-down, during the first two semesters, Diego Fenton did well meeting standards in World Languages, Physical Education, Speaking and Listening and Reading, but he was below grade level expectations in all other areas. Learning behaviors including work completion and utilizing feedback and resources were problematic in Language Arts and Social Studies, but more consistent in all other classes. During Distance Learning, the Physical Education teacher noted that “Interventions were provided, including sit administrator and psychologist/counselor, but the student rarely participated in DL.” Diego Fenton passed all of his classes in 8th grade but demonstrated inconsistent work completion and engagement. Diego Fenton holds a 1.41 total GPA at Meadowbrook High School where he enrolled in August 2021 as a freshman. Diego Fenton has attempted 155 credits and passed 125. He needs 135 more credits to graduate. Diego Fenton did well his first semester of freshman year, earning a 2.75 grade point average. By second semester, his GPA went down to 1.50 and included significant discipline infractions included fighting, being out of class without permission, walking around in the wetlands behind campus during school, and being disrespectful towards staff. Diego Fenton reported this was when he began using drugs and alcohol. Last year as a sophomore, Diego Fenton had a total of seven absences, 39 periods tardy, 34 period truancies and ten days suspension. Suspensions were due to profanity, possession of drug paraphernalia/ vaping products, and possession of a controlled substance on school grounds. This semester grades at first progress check were Positive Power- A, Weight Conditioning- A+, CCIM1- B and US History- C with the comment, “Showing Improvement.” The report completed by Meadowbrook High School indicated that In September of 2022, Diego Fenton was diagnosed as having Bi-Polar Disorder with Psychosis, ADHD-Combined Type, and Generalized Anxiety Disorder by Family Nurse Practitioner, Tanya Brooks, before she knew he was abusing drugs. In October 2022, Dr. Manning diagnosed Diego Fenton with Opioid Use Disorder, due to an addiction to Fentanyl. Adriana Fenton reportedly requested a 504 meeting to address the diagnoses and the possibility of implementing a Behavior Intervention Plan. After Diego Fenton was again suspended due to possession of a controlled substance, possession of drug paraphernalia/vaping products, parents signed an assessment plan. A 504 Accommodation plan for these diagnoses was put in place in December 2022 with the following accommodations: 1. Diego Fenton is allowed to take a maximum of one short break per period to the wellness center when showing signs of inattention or frustration. Usually seen by bouncing his leg or being very fidgety. Student will use a card on his desk as a non-verbal que that he needs a break. 2. Preferential seating near teacher’s primary area of instruction. 3. Non-verbal and/or subtle redirection when off-task. During student observations in two classes by the examiner, the above listed accommodations were implemented, with the exception of #1, which was not needed.\",\n        \"source\": \"approved-anonymized case 005 (signed section excerpt)\"\n      }\n    ]\n  }\n}"
+    },
+    {
+      "role": "assistant",
+      "content": "**SCHOOL HISTORY**\n\nComplete cumulative school records were viewed by this evaluator and are summarized as follows:\n\nDiego Fenton was a student in the Fairview City School District from  kindergarten through 8th grades where he attended Green Oaks Elementary and Hartwell Middle School. Attendance was consistently good. In kindergarten and first grades he was noted to need to work on handwriting but met all other expectations. Diego Fenton received additional small group writing instruction for handwriting (letter formation and spacing) in first grade and for punctuation and handwriting in second grade. Behaviorally, Diego Fenton was noted to be socially enthusiastic about learning, but needed improvement in staying on task, following rules and focusing on precision and accuracy. He was at grade level in all areas except writing, which was slightly below. Diego Fenton met standards in third grade but continued to demonstrate attention difficulties. In fourth grade during the first trimester, in Language Arts, Diego Fenton was noted to “exhibit poor listening skills by engaging in side conversations.” There were no other concerns noted through fifth grades and all areas socially, behaviorally, and academically were rated at the proficient or basic levels.\n\nThe COVID-19 Pandemic caused schools to move to distance learning during the third semester of seventh grade. Prior to lock-down, during the first two semesters, Diego Fenton did well meeting standards in World Languages, Physical Education, Speaking and Listening and Reading, but he was below grade level expectations in all other areas. Learning behaviors including work completion and utilizing feedback and resources were problematic in Language Arts and Social Studies, but more consistent in all other classes. During Distance Learning, the Physical Education teacher noted that “Interventions were provided, including sit administrator and psychologist/counselor, but the student rarely participated in DL.” Diego Fenton passed all of his classes in 8th grade but demonstrated inconsistent work completion and engagement.\n\nDiego Fenton holds a 1.41 total GPA at Meadowbrook High School where he enrolled in August 2021 as a freshman. Diego Fenton has attempted 155 credits and passed 125. He needs 135 more credits to graduate. Diego Fenton did well his first semester of freshman year, earning a 2.75 grade point average. By second semester, his GPA went down to 1.50 and included significant discipline infractions included fighting, being out of class without permission, walking around in the wetlands behind campus during school, and being disrespectful towards staff. Diego Fenton reported this was when he began using drugs and alcohol. Last year as a sophomore, Diego Fenton had a total of seven absences, 39 periods tardy, 34 period truancies and ten days suspension. Suspensions were due to profanity, possession of drug paraphernalia/ vaping products, and possession of a controlled substance on school grounds.  This semester grades at first progress check were Positive Power- A, Weight Conditioning- A+, CCIM1- B and  US History- C with the comment, “Showing Improvement.”\n\nThe report completed by Meadowbrook High School indicated that In September of 2022, Diego Fenton was diagnosed as having Bi-Polar Disorder with Psychosis, ADHD-Combined Type, and Generalized Anxiety Disorder by Family Nurse Practitioner, Tanya Brooks, before she knew he was abusing drugs. In October 2022, Dr. Manning diagnosed Diego Fenton with Opioid Use Disorder, due to an addiction to Fentanyl. Adriana Fenton reportedly requested a 504 meeting to address the diagnoses and the possibility of implementing a Behavior Intervention Plan. After Diego Fenton was again suspended due to possession of a controlled substance, possession of drug paraphernalia/vaping products, parents signed an assessment plan. A 504 Accommodation plan for these diagnoses was put in place in December 2022 with the following accommodations:\n\n1.     Diego Fenton is allowed to take a maximum of one short break per period to the wellness center when showing signs of inattention or frustration. Usually seen by bouncing his leg or being very fidgety. Student will use a card on his desk as a non-verbal que that he needs a break.\n\n2.     Preferential seating near teacher’s primary area of instruction.\n\n3.     Non-verbal and/or subtle redirection when off-task.\n\nDuring student observations in two classes by the examiner, the above listed accommodations were implemented, with the exception of #1, which was not needed."
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"Educational History\",\n  \"student_name\": \"Emma Rose Callahan\",\n  \"section_plan\": [\n    {\n      \"label\": \"School History\",\n      \"kind\": \"table_position\",\n      \"marker\": \"[SCHOOL HISTORY CHART — server-owned; do not generate cells]\"\n    },\n    {\n      \"label\": \"School Experience\",\n      \"kind\": \"prose\"\n    },\n    {\n      \"label\": \"Intervention\",\n      \"kind\": \"prose\"\n    },\n    {\n      \"label\": \"IEP / Special Education\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": [\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Grade: 09 Ninth grade\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"School/Location Ridgeway High School / Virtual Meeting\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan demonstrates academic weakness in the areas of math fluency/numerical operations\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan demonstrates academic weakness in the areas of written language\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan demonstrates academic weakness in the areas of numerical operations\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan came into FHS with SAI English and Study Skills.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Has good attendance and is able to follow directions.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan can also find an article related to health and physical education and write a summary about it.\",\n      \"who\": \"Mr. Hollis\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan's diagnostic score of 989 ranks at the 18th national percentile.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Algebra & Expressions- 3/11; Fractions & Ratios - 3/11; Geometry - 3/10; Measurement, Data, & Statistics - 1/11; Numbers & Operations - 5/11\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Reading Literature- 8/15; Reading Informational Text- 8/15\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Language and Vocabulary- 5/14\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Writing/Research: Above Standard\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"RIDGEWAY-CORDOVA SELPA\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"she is reading at a 7th grade reading level\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"she is reading at a 7th grade reading level- per the edmentum diagnostic\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"She also recently took the first vocabulary quiz and received 15/25.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Math fluency and written expression and transition are areas of need for goals.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Math fluency and written expression and transition are areas of need for goals.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan has been working on writing a 2 paragraph essay the last year and her accuracy as of May 2024 was at 75%.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Currently Emma Rose Callahan has scored an 86% in her last summative assessment.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"By October 2, 2024, given notes and prior practice, Emma Rose Callahan will solve 5 multi-step linear equations\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan understands the concept of a linear equation and can solve 5 one-step equations with whole number coefficients with at least 90% accuracy in 1/2 trials as measured by student work samples/teacher records\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan can solve 5 two-step linear equations with rational number coefficients with at least 80% accuracy in 1/2 trials as measured by student work samples/teacher records\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"By 10/02/2024, when given a writing topic and a graphic organizer, Emma Rose Callahan will write a 2 paragraph expository essay with an emerging topic sentence, 4-6 supporting sentences and a summary conclusion using appropriate grade…\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan can write a paragraph expository essay with an emerging topic sentence, 2-3 supporting sentences and a summary conclusion using appropriate grade level language and conventions with at least 70% accuracy as measured by…\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan can write a 2 paragraph expository essay with an emerging topic sentence, 3-5 supporting sentences and a summary conclusion using appropriate grade level language and conventions with at least 75% accuracy as measured by…\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"School of Attendance: Ridgeway High\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Student enrolled in private school by their parents.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan demonstrates academic weakness in the areas of math fluency/numerical operations.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan demonstrates academic weakness in the areas of written language.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Options for Youth home school\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Math get ready for Math 1 in packets\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"In my writing I like to use metaphors like a river or an animal. I wrote an essay about life and what happens when we die.\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"I listen over and over till I get the words right.\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"I think I would be good at public speaking.\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Self-confidence; does not like math\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Grade: 04 Fourth grade\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Residence School: Oak Meadow School\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan is functioning academically within the below average to average range in comparison to her same age peers. Scores in Early Reading Skills, Word Reading, Oral Reading Fluency indicate areas of relative strength.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Scores in Oral Reading Fluency indicate areas of relative strength on this assessment for Emma Rose Callahan.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Scores in Reading Comprehension indicate areas of relative strength on this assessment for Emma Rose Callahan.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Scores in Spelling indicate areas of relative strength on this assessment for Emma Rose Callahan.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Scores in Essay Composition indicate areas of relative strength on this assessment for Emma Rose Callahan.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Scores in Alphabet Writing Fluency indicate areas of relative strength on this assessment for Emma Rose Callahan.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Scores in Numerical Operations indicate areas of relative strength on this assessment for Emma Rose Callahan.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Scores in Math Problem Solving indicate areas where Emma Rose Callahan scored in the below average range on this assessment.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Scores in Math Fluency (Multiplication) indicate areas of relative strength; Scores in Math Fluency (Addition & Subtraction) indicate areas where Emma Rose Callahan scored in the below average range.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"IEP — Fairhaven initial (4th grade)\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan can read grade level text words per minute at 52 CWPM\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"answer corresponding comprehension questions with 71% accuracy\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"read the text at 70 correct words per minute\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"answer questions with 70% accuracy in 4 out of 5 opportunities\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"read the text at 85 correct words per minute\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"answer questions with 75% accuracy in 4 out of 5 opportunities\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"formulates a written response that contains fragmented or run-on sentences with errors including inappropriate subject/verb agreement, capitalization, proper punctuation, and spelling\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"write an opinion piece where she introduces the topic, states her opinion clearly, supports her opinion using facts/details from the text, and provides some sense of closure related to her opinion with no more than 8 errors in 2 out of 5…\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"write an opinion piece where she introduces the topic, states her opinion clearly, supports her opinion using facts/details from the text, and provides some sense of closure related to her opinion with no more than 6 errors in 3 out of 5…\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"add within 100 with 93% accuracy, subtract within 100 with 83% accuracy, multiply within 100 with 88% accuracy\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"She is inconsistent when asked to solve word problems using the 3 operations with more than one step.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"solve multi-step word problems containing whole numbers within 100 using addition and subtraction with 80% accuracy in 4 out of 5 opportunities\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"solve multi-step word problems containing whole numbers within 100 using addition, subtraction, and multiplication with 70% accuracy in 4 out of 5 opportunities\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"School of Attendance: Creekside Oaks\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan attends the Sunshine Bilingual Chinese/ English preschool\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"grade: Bright Start Preschool, a Chinese/English bilingual program\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Removed from biological parents care to a foster home for 2 weeks and then with current family at 19 months of age. Formally adopted by them in June of 2013.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Intervention\",\n      \"text\": \"Emma Rose Callahan will have SAI Study Skills (258 minutes x weekly) and college and career awareness (15 min monthly each).\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Intervention\",\n      \"text\": \"Specialized Academic Instruction support in Math\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Intervention\",\n      \"text\": \"General Education with accommodations\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Intervention\",\n      \"text\": \"support given in study skills\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Intervention\",\n      \"text\": \"Service: College awareness, 15 min served monthly\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Intervention\",\n      \"text\": \"Service: Career awareness, 15 min served monthly\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Intervention\",\n      \"text\": \"Service: Specialized Academic Instruction\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Intervention\",\n      \"text\": \"Emma Rose Callahan receive Specialized Academic Instruction (SAI) in the Resource Specialist Program (RSP) setting for 240 weekly minutes as a pull out service.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Intervention\",\n      \"text\": \"short-term counseling with the school psychologist/counselor to review self-regulation strategies, coping techniques, and check-in during transition for fourth grade year from 5/29/2019-11/29/2019, 2 times per month for 30 minutes in a…\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"IEP / Special Education\",\n      \"text\": \"IEP meeting scheduled; Individualized Education Program (IEP) in place\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"IEP / Special Education\",\n      \"text\": \"No mention of 504 plan in place.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"IEP / Special Education\",\n      \"text\": \"Primary Specific Learning Disability (SLD)\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"IEP / Special Education\",\n      \"text\": \"IEP in place (initial IEP)\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    }\n  ],\n  \"must_mention\": [\n    {\n      \"topic\": \"school_enrollment\",\n      \"text\": \"School/Location Ridgeway High School / Virtual Meeting; Emma Rose Callahan came into FHS with SAI English and Study Skills.; RIDGEWAY-CORDOVA SELPA; School of Attendance: Ridgeway High; Student enrolled in private school by their parents.\"\n    },\n    {\n      \"topic\": \"school_enrollment\",\n      \"text\": \"Residence School: Oak Meadow School; IEP — Fairhaven initial (4th grade); School of Attendance: Creekside Oaks\"\n    },\n    {\n      \"topic\": \"school_enrollment\",\n      \"text\": \"Emma Rose Callahan attends the Sunshine Bilingual Chinese/ English preschool; grade: Bright Start Preschool, a Chinese/English bilingual program\"\n    },\n    {\n      \"topic\": \"iep_status\",\n      \"text\": \"IEP meeting scheduled; Individualized Education Program (IEP) in place; Primary Specific Learning Disability (SLD)\"\n    },\n    {\n      \"topic\": \"math_fluency\",\n      \"text\": \"Emma Rose Callahan demonstrates academic weakness in the areas of math fluency/numerical operations; Math fluency and written expression and transition are areas of need for goals.; Emma Rose Callahan demonstrates academic weakness in the areas of math fluency/numerical operations.\"\n    },\n    {\n      \"topic\": \"written_expression\",\n      \"text\": \"Emma Rose Callahan demonstrates academic weakness in the areas of written language; Emma Rose Callahan can also find an article related to health and physical education and write a summary about it.; Writing/Research: Above Standard; Math fluency and written expression and transition are areas of need for goals.; By 10/02/2024, when given a writing topic and a graphic organizer, Emma Rose Callahan will write a 2 paragraph expository essay with an emerging topic sentence, 4-6 supporting sentences and a summary conclusion using appropriate grade…; Emma Rose Callahan demonstrates academic weakness in the areas of written language.\"\n    },\n    {\n      \"topic\": \"written_expression\",\n      \"text\": \"In my writing I like to use metaphors like a river or an animal. I wrote an essay about life and what happens when we die.; I think I would be good at public speaking.\"\n    },\n    {\n      \"topic\": \"written_expression\",\n      \"text\": \"Scores in Essay Composition indicate areas of relative strength on this assessment for Emma Rose Callahan.; formulates a written response that contains fragmented or run-on sentences with errors including inappropriate subject/verb agreement, capitalization, proper punctuation, and spelling\"\n    },\n    {\n      \"topic\": \"math_computation\",\n      \"text\": \"Emma Rose Callahan demonstrates academic weakness in the areas of numerical operations; Emma Rose Callahan's diagnostic score of 989 ranks at the 18th national percentile.; Currently Emma Rose Callahan has scored an 86% in her last summative assessment.\"\n    },\n    {\n      \"topic\": \"math_computation\",\n      \"text\": \"Scores in Numerical Operations indicate areas of relative strength on this assessment for Emma Rose Callahan.; add within 100 with 93% accuracy, subtract within 100 with 83% accuracy, multiply within 100 with 88% accuracy\"\n    },\n    {\n      \"topic\": \"intervention_tier\",\n      \"text\": \"Emma Rose Callahan will have SAI Study Skills (258 minutes x weekly) and college and career awareness (15 min monthly each).; General Education with accommodations; Service: College awareness, 15 min served monthly; Service: Career awareness, 15 min served monthly; Service: Specialized Academic Instruction\"\n    },\n    {\n      \"topic\": \"intervention_tier\",\n      \"text\": \"Emma Rose Callahan receive Specialized Academic Instruction (SAI) in the Resource Specialist Program (RSP) setting for 240 weekly minutes as a pull out service.; short-term counseling with the school psychologist/counselor to review self-regulation strategies, coping techniques, and check-in during transition for fourth grade year from 5/29/2019-11/29/2019, 2 times per month for 30 minutes in a…\"\n    },\n    {\n      \"topic\": \"math_reasoning\",\n      \"text\": \"Algebra & Expressions- 3/11; Fractions & Ratios - 3/11; Geometry - 3/10; Measurement, Data, & Statistics - 1/11; Numbers & Operations - 5/11; By October 2, 2024, given notes and prior practice, Emma Rose Callahan will solve 5 multi-step linear equations\"\n    },\n    {\n      \"topic\": \"math_reasoning\",\n      \"text\": \"Scores in Math Problem Solving indicate areas where Emma Rose Callahan scored in the below average range on this assessment.; She is inconsistent when asked to solve word problems using the 3 operations with more than one step.\"\n    },\n    {\n      \"topic\": \"basic_reading\",\n      \"text\": \"Reading Literature- 8/15; Reading Informational Text- 8/15; she is reading at a 7th grade reading level\"\n    },\n    {\n      \"topic\": \"spelling\",\n      \"text\": \"Language and Vocabulary- 5/14; She also recently took the first vocabulary quiz and received 15/25.\"\n    },\n    {\n      \"topic\": \"reading_fluency\",\n      \"text\": \"Scores in Oral Reading Fluency indicate areas of relative strength on this assessment for Emma Rose Callahan.; Emma Rose Callahan can read grade level text words per minute at 52 CWPM\"\n    },\n    {\n      \"topic\": \"reading_comprehension\",\n      \"text\": \"Scores in Reading Comprehension indicate areas of relative strength on this assessment for Emma Rose Callahan.; answer corresponding comprehension questions with 71% accuracy\"\n    }\n  ]\n}"
+    }
+  ],
+  "case_payload": {
+    "section_label": "Educational History",
+    "student_name": "Emma Rose Callahan",
+    "section_plan": [
+      {
+        "label": "School History",
+        "kind": "table_position",
+        "marker": "[SCHOOL HISTORY CHART — server-owned; do not generate cells]"
+      },
+      {
+        "label": "School Experience",
+        "kind": "prose"
+      },
+      {
+        "label": "Intervention",
+        "kind": "prose"
+      },
+      {
+        "label": "IEP / Special Education",
+        "kind": "prose"
+      }
+    ],
+    "evidence": [
+      {
+        "topic": "School Experience",
+        "text": "Grade: 09 Ninth grade",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "School/Location Ridgeway High School / Virtual Meeting",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan demonstrates academic weakness in the areas of math fluency/numerical operations",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan demonstrates academic weakness in the areas of written language",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan demonstrates academic weakness in the areas of numerical operations",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan came into FHS with SAI English and Study Skills.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Has good attendance and is able to follow directions.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan can also find an article related to health and physical education and write a summary about it.",
+        "who": "Mr. Hollis",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan's diagnostic score of 989 ranks at the 18th national percentile.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Algebra & Expressions- 3/11; Fractions & Ratios - 3/11; Geometry - 3/10; Measurement, Data, & Statistics - 1/11; Numbers & Operations - 5/11",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Reading Literature- 8/15; Reading Informational Text- 8/15",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Language and Vocabulary- 5/14",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Writing/Research: Above Standard",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "RIDGEWAY-CORDOVA SELPA",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "she is reading at a 7th grade reading level",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "she is reading at a 7th grade reading level- per the edmentum diagnostic",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "She also recently took the first vocabulary quiz and received 15/25.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Math fluency and written expression and transition are areas of need for goals.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Math fluency and written expression and transition are areas of need for goals.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan has been working on writing a 2 paragraph essay the last year and her accuracy as of May 2024 was at 75%.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Currently Emma Rose Callahan has scored an 86% in her last summative assessment.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "By October 2, 2024, given notes and prior practice, Emma Rose Callahan will solve 5 multi-step linear equations",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan understands the concept of a linear equation and can solve 5 one-step equations with whole number coefficients with at least 90% accuracy in 1/2 trials as measured by student work samples/teacher records",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan can solve 5 two-step linear equations with rational number coefficients with at least 80% accuracy in 1/2 trials as measured by student work samples/teacher records",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "By 10/02/2024, when given a writing topic and a graphic organizer, Emma Rose Callahan will write a 2 paragraph expository essay with an emerging topic sentence, 4-6 supporting sentences and a summary conclusion using appropriate grade…",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan can write a paragraph expository essay with an emerging topic sentence, 2-3 supporting sentences and a summary conclusion using appropriate grade level language and conventions with at least 70% accuracy as measured by…",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan can write a 2 paragraph expository essay with an emerging topic sentence, 3-5 supporting sentences and a summary conclusion using appropriate grade level language and conventions with at least 75% accuracy as measured by…",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "School of Attendance: Ridgeway High",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Student enrolled in private school by their parents.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan demonstrates academic weakness in the areas of math fluency/numerical operations.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan demonstrates academic weakness in the areas of written language.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Options for Youth home school",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Math get ready for Math 1 in packets",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "School Experience",
+        "text": "In my writing I like to use metaphors like a river or an animal. I wrote an essay about life and what happens when we die.",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "School Experience",
+        "text": "I listen over and over till I get the words right.",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "School Experience",
+        "text": "I think I would be good at public speaking.",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Self-confidence; does not like math",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Grade: 04 Fourth grade",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Residence School: Oak Meadow School",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan is functioning academically within the below average to average range in comparison to her same age peers. Scores in Early Reading Skills, Word Reading, Oral Reading Fluency indicate areas of relative strength.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Scores in Oral Reading Fluency indicate areas of relative strength on this assessment for Emma Rose Callahan.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Scores in Reading Comprehension indicate areas of relative strength on this assessment for Emma Rose Callahan.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Scores in Spelling indicate areas of relative strength on this assessment for Emma Rose Callahan.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Scores in Essay Composition indicate areas of relative strength on this assessment for Emma Rose Callahan.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Scores in Alphabet Writing Fluency indicate areas of relative strength on this assessment for Emma Rose Callahan.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Scores in Numerical Operations indicate areas of relative strength on this assessment for Emma Rose Callahan.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Scores in Math Problem Solving indicate areas where Emma Rose Callahan scored in the below average range on this assessment.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Scores in Math Fluency (Multiplication) indicate areas of relative strength; Scores in Math Fluency (Addition & Subtraction) indicate areas where Emma Rose Callahan scored in the below average range.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "IEP — Fairhaven initial (4th grade)",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan can read grade level text words per minute at 52 CWPM",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "answer corresponding comprehension questions with 71% accuracy",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "read the text at 70 correct words per minute",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "answer questions with 70% accuracy in 4 out of 5 opportunities",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "read the text at 85 correct words per minute",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "answer questions with 75% accuracy in 4 out of 5 opportunities",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "formulates a written response that contains fragmented or run-on sentences with errors including inappropriate subject/verb agreement, capitalization, proper punctuation, and spelling",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "write an opinion piece where she introduces the topic, states her opinion clearly, supports her opinion using facts/details from the text, and provides some sense of closure related to her opinion with no more than 8 errors in 2 out of 5…",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "write an opinion piece where she introduces the topic, states her opinion clearly, supports her opinion using facts/details from the text, and provides some sense of closure related to her opinion with no more than 6 errors in 3 out of 5…",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "add within 100 with 93% accuracy, subtract within 100 with 83% accuracy, multiply within 100 with 88% accuracy",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "She is inconsistent when asked to solve word problems using the 3 operations with more than one step.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "solve multi-step word problems containing whole numbers within 100 using addition and subtraction with 80% accuracy in 4 out of 5 opportunities",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "solve multi-step word problems containing whole numbers within 100 using addition, subtraction, and multiplication with 70% accuracy in 4 out of 5 opportunities",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "School of Attendance: Creekside Oaks",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan attends the Sunshine Bilingual Chinese/ English preschool",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "School Experience",
+        "text": "grade: Bright Start Preschool, a Chinese/English bilingual program",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Removed from biological parents care to a foster home for 2 weeks and then with current family at 19 months of age. Formally adopted by them in June of 2013.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Intervention",
+        "text": "Emma Rose Callahan will have SAI Study Skills (258 minutes x weekly) and college and career awareness (15 min monthly each).",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Intervention",
+        "text": "Specialized Academic Instruction support in Math",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Intervention",
+        "text": "General Education with accommodations",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Intervention",
+        "text": "support given in study skills",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Intervention",
+        "text": "Service: College awareness, 15 min served monthly",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Intervention",
+        "text": "Service: Career awareness, 15 min served monthly",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Intervention",
+        "text": "Service: Specialized Academic Instruction",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Intervention",
+        "text": "Emma Rose Callahan receive Specialized Academic Instruction (SAI) in the Resource Specialist Program (RSP) setting for 240 weekly minutes as a pull out service.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Intervention",
+        "text": "short-term counseling with the school psychologist/counselor to review self-regulation strategies, coping techniques, and check-in during transition for fourth grade year from 5/29/2019-11/29/2019, 2 times per month for 30 minutes in a…",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "IEP / Special Education",
+        "text": "IEP meeting scheduled; Individualized Education Program (IEP) in place",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "IEP / Special Education",
+        "text": "No mention of 504 plan in place.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "IEP / Special Education",
+        "text": "Primary Specific Learning Disability (SLD)",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "IEP / Special Education",
+        "text": "IEP in place (initial IEP)",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      }
+    ],
+    "must_mention": [
+      {
+        "topic": "school_enrollment",
+        "text": "School/Location Ridgeway High School / Virtual Meeting; Emma Rose Callahan came into FHS with SAI English and Study Skills.; RIDGEWAY-CORDOVA SELPA; School of Attendance: Ridgeway High; Student enrolled in private school by their parents."
+      },
+      {
+        "topic": "school_enrollment",
+        "text": "Residence School: Oak Meadow School; IEP — Fairhaven initial (4th grade); School of Attendance: Creekside Oaks"
+      },
+      {
+        "topic": "school_enrollment",
+        "text": "Emma Rose Callahan attends the Sunshine Bilingual Chinese/ English preschool; grade: Bright Start Preschool, a Chinese/English bilingual program"
+      },
+      {
+        "topic": "iep_status",
+        "text": "IEP meeting scheduled; Individualized Education Program (IEP) in place; Primary Specific Learning Disability (SLD)"
+      },
+      {
+        "topic": "math_fluency",
+        "text": "Emma Rose Callahan demonstrates academic weakness in the areas of math fluency/numerical operations; Math fluency and written expression and transition are areas of need for goals.; Emma Rose Callahan demonstrates academic weakness in the areas of math fluency/numerical operations."
+      },
+      {
+        "topic": "written_expression",
+        "text": "Emma Rose Callahan demonstrates academic weakness in the areas of written language; Emma Rose Callahan can also find an article related to health and physical education and write a summary about it.; Writing/Research: Above Standard; Math fluency and written expression and transition are areas of need for goals.; By 10/02/2024, when given a writing topic and a graphic organizer, Emma Rose Callahan will write a 2 paragraph expository essay with an emerging topic sentence, 4-6 supporting sentences and a summary conclusion using appropriate grade…; Emma Rose Callahan demonstrates academic weakness in the areas of written language."
+      },
+      {
+        "topic": "written_expression",
+        "text": "In my writing I like to use metaphors like a river or an animal. I wrote an essay about life and what happens when we die.; I think I would be good at public speaking."
+      },
+      {
+        "topic": "written_expression",
+        "text": "Scores in Essay Composition indicate areas of relative strength on this assessment for Emma Rose Callahan.; formulates a written response that contains fragmented or run-on sentences with errors including inappropriate subject/verb agreement, capitalization, proper punctuation, and spelling"
+      },
+      {
+        "topic": "math_computation",
+        "text": "Emma Rose Callahan demonstrates academic weakness in the areas of numerical operations; Emma Rose Callahan's diagnostic score of 989 ranks at the 18th national percentile.; Currently Emma Rose Callahan has scored an 86% in her last summative assessment."
+      },
+      {
+        "topic": "math_computation",
+        "text": "Scores in Numerical Operations indicate areas of relative strength on this assessment for Emma Rose Callahan.; add within 100 with 93% accuracy, subtract within 100 with 83% accuracy, multiply within 100 with 88% accuracy"
+      },
+      {
+        "topic": "intervention_tier",
+        "text": "Emma Rose Callahan will have SAI Study Skills (258 minutes x weekly) and college and career awareness (15 min monthly each).; General Education with accommodations; Service: College awareness, 15 min served monthly; Service: Career awareness, 15 min served monthly; Service: Specialized Academic Instruction"
+      },
+      {
+        "topic": "intervention_tier",
+        "text": "Emma Rose Callahan receive Specialized Academic Instruction (SAI) in the Resource Specialist Program (RSP) setting for 240 weekly minutes as a pull out service.; short-term counseling with the school psychologist/counselor to review self-regulation strategies, coping techniques, and check-in during transition for fourth grade year from 5/29/2019-11/29/2019, 2 times per month for 30 minutes in a…"
+      },
+      {
+        "topic": "math_reasoning",
+        "text": "Algebra & Expressions- 3/11; Fractions & Ratios - 3/11; Geometry - 3/10; Measurement, Data, & Statistics - 1/11; Numbers & Operations - 5/11; By October 2, 2024, given notes and prior practice, Emma Rose Callahan will solve 5 multi-step linear equations"
+      },
+      {
+        "topic": "math_reasoning",
+        "text": "Scores in Math Problem Solving indicate areas where Emma Rose Callahan scored in the below average range on this assessment.; She is inconsistent when asked to solve word problems using the 3 operations with more than one step."
+      },
+      {
+        "topic": "basic_reading",
+        "text": "Reading Literature- 8/15; Reading Informational Text- 8/15; she is reading at a 7th grade reading level"
+      },
+      {
+        "topic": "spelling",
+        "text": "Language and Vocabulary- 5/14; She also recently took the first vocabulary quiz and received 15/25."
+      },
+      {
+        "topic": "reading_fluency",
+        "text": "Scores in Oral Reading Fluency indicate areas of relative strength on this assessment for Emma Rose Callahan.; Emma Rose Callahan can read grade level text words per minute at 52 CWPM"
+      },
+      {
+        "topic": "reading_comprehension",
+        "text": "Scores in Reading Comprehension indicate areas of relative strength on this assessment for Emma Rose Callahan.; answer corresponding comprehension questions with 71% accuracy"
+      }
+    ]
+  }
+}

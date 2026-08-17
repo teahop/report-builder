@@ -1,0 +1,1 @@
+{"brief_dispositions":[{"canonical_fact_id":null,"destinations":["current_status_history/health_history"],"fact_id":"f_syn_001","kind":"selected","reason":null,"routed_to":null},{"canonical_fact_id":null,"destinations":["current_status_history/health_history","rater_input/caregiver_input:parent_a"],"fact_id":"f_syn_002","kind":"selected","reason":null,"routed_to":null}]}

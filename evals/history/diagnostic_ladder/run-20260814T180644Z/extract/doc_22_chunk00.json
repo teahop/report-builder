@@ -1,0 +1,32 @@
+{
+  "source_id": "doc_22",
+  "schema": "SourceExtraction",
+  "temperature": 0.0,
+  "user_sha256": "56d25597d65ceee92aae47668efacbf395b145246f24381eb53f53b7253e3abe",
+  "raw_text": "{\n  \"facts\": [\n    {\n      \"subject\": \"child\",\n      \"predicate\": \"legal_name\",\n      \"proposed_predicate\": null,\n      \"value\": \"Emma Rose Callahan\",\n      \"value_text\": \"Client’s child, Emma Rose Callahan\",\n      \"qualifier\": null,\n      \"assertion\": \"asserted\",\n      \"reporter\": null,\n      \"life_stage\": \"current\",\n      \"grade\": null,\n      \"confidence\": \"stated\",\n      \"as_of_date\": null,\n      \"valence\": \"neutral\",\n      \"source_section\": null\n    }\n  ]\n}",
+  "parsed": {
+    "facts": [
+      {
+        "subject": "child",
+        "predicate": "legal_name",
+        "proposed_predicate": null,
+        "value": "Emma Rose Callahan",
+        "value_text": "Client’s child, Emma Rose Callahan",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": null,
+        "valence": "neutral",
+        "source_section": null
+      }
+    ]
+  },
+  "tokens": {
+    "total": 7635,
+    "prompt": 7504,
+    "completion": 131
+  }
+}

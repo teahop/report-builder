@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TJ's test service for MH</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 56rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; color: #1a1a1a; background: #fff; }
+    h1 { font-size: 1.25rem; font-weight: 600; }
+    h2 { font-size: 1.05rem; font-weight: 600; margin-top: 2rem; }
+    h3 { font-size: 0.95rem; font-weight: 600; margin: 1rem 0 0.35rem; }
+    h4 { font-size: 0.85rem; font-weight: 600; margin: 0.5rem 0 0.25rem; color: #2a6f6f; }
+    .badge {
+      display: inline-block;
+      margin: 0 0 0.75rem;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1a4f4f;
+      background: #d8efef;
+      border-radius: 4px;
+    }
+    .ascii {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85rem;
+      line-height: 1.15;
+      white-space: pre;
+      color: #2a6f6f;
+      margin: 1.25rem 0;
+      overflow-x: auto;
+    }
+    ul { padding-left: 1.2rem; margin: 0.25rem 0; }
+    code { background: #f3f3f3; padding: 0.1em 0.35em; border-radius: 3px; }
+    .try {
+      margin-top: 1.5rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid #d8e3e3;
+      border-radius: 8px;
+      background: #f7fbfb;
+    }
+    .try p.hint { color: #444; font-size: 0.95rem; margin-top: 0; }
+    label { display: block; font-weight: 600; margin: 0.75rem 0 0.35rem; }
+    .fields {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .fields label { margin-top: 0; }
+    .case-header {
+      margin: 0.75rem 0 0.25rem;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid #c5d6d6;
+      border-radius: 6px;
+      background: #fff;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+      gap: 0.65rem 1rem;
+    }
+    .case-header.empty {
+      color: #666;
+      font-size: 0.95rem;
+      display: block;
+    }
+    .case-header .case-field-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #2a6f6f;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.15rem;
+    }
+    .case-header .case-field-value {
+      font-size: 0.95rem;
+    }
+    input[type="text"], input[type="date"], select, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      font: inherit;
+      padding: 0.55rem 0.65rem;
+      border: 1px solid #b8c9c9;
+      border-radius: 6px;
+      background: #fff;
+      color: #1a1a1a;
+    }
+    textarea { min-height: 6rem; line-height: 1.45; resize: vertical; }
+    .source-card {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      border: 1px solid #c5d6d6;
+      border-radius: 6px;
+      background: #fff;
+    }
+    .source-card .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.35rem;
+    }
+    .source-card .card-head span { font-weight: 600; font-size: 0.9rem; }
+    .ghost {
+      background: transparent;
+      color: #2a6f6f;
+      border: 1px solid #2a6f6f;
+    }
+    .ghost.danger { color: #a33; border-color: #a33; }
+    .row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 0.75rem; }
+    .row label.chk { font-weight: 500; display: inline-flex; gap: 0.4rem; align-items: center; margin: 0; }
+    button {
+      background: #2a6f6f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.55rem 1rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+    button:disabled { opacity: 0.6; cursor: wait; }
+    #status { font-size: 0.9rem; color: #555; }
+    #status.error { color: #a33; }
+    .answer {
+      margin-top: 0.75rem;
+      padding: 0.9rem 1rem;
+      background: #fff;
+      border: 1px solid #d8e3e3;
+      border-radius: 6px;
+      white-space: pre-wrap;
+      min-height: 3rem;
+      color: #1a1a1a;
+    }
+    .panel {
+      margin-top: 0.5rem;
+      padding: 0.75rem 0.9rem;
+      background: #fff;
+      border: 1px solid #d8e3e3;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: #1a1a1a;
+    }
+    .panel.empty { color: #777; }
+    .panel .cite { color: #555; font-size: 0.85rem; }
+    .stage {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid #c5d6d6;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .stage .stage-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #2a6f6f;
+      margin-bottom: 0.35rem;
+    }
+    .conflict-item { margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid #e8eeee; }
+    .conflict-item:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .meta { font-size: 0.9rem; color: #555; margin-top: 0.5rem; }
+    details { margin-top: 0.75rem; }
+    details summary { cursor: pointer; color: #2a6f6f; font-weight: 500; }
+    pre.out {
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      background: #111;
+      color: #e8f0e8;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.75rem;
+      line-height: 1.35;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .pipe { font-family: ui-monospace, monospace; font-size: 0.85rem; color: #2a6f6f; margin: 0.5rem 0 0; }
+    .ingest-box { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed #c5d6d6; }
+  </style>
+</head>
+<body>
+  <pre class="ascii" aria-hidden="true">
+      .--.
+     /  o o\     ~ scribble scribble ~
+    |   &gt;  |        (synthetic only)
+     \  --/
+    .-'++++'-.
+   /  NOTES  \
+   | ~~~~    |
+   | ~~~~ .. |
+   '---------'
+      |  |
+     ======
+  </pre>
+  <p class="badge" id="buildBadge">staged pipeline · extract → conflicts → briefs → /draft/history</p>
+  <h1>Welcome to TJ's test service for MH.</h1>
+  <p>Here are the things you can look at and try:</p>
+  <ul>
+    <li><a href="/health">/health</a> — liveness</li>
+    <li><a href="/docs">/docs</a> — OpenAPI (<code>/extract</code>, <code>/conflicts</code>, <code>/draft/history</code>, <code>/ask</code>, <code>/ingest</code>)</li>
+    <li><a href="/memory">/memory</a> — voice-gate store and write-then-recall (read-only; no API key)</li>
+    <li>Pipeline below — intermediate ledger / conflicts / gaps visible <em>before</em> prose</li>
+  </ul>
+
+  <section class="try" aria-labelledby="try-title">
+    <h2 id="try-title">Draft from dated sources</h2>
+    <p class="hint">
+      Extraction, comparison, and prose are separate stages. Run the pipeline to see the ledger,
+      conflicts/variance, and gap report before the narrative. Synthetic data only.
+    </p>
+    <p class="pipe">sources → /extract → LEDGER → /conflicts → briefs → /draft/history → prose</p>
+
+    <p class="hint" id="emptyHint">
+      Session starts empty. Load a fixture to set the case (name / DOB / evaluation date come from the fixture).
+    </p>
+
+    <div class="case-header empty" id="caseHeader">No case loaded — pick a fixture.</div>
+
+    <div class="row">
+      <button type="button" class="ghost" id="loadHistoryBtn">Load history fixture</button>
+      <button type="button" class="ghost" id="loadHealthBtn">Load health-conflict fixture</button>
+      <button type="button" class="ghost" id="loadFixture001Btn">Load fixture_001 (E.C.)</button>
+      <button type="button" class="ghost" id="addSourceBtn">Add source</button>
+      <button type="button" class="ghost danger" id="clearBtn">Clear</button>
+    </div>
+
+    <div id="sources"></div>
+    <p class="hint" id="sourcesEmptyHint" style="margin-top:0.5rem">No sources yet.</p>
+
+    <div class="ingest-box">
+      <h3>Ingest (classify raw text — confirm before use)</h3>
+      <textarea id="ingestText" placeholder="Paste a raw document to classify source_type / date / label…"></textarea>
+      <div class="row">
+        <button type="button" class="ghost" id="ingestBtn">Classify with /ingest</button>
+        <span id="ingestStatus"></span>
+      </div>
+      <div class="panel empty" id="ingestPanel">(suggestion will show here — confirm before adding)</div>
+    </div>
+
+    <div class="row">
+      <button type="button" id="runBtn">Run pipeline</button>
+      <button type="button" class="ghost" id="askBtn">Run /ask only (course contract)</button>
+      <span id="status">Empty — load a fixture to start.</span>
+    </div>
+
+    <div class="stage" id="stageExtract">
+      <div class="stage-label">1 · Extract — ledger &amp; gap report</div>
+      <div class="panel empty" id="ledgerPanel">(run pipeline)</div>
+      <h4>Gap report</h4>
+      <div class="panel empty" id="gapPanel">(run pipeline)</div>
+      <h4>Timelines (as_of)</h4>
+      <div class="panel empty" id="timelinePanel">(run pipeline)</div>
+      <p class="meta" id="extractMeta"></p>
+    </div>
+
+    <div class="stage" id="stageConflicts">
+      <div class="stage-label">2 · Conflicts &amp; variance</div>
+      <h4>Record conflicts</h4>
+      <div class="panel empty" id="conflictsPanel">(run pipeline)</div>
+      <h4>Perspectival variance</h4>
+      <div class="panel empty" id="variancePanel">(run pipeline)</div>
+    </div>
+
+    <div class="stage" id="stageBriefs">
+      <div class="stage-label">3 · Case briefs (compiled, no model)</div>
+      <div class="panel empty" id="briefsPanel">(briefs will show here)</div>
+      <p class="meta" id="briefsMeta"></p>
+    </div>
+
+    <div class="stage" id="stageDraft">
+      <div class="stage-label">4 · Draft — History package</div>
+      <div class="answer" id="answer">(draft will show up here)</div>
+      <h4>Voice gate</h4>
+      <div class="panel empty" id="voicePanel">(voice gate will show here)</div>
+      <h4>Attributed statements</h4>
+      <div class="panel empty" id="factsPanel">(facts will show here)</div>
+      <p class="meta" id="meta"></p>
+    </div>
+
+    <details>
+      <summary>Show full JSON (last response)</summary>
+      <pre class="out" id="result"></pre>
+    </details>
+  </section>
+
+  <p>Synthetic / de-identified data only. Do not paste real client records.</p>
+
+  <script>
+    const SOURCE_TYPES = [
+      "assessment", "school", "parent", "teacher", "observation", "prior_eval", "other"
+    ];
+    const caseHeaderEl = document.getElementById("caseHeader");
+    const sourcesEl = document.getElementById("sources");
+    const runBtn = document.getElementById("runBtn");
+    const askBtn = document.getElementById("askBtn");
+    const statusEl = document.getElementById("status");
+    const answerEl = document.getElementById("answer");
+    const factsPanel = document.getElementById("factsPanel");
+    const voicePanel = document.getElementById("voicePanel");
+    const briefsPanel = document.getElementById("briefsPanel");
+    const briefsMeta = document.getElementById("briefsMeta");
+    const conflictsPanel = document.getElementById("conflictsPanel");
+    const variancePanel = document.getElementById("variancePanel");
+    const ledgerPanel = document.getElementById("ledgerPanel");
+    const gapPanel = document.getElementById("gapPanel");
+    const timelinePanel = document.getElementById("timelinePanel");
+    const extractMeta = document.getElementById("extractMeta");
+    const metaEl = document.getElementById("meta");
+    const resultEl = document.getElementById("result");
+    const ingestText = document.getElementById("ingestText");
+    const ingestBtn = document.getElementById("ingestBtn");
+    const ingestStatus = document.getElementById("ingestStatus");
+    const ingestPanel = document.getElementById("ingestPanel");
+    let sourceSeq = 0;
+    let lastIngest = null;
+    /** @type {{name: string, dob: string, evaluation_date: string} | null} */
+    let currentChild = null;
+
+    function el(tag, attrs, children) {
+      const node = document.createElement(tag);
+      if (attrs) {
+        Object.entries(attrs).forEach(([k, v]) => {
+          if (k === "className" || k === "class") node.className = v;
+          else if (k === "text") node.textContent = v;
+          else if (k === "value") node.value = v;
+          else node.setAttribute(k, v);
+        });
+      }
+      (children || []).forEach((child) => {
+        if (child == null) return;
+        node.appendChild(typeof child === "string" ? document.createTextNode(child) : child);
+      });
+      return node;
+    }
+
+    function field(labelText, control) {
+      return el("div", null, [el("label", { text: labelText }), control]);
+    }
+
+    function sourceCard(data) {
+      data = data || {};
+      sourceSeq += 1;
+      const idInput = el("input", { class: "s-id", type: "text" });
+      idInput.value = data.id || "";
+      idInput.placeholder = "nurse-health-2024";
+      const typeSel = el("select", { class: "s-type" });
+      SOURCE_TYPES.forEach((t) => typeSel.appendChild(el("option", { value: t, text: t })));
+      typeSel.value = data.type || "other";
+      const dateInput = el("input", { class: "s-date", type: "date" });
+      dateInput.value = data.date || "";
+      const labelInput = el("input", { class: "s-label", type: "text" });
+      labelInput.value = data.label || "";
+      const contentArea = el("textarea", { class: "s-content" });
+      contentArea.value = data.content || "";
+      const removeBtn = el("button", { type: "button", className: "ghost danger", text: "Remove" });
+      const card = el("div", { className: "source-card" });
+      card.dataset.docClass = data.doc_class || "narrative";
+      removeBtn.addEventListener("click", () => {
+        card.remove();
+        updateSourcesEmptyHint();
+      });
+      const docClassNote =
+        data.doc_class === "score_report"
+          ? el("span", {
+              text: "score_report (skipped for history extract)",
+              style: "font-size:0.8rem;color:#666;font-weight:500;",
+            })
+          : el("span", { text: "Source" });
+      card.append(
+        el("div", { className: "card-head" }, [docClassNote, removeBtn]),
+        el("div", { className: "fields" }, [
+          field("Id", idInput),
+          field("Type", typeSel),
+          field("Date", dateInput),
+          field("Label", labelInput),
+        ]),
+        el("label", { text: "Content" }),
+        contentArea,
+      );
+      return card;
+    }
+
+    function clearSources() { sourcesEl.innerHTML = ""; }
+    function updateSourcesEmptyHint() {
+      const hint = document.getElementById("sourcesEmptyHint");
+      if (hint) hint.style.display = sourcesEl.children.length ? "none" : "block";
+    }
+    function renderCaseHeader(child) {
+      currentChild = child
+        ? {
+            name: child.name || "",
+            dob: child.dob || "",
+            evaluation_date: child.evaluation_date || "",
+          }
+        : null;
+      caseHeaderEl.innerHTML = "";
+      if (!currentChild || !currentChild.name) {
+        caseHeaderEl.className = "case-header empty";
+        caseHeaderEl.textContent = "No case loaded — pick a fixture.";
+        return;
+      }
+      caseHeaderEl.className = "case-header";
+      const fieldBlock = (label, value) =>
+        el("div", null, [
+          el("span", { className: "case-field-label", text: label }),
+          el("span", { className: "case-field-value", text: value || "—" }),
+        ]);
+      caseHeaderEl.append(
+        fieldBlock("Name (synthetic)", currentChild.name),
+        fieldBlock("Date of birth", currentChild.dob),
+        fieldBlock("Evaluation date", currentChild.evaluation_date),
+      );
+    }
+    function resetPipelinePanels() {
+      setEmpty(ledgerPanel, "(run pipeline)");
+      setEmpty(gapPanel, "(run pipeline)");
+      setEmpty(timelinePanel, "(run pipeline)");
+      setEmpty(conflictsPanel, "(run pipeline)");
+      setEmpty(variancePanel, "(run pipeline)");
+      setEmpty(factsPanel, "(facts will show here)");
+      answerEl.textContent = "(draft will show up here)";
+      extractMeta.textContent = "";
+      metaEl.textContent = "";
+      resultEl.textContent = "";
+      ingestText.value = "";
+      ingestStatus.textContent = "";
+      setEmpty(ingestPanel, "(suggestion will show here — confirm before adding)");
+      lastIngest = null;
+    }
+    function clearSession() {
+      renderCaseHeader(null);
+      clearSources();
+      sourceSeq = 0;
+      resetPipelinePanels();
+      statusEl.className = "";
+      statusEl.textContent = "Empty — load a fixture to start.";
+      updateSourcesEmptyHint();
+    }
+    function applyFixture(data) {
+      renderCaseHeader(data.child);
+      clearSources();
+      (data.sources || []).forEach((s) => sourcesEl.appendChild(sourceCard(s)));
+      resetPipelinePanels();
+      statusEl.className = "";
+      statusEl.textContent = "Fixture loaded — " + (data.sources || []).length + " source(s).";
+      updateSourcesEmptyHint();
+    }
+    async function loadFixture(name) {
+      statusEl.textContent = "Loading fixture…";
+      const res = await fetch("/fixtures/" + name);
+      if (!res.ok) throw new Error("Could not load fixture " + name);
+      applyFixture(await res.json());
+    }
+
+    document.getElementById("addSourceBtn").addEventListener("click", () => {
+      sourcesEl.appendChild(sourceCard({
+        id: "source-" + (sourceSeq + 1),
+        type: "other",
+        date: (currentChild && currentChild.evaluation_date) || "",
+        label: "",
+        content: "",
+        doc_class: "narrative",
+      }));
+      updateSourcesEmptyHint();
+    });
+    document.getElementById("loadHistoryBtn").addEventListener("click", () => {
+      loadFixture("synthetic_history_case.json").catch((err) => {
+        statusEl.className = "error";
+        statusEl.textContent = String(err.message || err);
+      });
+    });
+    document.getElementById("loadHealthBtn").addEventListener("click", () => {
+      loadFixture("synthetic_health_conflict_case.json").catch((err) => {
+        statusEl.className = "error";
+        statusEl.textContent = String(err.message || err);
+      });
+    });
+    document.getElementById("loadFixture001Btn").addEventListener("click", () => {
+      loadFixture("fixture_001.json").catch((err) => {
+        statusEl.className = "error";
+        statusEl.textContent = String(err.message || err);
+      });
+    });
+    document.getElementById("clearBtn").addEventListener("click", () => clearSession());
+    // Start empty — no auto-loaded fixture.
+    clearSession();
+
+    function collectSources() {
+      const sources = [...sourcesEl.querySelectorAll(".source-card")].map((card) => ({
+        id: card.querySelector(".s-id").value.trim(),
+        type: card.querySelector(".s-type").value,
+        date: card.querySelector(".s-date").value,
+        label: card.querySelector(".s-label").value.trim(),
+        content: card.querySelector(".s-content").value.trim(),
+        doc_class: card.dataset.docClass || "narrative",
+      }));
+      if (!sources.length) throw new Error("Add at least one source.");
+      for (const s of sources) {
+        if (!s.id || !s.date || !s.label || !s.content) {
+          throw new Error("Each source needs id, date, label, and content.");
+        }
+      }
+      return sources;
+    }
+
+    function caseBody() {
+      if (!currentChild || !currentChild.dob || !currentChild.evaluation_date) {
+        throw new Error("Load a fixture first (case name / DOB / evaluation date come from the fixture).");
+      }
+      return {
+        confirm_synthetic: true,
+        section: "history",
+        child: {
+          name: currentChild.name,
+          dob: currentChild.dob,
+          evaluation_date: currentChild.evaluation_date,
+        },
+        sources: collectSources(),
+        model: "gpt-4o-mini",
+      };
+    }
+
+    function setEmpty(panel, msg) {
+      panel.className = "panel empty";
+      panel.textContent = msg;
+    }
+
+    function renderLedger(facts) {
+      if (!facts || !facts.length) {
+        setEmpty(ledgerPanel, "(no facts)");
+        return;
+      }
+      ledgerPanel.className = "panel";
+      ledgerPanel.innerHTML = "";
+      const list = el("ul");
+      facts.forEach((f) => {
+        const line =
+          (f.id || "?") + "  " + (f.subject || "") + "/" + (f.predicate || "") +
+          (f.qualifier ? ":" + f.qualifier : "") +
+          "  " + (f.assertion || "") + "=" + JSON.stringify(f.value) +
+          "  @" + (f.as_of_date || f.source_date || "?") +
+          "  (" + (f.source_id || "?") + ")";
+        list.appendChild(el("li", { text: line }));
+      });
+      ledgerPanel.appendChild(list);
+    }
+
+    function renderGap(gap) {
+      const sections = (gap && gap.sections) || [];
+      if (!sections.length) {
+        setEmpty(gapPanel, "(no gap report)");
+        return;
+      }
+      gapPanel.className = "panel";
+      gapPanel.innerHTML = "";
+      sections.forEach((s) => {
+        gapPanel.appendChild(el("div", {
+          text: s.section + " · available=" + s.available +
+            " · empty stages: " + ((s.life_stages_empty || []).join(", ") || "none") +
+            " · missing predicates: " + (s.predicates_missing || []).length,
+        }));
+        const fresh = (s.predicate_freshness || []).filter((r) => r.state !== "current");
+        if (fresh.length) {
+          const ul = el("ul");
+          fresh.slice(0, 12).forEach((r) => {
+            ul.appendChild(el("li", {
+              text: r.predicate + ": " + r.state +
+                (r.latest_as_of_date ? " (latest " + r.latest_as_of_date + ")" : ""),
+            }));
+          });
+          gapPanel.appendChild(el("h4", { text: "Freshness (non-current)" }));
+          gapPanel.appendChild(ul);
+        }
+      });
+    }
+
+    function renderTimelines(timelines) {
+      const multi = (timelines || []).filter((t) => (t.entries || []).length > 0);
+      if (!multi.length) {
+        setEmpty(timelinePanel, "(no as_of timelines)");
+        return;
+      }
+      timelinePanel.className = "panel";
+      timelinePanel.innerHTML = "";
+      multi.filter((t) => t.entries.length > 1 || ["age_years", "grade"].includes(t.predicate))
+        .forEach((t) => {
+          const parts = (t.entries || []).map((e) =>
+            e.value + "@" + e.as_of_date + (e.is_latest ? "*" : "") + " (" + e.source_id + ")"
+          );
+          timelinePanel.appendChild(el("div", { text: (t.topic || t.predicate) + ": " + parts.join(" → ") }));
+        });
+    }
+
+    function renderDisagreements(panel, items, emptyMsg) {
+      if (!items || !items.length) {
+        setEmpty(panel, emptyMsg);
+        return;
+      }
+      panel.className = "panel";
+      panel.innerHTML = "";
+      items.forEach((c) => {
+        const block = el("div", { className: "conflict-item" }, [
+          el("strong", { text: c.topic || c.predicate || "Item" }),
+        ]);
+        const list = el("ul");
+        (c.versions || []).forEach((v) => {
+          list.appendChild(el("li", {
+            text: (v.assertion || "") + " " + JSON.stringify(v.value) +
+              " (" + (v.source_id || "?") + ", " + (v.source_date || "?") + ")",
+          }));
+        });
+        block.appendChild(list);
+        panel.appendChild(block);
+      });
+    }
+
+    function historyStatements(draft) {
+      const out = [];
+      const sections = (draft && draft.package && draft.package.sections) || [];
+      sections.forEach((s) => {
+        const stmts = (s.draft_output && s.draft_output.statements) || [];
+        stmts.forEach((st) => {
+          out.push({
+            statement: st.statement || st.quote || "",
+            fact_id: (st.fact_ids || []).join(", ") || "?",
+            source_id: s.display_label || s.section_key || "?",
+            source_date: "",
+          });
+        });
+      });
+      return out;
+    }
+
+    function renderFacts(facts) {
+      if (!facts || !facts.length) {
+        setEmpty(factsPanel, "(no facts returned)");
+        return;
+      }
+      factsPanel.className = "panel";
+      factsPanel.innerHTML = "";
+      const list = el("ul");
+      facts.forEach((f) => {
+        const li = el("li", { text: f.statement || "" });
+        li.appendChild(document.createTextNode(" "));
+        const cite = f.fact_id
+          ? (f.fact_id + (f.source_id ? " · " + f.source_id : "") + (f.source_date ? ", " + f.source_date : ""))
+          : ((f.fact_ids || []).join(", ") || "?");
+        li.appendChild(el("span", { className: "cite", text: "(" + cite + ")" }));
+        list.appendChild(li);
+      });
+      factsPanel.appendChild(list);
+    }
+
+    function renderBriefs(plan) {
+      const sections = (plan && plan.sections) || [];
+      if (!sections.length) {
+        setEmpty(briefsPanel, "(no History sections compiled)");
+        briefsMeta.textContent = "";
+        return;
+      }
+      briefsPanel.className = "panel";
+      briefsPanel.innerHTML = "";
+      sections.forEach((s) => {
+        const head = (s.populated ? "populated" : "empty") +
+          " · blocks " + ((s.blocks || []).join(", ") || "(none)") +
+          " · facts " + (s.fact_count ?? 0);
+        briefsPanel.appendChild(el("div", {
+          className: "conflict-item",
+        }, [
+          el("strong", { text: s.display_label || s.section_key || "Section" }),
+          el("div", { className: "meta", text: head }),
+        ]));
+        const pre = el("pre");
+        pre.textContent = s.markdown || "(empty brief)";
+        briefsPanel.appendChild(pre);
+      });
+      const gaps = plan.input_schema_gaps || [];
+      briefsMeta.textContent =
+        "structure " + (plan.structure_spec_id || "?") +
+        " · sections " + sections.length +
+        (gaps.length ? " · gaps: " + gaps.join(" | ") : "");
+    }
+
+    function renderVoiceGate(draft) {
+      const checks = (draft && draft.voice_gate && draft.voice_gate.checks) || [];
+      if (!checks.length) {
+        setEmpty(voicePanel, "(no voice-gate results)");
+        return;
+      }
+      voicePanel.className = "panel";
+      voicePanel.innerHTML = "";
+      voicePanel.appendChild(el("div", {
+        className: "meta",
+        text: "store SHA " + ((draft.voice_store_sha || "").slice(0, 12) || "?"),
+      }));
+      const list = el("ul");
+      checks.forEach((c) => {
+        list.appendChild(el("li", {
+          text: (c.result || "?") + " · " + (c.id || "") +
+            (c.section_key ? " [" + c.section_key + "]" : "") +
+            (c.summary ? " — " + c.summary : ""),
+        }));
+      });
+      voicePanel.appendChild(list);
+    }
+
+    function resetPanels() {
+      answerEl.textContent = "";
+      setEmpty(ledgerPanel, "");
+      setEmpty(gapPanel, "");
+      setEmpty(timelinePanel, "");
+      setEmpty(conflictsPanel, "");
+      setEmpty(variancePanel, "");
+      setEmpty(factsPanel, "");
+      setEmpty(voicePanel, "");
+      setEmpty(briefsPanel, "");
+      briefsMeta.textContent = "";
+      extractMeta.textContent = "";
+      metaEl.textContent = "";
+      resultEl.textContent = "";
+    }
+
+    async function postJson(path, body) {
+      const res = await fetch(path, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const text = await res.text();
+      let data = null;
+      try { data = JSON.parse(text); } catch (_) {}
+      if (!res.ok) {
+        const detail = data && data.detail
+          ? (typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail))
+          : text;
+        throw new Error("HTTP " + res.status + ": " + detail);
+      }
+      return data;
+    }
+
+    runBtn.addEventListener("click", async () => {
+      statusEl.className = "";
+      statusEl.textContent = "Pipeline: extracting…";
+      resetPanels();
+      runBtn.disabled = true;
+      askBtn.disabled = true;
+      let body;
+      try { body = caseBody(); }
+      catch (err) {
+        statusEl.className = "error";
+        statusEl.textContent = String(err.message || err);
+        runBtn.disabled = false;
+        askBtn.disabled = false;
+        return;
+      }
+      try {
+        const extract = await postJson("/extract", {
+          confirm_synthetic: true,
+          child: body.child,
+          sources: body.sources,
+          model: body.model,
+        });
+        resultEl.textContent = JSON.stringify(extract, null, 2);
+        renderLedger(extract.ledger && extract.ledger.facts);
+        renderGap(extract.gap_report);
+        renderTimelines(extract.timelines);
+        extractMeta.textContent =
+          "Extract tokens: " + (extract.tokens_used ?? "?") +
+          " · Cost: $" + (extract.cost_usd ?? "?") +
+          " · Facts: " + ((extract.ledger && extract.ledger.facts) || []).length;
+
+        statusEl.textContent = "Pipeline: detecting conflicts…";
+        const conf = await postJson("/conflicts", {
+          confirm_synthetic: true,
+          ledger: extract.ledger,
+        });
+        renderDisagreements(conflictsPanel, conf.conflicts, "(no record conflicts)");
+        renderDisagreements(variancePanel, conf.variance, "(no variance)");
+
+        statusEl.textContent = "Pipeline: compiling case briefs…";
+        const plan = await postJson("/draft/history/plan", {
+          confirm_synthetic: true,
+          ledger: extract.ledger,
+          conflicts: conf.conflicts || [],
+          variance: conf.variance || [],
+        });
+        renderBriefs(plan);
+
+        statusEl.textContent = "Pipeline: drafting History…";
+        const draft = await postJson("/draft/history", {
+          confirm_synthetic: true,
+          ledger: extract.ledger,
+          conflicts: conf.conflicts || [],
+          variance: conf.variance || [],
+          model: body.model,
+          entailment_model: "gpt-4o-mini",
+        });
+        resultEl.textContent = JSON.stringify({ extract_meta: {
+          tokens: extract.tokens_used, cost: extract.cost_usd
+        }, conflicts: conf, plan, draft }, null, 2);
+
+        if (draft.section_populated) {
+          answerEl.textContent = draft.rendered_prose || "";
+          renderFacts(historyStatements(draft));
+        } else {
+          answerEl.textContent = draft.empty_reason || "(section not populated)";
+          setEmpty(factsPanel, "(section not populated)");
+        }
+        renderVoiceGate(draft);
+        const totalTokens = (extract.tokens_used || 0) + (draft.tokens_used || 0);
+        const totalCost = +(
+          (Number(extract.cost_usd) || 0) + (Number(draft.cost_usd) || 0)
+        ).toFixed(6);
+        metaEl.textContent =
+          "Draft tokens: " + (draft.tokens_used ?? "?") +
+          " (by stage: " + JSON.stringify(draft.tokens_by_stage || {}) + ")" +
+          " · Pipeline total tokens: " + totalTokens +
+          " · Pipeline total cost: $" + totalCost +
+          " · Conflicts: " + ((conf.conflicts || []).length) +
+          " · Variance: " + ((conf.variance || []).length) +
+          " · Prompt SHA: " + ((draft.prompt_hash || "").slice(0, 12) || "?") +
+          " · Voice SHA: " + ((draft.voice_store_sha || "").slice(0, 12) || "?") +
+          (draft.langfuse_url ? " · Trace: " + draft.langfuse_url : "");
+        statusEl.textContent = "Done · pipeline complete";
+      } catch (err) {
+        statusEl.className = "error";
+        statusEl.textContent = String(err.message || err);
+        answerEl.textContent = String(err.message || err);
+      } finally {
+        runBtn.disabled = false;
+        askBtn.disabled = false;
+      }
+    });
+
+    askBtn.addEventListener("click", async () => {
+      statusEl.className = "";
+      statusEl.textContent = "Running /ask (internal pipeline)…";
+      resetPanels();
+      runBtn.disabled = true;
+      askBtn.disabled = true;
+      let body;
+      try { body = caseBody(); }
+      catch (err) {
+        statusEl.className = "error";
+        statusEl.textContent = String(err.message || err);
+        runBtn.disabled = false;
+        askBtn.disabled = false;
+        return;
+      }
+      try {
+        const data = await postJson("/ask", body);
+        resultEl.textContent = JSON.stringify(data, null, 2);
+        if (data.answer) {
+          answerEl.textContent = data.answer.prose || "";
+          renderFacts(data.answer.facts);
+          renderDisagreements(conflictsPanel, data.answer.conflicts, "(no conflicts on answer)");
+        }
+        metaEl.textContent =
+          "Model: " + (data.model || "?") +
+          " · Tokens (full pipeline): " + (data.tokens_used ?? "?") +
+          " · Cost: $" + (data.cost_usd ?? "?") +
+          " · Expected age: " + (data.age_years_expected ?? "?");
+        statusEl.textContent = "Done · /ask";
+      } catch (err) {
+        statusEl.className = "error";
+        statusEl.textContent = String(err.message || err);
+      } finally {
+        runBtn.disabled = false;
+        askBtn.disabled = false;
+      }
+    });
+
+    ingestBtn.addEventListener("click", async () => {
+      const content = (ingestText.value || "").trim();
+      if (!content) {
+        ingestStatus.className = "error";
+        ingestStatus.textContent = "Paste document text first.";
+        return;
+      }
+      ingestStatus.className = "";
+      ingestStatus.textContent = "Classifying…";
+      ingestBtn.disabled = true;
+      try {
+        const data = await postJson("/ingest", {
+          confirm_synthetic: true,
+          content,
+          model: "gpt-4o-mini",
+        });
+        lastIngest = data.suggestion;
+        ingestPanel.className = "panel";
+        ingestPanel.innerHTML = "";
+        ingestPanel.appendChild(el("div", {
+          text: "Suggested — confirm before use (never applied silently):",
+        }));
+        ingestPanel.appendChild(el("ul", null, [
+          el("li", { text: "type: " + data.suggestion.source_type }),
+          el("li", { text: "date: " + data.suggestion.source_date }),
+          el("li", { text: "label: " + data.suggestion.label }),
+        ]));
+        const addBtn = el("button", {
+          type: "button",
+          className: "ghost",
+          text: "Add as confirmed source",
+        });
+        addBtn.addEventListener("click", () => {
+          if (!lastIngest) return;
+          sourcesEl.appendChild(sourceCard({
+            id: "ingested-" + (sourceSeq + 1),
+            type: lastIngest.source_type,
+            date: lastIngest.source_date,
+            label: lastIngest.label,
+            content: content,
+          }));
+          ingestStatus.textContent = "Source card added — review id/date before drafting.";
+        });
+        ingestPanel.appendChild(addBtn);
+        ingestPanel.appendChild(el("p", {
+          className: "meta",
+          text: data.note + " · tokens=" + data.tokens_used + " · $" + data.cost_usd,
+        }));
+        ingestStatus.textContent = "Suggestion ready — confirm before adding.";
+      } catch (err) {
+        ingestStatus.className = "error";
+        ingestStatus.textContent = String(err.message || err);
+      } finally {
+        ingestBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

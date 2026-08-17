@@ -1,0 +1,25 @@
+{
+  "blocks": [
+    {
+      "kind": "prose",
+      "label": "Family History",
+      "trigger": null,
+      "prose": "Jordan enjoys drawing. This narrative provides a snapshot of her journey.",
+      "statements": [
+        {
+          "statement": "Enjoys drawing.",
+          "quote": "enjoys drawing",
+          "fact_ids": ["f_draw_1"]
+        }
+      ]
+    }
+  ],
+  "prose": "**Family History:** Jordan enjoys drawing. This narrative provides a snapshot of her journey.",
+  "statements": [
+    {
+      "statement": "Enjoys drawing.",
+      "quote": "enjoys drawing",
+      "fact_ids": ["f_draw_1"]
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+[
+  {
+    "example_id": "synthetic_topic_ordinary_two_blocks",
+    "structure_spec_id": "provisional_tj_v1",
+    "section_key": "current_status_history",
+    "block_keys": ["family_history", "health_history"],
+    "evidence_shape": "ordinary",
+    "demonstrates": [
+      "two supported thematic blocks",
+      "complete connected prose per block",
+      "source attribution for second-hand claims"
+    ],
+    "input_brief": {
+      "section_key": "current_status_history",
+      "display_label": "Current Status & History",
+      "purpose": "topic_history",
+      "eligible_blocks": [
+        {"block_key": "family_history", "display_label": "Family History"},
+        {"block_key": "health_history", "display_label": "Health History"}
+      ],
+      "facts_by_block": {
+        "family_history": [
+          {
+            "fact_id": "f_syn_fam_001",
+            "predicate": "family_history",
+            "qualifier": "ADHD",
+            "value": "maternal uncle",
+            "value_text": "maternal uncle with ADHD",
+            "reporter": "Avery Quinn",
+            "source_id": "src_parent_intake"
+          }
+        ],
+        "health_history": [
+          {
+            "fact_id": "f_syn_health_001",
+            "predicate": "allergy_status",
+            "qualifier": "peanuts",
+            "value": "known",
+            "value_text": "peanut allergy",
+            "source_id": "src_parent_intake"
+          },
+          {
+            "fact_id": "f_syn_health_002",
+            "predicate": "medications",
+            "value": "none",
+            "value_text": "no daily medications",
+            "source_id": "src_parent_intake"
+          }
+        ]
+      },
+      "source_labels": {
+        "src_parent_intake": {"label": "Parent developmental history", "date": "2025-01-10"}
+      }
+    },
+    "output": {
+      "blocks": [
+        {
+          "kind": "prose",
+          "label": "Family History",
+          "trigger": null,
+          "prose": "Avery's mother reported a family history of ADHD on the maternal side, noting that a maternal uncle has ADHD.",
+          "statements": [
+            {
+              "statement": "Family history of ADHD via maternal uncle.",
+              "quote": "Avery's mother reported a family history of ADHD on the maternal side, noting that a maternal uncle has ADHD.",
+              "fact_ids": ["f_syn_fam_001"]
+            }
+          ]
+        },
+        {
+          "kind": "prose",
+          "label": "Health History",
+          "trigger": null,
+          "prose": "Per the January 2025 parent developmental history, Avery has a known peanut allergy and takes no daily medications.",
+          "statements": [
+            {
+              "statement": "Known peanut allergy.",
+              "quote": "Avery has a known peanut allergy",
+              "fact_ids": ["f_syn_health_001"]
+            },
+            {
+              "statement": "No daily medications.",
+              "quote": "takes no daily medications",
+              "fact_ids": ["f_syn_health_002"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "example_id": "synthetic_caregiver_reuse_health_event",
+    "structure_spec_id": "provisional_tj_v1",
+    "section_key": "rater_input",
+    "block_keys": ["caregiver_input"],
+    "evidence_shape": "ordinary",
+    "demonstrates": [
+      "preserves one caregiver's voice",
+      "repeats a health/development event more briefly than topic history",
+      "keeps the same supporting fact id on reuse"
+    ],
+    "input_brief": {
+      "section_key": "rater_input",
+      "display_label": "Student / Caregiver / Teacher Input",
+      "purpose": "rater_input",
+      "eligible_blocks": [
+        {
+          "block_key": "caregiver_input:avery quinn",
+          "display_label": "Parent/Caregiver Input — Avery Quinn"
+        }
+      ],
+      "reuse_context": [
+        {
+          "fact_id": "f_syn_walk_001",
+          "earlier_section_key": "current_status_history",
+          "earlier_block_key": "birth_developmental_history",
+          "earlier_purpose": "topic_history"
+        }
+      ],
+      "facts_by_block": {
+        "caregiver_input:avery quinn": [
+          {
+            "fact_id": "f_syn_walk_001",
+            "predicate": "walked_age_months",
+            "value": "18",
+            "value_text": "walked at 18 months",
+            "reporter": "Avery Quinn",
+            "source_id": "src_parent_interview"
+          },
+          {
+            "fact_id": "f_syn_sleep_001",
+            "predicate": "sleep",
+            "value": "frequent night waking",
+            "value_text": "wakes several times most nights",
+            "reporter": "Avery Quinn",
+            "source_id": "src_parent_interview"
+          }
+        ]
+      },
+      "source_labels": {
+        "src_parent_interview": {"label": "Parent interview", "date": "2025-02-01"}
+      }
+    },
+    "output": {
+      "blocks": [
+        {
+          "kind": "prose",
+          "label": "Parent/Caregiver Input — Avery Quinn",
+          "trigger": null,
+          "prose": "Avery Quinn reported that Jordan walked at 18 months and continues to wake several times most nights.",
+          "statements": [
+            {
+              "statement": "Caregiver report of walking at 18 months.",
+              "quote": "Jordan walked at 18 months",
+              "fact_ids": ["f_syn_walk_001"]
+            },
+            {
+              "statement": "Caregiver report of night waking.",
+              "quote": "wake several times most nights",
+              "fact_ids": ["f_syn_sleep_001"]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,326 @@
+{
+  "section_key": "educational_history",
+  "display_label": "Educational History",
+  "example_id": "phase1_B_educational_history_case_005",
+  "example_text_sha256": "f040296c8837e76902429bd3dd0990457cf61627d9c9b66dbfc6770c65255184",
+  "evidence_brief_sha256": "3d4315e7109a0bf433e77a94569365307350f868327437b79fbdab5a97ccc391",
+  "writer_prompt_hash": "b025b7cc03d1790f94e704c0375459dcec6a32361fa5290d05f245badaca61e9",
+  "messages_sha256": "e073a265e63f84e34ff2e4400ddd4e56967900d72ab70297aeb1ca4109d5e6db",
+  "trace_alignment_status": "not_run_diagnostic",
+  "tokens": {
+    "total": 3905,
+    "prompt": 3585,
+    "completion": 320
+  },
+  "raw_output": {
+    "blocks": [
+      {
+        "label": "SCHOOL HISTORY",
+        "prose": "[SCHOOL HISTORY CHART — server-owned; do not generate cells]",
+        "table_position": true
+      },
+      {
+        "label": "School Experience",
+        "prose": "Emma Rose Callahan is currently in ninth grade at Ridgeway High School. She has demonstrated good attendance and the ability to follow directions consistently. Emma's behavior is adaptive and does not impede her learning. Academically, she can write a paragraph and supporting sentences at an approximate 5th grade level, with varying levels of accuracy in her work. She achieves at least 75% accuracy in half of her trials in basic writing tasks and has performed with at least 90% accuracy in some areas as measured by student work samples and teacher records.",
+        "table_position": false
+      },
+      {
+        "label": "Intervention",
+        "prose": "The IEP team has considered multiple options for Emma, including General Education, General Education with accommodations, and Specialized Academic Instruction support. These options reflect an ongoing evaluation of her educational needs and how best to provide support. The team remains focused on facilitating her learning in a way that aligns with her capabilities and requirements.",
+        "table_position": false
+      },
+      {
+        "label": "IEP / Special Education",
+        "prose": "In previous evaluations, Emma was determined to be not eligible for Special Education services, effectively exiting from Special Education and returning to regular education. This decision was supported by data gathered during assessments and meetings held by the IEP team. The current IEP documentation outlines the purpose of recent meetings, emphasizing a commitment to track her progress and provide necessary interventions.",
+        "table_position": false
+      }
+    ]
+  },
+  "attached_blocks": [
+    {
+      "block_key": "school_history_chart",
+      "display_label": "School History",
+      "kind": "table_position",
+      "prose": "[SCHOOL HISTORY CHART — server-owned; do not generate cells]",
+      "offered_evidence_ids": [
+        "f_doc_11_004",
+        "f_doc_11_006",
+        "f_doc_11_008",
+        "f_doc_11_012",
+        "f_doc_11_017",
+        "f_doc_11_018",
+        "f_doc_11_019",
+        "f_doc_11_020",
+        "f_doc_11_021",
+        "f_doc_11_022",
+        "f_doc_11_023",
+        "f_doc_21_003",
+        "f_doc_25_004",
+        "f_doc_25_005",
+        "f_doc_26_007"
+      ]
+    },
+    {
+      "block_key": "school_experience",
+      "display_label": "School Experience",
+      "kind": "prose",
+      "prose": "Emma Rose Callahan is currently in ninth grade at Ridgeway High School. She has demonstrated good attendance and the ability to follow directions consistently. Emma's behavior is adaptive and does not impede her learning. Academically, she can write a paragraph and supporting sentences at an approximate 5th grade level, with varying levels of accuracy in her work. She achieves at least 75% accuracy in half of her trials in basic writing tasks and has performed with at least 90% accuracy in some areas as measured by student work samples and teacher records.",
+      "offered_evidence_ids": [
+        "f_doc_11_004",
+        "f_doc_11_006",
+        "f_doc_11_008",
+        "f_doc_11_012",
+        "f_doc_11_017",
+        "f_doc_11_018",
+        "f_doc_11_019",
+        "f_doc_11_020",
+        "f_doc_11_021",
+        "f_doc_11_022",
+        "f_doc_11_023",
+        "f_doc_21_003",
+        "f_doc_25_004",
+        "f_doc_25_005",
+        "f_doc_26_007"
+      ]
+    },
+    {
+      "block_key": "intervention",
+      "display_label": "Intervention",
+      "kind": "prose",
+      "prose": "The IEP team has considered multiple options for Emma, including General Education, General Education with accommodations, and Specialized Academic Instruction support. These options reflect an ongoing evaluation of her educational needs and how best to provide support. The team remains focused on facilitating her learning in a way that aligns with her capabilities and requirements.",
+      "offered_evidence_ids": [
+        "f_doc_11_024",
+        "f_doc_25_015"
+      ]
+    },
+    {
+      "block_key": "iep_services",
+      "display_label": "IEP / Special Education",
+      "kind": "prose",
+      "prose": "In previous evaluations, Emma was determined to be not eligible for Special Education services, effectively exiting from Special Education and returning to regular education. This decision was supported by data gathered during assessments and meetings held by the IEP team. The current IEP documentation outlines the purpose of recent meetings, emphasizing a commitment to track her progress and provide necessary interventions.",
+      "offered_evidence_ids": [
+        "f_doc_11_005",
+        "f_doc_25_006"
+      ]
+    }
+  ],
+  "offered_evidence_ids": {
+    "school_history_chart": [
+      "f_doc_11_004",
+      "f_doc_11_006",
+      "f_doc_11_008",
+      "f_doc_11_012",
+      "f_doc_11_017",
+      "f_doc_11_018",
+      "f_doc_11_019",
+      "f_doc_11_020",
+      "f_doc_11_021",
+      "f_doc_11_022",
+      "f_doc_11_023",
+      "f_doc_21_003",
+      "f_doc_25_004",
+      "f_doc_25_005",
+      "f_doc_26_007"
+    ],
+    "school_experience": [
+      "f_doc_11_004",
+      "f_doc_11_006",
+      "f_doc_11_008",
+      "f_doc_11_012",
+      "f_doc_11_017",
+      "f_doc_11_018",
+      "f_doc_11_019",
+      "f_doc_11_020",
+      "f_doc_11_021",
+      "f_doc_11_022",
+      "f_doc_11_023",
+      "f_doc_21_003",
+      "f_doc_25_004",
+      "f_doc_25_005",
+      "f_doc_26_007"
+    ],
+    "intervention": [
+      "f_doc_11_024",
+      "f_doc_25_015"
+    ],
+    "iep_services": [
+      "f_doc_11_005",
+      "f_doc_25_006"
+    ]
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Draft the **Educational History** section of a psychoeducational report in the style demonstrated by the example.\n\nDevelop each labeled block in the form demonstrated by the provided example. A block may use one paragraph, several connected paragraphs, a table position, or structured interview responses when the section calls for them. Use the supplied evidence to select concrete details, organize events clearly over time, and preserve who reported second-hand information. Let the amount and shape of the evidence determine the block's depth.\n\nThe section should read as one part of a coherent report: factual, specific, accessible to families, and natural rather than formulaic.\n\nReturn the requested section content in the supplied output format.\n"
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"Educational History\",\n  \"section_plan\": [\n    {\n      \"label\": \"SCHOOL HISTORY\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": {\n    \"approved_case_id\": \"005\",\n    \"topics\": [\n      {\n        \"topic\": \"SCHOOL HISTORY\",\n        \"text\": \"Complete cumulative school records were viewed by this evaluator and are summarized as follows: Diego Fenton was a student in the Fairview City School District from kindergarten through 8th grades where he attended Green Oaks Elementary and Hartwell Middle School. Attendance was consistently good. In kindergarten and first grades he was noted to need to work on handwriting but met all other expectations. Diego Fenton received additional small group writing instruction for handwriting (letter formation and spacing) in first grade and for punctuation and handwriting in second grade. Behaviorally, Diego Fenton was noted to be socially enthusiastic about learning, but needed improvement in staying on task, following rules and focusing on precision and accuracy. He was at grade level in all areas except writing, which was slightly below. Diego Fenton met standards in third grade but continued to demonstrate attention difficulties. In fourth grade during the first trimester, in Language Arts, Diego Fenton was noted to “exhibit poor listening skills by engaging in side conversations.” There were no other concerns noted through fifth grades and all areas socially, behaviorally, and academically were rated at the proficient or basic levels. The COVID-19 Pandemic caused schools to move to distance learning during the third semester of seventh grade. Prior to lock-down, during the first two semesters, Diego Fenton did well meeting standards in World Languages, Physical Education, Speaking and Listening and Reading, but he was below grade level expectations in all other areas. Learning behaviors including work completion and utilizing feedback and resources were problematic in Language Arts and Social Studies, but more consistent in all other classes. During Distance Learning, the Physical Education teacher noted that “Interventions were provided, including sit administrator and psychologist/counselor, but the student rarely participated in DL.” Diego Fenton passed all of his classes in 8th grade but demonstrated inconsistent work completion and engagement. Diego Fenton holds a 1.41 total GPA at Meadowbrook High School where he enrolled in August 2021 as a freshman. Diego Fenton has attempted 155 credits and passed 125. He needs 135 more credits to graduate. Diego Fenton did well his first semester of freshman year, earning a 2.75 grade point average. By second semester, his GPA went down to 1.50 and included significant discipline infractions included fighting, being out of class without permission, walking around in the wetlands behind campus during school, and being disrespectful towards staff. Diego Fenton reported this was when he began using drugs and alcohol. Last year as a sophomore, Diego Fenton had a total of seven absences, 39 periods tardy, 34 period truancies and ten days suspension. Suspensions were due to profanity, possession of drug paraphernalia/ vaping products, and possession of a controlled substance on school grounds. This semester grades at first progress check were Positive Power- A, Weight Conditioning- A+, CCIM1- B and US History- C with the comment, “Showing Improvement.” The report completed by Meadowbrook High School indicated that In September of 2022, Diego Fenton was diagnosed as having Bi-Polar Disorder with Psychosis, ADHD-Combined Type, and Generalized Anxiety Disorder by Family Nurse Practitioner, Tanya Brooks, before she knew he was abusing drugs. In October 2022, Dr. Manning diagnosed Diego Fenton with Opioid Use Disorder, due to an addiction to Fentanyl. Adriana Fenton reportedly requested a 504 meeting to address the diagnoses and the possibility of implementing a Behavior Intervention Plan. After Diego Fenton was again suspended due to possession of a controlled substance, possession of drug paraphernalia/vaping products, parents signed an assessment plan. A 504 Accommodation plan for these diagnoses was put in place in December 2022 with the following accommodations: 1. Diego Fenton is allowed to take a maximum of one short break per period to the wellness center when showing signs of inattention or frustration. Usually seen by bouncing his leg or being very fidgety. Student will use a card on his desk as a non-verbal que that he needs a break. 2. Preferential seating near teacher’s primary area of instruction. 3. Non-verbal and/or subtle redirection when off-task. During student observations in two classes by the examiner, the above listed accommodations were implemented, with the exception of #1, which was not needed.\",\n        \"source\": \"approved-anonymized case 005 (signed section excerpt)\"\n      }\n    ]\n  }\n}"
+    },
+    {
+      "role": "assistant",
+      "content": "**SCHOOL HISTORY**\n\nComplete cumulative school records were viewed by this evaluator and are summarized as follows:\n\nDiego Fenton was a student in the Fairview City School District from  kindergarten through 8th grades where he attended Green Oaks Elementary and Hartwell Middle School. Attendance was consistently good. In kindergarten and first grades he was noted to need to work on handwriting but met all other expectations. Diego Fenton received additional small group writing instruction for handwriting (letter formation and spacing) in first grade and for punctuation and handwriting in second grade. Behaviorally, Diego Fenton was noted to be socially enthusiastic about learning, but needed improvement in staying on task, following rules and focusing on precision and accuracy. He was at grade level in all areas except writing, which was slightly below. Diego Fenton met standards in third grade but continued to demonstrate attention difficulties. In fourth grade during the first trimester, in Language Arts, Diego Fenton was noted to “exhibit poor listening skills by engaging in side conversations.” There were no other concerns noted through fifth grades and all areas socially, behaviorally, and academically were rated at the proficient or basic levels.\n\nThe COVID-19 Pandemic caused schools to move to distance learning during the third semester of seventh grade. Prior to lock-down, during the first two semesters, Diego Fenton did well meeting standards in World Languages, Physical Education, Speaking and Listening and Reading, but he was below grade level expectations in all other areas. Learning behaviors including work completion and utilizing feedback and resources were problematic in Language Arts and Social Studies, but more consistent in all other classes. During Distance Learning, the Physical Education teacher noted that “Interventions were provided, including sit administrator and psychologist/counselor, but the student rarely participated in DL.” Diego Fenton passed all of his classes in 8th grade but demonstrated inconsistent work completion and engagement.\n\nDiego Fenton holds a 1.41 total GPA at Meadowbrook High School where he enrolled in August 2021 as a freshman. Diego Fenton has attempted 155 credits and passed 125. He needs 135 more credits to graduate. Diego Fenton did well his first semester of freshman year, earning a 2.75 grade point average. By second semester, his GPA went down to 1.50 and included significant discipline infractions included fighting, being out of class without permission, walking around in the wetlands behind campus during school, and being disrespectful towards staff. Diego Fenton reported this was when he began using drugs and alcohol. Last year as a sophomore, Diego Fenton had a total of seven absences, 39 periods tardy, 34 period truancies and ten days suspension. Suspensions were due to profanity, possession of drug paraphernalia/ vaping products, and possession of a controlled substance on school grounds.  This semester grades at first progress check were Positive Power- A, Weight Conditioning- A+, CCIM1- B and  US History- C with the comment, “Showing Improvement.”\n\nThe report completed by Meadowbrook High School indicated that In September of 2022, Diego Fenton was diagnosed as having Bi-Polar Disorder with Psychosis, ADHD-Combined Type, and Generalized Anxiety Disorder by Family Nurse Practitioner, Tanya Brooks, before she knew he was abusing drugs. In October 2022, Dr. Manning diagnosed Diego Fenton with Opioid Use Disorder, due to an addiction to Fentanyl. Adriana Fenton reportedly requested a 504 meeting to address the diagnoses and the possibility of implementing a Behavior Intervention Plan. After Diego Fenton was again suspended due to possession of a controlled substance, possession of drug paraphernalia/vaping products, parents signed an assessment plan. A 504 Accommodation plan for these diagnoses was put in place in December 2022 with the following accommodations:\n\n1.     Diego Fenton is allowed to take a maximum of one short break per period to the wellness center when showing signs of inattention or frustration. Usually seen by bouncing his leg or being very fidgety. Student will use a card on his desk as a non-verbal que that he needs a break.\n\n2.     Preferential seating near teacher’s primary area of instruction.\n\n3.     Non-verbal and/or subtle redirection when off-task.\n\nDuring student observations in two classes by the examiner, the above listed accommodations were implemented, with the exception of #1, which was not needed."
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"Educational History\",\n  \"student_name\": \"Emma Rose Callahan\",\n  \"section_plan\": [\n    {\n      \"label\": \"School History\",\n      \"kind\": \"table_position\",\n      \"marker\": \"[SCHOOL HISTORY CHART — server-owned; do not generate cells]\"\n    },\n    {\n      \"label\": \"School Experience\",\n      \"kind\": \"prose\"\n    },\n    {\n      \"label\": \"Intervention\",\n      \"kind\": \"prose\"\n    },\n    {\n      \"label\": \"IEP / Special Education\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": [\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Grade: 09 Ninth grade\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"School/Location Ridgeway High School\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan has good attendance and is able to follow directions.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan's behavior is adaptive and does not impede her learning.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"She can write a paragraph and supporting sentences at an approximate 5th grade level.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"at least 75% accuracy in 1/2 trials\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"at least 90% accuracy in 1/2 trials as measured by student work samples/teacher records.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"at least 80% accuracy in 1/2 trials as measured by student work samples/teacher records.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"with at least 70% accuracy as measured by student work samples.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"with at least 75% accuracy as measured by student work samples.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"School of Attendance: Ridgeway High\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"used to go to dad’s and do for school- Options for Youth home school\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Grade: 04 Fourth grade\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Residence School: Oak Meadow School\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"School Experience\",\n      \"text\": \"Emma Rose Callahan attends the Sunshine Bilingual Chinese/ English preschool\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Intervention\",\n      \"text\": \"the IEP team considered options including General Education, General Education with accommodations, and Specialized Academic Instruction support\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Intervention\",\n      \"text\": \"the IEP team considered a services including General Education, General Education with accommodations, and Specialized Academic Instruction support\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"IEP / Special Education\",\n      \"text\": \"The purpose and details of the meeting are below.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"IEP / Special Education\",\n      \"text\": \"Not Eligible for Special Education   Exiting from Special Education (returned to reg. ed/no longer eligible)\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    }\n  ],\n  \"must_mention\": [\n    {\n      \"topic\": \"school_enrollment\",\n      \"text\": \"School/Location Ridgeway High School; School of Attendance: Ridgeway High\"\n    },\n    {\n      \"topic\": \"basic_reading\",\n      \"text\": \"Emma Rose Callahan's behavior is adaptive and does not impede her learning.; She can write a paragraph and supporting sentences at an approximate 5th grade level.\"\n    },\n    {\n      \"topic\": \"math_fluency\",\n      \"text\": \"at least 75% accuracy in 1/2 trials; at least 90% accuracy in 1/2 trials as measured by student work samples/teacher records.; at least 80% accuracy in 1/2 trials as measured by student work samples/teacher records.\"\n    },\n    {\n      \"topic\": \"written_expression\",\n      \"text\": \"with at least 70% accuracy as measured by student work samples.; with at least 75% accuracy as measured by student work samples.\"\n    }\n  ]\n}"
+    }
+  ],
+  "case_payload": {
+    "section_label": "Educational History",
+    "student_name": "Emma Rose Callahan",
+    "section_plan": [
+      {
+        "label": "School History",
+        "kind": "table_position",
+        "marker": "[SCHOOL HISTORY CHART — server-owned; do not generate cells]"
+      },
+      {
+        "label": "School Experience",
+        "kind": "prose"
+      },
+      {
+        "label": "Intervention",
+        "kind": "prose"
+      },
+      {
+        "label": "IEP / Special Education",
+        "kind": "prose"
+      }
+    ],
+    "evidence": [
+      {
+        "topic": "School Experience",
+        "text": "Grade: 09 Ninth grade",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "School/Location Ridgeway High School",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan has good attendance and is able to follow directions.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan's behavior is adaptive and does not impede her learning.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "She can write a paragraph and supporting sentences at an approximate 5th grade level.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "at least 75% accuracy in 1/2 trials",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "at least 90% accuracy in 1/2 trials as measured by student work samples/teacher records.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "at least 80% accuracy in 1/2 trials as measured by student work samples/teacher records.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "with at least 70% accuracy as measured by student work samples.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "with at least 75% accuracy as measured by student work samples.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "School of Attendance: Ridgeway High",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "School Experience",
+        "text": "used to go to dad’s and do for school- Options for Youth home school",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Grade: 04 Fourth grade",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Residence School: Oak Meadow School",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "School Experience",
+        "text": "Emma Rose Callahan attends the Sunshine Bilingual Chinese/ English preschool",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Intervention",
+        "text": "the IEP team considered options including General Education, General Education with accommodations, and Specialized Academic Instruction support",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Intervention",
+        "text": "the IEP team considered a services including General Education, General Education with accommodations, and Specialized Academic Instruction support",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "IEP / Special Education",
+        "text": "The purpose and details of the meeting are below.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "IEP / Special Education",
+        "text": "Not Eligible for Special Education   Exiting from Special Education (returned to reg. ed/no longer eligible)",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      }
+    ],
+    "must_mention": [
+      {
+        "topic": "school_enrollment",
+        "text": "School/Location Ridgeway High School; School of Attendance: Ridgeway High"
+      },
+      {
+        "topic": "basic_reading",
+        "text": "Emma Rose Callahan's behavior is adaptive and does not impede her learning.; She can write a paragraph and supporting sentences at an approximate 5th grade level."
+      },
+      {
+        "topic": "math_fluency",
+        "text": "at least 75% accuracy in 1/2 trials; at least 90% accuracy in 1/2 trials as measured by student work samples/teacher records.; at least 80% accuracy in 1/2 trials as measured by student work samples/teacher records."
+      },
+      {
+        "topic": "written_expression",
+        "text": "with at least 70% accuracy as measured by student work samples.; with at least 75% accuracy as measured by student work samples."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"parent_ledger_sha256":"42be5f25f7789e204124e242eea099682505c9b77b9ebf0640d89530c80c5a70","sections":[{"blocks":[{"block_key":"health_history","fact_ids":["f_syn_001","f_syn_002"]}],"section_key":"current_status_history"}],"structure_spec_id":"provisional_tj_v1","structure_spec_sha256":"c319aa7210e597ea44d585cdfbef0a6ae8a95cc4ed6166ba5002cab42c251e39"}

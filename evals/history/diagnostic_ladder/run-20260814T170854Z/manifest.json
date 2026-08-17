@@ -1,0 +1,60 @@
+{
+  "banner": "DIAGNOSTIC ONLY \u2014 UPSTREAM EXTRACTION/LEDGER NOT ACCEPTED",
+  "fixture_id": "fixture_001",
+  "upstream_parent": "unaccepted cached ledger/brief",
+  "model": "gpt-4o-mini",
+  "temperature": 1.0,
+  "call_count": 4,
+  "tokens_used": 19736,
+  "prompt_tokens": 18141,
+  "completion_tokens": 1595,
+  "cost_usd": 0.003678,
+  "latency_ms": 30903,
+  "writer_prompt_hash": "ee4fcaf68adb4a7589748f69fcf7fdcb784d0997fb13a2a2636d4c5802a73b0e",
+  "structure_spec_id": "provisional_tj_v1",
+  "structure_spec_hash": "52782f818bf00cbfeb68c2793c3bfcacdc8fe4327e51648e2ad3b1c662ea3d1e",
+  "cached_ledger_path": "evals/cache/fixture_001_ledger.json",
+  "cached_ledger_sha256": "1aa5f1b180002983aaf15fa797f7bce9faf159456291e0f00a8b1fe1953df7db",
+  "compiled_brief_sha256": {
+    "current_status_history.json": "2fe26ab5fa7373fea4f6c3842eda4d3cb3083cb5e39bbee329445fd337818047",
+    "educational_history.json": "4effbe65982ca126c44bf2555b998fdc819a45304de88d930bb861c0996d25dc",
+    "previous_evaluations.json": "3740fa0fd15977432b85637da76655890e740f0152d3fe8ac318068325df3635",
+    "rater_input.json": "cc1372f430497b0bb8b253c8a9cf375315e6cec8a3799d2cbf49b2b8c949ca98"
+  },
+  "example_hashes": [
+    {
+      "section_key": "current_status_history",
+      "example_id": "phase1_A_current_status_case_003",
+      "example_text_sha256": "1d465d911208de528d7656bbe84dd3457490c744881174f4e3f3246d76fd2619",
+      "evidence_brief_sha256": "67332be54c91d9b3cb32871368a12d14cffa0500088da7abcea52c9d560e6d45"
+    },
+    {
+      "section_key": "educational_history",
+      "example_id": "phase1_B_educational_history_case_005",
+      "example_text_sha256": "f040296c8837e76902429bd3dd0990457cf61627d9c9b66dbfc6770c65255184",
+      "evidence_brief_sha256": "3d4315e7109a0bf433e77a94569365307350f868327437b79fbdab5a97ccc391"
+    },
+    {
+      "section_key": "previous_evaluations",
+      "example_id": "phase1_C_previous_evaluations_case_006",
+      "example_text_sha256": "112c8be886362112615699665dc963011b08772dffed4a10445f0a36873989fa",
+      "evidence_brief_sha256": "386b14a806912e7a07b136196182dc9a6014c4458925bbc1096d2dd970cab5ab"
+    },
+    {
+      "section_key": "rater_input",
+      "example_id": "phase1_D_rater_input_case_004",
+      "example_text_sha256": "c1233d018260239d83714ff8029108bf4e2822c24c921782fc1d859631013694",
+      "evidence_brief_sha256": "e5bbbeacd15aa0d2ff53952f4a8a1c31baaa638b7e180d79adec55426a03859c"
+    }
+  ],
+  "trace_alignment_status": "not_run_diagnostic",
+  "skip_entailment": true,
+  "chart_composer": "not_exercised",
+  "table_position_marker": "[SCHOOL HISTORY CHART \u2014 server-owned; do not generate cells]",
+  "section_keys": [
+    "current_status_history",
+    "educational_history",
+    "previous_evaluations",
+    "rater_input"
+  ]
+}

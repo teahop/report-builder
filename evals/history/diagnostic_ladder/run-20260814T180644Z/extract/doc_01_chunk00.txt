@@ -1,0 +1,36 @@
+{
+  "facts": [
+    {
+      "subject": "child",
+      "predicate": "legal_name",
+      "proposed_predicate": null,
+      "value": "Emma Rose Callahan",
+      "value_text": "Emma Rose Callahan",
+      "qualifier": null,
+      "assertion": "asserted",
+      "reporter": null,
+      "life_stage": "current",
+      "grade": null,
+      "confidence": "stated",
+      "as_of_date": null,
+      "valence": "neutral",
+      "source_section": null
+    },
+    {
+      "subject": "child",
+      "predicate": "dob",
+      "proposed_predicate": null,
+      "value": "2010-03-22",
+      "value_text": "DOB 3/22/10",
+      "qualifier": null,
+      "assertion": "asserted",
+      "reporter": null,
+      "life_stage": "birth",
+      "grade": null,
+      "confidence": "stated",
+      "as_of_date": null,
+      "valence": "neutral",
+      "source_section": null
+    }
+  ]
+}

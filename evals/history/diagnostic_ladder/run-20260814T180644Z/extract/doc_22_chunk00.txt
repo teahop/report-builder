@@ -1,0 +1,20 @@
+{
+  "facts": [
+    {
+      "subject": "child",
+      "predicate": "legal_name",
+      "proposed_predicate": null,
+      "value": "Emma Rose Callahan",
+      "value_text": "Client’s child, Emma Rose Callahan",
+      "qualifier": null,
+      "assertion": "asserted",
+      "reporter": null,
+      "life_stage": "current",
+      "grade": null,
+      "confidence": "stated",
+      "as_of_date": null,
+      "valence": "neutral",
+      "source_section": null
+    }
+  ]
+}

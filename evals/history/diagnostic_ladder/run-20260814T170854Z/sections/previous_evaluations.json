@@ -1,0 +1,125 @@
+{
+  "section_key": "previous_evaluations",
+  "display_label": "History of Previous Evaluations",
+  "example_id": "phase1_C_previous_evaluations_case_006",
+  "example_text_sha256": "112c8be886362112615699665dc963011b08772dffed4a10445f0a36873989fa",
+  "evidence_brief_sha256": "386b14a806912e7a07b136196182dc9a6014c4458925bbc1096d2dd970cab5ab",
+  "writer_prompt_hash": "1452dec6604fb8a279dd2ce2eb0efdddb90da5133b7fd300c3806ebae810d0bd",
+  "messages_sha256": "28d20ec8fcf7d81de613337bfa4034814ab1656c68128b7ac3c50b4d08f92ed2",
+  "trace_alignment_status": "not_run_diagnostic",
+  "tokens": {
+    "total": 1698,
+    "prompt": 1441,
+    "completion": 257
+  },
+  "raw_output": {
+    "blocks": [
+      {
+        "label": "Previous Evaluations",
+        "prose": "Emma Rose Callahan has a documented history of developmental concerns stemming from early childhood. At her prior diagnostic assessment completed at age 3 in September 2013, significant delays were noted in speech and language, along with suspected overall cognitive development delays. Notably, she walked at 19 months, which was beyond the typical developmental window. Additionally, the assessment revealed a history of trauma, specifically indicating neglect and suspected traumatic experiences. \n\nEmma Rose exhibited behavioral concerns, scoring in the borderline clinical range for emotional reactivity and oppositional defiant problems. Furthermore, she scored in the clinically significant range for somatic complaints, withdrawal, and social development problems. Her behavior was characterized by slow reactions to directions and commands, sensory sensitivities—particularly to loud noises and temperature changes—instances of toe walking, and frequent meltdowns occurring 2 to 5 times a week.\n\nDespite these challenges, Emma Rose met most of her developmental milestones on time, except for two noteworthy delays: her speech onset occurred around age 2 and her ability to walk at about 19 months. This combination of developmental delays and behavioral issues has contributed to an overall understanding of her current needs.",
+        "table_position": false
+      }
+    ]
+  },
+  "attached_blocks": [
+    {
+      "block_key": "previous_evaluations_narrative",
+      "display_label": "Previous Evaluations",
+      "kind": "prose",
+      "prose": "Emma Rose Callahan has a documented history of developmental concerns stemming from early childhood. At her prior diagnostic assessment completed at age 3 in September 2013, significant delays were noted in speech and language, along with suspected overall cognitive development delays. Notably, she walked at 19 months, which was beyond the typical developmental window. Additionally, the assessment revealed a history of trauma, specifically indicating neglect and suspected traumatic experiences. \n\nEmma Rose exhibited behavioral concerns, scoring in the borderline clinical range for emotional reactivity and oppositional defiant problems. Furthermore, she scored in the clinically significant range for somatic complaints, withdrawal, and social development problems. Her behavior was characterized by slow reactions to directions and commands, sensory sensitivities—particularly to loud noises and temperature changes—instances of toe walking, and frequent meltdowns occurring 2 to 5 times a week.\n\nDespite these challenges, Emma Rose met most of her developmental milestones on time, except for two noteworthy delays: her speech onset occurred around age 2 and her ability to walk at about 19 months. This combination of developmental delays and behavioral issues has contributed to an overall understanding of her current needs.",
+      "offered_evidence_ids": [
+        "f_doc_26_005",
+        "f_doc_26_006",
+        "f_doc_26_008",
+        "f_doc_26_013",
+        "f_doc_26_014"
+      ]
+    }
+  ],
+  "offered_evidence_ids": {
+    "previous_evaluations_narrative": [
+      "f_doc_26_005",
+      "f_doc_26_006",
+      "f_doc_26_008",
+      "f_doc_26_013",
+      "f_doc_26_014"
+    ]
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Draft the **History of Previous Evaluations** section of a psychoeducational report in the style demonstrated by the example.\n\nDevelop each labeled block in the form demonstrated by the provided example. A block may use one paragraph, several connected paragraphs, a table position, or structured interview responses when the section calls for them. Use the supplied evidence to select concrete details, organize events clearly over time, and preserve who reported second-hand information. Let the amount and shape of the evidence determine the block's depth.\n\nThe section should read as one part of a coherent report: factual, specific, accessible to families, and natural rather than formulaic.\n\nReturn the requested section content in the supplied output format.\n"
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"History of Previous Evaluations\",\n  \"section_plan\": [\n    {\n      \"label\": \"PREVIOUS ASSESSMENT\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": {\n    \"approved_case_id\": \"006\",\n    \"topics\": [\n      {\n        \"topic\": \"PREVIOUS ASSESSMENT\",\n        \"text\": \"Mason Kessler underwent a Multidisciplinary Psycho-educational Evaluation in fourth grade at NCSA. Score summaries are located in Addendum 2 at the end of this report. This assessment indicated Mason Kessler had above average cognitive ability with no areas of processing weakness, including auditory, visual, sensory motor, verbal, attention and reasoning. While sensory motor processing fell within the average range, a poor pencil grip was noted to impact speed of writing. Observations of executive functioning identified a broad level of concerns, but Mason Kessler was accessing his education and making growth. He demonstrated average to well above average academic skills. Mason Kessler had friends and his non-verbal as well as pragmatic language skills fell within the average range. A 504 Plan was developed as educational need could not be identified.\",\n        \"source\": \"approved-anonymized case 006 (signed section excerpt)\"\n      }\n    ]\n  }\n}"
+    },
+    {
+      "role": "assistant",
+      "content": "**PREVIOUS ASSESSMENT**\n\nMason Kessler underwent a Multidisciplinary Psycho-educational Evaluation in fourth grade at NCSA. Score summaries are located in Addendum 2 at the end of this report. This assessment indicated Mason Kessler had above average cognitive ability with no areas of processing weakness, including auditory, visual, sensory motor, verbal, attention and reasoning. While sensory motor processing fell within the average range, a poor pencil grip was noted to impact speed of writing. Observations of executive functioning identified a broad level of concerns, but Mason Kessler was accessing his education and making growth.  He demonstrated average to well above average academic skills. Mason Kessler had friends and his non-verbal as well as pragmatic language skills fell within the average range. A 504 Plan was developed as educational need could not be identified."
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"History of Previous Evaluations\",\n  \"student_name\": \"Emma Rose Callahan\",\n  \"section_plan\": [\n    {\n      \"label\": \"Previous Evaluations\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": [\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Development: delays in speech and languages and suspected delays in overall cognitive development\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"she was walking at 19 months of age\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Emma Rose Callahan scored in the borderline clinical range (concerns were endorsed) in the areas of emotional reactivity and oppositional defiant problems.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"She scored in the clinically significant range for somatic complaints, withdrawal, and social development problems.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    }\n  ],\n  \"must_mention\": [\n    {\n      \"topic\": \"developmental_history\",\n      \"text\": \"She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; Development: delays in speech and languages and suspected delays in overall cognitive development\"\n    }\n  ],\n  \"comparisons\": [\n    {\n      \"topic\": \"behavioral_concern\",\n      \"text\": \"Behavior: Slow to react with directions/commands, sensory issues (e.g. sensitive to loud noises or temperature changes), toe walking, and meltdowns 2-5 times per week.; Emma Rose Callahan scored in the borderline clinical range (concerns were endorsed) in the areas of emotional reactivity and oppositional defiant problems.; She scored in the clinically significant range for somatic complaints, withdrawal, and social development problems.\"\n    }\n  ],\n  \"reuse_notes\": [\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/family_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\"\n  ]\n}"
+    }
+  ],
+  "case_payload": {
+    "section_label": "History of Previous Evaluations",
+    "student_name": "Emma Rose Callahan",
+    "section_plan": [
+      {
+        "label": "Previous Evaluations",
+        "kind": "prose"
+      }
+    ],
+    "evidence": [
+      {
+        "topic": "Previous Evaluations",
+        "text": "Development: delays in speech and languages and suspected delays in overall cognitive development",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "she was walking at 19 months of age",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "Emma Rose Callahan scored in the borderline clinical range (concerns were endorsed) in the areas of emotional reactivity and oppositional defiant problems.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "She scored in the clinically significant range for somatic complaints, withdrawal, and social development problems.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      }
+    ],
+    "must_mention": [
+      {
+        "topic": "developmental_history",
+        "text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; Development: delays in speech and languages and suspected delays in overall cognitive development"
+      }
+    ],
+    "comparisons": [
+      {
+        "topic": "behavioral_concern",
+        "text": "Behavior: Slow to react with directions/commands, sensory issues (e.g. sensitive to loud noises or temperature changes), toe walking, and meltdowns 2-5 times per week.; Emma Rose Callahan scored in the borderline clinical range (concerns were endorsed) in the areas of emotional reactivity and oppositional defiant problems.; She scored in the clinically significant range for somatic complaints, withdrawal, and social development problems."
+      }
+    ],
+    "reuse_notes": [
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/family_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history."
+    ]
+  }
+}

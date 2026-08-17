@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voice memory — TJ's test service for MH</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 56rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; color: #1a1a1a; background: #fff; }
+    h1 { font-size: 1.25rem; font-weight: 600; }
+    h2 { font-size: 1.05rem; font-weight: 600; margin-top: 2rem; }
+    p { margin: 0.5rem 0; }
+    .badge {
+      display: inline-block;
+      margin: 0 0 0.75rem;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1a4f4f;
+      background: #d8efef;
+      border-radius: 4px;
+    }
+    .sha {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.78rem;
+      word-break: break-all;
+      color: #2a6f6f;
+    }
+    .note {
+      margin: 0.75rem 0 1rem;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid #c5d6d6;
+      border-radius: 6px;
+      background: #f7fbfb;
+      font-size: 0.95rem;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 0.75rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.55rem 0.45rem; border-bottom: 1px solid #e8eeee; }
+    th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; color: #2a6f6f; }
+    .quote { font-style: italic; color: #333; }
+    .cite { color: #555; font-size: 0.85rem; }
+    .id { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; }
+    ul { padding-left: 1.2rem; }
+    code { background: #f3f3f3; padding: 0.1em 0.35em; border-radius: 3px; }
+    .try {
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid #d8e3e3;
+      border-radius: 8px;
+      background: #f7fbfb;
+    }
+    label { display: block; font-weight: 600; margin: 0.35rem 0; }
+    select {
+      width: 100%;
+      max-width: 28rem;
+      font: inherit;
+      padding: 0.55rem 0.65rem;
+      border: 1px solid #b8c9c9;
+      border-radius: 6px;
+      background: #fff;
+    }
+    button {
+      background: #2a6f6f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.55rem 1rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-top: 0.75rem;
+    }
+    button:disabled { opacity: 0.6; cursor: wait; }
+    .prose {
+      margin-top: 0.75rem;
+      padding: 0.9rem 1rem;
+      background: #fff;
+      border: 1px solid #d8e3e3;
+      border-radius: 6px;
+      white-space: pre-wrap;
+    }
+    mark { background: #ffe08a; padding: 0 0.15em; }
+    .fail { color: #a33; font-weight: 600; }
+    .pass { color: #2a6f6f; }
+    .na { color: #666; }
+    .error { color: #a33; }
+    .meta { font-size: 0.9rem; color: #555; }
+    a { color: #2a6f6f; }
+  </style>
+</head>
+<body>
+  <p class="badge">read-only · compiled store · no API key</p>
+  <h1>Voice memory</h1>
+  <p>Class A rules Molly stated, compiled from the ruling ledger into <code>voice_store.json</code>. The gate runs at review. Gate strings never enter a drafting prompt.</p>
+  <p class="meta"><a href="/">← drafting demo</a></p>
+
+  <p id="shaLine">store_sha: <span class="sha" id="storeSha">loading…</span></p>
+  <div class="note" id="ledgerNote">Checking how this deploy relates to the ruling ledger…</div>
+
+  <h2>1. The store</h2>
+  <p>What I keep, and where it lives. One row per Class A rule, in Molly’s words, with the <code>DECISIONS.md</code> citation. Eight records, A1–A8. The positive voice is not kept here — that is the phase-1 few-shot registry.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Molly’s words</th>
+        <th>Citation</th>
+        <th>Enforcement</th>
+      </tr>
+    </thead>
+    <tbody id="storeBody">
+      <tr><td colspan="4">Loading store…</td></tr>
+    </tbody>
+  </table>
+
+  <h2>2. The write path</h2>
+  <p>When I write it, and when I forget.</p>
+  <ul>
+    <li><strong>Class A</strong> (Molly stated it) persists as a gate. <strong>Class B</strong> stays a review note until she rules. <strong>Class C</strong> never persists.</li>
+    <li>The store is compiled from <code>DECISIONS.md</code>, never hand-edited. Compilation happens locally at close-session, behind propose → approve → apply. This public URL has no write endpoint.</li>
+    <li>The compiler refuses to build when a citation is not found verbatim in the ledger. That refusal is the integrity check.</li>
+    <li>Forgetting is never deletion. The ruling ledger is append-only; the store compiles from the live, non-superseded set. Retraction is a new entry. A4/A5 are conditionally inert without a ledger — different from forgotten.</li>
+  </ul>
+
+  <h2>3. Recall</h2>
+  <p>How I get it back. Pick a draft written to tempt a failure. The gate loads the store from disk in this process — the rule is not pasted into the request — and highlights the offending span. Every verdict is stamped with <code>store_sha</code>.</p>
+  <div class="try">
+    <label for="temptation">Draft that tempts a known failure</label>
+    <select id="temptation"></select>
+    <p class="meta" id="temptHint"></p>
+    <div class="prose" id="draftProse">Choose a draft.</div>
+    <button type="button" id="scoreBtn">Score this draft</button>
+    <p class="meta" id="scoreMeta"></p>
+    <div id="scoreResult"></div>
+  </div>
+
+  <script>
+    const storeShaEl = document.getElementById("storeSha");
+    const ledgerNote = document.getElementById("ledgerNote");
+    const storeBody = document.getElementById("storeBody");
+    const temptationSel = document.getElementById("temptation");
+    const temptHint = document.getElementById("temptHint");
+    const draftProse = document.getElementById("draftProse");
+    const scoreBtn = document.getElementById("scoreBtn");
+    const scoreMeta = document.getElementById("scoreMeta");
+    const scoreResult = document.getElementById("scoreResult");
+
+    let temptations = [];
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function highlight(prose, spans) {
+      let html = escapeHtml(prose || "");
+      const unique = [...new Set((spans || []).filter(Boolean))];
+      unique.sort((a, b) => b.length - a.length);
+      unique.forEach((span) => {
+        const needle = escapeHtml(span);
+        html = html.split(needle).join("<mark>" + needle + "</mark>");
+      });
+      return html;
+    }
+
+    function selectedTemptation() {
+      return temptations.find((row) => row.id === temptationSel.value);
+    }
+
+    function renderDraft() {
+      const row = selectedTemptation();
+      if (!row) {
+        draftProse.textContent = "Choose a draft.";
+        temptHint.textContent = "";
+        return;
+      }
+      temptHint.textContent = row.what_it_tempts;
+      draftProse.textContent = row.draft.prose || "";
+      scoreMeta.textContent = "";
+      scoreResult.innerHTML = "";
+    }
+
+    async function loadStore() {
+      const resp = await fetch("/memory/store");
+      if (!resp.ok) throw new Error("store " + resp.status);
+      const data = await resp.json();
+      storeShaEl.textContent = data.store_sha;
+      const ledger = data.ledger || {};
+      ledgerNote.textContent = ledger.message || "";
+      storeBody.innerHTML = (data.records || []).map((rec) => {
+        const cites = rec.cites ? `<div class="cite">cites ${escapeHtml(rec.cites)}</div>` : "";
+        return `<tr>
+          <td><div class="id">${escapeHtml(rec.id)}</div>${escapeHtml(rec.rule)}</td>
+          <td class="quote">“${escapeHtml(rec.source_quote)}”</td>
+          <td class="cite">${escapeHtml(rec.source)}</td>
+          <td>${escapeHtml(rec.enforcement)}${cites}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    async function loadTemptations() {
+      const resp = await fetch("/memory/temptations");
+      if (!resp.ok) throw new Error("temptations " + resp.status);
+      const data = await resp.json();
+      temptations = data.temptations || [];
+      temptationSel.innerHTML = temptations.map((row) =>
+        `<option value="${escapeHtml(row.id)}">${escapeHtml(row.title)} (${escapeHtml(row.rule_id)})</option>`
+      ).join("");
+      renderDraft();
+    }
+
+    async function scoreDraft() {
+      const row = selectedTemptation();
+      if (!row) return;
+      scoreBtn.disabled = true;
+      scoreMeta.textContent = "Scoring against the compiled store…";
+      scoreResult.innerHTML = "";
+      try {
+        const resp = await fetch("/memory/recall", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ draft: row.draft }),
+        });
+        if (!resp.ok) throw new Error("recall " + resp.status + " " + await resp.text());
+        const report = await resp.json();
+        const fails = (report.checks || []).filter((c) => c.result === "fail");
+        const spans = fails.map((c) => c.span).filter(Boolean);
+        draftProse.innerHTML = highlight(row.draft.prose, spans);
+        scoreMeta.innerHTML = `store_sha <span class="sha">${escapeHtml(report.store_sha)}</span> · ${fails.length} failure(s)`;
+        if (!fails.length) {
+          scoreResult.innerHTML = "<p>No voice-gate failures on this draft.</p>";
+          return;
+        }
+        scoreResult.innerHTML = fails.map((c) =>
+          `<p><span class="fail">FAIL ${escapeHtml(c.id)}</span><br>${escapeHtml(c.summary)}${c.span ? `<br>Span: <mark>${escapeHtml(c.span)}</mark>` : ""}</p>`
+        ).join("");
+      } catch (err) {
+        scoreMeta.innerHTML = `<span class="error">${escapeHtml(err.message)}</span>`;
+      } finally {
+        scoreBtn.disabled = false;
+      }
+    }
+
+    temptationSel.addEventListener("change", renderDraft);
+    scoreBtn.addEventListener("click", scoreDraft);
+
+    Promise.all([loadStore(), loadTemptations()]).catch((err) => {
+      ledgerNote.innerHTML = `<span class="error">${escapeHtml(err.message)}</span>`;
+    });
+  </script>
+</body>
+</html>

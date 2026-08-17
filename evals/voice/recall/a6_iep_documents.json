@@ -1,0 +1,25 @@
+{
+  "blocks": [
+    {
+      "kind": "prose",
+      "label": "Health History",
+      "trigger": null,
+      "prose": "The IEP documents indicate that Jordan has a documented peanut allergy.",
+      "statements": [
+        {
+          "statement": "Peanut allergy.",
+          "quote": "peanut allergy",
+          "fact_ids": ["f_allergy_1"]
+        }
+      ]
+    }
+  ],
+  "prose": "**Health History:** The IEP documents indicate that Jordan has a documented peanut allergy.",
+  "statements": [
+    {
+      "statement": "Peanut allergy.",
+      "quote": "peanut allergy",
+      "fact_ids": ["f_allergy_1"]
+    }
+  ]
+}

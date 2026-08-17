@@ -1,0 +1,108 @@
+{
+  "derived_from": "DECISIONS.md",
+  "records": [
+    {
+      "cites": "schemas.DraftBlock",
+      "enforcement": "deterministic",
+      "gate": [],
+      "id": "voice.labeled_blocks",
+      "ledger_required": false,
+      "rule": "Prose is labeled blocks, not one unbroken narrative.",
+      "scope": "history sections (spec §8b items 2–5)",
+      "source": "DECISIONS.md 2026-07-27",
+      "source_quote": "I want the reader to be able to find specific information easily by scanning the labels."
+    },
+    {
+      "cites": null,
+      "enforcement": "judge",
+      "gate": [
+        "Walking at 19 months. Speech delays…"
+      ],
+      "id": "voice.complete_sentences",
+      "ledger_required": false,
+      "rule": "Complete, connected sentences inside each block; no clipped fragments.",
+      "scope": "history sections (spec §8b items 2–5)",
+      "source": "DECISIONS.md 2026-07-27",
+      "source_quote": "I do like prose within the blocks vs just incomplete sentences"
+    },
+    {
+      "cites": null,
+      "enforcement": "judge",
+      "gate": [],
+      "id": "voice.one_theme_per_block",
+      "ledger_required": false,
+      "rule": "One theme per block; health / communication / social-emotional / life history never share a block.",
+      "scope": "history sections (spec §8b items 2–5)",
+      "source": "DECISIONS.md 2026-07-27",
+      "source_quote": "jumpy"
+    },
+    {
+      "cites": null,
+      "enforcement": "judge",
+      "gate": [
+        "No information was available.",
+        "No information available"
+      ],
+      "id": "voice.supported_blocks",
+      "ledger_required": true,
+      "rule": "Every emitted block is supported by ledger facts; no forced or empty blocks, no \"No information was available.\"",
+      "scope": "history sections (spec §8b items 2–5)",
+      "source": "DECISIONS.md 2026-07-27",
+      "source_quote": "Use whichever the sources support, and don't force empty ones"
+    },
+    {
+      "cites": null,
+      "enforcement": "judge",
+      "gate": [],
+      "id": "voice.intervention_routing",
+      "ledger_required": true,
+      "rule": "Intervention routed by where it happened — school-provided to Educational History, private to the parent's account.",
+      "scope": "history sections (spec §8b items 2–5)",
+      "source": "DECISIONS.md 2026-07-27",
+      "source_quote": "Intervention history routes by WHERE the intervention happened"
+    },
+    {
+      "cites": null,
+      "enforcement": "judge",
+      "gate": [
+        "Records indicate…",
+        "The IEP documents indicate…",
+        "Reports from various sources indicate…",
+        "Across various assessments…"
+      ],
+      "id": "voice.write_about_child",
+      "ledger_required": false,
+      "rule": "Write about the child, never the paperwork.",
+      "scope": "history sections (spec §8b items 2–5)",
+      "source": "DECISIONS.md 2026-07-27 markup, failure (2)",
+      "source_quote": "The IEP documents indicate…"
+    },
+    {
+      "cites": null,
+      "enforcement": "judge",
+      "gate": [
+        "Reports from various sources indicate…"
+      ],
+      "id": "voice.informants_distinct",
+      "ledger_required": false,
+      "rule": "Informants stay distinct; the reader can always tell who said what.",
+      "scope": "history sections (spec §8b items 2–5)",
+      "source": "DECISIONS.md 2026-07-27 markup, failure (1)",
+      "source_quote": "I like it all kept separate… It may be too homogenized."
+    },
+    {
+      "cites": null,
+      "enforcement": "judge",
+      "gate": [
+        "This narrative provides a snapshot of her journey…",
+        "emphasizing the variability observed…"
+      ],
+      "id": "voice.no_meta_narration",
+      "ledger_required": false,
+      "rule": "No meta-narration; do not close on sentences about the narrative itself.",
+      "scope": "history sections (spec §8b items 2–5)",
+      "source": "DECISIONS.md 2026-07-27 markup, failure (3)",
+      "source_quote": "This narrative provides a snapshot of her journey…"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "banner": "DIAGNOSTIC ONLY \u2014 UPSTREAM EXTRACTION/LEDGER NOT ACCEPTED",
+  "fixture_id": "fixture_001",
+  "package": "positive_history_full_ladder",
+  "upstream_parent": "this run's unaccepted Bastion extract/ledger",
+  "provider": "bastion",
+  "model": "bastiongpt-auto",
+  "extract_temperature": 0.0,
+  "draft_temperature": 1.0,
+  "extract_call_count": 21,
+  "writer_call_count": 4,
+  "extract_tokens": {
+    "total": 222781,
+    "prompt": 175638,
+    "completion": 47143
+  },
+  "writer_tokens": {
+    "total": 51847,
+    "prompt": 47642,
+    "completion": 4205
+  },
+  "cost_usd": null,
+  "extract_latency_ms": 216754,
+  "writer_latency_ms": 48880,
+  "facts": 241,
+  "predicates_for_review": [
+    "alternative_diploma_pathway_eligibility",
+    "anticipated_graduation_date",
+    "conservatorship_status",
+    "classroom_engagement",
+    "assistive_technology_requirement",
+    "low_incidence_services_requirement",
+    "english_learner_status",
+    "primary_language_support_requirement",
+    "behavior_impedes_learning",
+    "caaspp_participation",
+    "diagnosis_list",
+    "executive_functioning_deficit",
+    "adaptive_functioning_deficit",
+    "school_setting_success",
+    "peer_relationships",
+    "unsafe_behaviors_at_home",
+    "parental_limitations",
+    "skill_generalization"
+  ],
+  "subjects_for_review": [],
+  "writer_prompt_hash": "ee4fcaf68adb4a7589748f69fcf7fdcb784d0997fb13a2a2636d4c5802a73b0e",
+  "extract_prompt_sha256": "16d636d260f47dbe307e8317ad7cec17f98efd7b3b5de95c0e266e2f408692af",
+  "structure_spec_id": "provisional_tj_v1",
+  "structure_spec_hash": "52782f818bf00cbfeb68c2793c3bfcacdc8fe4327e51648e2ad3b1c662ea3d1e",
+  "did_not_overwrite_cache": true,
+  "cached_openai_ledger_sha256": "1aa5f1b180002983aaf15fa797f7bce9faf159456291e0f00a8b1fe1953df7db",
+  "this_run_ledger_path": "evals/history/diagnostic_ladder/run-20260814T180644Z/ledger.json",
+  "this_run_ledger_sha256": "3d5cab82253d220f5a5adf1e2ded487c3ea1b02ac63836beaff361df77b89370",
+  "compiled_brief_sha256": {
+    "current_status_history.json": "8448511d3b3872ce75a1cd242b28ff57e044c8d0099b683e1d90b5460258cb57",
+    "educational_history.json": "5225ff36bdbdba5c82a3e55b82760022630a1ab3e55fb18b8d06cc27ae8c1a09",
+    "previous_evaluations.json": "0e855424181c5d931a71f5629c71a812732286cfb8e5da692a40a3faf8a7dae7",
+    "rater_input.json": "ae3873e051c40744953e05143942a28ca3159be2f986c41d816294e657ae336b"
+  },
+  "receipt_run_id": "bastion-full-ladder-20260814T180644Z-7f30277e",
+  "receipts": {
+    "extract_raw": "art_extract_raw_03d640bbf0bb",
+    "ledger": "art_ledger_e8bf9dd390d4",
+    "brief": "art_brief_4b254a70e6f0",
+    "draft": "art_draft_fe38829123dc"
+  },
+  "example_hashes": [
+    {
+      "section_key": "current_status_history",
+      "example_id": "phase1_A_current_status_case_003",
+      "example_text_sha256": "1d465d911208de528d7656bbe84dd3457490c744881174f4e3f3246d76fd2619",
+      "evidence_brief_sha256": "67332be54c91d9b3cb32871368a12d14cffa0500088da7abcea52c9d560e6d45"
+    },
+    {
+      "section_key": "educational_history",
+      "example_id": "phase1_B_educational_history_case_005",
+      "example_text_sha256": "f040296c8837e76902429bd3dd0990457cf61627d9c9b66dbfc6770c65255184",
+      "evidence_brief_sha256": "3d4315e7109a0bf433e77a94569365307350f868327437b79fbdab5a97ccc391"
+    },
+    {
+      "section_key": "previous_evaluations",
+      "example_id": "phase1_C_previous_evaluations_case_006",
+      "example_text_sha256": "112c8be886362112615699665dc963011b08772dffed4a10445f0a36873989fa",
+      "evidence_brief_sha256": "386b14a806912e7a07b136196182dc9a6014c4458925bbc1096d2dd970cab5ab"
+    },
+    {
+      "section_key": "rater_input",
+      "example_id": "phase1_D_rater_input_case_004",
+      "example_text_sha256": "c1233d018260239d83714ff8029108bf4e2822c24c921782fc1d859631013694",
+      "evidence_brief_sha256": "e5bbbeacd15aa0d2ff53952f4a8a1c31baaa638b7e180d79adec55426a03859c"
+    }
+  ],
+  "trace_alignment_status": "not_run_diagnostic",
+  "skip_entailment": true,
+  "chart_composer": "not_exercised",
+  "table_position_marker": "[SCHOOL HISTORY CHART \u2014 server-owned; do not generate cells]",
+  "section_keys": [
+    "current_status_history",
+    "educational_history",
+    "previous_evaluations",
+    "rater_input"
+  ],
+  "tokens_by_source": {
+    "doc_01": 7348,
+    "doc_02": 0,
+    "doc_03": 0,
+    "doc_04": 0,
+    "doc_05": 0,
+    "doc_06": 0,
+    "doc_07": 0,
+    "doc_08": 0,
+    "doc_09": 0,
+    "doc_10": 0,
+    "doc_11": 96857,
+    "doc_12": 0,
+    "doc_13": 9469,
+    "doc_14": 7054,
+    "doc_17": 0,
+    "doc_20": 0,
+    "doc_21": 10322,
+    "doc_22": 7635,
+    "doc_23": 0,
+    "doc_24": 0,
+    "doc_25": 49180,
+    "doc_26": 34916,
+    "doc_28": 0
+  }
+}

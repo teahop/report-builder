@@ -1,0 +1,274 @@
+{
+  "section_key": "current_status_history",
+  "display_label": "Current Status & History",
+  "example_id": "phase1_A_current_status_case_003",
+  "example_text_sha256": "1d465d911208de528d7656bbe84dd3457490c744881174f4e3f3246d76fd2619",
+  "evidence_brief_sha256": "67332be54c91d9b3cb32871368a12d14cffa0500088da7abcea52c9d560e6d45",
+  "writer_prompt_hash": "ee4fcaf68adb4a7589748f69fcf7fdcb784d0997fb13a2a2636d4c5802a73b0e",
+  "messages_sha256": "3b85bf6625ed5a661e5677b739b1478257476055357b82192284efb832210e12",
+  "trace_alignment_status": "not_run_diagnostic",
+  "tokens": {
+    "total": 4626,
+    "prompt": 4211,
+    "completion": 415
+  },
+  "raw_output": {
+    "blocks": [
+      {
+        "label": "Family History",
+        "prose": "Emma Rose Callahan has a documented history of trauma, including suspected neglect, as reported in a prior early childhood diagnostic assessment conducted in September 2013. This background may play a role in her current emotional and behavioral profile, which includes diagnoses of Reactive Attachment Disorder (RAD) and Attention-Deficit/Hyperactivity Disorder (ADHD). The effects of her early experiences on her development are significant, especially considering she was adopted at 19 months of age, limiting the obtainable information surrounding her birth and early life.",
+        "table_position": false
+      },
+      {
+        "label": "Birth and Developmental History",
+        "prose": "Emma's developmental history shows that she met most milestones on time, with a few exceptions: she began walking at approximately 19 months and started talking at around 2 years of age. This timing of verbal communication development aligns with her diagnosis of RAD and ADHD, where delays in speech and suspected overall cognitive development were previously noted. The information is supported by current school records and assessments conducted during her early years.",
+        "table_position": false
+      },
+      {
+        "label": "Health History",
+        "prose": "Emma Rose Callahan currently does not have a health plan established, but her mother has indicated that they will inform the IEP team if her health needs change. Emma was diagnosed with hypothyroidism and is following a medication regimen that includes Geodon, Trileptal, and Vyvance for her focus and attention issues. Additionally, she is being fitted for a CPAP machine as part of a planned sleep study over the summer, indicating a proactive approach to her health needs. Emma takes 1 mg of guanfacine, 5 mg of Singulair, and 2.5 mg of melatonin each night—medications that were carefully discussed and deemed necessary by her IEP team after evaluating her health and academic needs. She has a history of seasonal allergies but otherwise reports good sleep, from 8 PM to 6:30 AM, without difficulties such as snoring.",
+        "table_position": false
+      }
+    ]
+  },
+  "attached_blocks": [
+    {
+      "block_key": "family_history",
+      "display_label": "Family History",
+      "kind": "prose",
+      "prose": "Emma Rose Callahan has a documented history of trauma, including suspected neglect, as reported in a prior early childhood diagnostic assessment conducted in September 2013. This background may play a role in her current emotional and behavioral profile, which includes diagnoses of Reactive Attachment Disorder (RAD) and Attention-Deficit/Hyperactivity Disorder (ADHD). The effects of her early experiences on her development are significant, especially considering she was adopted at 19 months of age, limiting the obtainable information surrounding her birth and early life.",
+      "offered_evidence_ids": [
+        "f_doc_26_008"
+      ]
+    },
+    {
+      "block_key": "birth_developmental_history",
+      "display_label": "Birth and Developmental History",
+      "kind": "prose",
+      "prose": "Emma's developmental history shows that she met most milestones on time, with a few exceptions: she began walking at approximately 19 months and started talking at around 2 years of age. This timing of verbal communication development aligns with her diagnosis of RAD and ADHD, where delays in speech and suspected overall cognitive development were previously noted. The information is supported by current school records and assessments conducted during her early years.",
+      "offered_evidence_ids": [
+        "f_doc_11_014",
+        "f_doc_25_019",
+        "f_doc_26_006",
+        "f_doc_11_015",
+        "f_doc_25_008",
+        "f_doc_25_018",
+        "f_doc_26_005"
+      ]
+    },
+    {
+      "block_key": "health_history",
+      "display_label": "Health History",
+      "kind": "prose",
+      "prose": "Emma Rose Callahan currently does not have a health plan established, but her mother has indicated that they will inform the IEP team if her health needs change. Emma was diagnosed with hypothyroidism and is following a medication regimen that includes Geodon, Trileptal, and Vyvance for her focus and attention issues. Additionally, she is being fitted for a CPAP machine as part of a planned sleep study over the summer, indicating a proactive approach to her health needs. Emma takes 1 mg of guanfacine, 5 mg of Singulair, and 2.5 mg of melatonin each night—medications that were carefully discussed and deemed necessary by her IEP team after evaluating her health and academic needs. She has a history of seasonal allergies but otherwise reports good sleep, from 8 PM to 6:30 AM, without difficulties such as snoring.",
+      "offered_evidence_ids": [
+        "f_doc_11_009",
+        "f_doc_11_010",
+        "f_doc_11_016",
+        "f_doc_21_004",
+        "f_doc_25_010",
+        "f_doc_25_011",
+        "f_doc_25_016",
+        "f_doc_25_017",
+        "f_doc_26_009",
+        "f_doc_26_010",
+        "f_doc_26_015"
+      ]
+    }
+  ],
+  "offered_evidence_ids": {
+    "family_history": [
+      "f_doc_26_008"
+    ],
+    "birth_developmental_history": [
+      "f_doc_11_014",
+      "f_doc_25_019",
+      "f_doc_26_006",
+      "f_doc_11_015",
+      "f_doc_25_008",
+      "f_doc_25_018",
+      "f_doc_26_005"
+    ],
+    "health_history": [
+      "f_doc_11_009",
+      "f_doc_11_010",
+      "f_doc_11_016",
+      "f_doc_21_004",
+      "f_doc_25_010",
+      "f_doc_25_011",
+      "f_doc_25_016",
+      "f_doc_25_017",
+      "f_doc_26_009",
+      "f_doc_26_010",
+      "f_doc_26_015"
+    ]
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Draft the **Current Status & History** section of a psychoeducational report in the style demonstrated by the example.\n\nDevelop each labeled block in the form demonstrated by the provided example. A block may use one paragraph, several connected paragraphs, a table position, or structured interview responses when the section calls for them. Use the supplied evidence to select concrete details, organize events clearly over time, and preserve who reported second-hand information. Let the amount and shape of the evidence determine the block's depth.\n\nThe section should read as one part of a coherent report: factual, specific, accessible to families, and natural rather than formulaic.\n\nReturn the requested section content in the supplied output format.\n"
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"Current Status & History\",\n  \"section_plan\": [\n    {\n      \"label\": \"Current Health: Caleb Whitfield is 5 feet 7 inches tall and weighs 150 pounds. His healthcare provider is Dr. Patrick Reyes, and his last routine check-up was in the spring of 2024. His hearing was last evaluated several years ago with no concerns. His eye care provider is Dr. Osei at Clearview Optometric, Rocklin, and his last visit was in September 2023, with results better than 20/20. Caleb Whitfield’s dentist is Dr. Naidu at Family Smiles Dentistry, with his last visit in September 2024, resulting in a successful filling following a routine cleaning.\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": {\n    \"approved_case_id\": \"003\",\n    \"topics\": [\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**Pregnancy and Delivery: Caleb Whitfield’s mother was 28 years old at delivery. She received regular prenatal care and Caleb Whitfield was born at 41+ weeks, weighing 8 pounds 13 ounces and measuring 22.5 inches. During pregnancy, the mother experienced a sub chorionic hematoma, used Sudafed and Allegra for allergies, and had one round of antibiotics for a respiratory infection. She also received the H1N1 vaccination, which caused adverse reactions. Caleb Whitfield was delivered vaginally, with skin-to-skin contact after birth. He was sluggish about breastfeeding due to Nubaim administered during labor and required monitoring for low blood sugar and sluggish feeding for two nights post-birth. Due to the low blood sugar, circumcision was delayed several weeks. That procedure was traumatic with healing challenges due to the wound re-adhering.\",\n        \"source\": \"approved-anonymized case 003 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**\",\n        \"source\": \"approved-anonymized case 003 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**Childhood Development: Caleb Whitfield was breastfed until about age 3 and had no significant feeding difficulties. He achieved developmental milestones such as crawling at 9 months, sitting alone at 5.5 months, standing alone at 9-10 months, and walking before 12 months. He said his first word at 10.5 months and was stringing words together by 12 months. He was fully toilet trained somewhat late, by 4.5 years.\",\n        \"source\": \"approved-anonymized case 003 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"** Caleb Whitfield has had minimal hospitalizations, including an ambulance ride for a croup attack which was traumatic for Caleb Whitfield. He more recently had an overnight stay in the Emergency Department for apparent dehydration. He was very shaky and couldn’t get warm after a day at the water park last summer. He hadn’t eaten much that day. In the ED, they gave him IV fluids and ran EKG. Caleb Whitfield recovered and was released a few hours later, but vomited all over the ground on the way out, a fairly common reaction to the IV fluids.\",\n        \"source\": \"approved-anonymized case 003 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"Current Health: Caleb Whitfield is 5 feet 7 inches tall and weighs 150 pounds. His healthcare provider is Dr. Patrick Reyes, and his last routine check-up was in the spring of 2024. His hearing was last evaluated several years ago with no concerns. His eye care provider is Dr. Osei at Clearview Optometric, Rocklin, and his last visit was in September 2023, with results better than 20/20. Caleb Whitfield’s dentist is Dr. Naidu at Family Smiles Dentistry, with his last visit in September 2024, resulting in a successful filling following a routine cleaning.\",\n        \"text\": \"Caleb Whitfield has no current health concerns and a major shift towards health occurred at age 8-9 years. In his first 7 years, Caleb Whitfield had croup chronically, persistent eczema, strep throat, and ear infections. He was diagnosed at age 5 following a strep infection with Pediatric Autoimmune Neuropsychiatric Disorders Associated with Streptococcal Infections (PANDAS). Illness had led to significant behavioral shifts, including mood swings and compulsive behaviors. Extensive bloodwork in 2017 revealed high strep antibodies despite no symptoms of illness, confirming the diagnosis. Caleb Whitfield underwent long-term antibiotic treatment for about four months, followed by homeopathic remedies, which proved most effective in managing his symptoms. Caleb Whitfield’s sleep patterns were a major problem until about age ten. Caleb Whitfield previously experienced night terrors, night waking and very early morning wakings. He has a big appetite, particularly for carbs, and the family maintains a gluten and dairy-free household. To maintain blood sugar, Caleb Whitfield has to eat regularly. Mood shifts often cue a need for food. Caleb Whitfield is followed by a Dr. Patrick Reyes who specializes in Physical Medicine & Rehabilitation, Osteopathic Medicine, Pain Medicine and Public Health & General Preventive Medicine whom he sees regularly. He also sees Dr. Aaron Whitfield for psychiatric care. He takes several medications for diagnosed ADHD, symptoms of mood disorder, and anxiety including 100 mg Strattera for ADHD, 150 mg Zoloft for anxiety, 300 mg Trileptal for sound sensitivity, 25 mg Topomax (reportedly discontinuing soon but was on board to try and balance blood sugar and mood), 1 mg low dose naltrexone (LDN) for inflammation, Vitamin D3+K2 for immune support, and 300 mg Seroquel for sleep and mood swings. Previous medications included Dyanavel, Intuniv, and Geodon, which were discontinued due to various side effects such as motor tics, undesirable mood and/or behavior changes, weight gain, negative thoughts, self harm, and efficacy issues. These experiences highlight the importance of carefully considering Caleb Whitfield's medication history to avoid reintroducing treatments that have previously been ineffective or detrimental.\",\n        \"source\": \"approved-anonymized case 003 (signed section excerpt)\"\n      }\n    ]\n  }\n}"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pregnancy and Delivery: Caleb Whitfield’s mother was 28 years old at delivery. She received regular prenatal care and Caleb Whitfield was born at 41+ weeks, weighing 8 pounds 13 ounces and measuring 22.5 inches. During pregnancy, the mother experienced a sub chorionic hematoma, used Sudafed and Allegra for allergies, and had one round of antibiotics for a respiratory infection. She also received the H1N1 vaccination, which caused adverse reactions. Caleb Whitfield was delivered vaginally, with skin-to-skin contact after birth. He was sluggish about breastfeeding due to Nubaim administered during labor and required monitoring for low blood sugar and sluggish feeding for two nights post-birth. Due to the low blood sugar, circumcision was delayed several weeks. That procedure was traumatic with healing challenges due to the wound re-adhering.**\n\n**Childhood Development: Caleb Whitfield was breastfed until about age 3 and had no significant feeding difficulties. He achieved developmental milestones such as crawling at 9 months, sitting alone at 5.5 months, standing alone at 9-10 months, and walking before 12 months. He said his first word at 10.5 months and was stringing words together by 12 months. He was fully toilet trained somewhat late, by 4.5 years.**\n\nCaleb Whitfield has had minimal hospitalizations, including an ambulance ride for a croup attack which was traumatic for Caleb Whitfield.  He more recently had an overnight stay in the Emergency Department for apparent dehydration. He was very shaky and couldn’t get warm after a day at the water park last summer. He hadn’t eaten much that day. In the ED, they gave him IV fluids and ran EKG. Caleb Whitfield recovered and was released a few hours later, but vomited all over the ground on the way out, a fairly common reaction to the IV fluids.\n\n**Current Health: Caleb Whitfield is 5 feet 7 inches tall and weighs 150 pounds. His healthcare provider is Dr. Patrick Reyes, and his last routine check-up was in the spring of 2024. His hearing was last evaluated several years ago with no concerns. His eye care provider is Dr. Osei at Clearview Optometric, Rocklin, and his last visit was in September 2023, with results better than 20/20. Caleb Whitfield’s dentist is Dr. Naidu at Family Smiles Dentistry, with his last visit in September 2024, resulting in a successful filling following a routine cleaning.**\n\nCaleb Whitfield has no current health concerns and a major shift towards health occurred at age 8-9 years. In his first 7 years, Caleb Whitfield had croup chronically, persistent eczema, strep throat, and ear infections. He was diagnosed at age 5 following a strep infection with Pediatric Autoimmune Neuropsychiatric Disorders Associated with Streptococcal Infections (PANDAS). Illness had led to significant behavioral shifts, including mood swings and compulsive behaviors. Extensive bloodwork in 2017 revealed high strep antibodies despite no symptoms of illness, confirming the diagnosis. Caleb Whitfield underwent long-term antibiotic treatment for about four months, followed by homeopathic remedies, which proved most effective in managing his symptoms. Caleb Whitfield’s sleep patterns were a major problem until about age ten. Caleb Whitfield previously experienced night terrors, night waking and very early morning wakings. He has a big appetite, particularly for carbs, and the family maintains a gluten and dairy-free household. To maintain blood sugar, Caleb Whitfield has to eat regularly. Mood shifts often cue a need for food.\n\nCaleb Whitfield is followed by a Dr. Patrick Reyes who specializes in Physical Medicine & Rehabilitation, Osteopathic Medicine, Pain Medicine and Public Health & General Preventive Medicine whom he sees regularly. He also sees Dr. Aaron Whitfield for psychiatric care. He takes several medications for diagnosed ADHD, symptoms of mood disorder, and anxiety including 100 mg Strattera for ADHD, 150 mg Zoloft for anxiety, 300 mg Trileptal for sound sensitivity, 25 mg Topomax (reportedly discontinuing soon but was on board to try and balance blood sugar and mood), 1 mg low dose naltrexone (LDN) for inflammation, Vitamin D3+K2 for immune support, and 300 mg Seroquel for sleep and mood swings. Previous medications included Dyanavel, Intuniv, and Geodon, which were discontinued due to various side effects such as motor tics, undesirable mood and/or behavior changes,  weight gain, negative thoughts, self harm,  and efficacy issues.  These experiences highlight the importance of carefully considering Caleb Whitfield's medication history to avoid reintroducing treatments that have previously been ineffective or detrimental."
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"Current Status & History\",\n  \"student_name\": \"Emma Rose Callahan\",\n  \"section_plan\": [\n    {\n      \"label\": \"Family History\",\n      \"kind\": \"prose\"\n    },\n    {\n      \"label\": \"Birth and Developmental History\",\n      \"kind\": \"prose\"\n    },\n    {\n      \"label\": \"Health History\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": [\n    {\n      \"topic\": \"Family History\",\n      \"text\": \"History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Emma Rose Callahan has RAD and ADHD.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Emma Rose Callahan was adopted at 19 months so information on birth is limited.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"she was walking at 19 months of age\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Development: delays in speech and languages and suspected delays in overall cognitive development\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"It does not require a health plan at this time but if things change then mom will inform IEP team/nurse.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"Emma Rose Callahan was diagnosed with hypothyroid and is on medication.; She takes the medications Geodon, Trileptal, and Vyvance.; gum - to help with focus/attention/alertness\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"Emma Rose Callahan is getting fitted for a CPAP machine and will be part of a sleep study over summer.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"with meds it’s fine\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"Emma Rose Callahan has a history of seasonal allergies\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"The IEP team discussed and determined other supports for school personnel, or for student, or on behalf of the student are not needed.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"She sleeps well from 8 -6.30am without snoring.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"No medications or allergies.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"Emma Rose Callahan is not reported to be on any medications.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    }\n  ],\n  \"must_mention\": [\n    {\n      \"topic\": \"medications\",\n      \"text\": \"She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night; The IEP team discussed and determined other supports for school personnel, or for student, or on behalf of the student are not needed.; She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.\"\n    },\n    {\n      \"topic\": \"developmental_history\",\n      \"text\": \"She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; Development: delays in speech and languages and suspected delays in overall cognitive development\"\n    }\n  ],\n  \"comparisons\": [\n    {\n      \"topic\": \"trauma_history\",\n      \"text\": \"Emma Rose Callahan has RAD and ADHD.; Emma Rose Callahan was adopted at 19 months so information on birth is limited.\"\n    }\n  ]\n}"
+    }
+  ],
+  "case_payload": {
+    "section_label": "Current Status & History",
+    "student_name": "Emma Rose Callahan",
+    "section_plan": [
+      {
+        "label": "Family History",
+        "kind": "prose"
+      },
+      {
+        "label": "Birth and Developmental History",
+        "kind": "prose"
+      },
+      {
+        "label": "Health History",
+        "kind": "prose"
+      }
+    ],
+    "evidence": [
+      {
+        "topic": "Family History",
+        "text": "History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Emma Rose Callahan has RAD and ADHD.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Emma Rose Callahan was adopted at 19 months so information on birth is limited.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "she was walking at 19 months of age",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Development: delays in speech and languages and suspected delays in overall cognitive development",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Health History",
+        "text": "It does not require a health plan at this time but if things change then mom will inform IEP team/nurse.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "Emma Rose Callahan was diagnosed with hypothyroid and is on medication.; She takes the medications Geodon, Trileptal, and Vyvance.; gum - to help with focus/attention/alertness",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "Emma Rose Callahan is getting fitted for a CPAP machine and will be part of a sleep study over summer.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "with meds it’s fine",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "Health History",
+        "text": "She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Health History",
+        "text": "Emma Rose Callahan has a history of seasonal allergies",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Health History",
+        "text": "The IEP team discussed and determined other supports for school personnel, or for student, or on behalf of the student are not needed.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Health History",
+        "text": "She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Health History",
+        "text": "She sleeps well from 8 -6.30am without snoring.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Health History",
+        "text": "No medications or allergies.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Health History",
+        "text": "Emma Rose Callahan is not reported to be on any medications.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      }
+    ],
+    "must_mention": [
+      {
+        "topic": "medications",
+        "text": "She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night; The IEP team discussed and determined other supports for school personnel, or for student, or on behalf of the student are not needed.; She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night."
+      },
+      {
+        "topic": "developmental_history",
+        "text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; Development: delays in speech and languages and suspected delays in overall cognitive development"
+      }
+    ],
+    "comparisons": [
+      {
+        "topic": "trauma_history",
+        "text": "Emma Rose Callahan has RAD and ADHD.; Emma Rose Callahan was adopted at 19 months so information on birth is limited."
+      }
+    ]
+  }
+}

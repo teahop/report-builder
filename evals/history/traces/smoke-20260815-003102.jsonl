@@ -1,0 +1,1557 @@
+{
+  "ts": "2026-08-15T00:31:39.470528+00:00",
+  "fixture_id": "fixture_001",
+  "structure_spec_id": "provisional_tj_v1",
+  "structure_spec_hash": "52782f818bf00cbfeb68c2793c3bfcacdc8fe4327e51648e2ad3b1c662ea3d1e",
+  "policy_hash": "a0e3aaa9bb532feb19b87bbb24e6002a6d2988034eeaedc8ab3cf34cd55ad646",
+  "prompt_hash": "9092eaf6a08a9ba932b8be8aa57a80346ec92e0a80adce8f6d118836fa499e77",
+  "voice_store_sha": "ff38012870bf1136cfd85c485289f750bc767f2b6296eee63cc57ecb4a3e8bdd",
+  "voice_gate": {
+    "store_sha": "ff38012870bf1136cfd85c485289f750bc767f2b6296eee63cc57ecb4a3e8bdd",
+    "checks": [
+      {
+        "id": "voice.labeled_blocks",
+        "result": "pass",
+        "summary": "DraftBlock labeled blocks present (schema-enforced).",
+        "span": null,
+        "section_key": "current_status_history"
+      },
+      {
+        "id": "voice.complete_sentences",
+        "result": "pass",
+        "summary": "Connected sentences in blocks.",
+        "span": null,
+        "section_key": "current_status_history"
+      },
+      {
+        "id": "voice.one_theme_per_block",
+        "result": "fail",
+        "summary": "Block 'Birth and Developmental History' mixes themes ['health', 'communication', 'social_emotional'] \u2014 health / communication / social-emotional / life history must not share a block.",
+        "span": "Emma Rose Callahan met all of her developmental milestones on time except walking, which occurred at about 19 months of age, and talking, which started around age 2. Initially, there were reported delays in speech and la",
+        "section_key": "current_status_history"
+      },
+      {
+        "id": "voice.supported_blocks",
+        "result": "pass",
+        "summary": "Emitted blocks have ledger support.",
+        "span": null,
+        "section_key": "current_status_history"
+      },
+      {
+        "id": "voice.intervention_routing",
+        "result": "pass",
+        "summary": "No school-provided intervention routed into a parent/rater section.",
+        "span": null,
+        "section_key": "current_status_history"
+      },
+      {
+        "id": "voice.write_about_child",
+        "result": "pass",
+        "summary": "No banned paperwork openers.",
+        "span": null,
+        "section_key": "current_status_history"
+      },
+      {
+        "id": "voice.informants_distinct",
+        "result": "pass",
+        "summary": "Informants stay distinct.",
+        "span": null,
+        "section_key": "current_status_history"
+      },
+      {
+        "id": "voice.no_meta_narration",
+        "result": "pass",
+        "summary": "No meta-narration closers.",
+        "span": null,
+        "section_key": "current_status_history"
+      },
+      {
+        "id": "voice.labeled_blocks",
+        "result": "pass",
+        "summary": "DraftBlock labeled blocks present (schema-enforced).",
+        "span": null,
+        "section_key": "educational_history"
+      },
+      {
+        "id": "voice.complete_sentences",
+        "result": "pass",
+        "summary": "Connected sentences in blocks.",
+        "span": null,
+        "section_key": "educational_history"
+      },
+      {
+        "id": "voice.one_theme_per_block",
+        "result": "pass",
+        "summary": "One theme per block.",
+        "span": null,
+        "section_key": "educational_history"
+      },
+      {
+        "id": "voice.supported_blocks",
+        "result": "pass",
+        "summary": "Emitted blocks have ledger support.",
+        "span": null,
+        "section_key": "educational_history"
+      },
+      {
+        "id": "voice.intervention_routing",
+        "result": "pass",
+        "summary": "Section is not a parent-account destination for private intervention.",
+        "span": null,
+        "section_key": "educational_history"
+      },
+      {
+        "id": "voice.write_about_child",
+        "result": "pass",
+        "summary": "No banned paperwork openers.",
+        "span": null,
+        "section_key": "educational_history"
+      },
+      {
+        "id": "voice.informants_distinct",
+        "result": "pass",
+        "summary": "Informants stay distinct.",
+        "span": null,
+        "section_key": "educational_history"
+      },
+      {
+        "id": "voice.no_meta_narration",
+        "result": "pass",
+        "summary": "No meta-narration closers.",
+        "span": null,
+        "section_key": "educational_history"
+      },
+      {
+        "id": "voice.labeled_blocks",
+        "result": "pass",
+        "summary": "DraftBlock labeled blocks present (schema-enforced).",
+        "span": null,
+        "section_key": "previous_evaluations"
+      },
+      {
+        "id": "voice.complete_sentences",
+        "result": "pass",
+        "summary": "Connected sentences in blocks.",
+        "span": null,
+        "section_key": "previous_evaluations"
+      },
+      {
+        "id": "voice.one_theme_per_block",
+        "result": "pass",
+        "summary": "One theme per block.",
+        "span": null,
+        "section_key": "previous_evaluations"
+      },
+      {
+        "id": "voice.supported_blocks",
+        "result": "pass",
+        "summary": "Emitted blocks have ledger support.",
+        "span": null,
+        "section_key": "previous_evaluations"
+      },
+      {
+        "id": "voice.intervention_routing",
+        "result": "pass",
+        "summary": "Section is not a parent-account destination for private intervention.",
+        "span": null,
+        "section_key": "previous_evaluations"
+      },
+      {
+        "id": "voice.write_about_child",
+        "result": "pass",
+        "summary": "No banned paperwork openers.",
+        "span": null,
+        "section_key": "previous_evaluations"
+      },
+      {
+        "id": "voice.informants_distinct",
+        "result": "pass",
+        "summary": "Informants stay distinct.",
+        "span": null,
+        "section_key": "previous_evaluations"
+      },
+      {
+        "id": "voice.no_meta_narration",
+        "result": "pass",
+        "summary": "No meta-narration closers.",
+        "span": null,
+        "section_key": "previous_evaluations"
+      },
+      {
+        "id": "voice.labeled_blocks",
+        "result": "pass",
+        "summary": "DraftBlock labeled blocks present (schema-enforced).",
+        "span": null,
+        "section_key": "rater_input"
+      },
+      {
+        "id": "voice.complete_sentences",
+        "result": "pass",
+        "summary": "Connected sentences in blocks.",
+        "span": null,
+        "section_key": "rater_input"
+      },
+      {
+        "id": "voice.one_theme_per_block",
+        "result": "pass",
+        "summary": "One theme per block.",
+        "span": null,
+        "section_key": "rater_input"
+      },
+      {
+        "id": "voice.supported_blocks",
+        "result": "pass",
+        "summary": "Emitted blocks have ledger support.",
+        "span": null,
+        "section_key": "rater_input"
+      },
+      {
+        "id": "voice.intervention_routing",
+        "result": "pass",
+        "summary": "No school-provided intervention routed into a parent/rater section.",
+        "span": null,
+        "section_key": "rater_input"
+      },
+      {
+        "id": "voice.write_about_child",
+        "result": "pass",
+        "summary": "No banned paperwork openers.",
+        "span": null,
+        "section_key": "rater_input"
+      },
+      {
+        "id": "voice.informants_distinct",
+        "result": "pass",
+        "summary": "Informants stay distinct.",
+        "span": null,
+        "section_key": "rater_input"
+      },
+      {
+        "id": "voice.no_meta_narration",
+        "result": "pass",
+        "summary": "No meta-narration closers.",
+        "span": null,
+        "section_key": "rater_input"
+      }
+    ]
+  },
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "temperature": 1.0,
+  "status": "ok",
+  "section_populated": true,
+  "tokens_used": 52624,
+  "tokens_by_stage": {
+    "draft": 52624,
+    "entailment": 0
+  },
+  "latency_ms": 37420,
+  "cost_usd": 0.008625,
+  "trace_id": "20193bc7daa184bff229b20820592a94",
+  "langfuse_url": "https://us.cloud.langfuse.com/project/cmsjcwr3m1oitad0dnkpfdt82/traces/20193bc7daa184bff229b20820592a94",
+  "input_schema_gaps": [
+    "social_history: No registered peer/adult-relationship or social-activity predicates; block stays absent until vocabulary supports it.",
+    "nurse_report: SourceType has no nurse value; nurse-report sources cannot be selected without substring inference or schema expansion (out of scope).",
+    "covid_educational_experience: No registered COVID-education predicate; omit unless vocabulary later supports explicit evidence."
+  ],
+  "sections": [
+    {
+      "section_key": "current_status_history",
+      "display_label": "Current Status & History",
+      "purpose": "topic_history",
+      "section_populated": true,
+      "empty_reason": null,
+      "blocks": [
+        {
+          "block_key": "family_history",
+          "display_label": "Family History",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_26_008"
+          ]
+        },
+        {
+          "block_key": "birth_developmental_history",
+          "display_label": "Birth and Developmental History",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_11_015",
+            "f_doc_25_008",
+            "f_doc_25_018",
+            "f_doc_26_005"
+          ]
+        },
+        {
+          "block_key": "health_history",
+          "display_label": "Health History",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_11_009",
+            "f_doc_11_010",
+            "f_doc_11_016",
+            "f_doc_25_011",
+            "f_doc_26_010"
+          ]
+        }
+      ],
+      "prose": "**Family History:** Emma Rose Callahan was adopted at 19 months, leading to limited information about her birth family. There is a history of trauma and neglect suspected in her early years.\n\n**Birth and Developmental History:** Emma Rose Callahan met all of her developmental milestones on time except walking, which occurred at about 19 months of age, and talking, which started around age 2. Initially, there were reported delays in speech and language, and suspected delays in overall cognitive development, noted during an early childhood diagnostic assessment when she was 3 years old. Furthermore, she has been diagnosed with Reactive Attachment Disorder (RAD) and ADHD. This last diagnosis highlights the continuing impact of her early experiences on her emotional and behavioral functioning.\n\n**Health History:** As of October 2024, Emma Rose Callahan does not require a health plan; her mother has indicated that they will inform the IEP team or nurse if her health needs change. Currently, she is receiving treatment for hypothyroidism and takes the following medications: Geodon, Trileptal, and Vyvanse, along with gum to aid focus, attention, and alertness. She is also getting fitted for a CPAP machine and will participate in a sleep study over the summer. Emma has a history of seasonal allergies, but no medications or significant health concerns have required intervention in the recent past.",
+      "statement_fact_ids": [
+        [
+          "f_doc_26_008"
+        ],
+        [
+          "f_doc_11_015",
+          "f_doc_25_008",
+          "f_doc_25_018"
+        ],
+        [
+          "f_doc_26_005"
+        ],
+        [
+          "f_doc_11_009"
+        ],
+        [
+          "f_doc_11_010"
+        ],
+        [
+          "f_doc_11_016"
+        ],
+        [
+          "f_doc_25_011",
+          "f_doc_26_010"
+        ]
+      ]
+    },
+    {
+      "section_key": "educational_history",
+      "display_label": "Educational History",
+      "purpose": "topic_history",
+      "section_populated": true,
+      "empty_reason": null,
+      "blocks": [
+        {
+          "block_key": "school_history_chart",
+          "display_label": "School History",
+          "kind": "table",
+          "fact_ids": [
+            "f_doc_25_004",
+            "f_doc_25_005",
+            "f_doc_11_017",
+            "f_doc_11_018",
+            "f_doc_11_022",
+            "f_doc_11_021",
+            "f_doc_11_004",
+            "f_doc_11_019",
+            "f_doc_11_006",
+            "f_doc_11_023",
+            "f_doc_21_003"
+          ]
+        },
+        {
+          "block_key": "school_experience",
+          "display_label": "School Experience",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_11_006",
+            "f_doc_11_008",
+            "f_doc_11_023",
+            "f_doc_11_012",
+            "f_doc_11_017",
+            "f_doc_21_003"
+          ]
+        },
+        {
+          "block_key": "intervention",
+          "display_label": "Intervention",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_11_024",
+            "f_doc_25_015"
+          ]
+        },
+        {
+          "block_key": "iep_services",
+          "display_label": "IEP / Special Education",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_25_006"
+          ]
+        }
+      ],
+      "prose": "**School History:**\n\n*School History Table*\n\n| Year | Grade | School | Notes |\n| --- | --- | --- | --- |\n| 2013-2014 | 4 | Oak Meadow School |  |\n| 2014-2015 | 5 | Oak Meadow School | Maintained general education with accommodations. |\n| 2024-2025 | 9 | Ridgeway High School | Currently active IEP, engaged in General Education with accommodations. |\n| 2015-2024 |  | Options for Youth Home School |  |\n\n**School Experience:** Emma Rose Callahan is currently in 9th grade at Ridgeway High School, where she exhibits good attendance and follows directions effectively. Her behavioral observations indicate that she is adaptive and does not impede her learning. In terms of academic performance, she can write a paragraph with supporting sentences at approximately a 5th grade level, demonstrating fundamental writing skills. She has engaged in programs such as Options for Youth Home School, which she attended during a transitional period. Emma reported that she used to go to her father's to do schoolwork with Options for Youth. Throughout her educational journey, her experiences illustrate a gradual development of skills and adaptation to varying educational environments.\n\n**Intervention:** As of October 2, 2024, Emma Rose Callahan's current intervention status includes participation in General Education with accommodations. This was determined by the IEP team during evaluations and is active, indicating that support structures are in place to aid her learning.\n\n**IEP / Special Education:** Emma Rose Callahan currently has an active IEP, which was established following her initial evaluation while in 4th grade on May 29, 2019. The IEP indicates that Emma was previously not eligible for special education services and that she later returned to regular education. The most recent IEP documented on October 2, 2024, describes her ongoing status, highlighting the services she receives based on her current needs.",
+      "statement_fact_ids": [
+        [
+          "f_doc_11_006",
+          "f_doc_11_008",
+          "f_doc_11_023"
+        ],
+        [
+          "f_doc_11_012"
+        ],
+        [
+          "f_doc_11_017"
+        ],
+        [
+          "f_doc_21_003"
+        ],
+        [
+          "f_doc_21_003"
+        ],
+        [
+          "f_doc_11_024",
+          "f_doc_25_015"
+        ],
+        [
+          "f_doc_25_006"
+        ]
+      ]
+    },
+    {
+      "section_key": "previous_evaluations",
+      "display_label": "History of Previous Evaluations",
+      "purpose": "topic_history",
+      "section_populated": true,
+      "empty_reason": null,
+      "blocks": [
+        {
+          "block_key": "previous_evaluations_narrative",
+          "display_label": "Previous Evaluations",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_26_005",
+            "f_doc_26_013",
+            "f_doc_26_014",
+            "f_doc_26_006",
+            "f_doc_26_008"
+          ]
+        }
+      ],
+      "prose": "**Previous Evaluations:** Emma Rose Callahan underwent a prior early childhood diagnostic assessment at the age of 3 on September 10, 2013. This assessment indicated delays in speech and language, along with suspected delays in overall cognitive development. Additionally, concerns noted by parents included Emma's emotional reactivity and oppositional defiant problems, where she scored in the borderline clinical range. She also exhibited clinically significant ranges for somatic complaints, withdrawal, and social development problems. Regarding her developmental milestones, Emma was reported to have walked at 19 months of age. Furthermore, her family history included a noted history of neglect and suspected trauma.",
+      "statement_fact_ids": [
+        [
+          "f_doc_26_005"
+        ],
+        [
+          "f_doc_26_013"
+        ],
+        [
+          "f_doc_26_014"
+        ],
+        [
+          "f_doc_26_006"
+        ],
+        [
+          "f_doc_26_008"
+        ]
+      ]
+    },
+    {
+      "section_key": "rater_input",
+      "display_label": "Student / Caregiver / Teacher Input",
+      "purpose": "rater_input",
+      "section_populated": true,
+      "empty_reason": null,
+      "blocks": [
+        {
+          "block_key": "student_input:doc_21",
+          "display_label": "Student/Client/Patient Input \u2014 Student profile and interview",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_21_007",
+            "f_doc_21_006",
+            "f_doc_21_010",
+            "f_doc_21_011",
+            "f_doc_21_003"
+          ]
+        },
+        {
+          "block_key": "caregiver_input:mom",
+          "display_label": "Parent/Caregiver Input \u2014 Mom",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_25_007",
+            "f_doc_25_012",
+            "f_doc_25_013",
+            "f_doc_25_010",
+            "f_doc_25_017",
+            "f_doc_25_008",
+            "f_doc_25_018",
+            "f_doc_25_019"
+          ]
+        },
+        {
+          "block_key": "caregiver_input:mother",
+          "display_label": "Parent/Caregiver Input \u2014 mother",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_25_011"
+          ]
+        }
+      ],
+      "prose": "**Student/Client/Patient Input \u2014 Student profile and interview:** Emma Rose Callahan, currently in 4th grade, has been reported to experience feelings of social awkwardness when at school. She expresses that she feels \"really awkward at school\" and has conveyed to others, including her mother, that she might be depressed. Emma identifies that her motivation is low, particularly for schoolwork that does not interest her. Although she has described herself as \"cooperative\" during assessments, she has acknowledged issues with attention, noting that she \"made errors at times due to poor attention.\" She also reports feeling anxious, stating, \"I am socially awkward with everybody.\" Emma mentioned that her sleep is manageable when she is on medication, indicating that she takes 1mg of guanfacine, 2.5mg of melatonin, and 5mg of Singular at night. \n \nEmma has previously been enrolled in Options for Youth for home school and currently attends Oak Meadow School. Throughout her educational journey, she has faced challenges related to attention deficits, learning problems, and defiance behaviors. Emma has reported a mixture of feelings regarding her school experience, including a struggle with social interactions and feeling overwhelmed at times.\n\n**Parent/Caregiver Input \u2014 Mom:** Emma's mother provides key insights regarding her daughter's current challenges and history. She confirms that Emma has been diagnosed with ADHD and highlights her sensitivity to noise and touch. This sensitivity can impact Emma's comfort and performance in school settings. Emma's mother has expressed concerns about her daughter's attention deficits, which manifest as clinically significant levels of inattention at both home and school. Emma's mother also notes her ongoing struggles with defiance and difficulty in sustaining attention and following directions.\n \nEmma has been prescribed medications, including guanfacine, melatonin, and Singular, although there exists some conflicting information regarding her current medication status. During an IEP team meeting, it was suggested that she might not need any additional support, yet Emma\u2019s mother has clarified that she is indeed taking these medications to help manage her symptoms. \n \nDevelopmentally, Emma met most milestones on time, except for delayed onset of walking at approximately 19 months and talking at around 2 years. Emma was adopted at 19 months, thus limiting the available information about her early life.\n\n**Parent/Caregiver Input \u2014 mother:** Emma's mother, reflecting on her daughter's experiences, notes that Emma has demonstrated significant behavioral concerns, such as attention deficits, inattention, and learning difficulties. Her mother recalls that Emma has experienced seasonal allergies, which could also factor into her overall well-being. Furthermore, she describes Emma as having a history of sleep problems, which are currently addressed through medication.",
+      "statement_fact_ids": [
+        [
+          "f_doc_21_007"
+        ],
+        [
+          "f_doc_21_006",
+          "f_doc_21_010",
+          "f_doc_21_011"
+        ],
+        [
+          "f_doc_21_003"
+        ],
+        [
+          "f_doc_25_007",
+          "f_doc_25_012"
+        ],
+        [
+          "f_doc_25_013"
+        ],
+        [
+          "f_doc_25_010",
+          "f_doc_25_017"
+        ],
+        [
+          "f_doc_25_008",
+          "f_doc_25_018",
+          "f_doc_25_019"
+        ],
+        [
+          "f_doc_25_019"
+        ],
+        [
+          "f_doc_25_011"
+        ]
+      ]
+    }
+  ],
+  "reuse_records": [
+    {
+      "fact_id": "f_doc_26_008",
+      "section_key": "current_status_history",
+      "block_key": "family_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_015",
+      "section_key": "current_status_history",
+      "block_key": "birth_developmental_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_008",
+      "section_key": "current_status_history",
+      "block_key": "birth_developmental_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_018",
+      "section_key": "current_status_history",
+      "block_key": "birth_developmental_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_005",
+      "section_key": "current_status_history",
+      "block_key": "birth_developmental_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_009",
+      "section_key": "current_status_history",
+      "block_key": "health_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_010",
+      "section_key": "current_status_history",
+      "block_key": "health_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_016",
+      "section_key": "current_status_history",
+      "block_key": "health_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_011",
+      "section_key": "current_status_history",
+      "block_key": "health_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_010",
+      "section_key": "current_status_history",
+      "block_key": "health_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_004",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_005",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_017",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_018",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_022",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_021",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_004",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_019",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_006",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_023",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_21_003",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_006",
+      "section_key": "educational_history",
+      "block_key": "school_experience",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_008",
+      "section_key": "educational_history",
+      "block_key": "school_experience",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_023",
+      "section_key": "educational_history",
+      "block_key": "school_experience",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_012",
+      "section_key": "educational_history",
+      "block_key": "school_experience",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_017",
+      "section_key": "educational_history",
+      "block_key": "school_experience",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_21_003",
+      "section_key": "educational_history",
+      "block_key": "school_experience",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_024",
+      "section_key": "educational_history",
+      "block_key": "intervention",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_015",
+      "section_key": "educational_history",
+      "block_key": "intervention",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_006",
+      "section_key": "educational_history",
+      "block_key": "iep_services",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_005",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_013",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_014",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_006",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_008",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_21_007",
+      "section_key": "rater_input",
+      "block_key": "student_input:doc_21",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_21_006",
+      "section_key": "rater_input",
+      "block_key": "student_input:doc_21",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_21_010",
+      "section_key": "rater_input",
+      "block_key": "student_input:doc_21",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_21_011",
+      "section_key": "rater_input",
+      "block_key": "student_input:doc_21",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_21_003",
+      "section_key": "rater_input",
+      "block_key": "student_input:doc_21",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_25_007",
+      "section_key": "rater_input",
+      "block_key": "caregiver_input:mom",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_25_012",
+      "section_key": "rater_input",
+      "block_key": "caregiver_input:mom",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_25_013",
+      "section_key": "rater_input",
+      "block_key": "caregiver_input:mom",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_25_010",
+      "section_key": "rater_input",
+      "block_key": "caregiver_input:mom",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_25_017",
+      "section_key": "rater_input",
+      "block_key": "caregiver_input:mom",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_25_008",
+      "section_key": "rater_input",
+      "block_key": "caregiver_input:mom",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_25_018",
+      "section_key": "rater_input",
+      "block_key": "caregiver_input:mom",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_25_019",
+      "section_key": "rater_input",
+      "block_key": "caregiver_input:mom",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_25_011",
+      "section_key": "rater_input",
+      "block_key": "caregiver_input:mother",
+      "purpose": "rater_input"
+    }
+  ],
+  "conflicts_count": 6,
+  "variance_count": 5,
+  "rendered_prose": "## Current Status & History\n\n**Family History:** Emma Rose Callahan was adopted at 19 months, leading to limited information about her birth family. There is a history of trauma and neglect suspected in her early years.\n\n**Birth and Developmental History:** Emma Rose Callahan met all of her developmental milestones on time except walking, which occurred at about 19 months of age, and talking, which started around age 2. Initially, there were reported delays in speech and language, and suspected delays in overall cognitive development, noted during an early childhood diagnostic assessment when she was 3 years old. Furthermore, she has been diagnosed with Reactive Attachment Disorder (RAD) and ADHD. This last diagnosis highlights the continuing impact of her early experiences on her emotional and behavioral functioning.\n\n**Health History:** As of October 2024, Emma Rose Callahan does not require a health plan; her mother has indicated that they will inform the IEP team or nurse if her health needs change. Currently, she is receiving treatment for hypothyroidism and takes the following medications: Geodon, Trileptal, and Vyvanse, along with gum to aid focus, attention, and alertness. She is also getting fitted for a CPAP machine and will participate in a sleep study over the summer. Emma has a history of seasonal allergies, but no medications or significant health concerns have required intervention in the recent past.\n\n## Educational History\n\n**School History:**\n\n*School History Table*\n\n| Year | Grade | School | Notes |\n| --- | --- | --- | --- |\n| 2013-2014 | 4 | Oak Meadow School |  |\n| 2014-2015 | 5 | Oak Meadow School | Maintained general education with accommodations. |\n| 2024-2025 | 9 | Ridgeway High School | Currently active IEP, engaged in General Education with accommodations. |\n| 2015-2024 |  | Options for Youth Home School |  |\n\n**School Experience:** Emma Rose Callahan is currently in 9th grade at Ridgeway High School, where she exhibits good attendance and follows directions effectively. Her behavioral observations indicate that she is adaptive and does not impede her learning. In terms of academic performance, she can write a paragraph with supporting sentences at approximately a 5th grade level, demonstrating fundamental writing skills. She has engaged in programs such as Options for Youth Home School, which she attended during a transitional period. Emma reported that she used to go to her father's to do schoolwork with Options for Youth. Throughout her educational journey, her experiences illustrate a gradual development of skills and adaptation to varying educational environments.\n\n**Intervention:** As of October 2, 2024, Emma Rose Callahan's current intervention status includes participation in General Education with accommodations. This was determined by the IEP team during evaluations and is active, indicating that support structures are in place to aid her learning.\n\n**IEP / Special Education:** Emma Rose Callahan currently has an active IEP, which was established following her initial evaluation while in 4th grade on May 29, 2019. The IEP indicates that Emma was previously not eligible for special education services and that she later returned to regular education. The most recent IEP documented on October 2, 2024, describes her ongoing status, highlighting the services she receives based on her current needs.\n\n## History of Previous Evaluations\n\n**Previous Evaluations:** Emma Rose Callahan underwent a prior early childhood diagnostic assessment at the age of 3 on September 10, 2013. This assessment indicated delays in speech and language, along with suspected delays in overall cognitive development. Additionally, concerns noted by parents included Emma's emotional reactivity and oppositional defiant problems, where she scored in the borderline clinical range. She also exhibited clinically significant ranges for somatic complaints, withdrawal, and social development problems. Regarding her developmental milestones, Emma was reported to have walked at 19 months of age. Furthermore, her family history included a noted history of neglect and suspected trauma.\n\n## Student / Caregiver / Teacher Input\n\n**Student/Client/Patient Input \u2014 Student profile and interview:** Emma Rose Callahan, currently in 4th grade, has been reported to experience feelings of social awkwardness when at school. She expresses that she feels \"really awkward at school\" and has conveyed to others, including her mother, that she might be depressed. Emma identifies that her motivation is low, particularly for schoolwork that does not interest her. Although she has described herself as \"cooperative\" during assessments, she has acknowledged issues with attention, noting that she \"made errors at times due to poor attention.\" She also reports feeling anxious, stating, \"I am socially awkward with everybody.\" Emma mentioned that her sleep is manageable when she is on medication, indicating that she takes 1mg of guanfacine, 2.5mg of melatonin, and 5mg of Singular at night. \n \nEmma has previously been enrolled in Options for Youth for home school and currently attends Oak Meadow School. Throughout her educational journey, she has faced challenges related to attention deficits, learning problems, and defiance behaviors. Emma has reported a mixture of feelings regarding her school experience, including a struggle with social interactions and feeling overwhelmed at times.\n\n**Parent/Caregiver Input \u2014 Mom:** Emma's mother provides key insights regarding her daughter's current challenges and history. She confirms that Emma has been diagnosed with ADHD and highlights her sensitivity to noise and touch. This sensitivity can impact Emma's comfort and performance in school settings. Emma's mother has expressed concerns about her daughter's attention deficits, which manifest as clinically significant levels of inattention at both home and school. Emma's mother also notes her ongoing struggles with defiance and difficulty in sustaining attention and following directions.\n \nEmma has been prescribed medications, including guanfacine, melatonin, and Singular, although there exists some conflicting information regarding her current medication status. During an IEP team meeting, it was suggested that she might not need any additional support, yet Emma\u2019s mother has clarified that she is indeed taking these medications to help manage her symptoms. \n \nDevelopmentally, Emma met most milestones on time, except for delayed onset of walking at approximately 19 months and talking at around 2 years. Emma was adopted at 19 months, thus limiting the available information about her early life.\n\n**Parent/Caregiver Input \u2014 mother:** Emma's mother, reflecting on her daughter's experiences, notes that Emma has demonstrated significant behavioral concerns, such as attention deficits, inattention, and learning difficulties. Her mother recalls that Emma has experienced seasonal allergies, which could also factor into her overall well-being. Furthermore, she describes Emma as having a history of sleep problems, which are currently addressed through medication.",
+  "review": [
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on school_enrollment: 'ridgeway high school' (doc_11) vs 'ridgeway high' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "school_enrollment",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on medications: '1mg guanfacine, 2.5mg melatonin, 5mg singular' (doc_25) vs 'none' (doc_25) vs 'guanfacine, melatonin, singular' (doc_25)",
+      "requires_decision": true,
+      "conflict_topic": "medications",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on basic_reading: 'average' (doc_11) vs '5th grade' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "basic_reading",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on developmental_history: 'typical' (doc_11) vs 'typical' (doc_25) vs 'met all developmental milestones on time except walking at about 19 mos and talking at about 2 yrs' (doc_25) vs 'delays in speech and language, suspected delays in overall cognitive development' (doc_26)",
+      "requires_decision": true,
+      "conflict_topic": "developmental_history",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on math_fluency: '75' (doc_11) vs '90' (doc_11) vs '80' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "math_fluency",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on written_expression: '70' (doc_11) vs '75' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "written_expression",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'frequently triggered by interactions with her siblings, leading to dysregulation and unsafe behaviors' (doc_13) vs 'parent is unable to leave her home alone due to concerns about her poor judgment' (doc_13) vs 'struggles to generalize skills learned in therapeutic settings to other environments' (doc_13)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'depressed' (doc_21) vs 'socially awkward' (doc_21) vs 'low motivation' (doc_21)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'attention deficits' (doc_25) vs 'inattention' (doc_25) vs 'learning problems' (doc_25) vs 'defiance/aggression' (doc_25) vs 'history of adhd, sensitivity to noise/touch, sleep problems, seasonal allergies' (doc_25)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'slow to react with directions, sensory issues, toe walking, meltdowns' (doc_26) vs 'borderline clinical range for emotional reactivity and oppositional defiant problems' (doc_26) vs 'clinically significant range for somatic complaints, withdrawal, and social development problems' (doc_26)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on trauma_history: 'rad and adhd' (doc_11) vs 'adopted at 19 months' (doc_25)",
+      "requires_decision": false,
+      "conflict_topic": "trauma_history",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict_not_mentioned",
+      "summary": "Must-mention conflict 'basic_reading' not clearly surfaced with both sides in prose",
+      "requires_decision": true,
+      "conflict_topic": "basic_reading",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict_not_mentioned",
+      "summary": "Must-mention conflict 'math_fluency' not clearly surfaced with both sides in prose",
+      "requires_decision": true,
+      "conflict_topic": "math_fluency",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "temporal_framing",
+      "summary": "as_of fact f_doc_11_016 (as_of_date=2024-10-02) is superseded on its timeline but framed in present tense: 'She is also getting fitted for a CPAP machine and will participate in a sleep study over the summer.'",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": "f_doc_11_016",
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "voice_gate",
+      "summary": "Block 'Birth and Developmental History' mixes themes ['health', 'communication', 'social_emotional'] \u2014 health / communication / social-emotional / life history must not share a block. Span: Emma Rose Callahan met all of her developmental milestones on time except walking, which occurred at about 19 months of age, and talking, which started around age 2. Initially, there were reported delays in speech and la",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": "voice.one_theme_per_block"
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on school_enrollment: 'ridgeway high school' (doc_11) vs 'ridgeway high' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "school_enrollment",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on medications: '1mg guanfacine, 2.5mg melatonin, 5mg singular' (doc_25) vs 'none' (doc_25) vs 'guanfacine, melatonin, singular' (doc_25)",
+      "requires_decision": true,
+      "conflict_topic": "medications",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on basic_reading: 'average' (doc_11) vs '5th grade' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "basic_reading",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on developmental_history: 'typical' (doc_11) vs 'typical' (doc_25) vs 'met all developmental milestones on time except walking at about 19 mos and talking at about 2 yrs' (doc_25) vs 'delays in speech and language, suspected delays in overall cognitive development' (doc_26)",
+      "requires_decision": true,
+      "conflict_topic": "developmental_history",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on math_fluency: '75' (doc_11) vs '90' (doc_11) vs '80' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "math_fluency",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on written_expression: '70' (doc_11) vs '75' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "written_expression",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'frequently triggered by interactions with her siblings, leading to dysregulation and unsafe behaviors' (doc_13) vs 'parent is unable to leave her home alone due to concerns about her poor judgment' (doc_13) vs 'struggles to generalize skills learned in therapeutic settings to other environments' (doc_13)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'depressed' (doc_21) vs 'socially awkward' (doc_21) vs 'low motivation' (doc_21)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'attention deficits' (doc_25) vs 'inattention' (doc_25) vs 'learning problems' (doc_25) vs 'defiance/aggression' (doc_25) vs 'history of adhd, sensitivity to noise/touch, sleep problems, seasonal allergies' (doc_25)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'slow to react with directions, sensory issues, toe walking, meltdowns' (doc_26) vs 'borderline clinical range for emotional reactivity and oppositional defiant problems' (doc_26) vs 'clinically significant range for somatic complaints, withdrawal, and social development problems' (doc_26)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on trauma_history: 'rad and adhd' (doc_11) vs 'adopted at 19 months' (doc_25)",
+      "requires_decision": false,
+      "conflict_topic": "trauma_history",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict_not_mentioned",
+      "summary": "Must-mention conflict 'medications' not clearly surfaced with both sides in prose",
+      "requires_decision": true,
+      "conflict_topic": "medications",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict_not_mentioned",
+      "summary": "Must-mention conflict 'developmental_history' not clearly surfaced with both sides in prose",
+      "requires_decision": true,
+      "conflict_topic": "developmental_history",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict_not_mentioned",
+      "summary": "Must-mention conflict 'math_fluency' not clearly surfaced with both sides in prose",
+      "requires_decision": true,
+      "conflict_topic": "math_fluency",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "terminology",
+      "summary": "Replace 'grade level' with preferred 'grade-level'",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": null,
+      "banned_term": "grade level",
+      "preferred_term": "grade-level",
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "temporal_framing",
+      "summary": "as_of fact f_doc_11_006 (as_of_date=2024-10-02) is superseded on its timeline but framed in present tense: 'Emma Rose Callahan is currently in 9th grade at Ridgeway High School, where she exhibits good attend'",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": "f_doc_11_006",
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "temporal_framing",
+      "summary": "as_of fact f_doc_11_023 (as_of_date=2024-10-02) is superseded on its timeline but framed in present tense: 'Emma Rose Callahan is currently in 9th grade at Ridgeway High School, where she exhibits good attend'",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": "f_doc_11_023",
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on school_enrollment: 'ridgeway high school' (doc_11) vs 'ridgeway high' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "school_enrollment",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on medications: '1mg guanfacine, 2.5mg melatonin, 5mg singular' (doc_25) vs 'none' (doc_25) vs 'guanfacine, melatonin, singular' (doc_25)",
+      "requires_decision": true,
+      "conflict_topic": "medications",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on basic_reading: 'average' (doc_11) vs '5th grade' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "basic_reading",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on developmental_history: 'typical' (doc_11) vs 'typical' (doc_25) vs 'met all developmental milestones on time except walking at about 19 mos and talking at about 2 yrs' (doc_25) vs 'delays in speech and language, suspected delays in overall cognitive development' (doc_26)",
+      "requires_decision": true,
+      "conflict_topic": "developmental_history",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on math_fluency: '75' (doc_11) vs '90' (doc_11) vs '80' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "math_fluency",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on written_expression: '70' (doc_11) vs '75' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "written_expression",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'frequently triggered by interactions with her siblings, leading to dysregulation and unsafe behaviors' (doc_13) vs 'parent is unable to leave her home alone due to concerns about her poor judgment' (doc_13) vs 'struggles to generalize skills learned in therapeutic settings to other environments' (doc_13)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'depressed' (doc_21) vs 'socially awkward' (doc_21) vs 'low motivation' (doc_21)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'attention deficits' (doc_25) vs 'inattention' (doc_25) vs 'learning problems' (doc_25) vs 'defiance/aggression' (doc_25) vs 'history of adhd, sensitivity to noise/touch, sleep problems, seasonal allergies' (doc_25)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'slow to react with directions, sensory issues, toe walking, meltdowns' (doc_26) vs 'borderline clinical range for emotional reactivity and oppositional defiant problems' (doc_26) vs 'clinically significant range for somatic complaints, withdrawal, and social development problems' (doc_26)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on trauma_history: 'rad and adhd' (doc_11) vs 'adopted at 19 months' (doc_25)",
+      "requires_decision": false,
+      "conflict_topic": "trauma_history",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict_not_mentioned",
+      "summary": "Must-mention conflict 'school_enrollment' not clearly surfaced with both sides in prose",
+      "requires_decision": true,
+      "conflict_topic": "school_enrollment",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict_not_mentioned",
+      "summary": "Must-mention conflict 'medications' not clearly surfaced with both sides in prose",
+      "requires_decision": true,
+      "conflict_topic": "medications",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict_not_mentioned",
+      "summary": "Must-mention conflict 'basic_reading' not clearly surfaced with both sides in prose",
+      "requires_decision": true,
+      "conflict_topic": "basic_reading",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict_not_mentioned",
+      "summary": "Must-mention conflict 'math_fluency' not clearly surfaced with both sides in prose",
+      "requires_decision": true,
+      "conflict_topic": "math_fluency",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "terminology",
+      "summary": "Replace 'clinically significant' with preferred 'pair the score label with plain-language observation and implication'",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": null,
+      "banned_term": "clinically significant",
+      "preferred_term": "pair the score label with plain-language observation and implication",
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on school_enrollment: 'ridgeway high school' (doc_11) vs 'ridgeway high' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "school_enrollment",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on medications: '1mg guanfacine, 2.5mg melatonin, 5mg singular' (doc_25) vs 'none' (doc_25) vs 'guanfacine, melatonin, singular' (doc_25)",
+      "requires_decision": true,
+      "conflict_topic": "medications",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on basic_reading: 'average' (doc_11) vs '5th grade' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "basic_reading",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on developmental_history: 'typical' (doc_11) vs 'typical' (doc_25) vs 'met all developmental milestones on time except walking at about 19 mos and talking at about 2 yrs' (doc_25) vs 'delays in speech and language, suspected delays in overall cognitive development' (doc_26)",
+      "requires_decision": true,
+      "conflict_topic": "developmental_history",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on math_fluency: '75' (doc_11) vs '90' (doc_11) vs '80' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "math_fluency",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict",
+      "summary": "Resolve or document judgment on written_expression: '70' (doc_11) vs '75' (doc_11)",
+      "requires_decision": true,
+      "conflict_topic": "written_expression",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'frequently triggered by interactions with her siblings, leading to dysregulation and unsafe behaviors' (doc_13) vs 'parent is unable to leave her home alone due to concerns about her poor judgment' (doc_13) vs 'struggles to generalize skills learned in therapeutic settings to other environments' (doc_13)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'depressed' (doc_21) vs 'socially awkward' (doc_21) vs 'low motivation' (doc_21)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'attention deficits' (doc_25) vs 'inattention' (doc_25) vs 'learning problems' (doc_25) vs 'defiance/aggression' (doc_25) vs 'history of adhd, sensitivity to noise/touch, sleep problems, seasonal allergies' (doc_25)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on behavioral_concern: 'slow to react with directions, sensory issues, toe walking, meltdowns' (doc_26) vs 'borderline clinical range for emotional reactivity and oppositional defiant problems' (doc_26) vs 'clinically significant range for somatic complaints, withdrawal, and social development problems' (doc_26)",
+      "requires_decision": false,
+      "conflict_topic": "behavioral_concern",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "variance",
+      "summary": "Informant variance on trauma_history: 'rad and adhd' (doc_11) vs 'adopted at 19 months' (doc_25)",
+      "requires_decision": false,
+      "conflict_topic": "trauma_history",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "conflict_not_mentioned",
+      "summary": "Must-mention conflict 'math_fluency' not clearly surfaced with both sides in prose",
+      "requires_decision": true,
+      "conflict_topic": "math_fluency",
+      "fact_id": null,
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "terminology",
+      "summary": "Replace 'deficits' with preferred 'area of need, challenge area'",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": null,
+      "banned_term": "deficits",
+      "preferred_term": "area of need, challenge area",
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "terminology",
+      "summary": "Replace 'deficits' with preferred 'area of need, challenge area'",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": null,
+      "banned_term": "deficits",
+      "preferred_term": "area of need, challenge area",
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "terminology",
+      "summary": "Replace 'clinically significant' with preferred 'pair the score label with plain-language observation and implication'",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": null,
+      "banned_term": "clinically significant",
+      "preferred_term": "pair the score label with plain-language observation and implication",
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "terminology",
+      "summary": "Replace 'deficits' with preferred 'area of need, challenge area'",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": null,
+      "banned_term": "deficits",
+      "preferred_term": "area of need, challenge area",
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "temporal_framing",
+      "summary": "as_of fact f_doc_21_007 (as_of_date=2025-04-19) is superseded on its timeline but framed in present tense: 'Emma identifies that her motivation is low, particularly for schoolwork that does not interest her.'",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": "f_doc_21_007",
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    },
+    {
+      "kind": "temporal_framing",
+      "summary": "as_of fact f_doc_21_006 (as_of_date=2025-04-19) is superseded on its timeline but framed in present tense: 'Although she has described herself as \"cooperative\" during assessments, she has acknowledged issues '",
+      "requires_decision": true,
+      "conflict_topic": null,
+      "fact_id": "f_doc_21_006",
+      "banned_term": null,
+      "preferred_term": null,
+      "citation_text": null,
+      "voice_rule_id": null
+    }
+  ],
+  "skip_entailment": true
+}

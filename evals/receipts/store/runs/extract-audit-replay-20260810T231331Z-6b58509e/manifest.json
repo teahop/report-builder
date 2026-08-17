@@ -1,0 +1,10 @@
+{
+  "run_id": "extract-audit-replay-20260810T231331Z-6b58509e",
+  "diagnostic_replay_artifact_id": "art_extract_audit_replay_v2",
+  "diagnostic_replay_sha256": "f1d7e977d46f21fc8ec11d3058e390ff6a1cff49a603af2c071d77458e65fdf3",
+  "evidence_view_sha256": "b3569212e0b666dc829e40b74501b60993a43e37f8825fbe78e0a92a10ae3469",
+  "legacy_ledger_artifact_id": "art_legacy_fixture_001_ledger",
+  "legacy_ledger_sha256": "1d6bb48e10f7b5b39245078ea6934f6facbdb738e1a810dd407f3120b8a2cef2",
+  "linked_as_parent": false,
+  "observed_silent_drop_count": 6
+}

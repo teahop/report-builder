@@ -1,0 +1,96 @@
+{
+  "structure_spec_id": "test_alt_v1",
+  "status": "test_only",
+  "notes": [
+    "Test-only alternate structure. Renames and reorders Current Status blocks to prove replaceability without schema/compiler branches."
+  ],
+  "sections": [
+    {
+      "section_key": "current_status_history",
+      "display_label": "Current Status & History (Alt)",
+      "outline_trigger": "always",
+      "purpose": "topic_history",
+      "blocks": [
+        {
+          "block_key": "health_history",
+          "display_label": "Medical Background",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "health_history",
+          "purpose": "topic_history",
+          "confirmation_state": "provisional"
+        },
+        {
+          "block_key": "family_history",
+          "display_label": "Household and Family",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "family_history",
+          "purpose": "topic_history",
+          "confirmation_state": "provisional"
+        },
+        {
+          "block_key": "birth_developmental_history",
+          "display_label": "Early Development",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "birth_developmental_history",
+          "purpose": "topic_history",
+          "confirmation_state": "provisional"
+        }
+      ]
+    },
+    {
+      "section_key": "educational_history",
+      "display_label": "Educational History",
+      "outline_trigger": "evidence",
+      "purpose": "topic_history",
+      "blocks": [
+        {
+          "block_key": "school_experience",
+          "display_label": "School Experience",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "educational_school_experience",
+          "purpose": "topic_history",
+          "confirmation_state": "confirmed"
+        }
+      ]
+    },
+    {
+      "section_key": "previous_evaluations",
+      "display_label": "History of Previous Evaluations",
+      "outline_trigger": "evidence",
+      "purpose": "topic_history",
+      "blocks": [
+        {
+          "block_key": "previous_evaluations_narrative",
+          "display_label": "Previous Evaluations",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "previous_evaluations",
+          "purpose": "topic_history",
+          "confirmation_state": "confirmed"
+        }
+      ]
+    },
+    {
+      "section_key": "rater_input",
+      "display_label": "Student / Caregiver / Teacher Input",
+      "outline_trigger": "evidence",
+      "purpose": "rater_input",
+      "blocks": [
+        {
+          "block_key": "rater_blocks",
+          "display_label": "(dynamic per rater)",
+          "kind": "prose",
+          "emit_when": "any_supported_fact",
+          "selector": "rater_input",
+          "purpose": "rater_input",
+          "confirmation_state": "provisional",
+          "dynamic": true
+        }
+      ]
+    }
+  ]
+}

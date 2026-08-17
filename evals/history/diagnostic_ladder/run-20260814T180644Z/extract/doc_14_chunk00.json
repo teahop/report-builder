@@ -1,0 +1,48 @@
+{
+  "source_id": "doc_14",
+  "schema": "SourceExtraction",
+  "temperature": 0.0,
+  "user_sha256": "b004f2198dc88fa02887fcc048c345a586ac4ccc44281c01b8857875d85e183c",
+  "raw_text": "{\n  \"facts\": [\n    {\n      \"subject\": \"child\",\n      \"predicate\": \"legal_name\",\n      \"proposed_predicate\": null,\n      \"value\": \"Emma Rose Callahan\",\n      \"value_text\": \"Emma Rose Callahan\",\n      \"qualifier\": null,\n      \"assertion\": \"asserted\",\n      \"reporter\": null,\n      \"life_stage\": \"current\",\n      \"grade\": null,\n      \"confidence\": \"stated\",\n      \"as_of_date\": null,\n      \"valence\": \"neutral\",\n      \"source_section\": null\n    },\n    {\n      \"subject\": \"child\",\n      \"predicate\": \"dob\",\n      \"proposed_predicate\": null,\n      \"value\": \"2010-03-22\",\n      \"value_text\": \"DOB 3/22/10\",\n      \"qualifier\": null,\n      \"assertion\": \"asserted\",\n      \"reporter\": null,\n      \"life_stage\": \"birth\",\n      \"grade\": null,\n      \"confidence\": \"stated\",\n      \"as_of_date\": null,\n      \"valence\": \"neutral\",\n      \"source_section\": null\n    }\n  ]\n}",
+  "parsed": {
+    "facts": [
+      {
+        "subject": "child",
+        "predicate": "legal_name",
+        "proposed_predicate": null,
+        "value": "Emma Rose Callahan",
+        "value_text": "Emma Rose Callahan",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": null,
+        "valence": "neutral",
+        "source_section": null
+      },
+      {
+        "subject": "child",
+        "predicate": "dob",
+        "proposed_predicate": null,
+        "value": "2010-03-22",
+        "value_text": "DOB 3/22/10",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "birth",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": null,
+        "valence": "neutral",
+        "source_section": null
+      }
+    ]
+  },
+  "tokens": {
+    "total": 7054,
+    "prompt": 6806,
+    "completion": 248
+  }
+}

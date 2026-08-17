@@ -1,0 +1,26 @@
+{
+  "source": "Langfuse session sweep-20260807-132534-c9e20e",
+  "instruction": "From the 2026-08-07 History open-coding tally. Edit if the workbook differs.",
+  "rows": [
+    {
+      "category": "opens with DOB/age + overly summarative register",
+      "count": 20,
+      "example_note": "DOB/age opener 20/20; top coded failure on History drafts"
+    },
+    {
+      "category": "Despite these",
+      "count": 7,
+      "example_note": "phrase hit in baseline History prose"
+    },
+    {
+      "category": "complex history",
+      "count": 5,
+      "example_note": "phrase hit in baseline History prose"
+    },
+    {
+      "category": "Overall",
+      "count": 4,
+      "example_note": "phrase hit in baseline History prose"
+    }
+  ]
+}

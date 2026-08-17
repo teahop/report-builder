@@ -1,0 +1,240 @@
+{
+  "section_key": "previous_evaluations",
+  "display_label": "History of Previous Evaluations",
+  "example_id": "phase1_C_previous_evaluations_case_006",
+  "example_text_sha256": "112c8be886362112615699665dc963011b08772dffed4a10445f0a36873989fa",
+  "evidence_brief_sha256": "386b14a806912e7a07b136196182dc9a6014c4458925bbc1096d2dd970cab5ab",
+  "writer_prompt_hash": "1452dec6604fb8a279dd2ce2eb0efdddb90da5133b7fd300c3806ebae810d0bd",
+  "provider": "bastion",
+  "model": "bastiongpt-auto",
+  "messages_sha256": "83a66b19c28b2b058d2132c3aedac553bb5413f7aaa0b092c9a08912506da667",
+  "trace_alignment_status": "not_run_diagnostic",
+  "tokens": {
+    "total": 3115,
+    "prompt": 2762,
+    "completion": 353
+  },
+  "raw_output": {
+    "blocks": [
+      {
+        "label": "Previous Evaluations",
+        "prose": "Emma Rose Callahan was first assessed through a diagnostic evaluation at age three. Available records reflect a complex early history, including severe neglect reported prior to adoption and suspected exposure to trauma. Her medical background includes alleged intrauterine exposure to methamphetamine, which, along with the history of neglect, was suspected to be a contributory factor in her developmental presentation.\n\nDue to circumstances surrounding her birth and early care, details are limited; however, it is known that Emma Rose was adopted at nineteen months. At the time of her initial evaluation, she had met most developmental milestones within typical timelines, but with delays noted in walking, which occurred at about nineteen months, and in talking, which began around age two. She was also found to have delays in speech and language, as well as suspected delays in overall cognitive development. Despite these early concerns, records indicated age-appropriate fine and gross motor skills, including legible handwriting and participation in physical education with peers in later years. Toilet training was largely achieved during the day, though frequent accidents persisted.\n\nBehavioral assessment via the Child Behavior Checklist (CBCL) completed by her adoptive mother showed clinically significant withdrawal and somatic complaints, and a borderline clinical range for emotional reactivity and oppositional defiant behaviors. Additional concerns were noted in social development. These behavioral and social-emotional findings were interpreted in the context of her early trauma and multiple placements prior to adoption. Since entering the care of her adoptive parents, Emma Rose has demonstrated developmental progress, and communication skills and motor functioning have not been areas of ongoing concern.",
+        "table_position": false
+      }
+    ]
+  },
+  "attached_blocks": [
+    {
+      "block_key": "previous_evaluations_narrative",
+      "display_label": "Previous Evaluations",
+      "kind": "prose",
+      "prose": "Emma Rose Callahan was first assessed through a diagnostic evaluation at age three. Available records reflect a complex early history, including severe neglect reported prior to adoption and suspected exposure to trauma. Her medical background includes alleged intrauterine exposure to methamphetamine, which, along with the history of neglect, was suspected to be a contributory factor in her developmental presentation.\n\nDue to circumstances surrounding her birth and early care, details are limited; however, it is known that Emma Rose was adopted at nineteen months. At the time of her initial evaluation, she had met most developmental milestones within typical timelines, but with delays noted in walking, which occurred at about nineteen months, and in talking, which began around age two. She was also found to have delays in speech and language, as well as suspected delays in overall cognitive development. Despite these early concerns, records indicated age-appropriate fine and gross motor skills, including legible handwriting and participation in physical education with peers in later years. Toilet training was largely achieved during the day, though frequent accidents persisted.\n\nBehavioral assessment via the Child Behavior Checklist (CBCL) completed by her adoptive mother showed clinically significant withdrawal and somatic complaints, and a borderline clinical range for emotional reactivity and oppositional defiant behaviors. Additional concerns were noted in social development. These behavioral and social-emotional findings were interpreted in the context of her early trauma and multiple placements prior to adoption. Since entering the care of her adoptive parents, Emma Rose has demonstrated developmental progress, and communication skills and motor functioning have not been areas of ongoing concern.",
+      "offered_evidence_ids": [
+        "f_doc_26_004",
+        "f_doc_26_005",
+        "f_doc_26_006",
+        "f_doc_26_007",
+        "f_doc_26_014",
+        "f_doc_26_016",
+        "f_doc_26_017",
+        "f_doc_26_018",
+        "f_doc_26_019",
+        "f_doc_26_023",
+        "f_doc_26_024",
+        "f_doc_26_028",
+        "f_doc_26_029",
+        "f_doc_26_030",
+        "f_doc_26_035",
+        "f_doc_26_036",
+        "f_doc_26_042"
+      ]
+    }
+  ],
+  "offered_evidence_ids": {
+    "previous_evaluations_narrative": [
+      "f_doc_26_004",
+      "f_doc_26_005",
+      "f_doc_26_006",
+      "f_doc_26_007",
+      "f_doc_26_014",
+      "f_doc_26_016",
+      "f_doc_26_017",
+      "f_doc_26_018",
+      "f_doc_26_019",
+      "f_doc_26_023",
+      "f_doc_26_024",
+      "f_doc_26_028",
+      "f_doc_26_029",
+      "f_doc_26_030",
+      "f_doc_26_035",
+      "f_doc_26_036",
+      "f_doc_26_042"
+    ]
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Draft the **History of Previous Evaluations** section of a psychoeducational report in the style demonstrated by the example.\n\nDevelop each labeled block in the form demonstrated by the provided example. A block may use one paragraph, several connected paragraphs, a table position, or structured interview responses when the section calls for them. Use the supplied evidence to select concrete details, organize events clearly over time, and preserve who reported second-hand information. Let the amount and shape of the evidence determine the block's depth.\n\nThe section should read as one part of a coherent report: factual, specific, accessible to families, and natural rather than formulaic.\n\nReturn the requested section content in the supplied output format.\n"
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"History of Previous Evaluations\",\n  \"section_plan\": [\n    {\n      \"label\": \"PREVIOUS ASSESSMENT\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": {\n    \"approved_case_id\": \"006\",\n    \"topics\": [\n      {\n        \"topic\": \"PREVIOUS ASSESSMENT\",\n        \"text\": \"Mason Kessler underwent a Multidisciplinary Psycho-educational Evaluation in fourth grade at NCSA. Score summaries are located in Addendum 2 at the end of this report. This assessment indicated Mason Kessler had above average cognitive ability with no areas of processing weakness, including auditory, visual, sensory motor, verbal, attention and reasoning. While sensory motor processing fell within the average range, a poor pencil grip was noted to impact speed of writing. Observations of executive functioning identified a broad level of concerns, but Mason Kessler was accessing his education and making growth. He demonstrated average to well above average academic skills. Mason Kessler had friends and his non-verbal as well as pragmatic language skills fell within the average range. A 504 Plan was developed as educational need could not be identified.\",\n        \"source\": \"approved-anonymized case 006 (signed section excerpt)\"\n      }\n    ]\n  }\n}"
+    },
+    {
+      "role": "assistant",
+      "content": "**PREVIOUS ASSESSMENT**\n\nMason Kessler underwent a Multidisciplinary Psycho-educational Evaluation in fourth grade at NCSA. Score summaries are located in Addendum 2 at the end of this report. This assessment indicated Mason Kessler had above average cognitive ability with no areas of processing weakness, including auditory, visual, sensory motor, verbal, attention and reasoning. While sensory motor processing fell within the average range, a poor pencil grip was noted to impact speed of writing. Observations of executive functioning identified a broad level of concerns, but Mason Kessler was accessing his education and making growth.  He demonstrated average to well above average academic skills. Mason Kessler had friends and his non-verbal as well as pragmatic language skills fell within the average range. A 504 Plan was developed as educational need could not be identified."
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"History of Previous Evaluations\",\n  \"student_name\": \"Emma Rose Callahan\",\n  \"section_plan\": [\n    {\n      \"label\": \"Previous Evaluations\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": [\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Developmental history is remarkable for exposure to trauma.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"delays in speech and languages and suspected delays in overall cognitive development\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"she was walking at 19 months of age\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Severe neglect reported prior to adoption.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Medical history is remarkable for alleged intrauterine exposure to methamphetamine.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"history of neglect may be contributory factors\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Her medical history is remarkable for alleged in utero exposure to methamphetamines.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Findings from the CBCL showed clinically significant withdrawal and somatic complaints\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"scored in the borderline clinical range (concerns were endorsed) in the areas of emotional reactivity and oppositional defiant problems\",\n      \"who\": \"adoptive mother\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"clinically significant range for somatic complaints, withdrawal, and social development problems\",\n      \"who\": \"adoptive mother\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Emma Rose Callahan is meeting developmental milestones for fine motor skills for her age\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"Emma Rose Callahan is meeting developmental milestones in gross motor skills for her age\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Previous Evaluations\",\n      \"text\": \"She is toilet trained during the day, yet has frequent accidents\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    }\n  ],\n  \"must_mention\": [\n    {\n      \"topic\": \"developmental_history\",\n      \"text\": \"She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; complex needs; Not an area of concern, Emma Rose Callahan maintains age appropriate communication skills.; Not an area of concern at this time, Emma Rose Callahan participates in PE with her 3rd grade class. Her handwriting is typically legible and within appropriate boundaries.; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; delays in speech and languages and suspected delays in overall cognitive development; Emma Rose Callahan has progressed developmentally since being in the care of her adoptive parents\"\n    }\n  ],\n  \"comparisons\": [\n    {\n      \"topic\": \"behavioral_concern\",\n      \"text\": \"Findings from the CBCL showed clinically significant withdrawal and somatic complaints; scored in the borderline clinical range (concerns were endorsed) in the areas of emotional reactivity and oppositional defiant problems; clinically significant range for somatic complaints, withdrawal, and social development problems\"\n    },\n    {\n      \"topic\": \"trauma_history\",\n      \"text\": \"Emma Rose Callahan was adopted at 19 months so information on birth is limited.; She has RAD and ADHD.; complex history including early trauma, adoption, and multiple placements; Emma Rose Callahan was adopted at 19 months so information on birth is limited.; Developmental history is remarkable for exposure to trauma.; History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.; Severe neglect reported prior to adoption.; history of neglect may be contributory factors; Her medical history is remarkable for alleged in utero exposure to methamphetamines.\"\n    }\n  ],\n  \"reuse_notes\": [\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\",\n    \"This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.\"\n  ]\n}"
+    }
+  ],
+  "case_payload": {
+    "section_label": "History of Previous Evaluations",
+    "student_name": "Emma Rose Callahan",
+    "section_plan": [
+      {
+        "label": "Previous Evaluations",
+        "kind": "prose"
+      }
+    ],
+    "evidence": [
+      {
+        "topic": "Previous Evaluations",
+        "text": "Developmental history is remarkable for exposure to trauma.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "delays in speech and languages and suspected delays in overall cognitive development",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "she was walking at 19 months of age",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "Severe neglect reported prior to adoption.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "Medical history is remarkable for alleged intrauterine exposure to methamphetamine.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "history of neglect may be contributory factors",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "Her medical history is remarkable for alleged in utero exposure to methamphetamines.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "Findings from the CBCL showed clinically significant withdrawal and somatic complaints",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "scored in the borderline clinical range (concerns were endorsed) in the areas of emotional reactivity and oppositional defiant problems",
+        "who": "adoptive mother",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "clinically significant range for somatic complaints, withdrawal, and social development problems",
+        "who": "adoptive mother",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "Emma Rose Callahan is meeting developmental milestones for fine motor skills for her age",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "Emma Rose Callahan is meeting developmental milestones in gross motor skills for her age",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Previous Evaluations",
+        "text": "She is toilet trained during the day, yet has frequent accidents",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      }
+    ],
+    "must_mention": [
+      {
+        "topic": "developmental_history",
+        "text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; complex needs; Not an area of concern, Emma Rose Callahan maintains age appropriate communication skills.; Not an area of concern at this time, Emma Rose Callahan participates in PE with her 3rd grade class. Her handwriting is typically legible and within appropriate boundaries.; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; delays in speech and languages and suspected delays in overall cognitive development; Emma Rose Callahan has progressed developmentally since being in the care of her adoptive parents"
+      }
+    ],
+    "comparisons": [
+      {
+        "topic": "behavioral_concern",
+        "text": "Findings from the CBCL showed clinically significant withdrawal and somatic complaints; scored in the borderline clinical range (concerns were endorsed) in the areas of emotional reactivity and oppositional defiant problems; clinically significant range for somatic complaints, withdrawal, and social development problems"
+      },
+      {
+        "topic": "trauma_history",
+        "text": "Emma Rose Callahan was adopted at 19 months so information on birth is limited.; She has RAD and ADHD.; complex history including early trauma, adoption, and multiple placements; Emma Rose Callahan was adopted at 19 months so information on birth is limited.; Developmental history is remarkable for exposure to trauma.; History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.; Severe neglect reported prior to adoption.; history of neglect may be contributory factors; Her medical history is remarkable for alleged in utero exposure to methamphetamines."
+      }
+    ],
+    "reuse_notes": [
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history.",
+      "This section should present this evidence again for topic_history; it already appeared in current_status_history/birth_developmental_history as topic_history."
+    ]
+  }
+}

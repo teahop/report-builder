@@ -1,0 +1,546 @@
+{
+  "section_key": "current_status_history",
+  "display_label": "Current Status & History",
+  "example_id": "phase1_A_current_status_case_003",
+  "example_text_sha256": "1d465d911208de528d7656bbe84dd3457490c744881174f4e3f3246d76fd2619",
+  "evidence_brief_sha256": "67332be54c91d9b3cb32871368a12d14cffa0500088da7abcea52c9d560e6d45",
+  "writer_prompt_hash": "ee4fcaf68adb4a7589748f69fcf7fdcb784d0997fb13a2a2636d4c5802a73b0e",
+  "provider": "bastion",
+  "model": "bastiongpt-auto",
+  "messages_sha256": "65c7a3eb860b5b17b387c571a95ac2bedb19091f70cb42fc914c95f24abb342c",
+  "trace_alignment_status": "not_run_diagnostic",
+  "tokens": {
+    "total": 7211,
+    "prompt": 6568,
+    "completion": 643
+  },
+  "raw_output": {
+    "blocks": [
+      {
+        "label": "Family History",
+        "prose": "Emma Rose Callahan's family history is significant for attention deficit hyperactivity disorder (ADHD), as her mother reported a personal history of this condition. Emma Rose's background is also shaped by adoption at 19 months of age, with records consistently noting limited information about her birth and biological family. Prior assessments highlight that Emma Rose has complex needs influenced by factors such as early trauma, adoption, and multiple placements.",
+        "table_position": false
+      },
+      {
+        "label": "Birth and Developmental History",
+        "prose": "Emma Rose Callahan was born in Hollister, California, with a birth weight of 6 pounds 4 ounces. Details about her birth are limited, but early childhood diagnostic assessments document alleged intrauterine exposure to methamphetamine. Prior to adoption, severe neglect was reported, with resulting trauma suspected to influence developmental outcomes.\n\nEmma Rose was adopted at 19 months. She met most developmental milestones on time, except for walking at around 19 months and talking at approximately 2 years. She began using sentences at about age 3. While early delays in gross motor and expressive language were noted, she progressed developmentally once placed with her adoptive parents. Current school records and prior assessments indicate her fine and gross motor skills are age-appropriate, her handwriting is typically legible, and she participates fully in physical education classes. She is toilet trained during the day, although she has had frequent accidents, and previous assessments noted she slept in a pull-up but was usually dry in the morning. Emma Rose was diagnosed with reactive attachment disorder (RAD) and ADHD, with a developmental history marked by exposure to trauma and neglect.",
+        "table_position": false
+      },
+      {
+        "label": "Health History",
+        "prose": "Emma Rose Callahan was diagnosed with hypothyroidism and is currently adjusting her medication dosage. She takes Geodon, Trileptal, and Vyvance for mood regulation and ADHD. According to both Emma Rose and her mother, medication has been essential for her functioning at school and in daily activities, with Emma Rose stating, \"Without meds it’s really hard, with meds it’s fine.\" Previously, she was prescribed guanfacine, Singulair, and melatonin at night. Emma Rose has no known food or medication allergies but has seasonal allergies.\n\nEmma Rose had her appendix removed in April 2019 and reported no lingering problems from the surgery. She also had her tonsils removed, which resolved previously diagnosed sleep apnea. At the start of the current school year, she often fell asleep during morning classes, prompting plans for a sleep study and CPAP fitting over the summer. She is not blind or visually impaired and is not deaf or hard of hearing. Previous assessments noted possible sensitivity to noise and touch. Emma Rose's sleep patterns have fluctuated, with past reports of good nighttime sleep and daily naps, but recent reports suggest ongoing sleep-related challenges.\n\nAt this time, Emma Rose does not require an individual health plan at school, but the IEP team will be informed should her needs change.",
+        "table_position": false
+      }
+    ]
+  },
+  "attached_blocks": [
+    {
+      "block_key": "family_history",
+      "display_label": "Family History",
+      "kind": "prose",
+      "prose": "Emma Rose Callahan's family history is significant for attention deficit hyperactivity disorder (ADHD), as her mother reported a personal history of this condition. Emma Rose's background is also shaped by adoption at 19 months of age, with records consistently noting limited information about her birth and biological family. Prior assessments highlight that Emma Rose has complex needs influenced by factors such as early trauma, adoption, and multiple placements.",
+      "offered_evidence_ids": [
+        "f_doc_25_072"
+      ]
+    },
+    {
+      "block_key": "birth_developmental_history",
+      "display_label": "Birth and Developmental History",
+      "kind": "prose",
+      "prose": "Emma Rose Callahan was born in Hollister, California, with a birth weight of 6 pounds 4 ounces. Details about her birth are limited, but early childhood diagnostic assessments document alleged intrauterine exposure to methamphetamine. Prior to adoption, severe neglect was reported, with resulting trauma suspected to influence developmental outcomes.\n\nEmma Rose was adopted at 19 months. She met most developmental milestones on time, except for walking at around 19 months and talking at approximately 2 years. She began using sentences at about age 3. While early delays in gross motor and expressive language were noted, she progressed developmentally once placed with her adoptive parents. Current school records and prior assessments indicate her fine and gross motor skills are age-appropriate, her handwriting is typically legible, and she participates fully in physical education classes. She is toilet trained during the day, although she has had frequent accidents, and previous assessments noted she slept in a pull-up but was usually dry in the morning. Emma Rose was diagnosed with reactive attachment disorder (RAD) and ADHD, with a developmental history marked by exposure to trauma and neglect.",
+      "offered_evidence_ids": [
+        "f_doc_11_030",
+        "f_doc_11_031",
+        "f_doc_11_032",
+        "f_doc_11_034",
+        "f_doc_11_043",
+        "f_doc_25_027",
+        "f_doc_25_028",
+        "f_doc_25_029",
+        "f_doc_25_030",
+        "f_doc_26_004",
+        "f_doc_26_005",
+        "f_doc_26_007",
+        "f_doc_26_014",
+        "f_doc_26_016",
+        "f_doc_26_017",
+        "f_doc_26_018",
+        "f_doc_26_019",
+        "f_doc_26_023",
+        "f_doc_26_024",
+        "f_doc_11_033",
+        "f_doc_25_031",
+        "f_doc_25_071",
+        "f_doc_26_006",
+        "f_doc_26_035",
+        "f_doc_26_036",
+        "f_doc_26_042"
+      ]
+    },
+    {
+      "block_key": "health_history",
+      "display_label": "Health History",
+      "kind": "prose",
+      "prose": "Emma Rose Callahan was diagnosed with hypothyroidism and is currently adjusting her medication dosage. She takes Geodon, Trileptal, and Vyvance for mood regulation and ADHD. According to both Emma Rose and her mother, medication has been essential for her functioning at school and in daily activities, with Emma Rose stating, \"Without meds it’s really hard, with meds it’s fine.\" Previously, she was prescribed guanfacine, Singulair, and melatonin at night. Emma Rose has no known food or medication allergies but has seasonal allergies.\n\nEmma Rose had her appendix removed in April 2019 and reported no lingering problems from the surgery. She also had her tonsils removed, which resolved previously diagnosed sleep apnea. At the start of the current school year, she often fell asleep during morning classes, prompting plans for a sleep study and CPAP fitting over the summer. She is not blind or visually impaired and is not deaf or hard of hearing. Previous assessments noted possible sensitivity to noise and touch. Emma Rose's sleep patterns have fluctuated, with past reports of good nighttime sleep and daily naps, but recent reports suggest ongoing sleep-related challenges.\n\nAt this time, Emma Rose does not require an individual health plan at school, but the IEP team will be informed should her needs change.",
+      "offered_evidence_ids": [
+        "f_doc_11_011",
+        "f_doc_11_012",
+        "f_doc_11_025",
+        "f_doc_11_026",
+        "f_doc_11_027",
+        "f_doc_11_028",
+        "f_doc_11_029",
+        "f_doc_11_042",
+        "f_doc_11_058",
+        "f_doc_11_059",
+        "f_doc_21_003",
+        "f_doc_21_004",
+        "f_doc_25_032",
+        "f_doc_25_033",
+        "f_doc_25_034",
+        "f_doc_25_035",
+        "f_doc_25_069",
+        "f_doc_25_070",
+        "f_doc_26_010",
+        "f_doc_26_011",
+        "f_doc_26_012",
+        "f_doc_26_013",
+        "f_doc_26_038",
+        "f_doc_26_043"
+      ]
+    }
+  ],
+  "offered_evidence_ids": {
+    "family_history": [
+      "f_doc_25_072"
+    ],
+    "birth_developmental_history": [
+      "f_doc_11_030",
+      "f_doc_11_031",
+      "f_doc_11_032",
+      "f_doc_11_034",
+      "f_doc_11_043",
+      "f_doc_25_027",
+      "f_doc_25_028",
+      "f_doc_25_029",
+      "f_doc_25_030",
+      "f_doc_26_004",
+      "f_doc_26_005",
+      "f_doc_26_007",
+      "f_doc_26_014",
+      "f_doc_26_016",
+      "f_doc_26_017",
+      "f_doc_26_018",
+      "f_doc_26_019",
+      "f_doc_26_023",
+      "f_doc_26_024",
+      "f_doc_11_033",
+      "f_doc_25_031",
+      "f_doc_25_071",
+      "f_doc_26_006",
+      "f_doc_26_035",
+      "f_doc_26_036",
+      "f_doc_26_042"
+    ],
+    "health_history": [
+      "f_doc_11_011",
+      "f_doc_11_012",
+      "f_doc_11_025",
+      "f_doc_11_026",
+      "f_doc_11_027",
+      "f_doc_11_028",
+      "f_doc_11_029",
+      "f_doc_11_042",
+      "f_doc_11_058",
+      "f_doc_11_059",
+      "f_doc_21_003",
+      "f_doc_21_004",
+      "f_doc_25_032",
+      "f_doc_25_033",
+      "f_doc_25_034",
+      "f_doc_25_035",
+      "f_doc_25_069",
+      "f_doc_25_070",
+      "f_doc_26_010",
+      "f_doc_26_011",
+      "f_doc_26_012",
+      "f_doc_26_013",
+      "f_doc_26_038",
+      "f_doc_26_043"
+    ]
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Draft the **Current Status & History** section of a psychoeducational report in the style demonstrated by the example.\n\nDevelop each labeled block in the form demonstrated by the provided example. A block may use one paragraph, several connected paragraphs, a table position, or structured interview responses when the section calls for them. Use the supplied evidence to select concrete details, organize events clearly over time, and preserve who reported second-hand information. Let the amount and shape of the evidence determine the block's depth.\n\nThe section should read as one part of a coherent report: factual, specific, accessible to families, and natural rather than formulaic.\n\nReturn the requested section content in the supplied output format.\n"
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"Current Status & History\",\n  \"section_plan\": [\n    {\n      \"label\": \"Current Health: Caleb Whitfield is 5 feet 7 inches tall and weighs 150 pounds. His healthcare provider is Dr. Patrick Reyes, and his last routine check-up was in the spring of 2024. His hearing was last evaluated several years ago with no concerns. His eye care provider is Dr. Osei at Clearview Optometric, Rocklin, and his last visit was in September 2023, with results better than 20/20. Caleb Whitfield’s dentist is Dr. Naidu at Family Smiles Dentistry, with his last visit in September 2024, resulting in a successful filling following a routine cleaning.\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": {\n    \"approved_case_id\": \"003\",\n    \"topics\": [\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**Pregnancy and Delivery: Caleb Whitfield’s mother was 28 years old at delivery. She received regular prenatal care and Caleb Whitfield was born at 41+ weeks, weighing 8 pounds 13 ounces and measuring 22.5 inches. During pregnancy, the mother experienced a sub chorionic hematoma, used Sudafed and Allegra for allergies, and had one round of antibiotics for a respiratory infection. She also received the H1N1 vaccination, which caused adverse reactions. Caleb Whitfield was delivered vaginally, with skin-to-skin contact after birth. He was sluggish about breastfeeding due to Nubaim administered during labor and required monitoring for low blood sugar and sluggish feeding for two nights post-birth. Due to the low blood sugar, circumcision was delayed several weeks. That procedure was traumatic with healing challenges due to the wound re-adhering.\",\n        \"source\": \"approved-anonymized case 003 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**\",\n        \"source\": \"approved-anonymized case 003 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"**Childhood Development: Caleb Whitfield was breastfed until about age 3 and had no significant feeding difficulties. He achieved developmental milestones such as crawling at 9 months, sitting alone at 5.5 months, standing alone at 9-10 months, and walking before 12 months. He said his first word at 10.5 months and was stringing words together by 12 months. He was fully toilet trained somewhat late, by 4.5 years.\",\n        \"source\": \"approved-anonymized case 003 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"narrative\",\n        \"text\": \"** Caleb Whitfield has had minimal hospitalizations, including an ambulance ride for a croup attack which was traumatic for Caleb Whitfield. He more recently had an overnight stay in the Emergency Department for apparent dehydration. He was very shaky and couldn’t get warm after a day at the water park last summer. He hadn’t eaten much that day. In the ED, they gave him IV fluids and ran EKG. Caleb Whitfield recovered and was released a few hours later, but vomited all over the ground on the way out, a fairly common reaction to the IV fluids.\",\n        \"source\": \"approved-anonymized case 003 (signed section excerpt)\"\n      },\n      {\n        \"topic\": \"Current Health: Caleb Whitfield is 5 feet 7 inches tall and weighs 150 pounds. His healthcare provider is Dr. Patrick Reyes, and his last routine check-up was in the spring of 2024. His hearing was last evaluated several years ago with no concerns. His eye care provider is Dr. Osei at Clearview Optometric, Rocklin, and his last visit was in September 2023, with results better than 20/20. Caleb Whitfield’s dentist is Dr. Naidu at Family Smiles Dentistry, with his last visit in September 2024, resulting in a successful filling following a routine cleaning.\",\n        \"text\": \"Caleb Whitfield has no current health concerns and a major shift towards health occurred at age 8-9 years. In his first 7 years, Caleb Whitfield had croup chronically, persistent eczema, strep throat, and ear infections. He was diagnosed at age 5 following a strep infection with Pediatric Autoimmune Neuropsychiatric Disorders Associated with Streptococcal Infections (PANDAS). Illness had led to significant behavioral shifts, including mood swings and compulsive behaviors. Extensive bloodwork in 2017 revealed high strep antibodies despite no symptoms of illness, confirming the diagnosis. Caleb Whitfield underwent long-term antibiotic treatment for about four months, followed by homeopathic remedies, which proved most effective in managing his symptoms. Caleb Whitfield’s sleep patterns were a major problem until about age ten. Caleb Whitfield previously experienced night terrors, night waking and very early morning wakings. He has a big appetite, particularly for carbs, and the family maintains a gluten and dairy-free household. To maintain blood sugar, Caleb Whitfield has to eat regularly. Mood shifts often cue a need for food. Caleb Whitfield is followed by a Dr. Patrick Reyes who specializes in Physical Medicine & Rehabilitation, Osteopathic Medicine, Pain Medicine and Public Health & General Preventive Medicine whom he sees regularly. He also sees Dr. Aaron Whitfield for psychiatric care. He takes several medications for diagnosed ADHD, symptoms of mood disorder, and anxiety including 100 mg Strattera for ADHD, 150 mg Zoloft for anxiety, 300 mg Trileptal for sound sensitivity, 25 mg Topomax (reportedly discontinuing soon but was on board to try and balance blood sugar and mood), 1 mg low dose naltrexone (LDN) for inflammation, Vitamin D3+K2 for immune support, and 300 mg Seroquel for sleep and mood swings. Previous medications included Dyanavel, Intuniv, and Geodon, which were discontinued due to various side effects such as motor tics, undesirable mood and/or behavior changes, weight gain, negative thoughts, self harm, and efficacy issues. These experiences highlight the importance of carefully considering Caleb Whitfield's medication history to avoid reintroducing treatments that have previously been ineffective or detrimental.\",\n        \"source\": \"approved-anonymized case 003 (signed section excerpt)\"\n      }\n    ]\n  }\n}"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pregnancy and Delivery: Caleb Whitfield’s mother was 28 years old at delivery. She received regular prenatal care and Caleb Whitfield was born at 41+ weeks, weighing 8 pounds 13 ounces and measuring 22.5 inches. During pregnancy, the mother experienced a sub chorionic hematoma, used Sudafed and Allegra for allergies, and had one round of antibiotics for a respiratory infection. She also received the H1N1 vaccination, which caused adverse reactions. Caleb Whitfield was delivered vaginally, with skin-to-skin contact after birth. He was sluggish about breastfeeding due to Nubaim administered during labor and required monitoring for low blood sugar and sluggish feeding for two nights post-birth. Due to the low blood sugar, circumcision was delayed several weeks. That procedure was traumatic with healing challenges due to the wound re-adhering.**\n\n**Childhood Development: Caleb Whitfield was breastfed until about age 3 and had no significant feeding difficulties. He achieved developmental milestones such as crawling at 9 months, sitting alone at 5.5 months, standing alone at 9-10 months, and walking before 12 months. He said his first word at 10.5 months and was stringing words together by 12 months. He was fully toilet trained somewhat late, by 4.5 years.**\n\nCaleb Whitfield has had minimal hospitalizations, including an ambulance ride for a croup attack which was traumatic for Caleb Whitfield.  He more recently had an overnight stay in the Emergency Department for apparent dehydration. He was very shaky and couldn’t get warm after a day at the water park last summer. He hadn’t eaten much that day. In the ED, they gave him IV fluids and ran EKG. Caleb Whitfield recovered and was released a few hours later, but vomited all over the ground on the way out, a fairly common reaction to the IV fluids.\n\n**Current Health: Caleb Whitfield is 5 feet 7 inches tall and weighs 150 pounds. His healthcare provider is Dr. Patrick Reyes, and his last routine check-up was in the spring of 2024. His hearing was last evaluated several years ago with no concerns. His eye care provider is Dr. Osei at Clearview Optometric, Rocklin, and his last visit was in September 2023, with results better than 20/20. Caleb Whitfield’s dentist is Dr. Naidu at Family Smiles Dentistry, with his last visit in September 2024, resulting in a successful filling following a routine cleaning.**\n\nCaleb Whitfield has no current health concerns and a major shift towards health occurred at age 8-9 years. In his first 7 years, Caleb Whitfield had croup chronically, persistent eczema, strep throat, and ear infections. He was diagnosed at age 5 following a strep infection with Pediatric Autoimmune Neuropsychiatric Disorders Associated with Streptococcal Infections (PANDAS). Illness had led to significant behavioral shifts, including mood swings and compulsive behaviors. Extensive bloodwork in 2017 revealed high strep antibodies despite no symptoms of illness, confirming the diagnosis. Caleb Whitfield underwent long-term antibiotic treatment for about four months, followed by homeopathic remedies, which proved most effective in managing his symptoms. Caleb Whitfield’s sleep patterns were a major problem until about age ten. Caleb Whitfield previously experienced night terrors, night waking and very early morning wakings. He has a big appetite, particularly for carbs, and the family maintains a gluten and dairy-free household. To maintain blood sugar, Caleb Whitfield has to eat regularly. Mood shifts often cue a need for food.\n\nCaleb Whitfield is followed by a Dr. Patrick Reyes who specializes in Physical Medicine & Rehabilitation, Osteopathic Medicine, Pain Medicine and Public Health & General Preventive Medicine whom he sees regularly. He also sees Dr. Aaron Whitfield for psychiatric care. He takes several medications for diagnosed ADHD, symptoms of mood disorder, and anxiety including 100 mg Strattera for ADHD, 150 mg Zoloft for anxiety, 300 mg Trileptal for sound sensitivity, 25 mg Topomax (reportedly discontinuing soon but was on board to try and balance blood sugar and mood), 1 mg low dose naltrexone (LDN) for inflammation, Vitamin D3+K2 for immune support, and 300 mg Seroquel for sleep and mood swings. Previous medications included Dyanavel, Intuniv, and Geodon, which were discontinued due to various side effects such as motor tics, undesirable mood and/or behavior changes,  weight gain, negative thoughts, self harm,  and efficacy issues.  These experiences highlight the importance of carefully considering Caleb Whitfield's medication history to avoid reintroducing treatments that have previously been ineffective or detrimental."
+    },
+    {
+      "role": "user",
+      "content": "{\n  \"section_label\": \"Current Status & History\",\n  \"student_name\": \"Emma Rose Callahan\",\n  \"section_plan\": [\n    {\n      \"label\": \"Family History\",\n      \"kind\": \"prose\"\n    },\n    {\n      \"label\": \"Birth and Developmental History\",\n      \"kind\": \"prose\"\n    },\n    {\n      \"label\": \"Health History\",\n      \"kind\": \"prose\"\n    }\n  ],\n  \"evidence\": [\n    {\n      \"topic\": \"Family History\",\n      \"text\": \"Emma Rose Callahan has a history of ADHD\",\n      \"who\": \"mother\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"walking at about 19 mos\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"talking at about 2 yrs\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"She used sentences at about 3 yrs.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Emma Rose Callahan was adopted at 19 months so information on birth is limited.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"She has RAD and ADHD.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Emma Rose Callahan was adopted at 19 months so information on birth is limited.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"walking at about 19 mos\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"talking at about 2 yrs\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"used sentences at about 3 yrs\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Developmental history is remarkable for exposure to trauma.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"she was walking at 19 months of age\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Severe neglect reported prior to adoption.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Medical history is remarkable for alleged intrauterine exposure to methamphetamine.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"history of neglect may be contributory factors\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Her medical history is remarkable for alleged in utero exposure to methamphetamines.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"delays in speech and languages and suspected delays in overall cognitive development\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Emma Rose Callahan is meeting developmental milestones for fine motor skills for her age\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"Emma Rose Callahan is meeting developmental milestones in gross motor skills for her age\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Birth and Developmental History\",\n      \"text\": \"She is toilet trained during the day, yet has frequent accidents\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"Emma Rose Callahan was diagnosed with hypothyroid and is on medication. At this time she is figuring out the right dosage.; She takes the medications Geodon, Trileptal, and Vyvance.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"It does not require a health plan at this time but if things change then mom will inform IEP team/nurse.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"She has no known allergies.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"She had her appendix out earlier this month (4/1/19) but she said she isn't having any problems from that.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"seasonal allergies\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"sleep problems\",\n      \"who\": \"mom\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"Emma Rose Callahan is getting fitted for a CPAP machine and will be part of a sleep study over summer.\",\n      \"who\": \"mom\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"At the beginning of the school year, Emma Rose Callahan would regularly fall asleep in class, specifically in her morning classes but she is now trying to go out for a break and drink water.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"Emma Rose Callahan is not blind or visually impaired.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"Emma Rose Callahan is not deaf or hard of hearing.\",\n      \"source\": \"IEP — current school records\",\n      \"when\": \"2024-10-02\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"Without meds it’s really hard, with meds it’s fine.\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"I had my tonsil out and no more sleep apnea.\",\n      \"source\": \"Student profile and interview\",\n      \"when\": \"2025-04-19\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"seasonal allergies\",\n      \"who\": \"mom\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.; She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"She had her appendix out earlier this month (4/1/19)\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"sleep problems\",\n      \"who\": \"mom\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"sensitivity to noise/touch\",\n      \"who\": \"mother\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"She had her appendix out earlier this month (4/1/19) but she said she isn't having any problems from that.\",\n      \"source\": \"IEP — Fairhaven initial (4th grade)\",\n      \"when\": \"2019-05-29\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"No Hospitalizations; surgeries; other illnesses or injuries.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"No medications or allergies.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"No medications or allergies.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"she sleeps in a room with her sister, and takes 20-30mts to fall asleep No snoring; No nightmares now. She sleeps well from 8 -6.30am without snoring. She naps for 1-2.5 hrs daily.\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"She sleeps in a pull-up and is usually dry in the morning\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    },\n    {\n      \"topic\": \"Health History\",\n      \"text\": \"Emma Rose Callahan may benefit from a weighted blanket in bed to help 'ground' her at night\",\n      \"source\": \"Prior early childhood diagnostic assessment (age 3)\",\n      \"when\": \"2013-09-10\"\n    }\n  ],\n  \"must_mention\": [\n    {\n      \"topic\": \"hospitalizations\",\n      \"text\": \"She had her appendix out earlier this month (4/1/19) but she said she isn't having any problems from that.; I had my tonsil out and no more sleep apnea.; She had her appendix out earlier this month (4/1/19); She had her appendix out earlier this month (4/1/19) but she said she isn't having any problems from that.; No Hospitalizations; surgeries; other illnesses or injuries.\"\n    },\n    {\n      \"topic\": \"developmental_history\",\n      \"text\": \"She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; complex needs; Not an area of concern, Emma Rose Callahan maintains age appropriate communication skills.; Not an area of concern at this time, Emma Rose Callahan participates in PE with her 3rd grade class. Her handwriting is typically legible and within appropriate boundaries.; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; delays in speech and languages and suspected delays in overall cognitive development; Emma Rose Callahan has progressed developmentally since being in the care of her adoptive parents\"\n    }\n  ],\n  \"comparisons\": [\n    {\n      \"topic\": \"sleep\",\n      \"text\": \"Emma Rose Callahan is getting fitted for a CPAP machine and will be part of a sleep study over summer.; At the beginning of the school year, Emma Rose Callahan would regularly fall asleep in class, specifically in her morning classes but she is now trying to go out for a break and drink water.\"\n    },\n    {\n      \"topic\": \"sleep\",\n      \"text\": \"she sleeps in a room with her sister, and takes 20-30mts to fall asleep No snoring; No nightmares now. She sleeps well from 8 -6.30am without snoring. She naps for 1-2.5 hrs daily.; She sleeps in a pull-up and is usually dry in the morning; Emma Rose Callahan may benefit from a weighted blanket in bed to help 'ground' her at night\"\n    },\n    {\n      \"topic\": \"trauma_history\",\n      \"text\": \"Emma Rose Callahan was adopted at 19 months so information on birth is limited.; She has RAD and ADHD.; complex history including early trauma, adoption, and multiple placements; Emma Rose Callahan was adopted at 19 months so information on birth is limited.; Developmental history is remarkable for exposure to trauma.; History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.; Severe neglect reported prior to adoption.; history of neglect may be contributory factors; Her medical history is remarkable for alleged in utero exposure to methamphetamines.\"\n    }\n  ]\n}"
+    }
+  ],
+  "case_payload": {
+    "section_label": "Current Status & History",
+    "student_name": "Emma Rose Callahan",
+    "section_plan": [
+      {
+        "label": "Family History",
+        "kind": "prose"
+      },
+      {
+        "label": "Birth and Developmental History",
+        "kind": "prose"
+      },
+      {
+        "label": "Health History",
+        "kind": "prose"
+      }
+    ],
+    "evidence": [
+      {
+        "topic": "Family History",
+        "text": "Emma Rose Callahan has a history of ADHD",
+        "who": "mother",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "walking at about 19 mos",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "talking at about 2 yrs",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "She used sentences at about 3 yrs.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Emma Rose Callahan was adopted at 19 months so information on birth is limited.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "She has RAD and ADHD.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Emma Rose Callahan was adopted at 19 months so information on birth is limited.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "walking at about 19 mos",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "talking at about 2 yrs",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "used sentences at about 3 yrs",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Developmental history is remarkable for exposure to trauma.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "she was walking at 19 months of age",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Severe neglect reported prior to adoption.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Medical history is remarkable for alleged intrauterine exposure to methamphetamine.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Birth history: Unknown except that her Birth weight was 6 lb 4 oz and that she was born in Hollister, CA.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "history of neglect may be contributory factors",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Her medical history is remarkable for alleged in utero exposure to methamphetamines.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "delays in speech and languages and suspected delays in overall cognitive development",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Emma Rose Callahan is meeting developmental milestones for fine motor skills for her age",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "Emma Rose Callahan is meeting developmental milestones in gross motor skills for her age",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Birth and Developmental History",
+        "text": "She is toilet trained during the day, yet has frequent accidents",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Health History",
+        "text": "Emma Rose Callahan was diagnosed with hypothyroid and is on medication. At this time she is figuring out the right dosage.; She takes the medications Geodon, Trileptal, and Vyvance.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "It does not require a health plan at this time but if things change then mom will inform IEP team/nurse.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "She has no known allergies.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "She had her appendix out earlier this month (4/1/19) but she said she isn't having any problems from that.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "seasonal allergies",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "sleep problems",
+        "who": "mom",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "Emma Rose Callahan is getting fitted for a CPAP machine and will be part of a sleep study over summer.",
+        "who": "mom",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "At the beginning of the school year, Emma Rose Callahan would regularly fall asleep in class, specifically in her morning classes but she is now trying to go out for a break and drink water.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "Emma Rose Callahan is not blind or visually impaired.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "Emma Rose Callahan is not deaf or hard of hearing.",
+        "source": "IEP — current school records",
+        "when": "2024-10-02"
+      },
+      {
+        "topic": "Health History",
+        "text": "Without meds it’s really hard, with meds it’s fine.",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "Health History",
+        "text": "I had my tonsil out and no more sleep apnea.",
+        "source": "Student profile and interview",
+        "when": "2025-04-19"
+      },
+      {
+        "topic": "Health History",
+        "text": "seasonal allergies",
+        "who": "mom",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Health History",
+        "text": "She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.; She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Health History",
+        "text": "She had her appendix out earlier this month (4/1/19)",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Health History",
+        "text": "sleep problems",
+        "who": "mom",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Health History",
+        "text": "sensitivity to noise/touch",
+        "who": "mother",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Health History",
+        "text": "She had her appendix out earlier this month (4/1/19) but she said she isn't having any problems from that.",
+        "source": "IEP — Fairhaven initial (4th grade)",
+        "when": "2019-05-29"
+      },
+      {
+        "topic": "Health History",
+        "text": "No Hospitalizations; surgeries; other illnesses or injuries.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Health History",
+        "text": "No medications or allergies.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Health History",
+        "text": "No medications or allergies.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Health History",
+        "text": "she sleeps in a room with her sister, and takes 20-30mts to fall asleep No snoring; No nightmares now. She sleeps well from 8 -6.30am without snoring. She naps for 1-2.5 hrs daily.",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Health History",
+        "text": "She sleeps in a pull-up and is usually dry in the morning",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      },
+      {
+        "topic": "Health History",
+        "text": "Emma Rose Callahan may benefit from a weighted blanket in bed to help 'ground' her at night",
+        "source": "Prior early childhood diagnostic assessment (age 3)",
+        "when": "2013-09-10"
+      }
+    ],
+    "must_mention": [
+      {
+        "topic": "hospitalizations",
+        "text": "She had her appendix out earlier this month (4/1/19) but she said she isn't having any problems from that.; I had my tonsil out and no more sleep apnea.; She had her appendix out earlier this month (4/1/19); She had her appendix out earlier this month (4/1/19) but she said she isn't having any problems from that.; No Hospitalizations; surgeries; other illnesses or injuries."
+      },
+      {
+        "topic": "developmental_history",
+        "text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; complex needs; Not an area of concern, Emma Rose Callahan maintains age appropriate communication skills.; Not an area of concern at this time, Emma Rose Callahan participates in PE with her 3rd grade class. Her handwriting is typically legible and within appropriate boundaries.; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.; delays in speech and languages and suspected delays in overall cognitive development; Emma Rose Callahan has progressed developmentally since being in the care of her adoptive parents"
+      }
+    ],
+    "comparisons": [
+      {
+        "topic": "sleep",
+        "text": "Emma Rose Callahan is getting fitted for a CPAP machine and will be part of a sleep study over summer.; At the beginning of the school year, Emma Rose Callahan would regularly fall asleep in class, specifically in her morning classes but she is now trying to go out for a break and drink water."
+      },
+      {
+        "topic": "sleep",
+        "text": "she sleeps in a room with her sister, and takes 20-30mts to fall asleep No snoring; No nightmares now. She sleeps well from 8 -6.30am without snoring. She naps for 1-2.5 hrs daily.; She sleeps in a pull-up and is usually dry in the morning; Emma Rose Callahan may benefit from a weighted blanket in bed to help 'ground' her at night"
+      },
+      {
+        "topic": "trauma_history",
+        "text": "Emma Rose Callahan was adopted at 19 months so information on birth is limited.; She has RAD and ADHD.; complex history including early trauma, adoption, and multiple placements; Emma Rose Callahan was adopted at 19 months so information on birth is limited.; Developmental history is remarkable for exposure to trauma.; History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.; Severe neglect reported prior to adoption.; history of neglect may be contributory factors; Her medical history is remarkable for alleged in utero exposure to methamphetamines."
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "blocks": [
+    {
+      "kind": "prose",
+      "label": "Current Status",
+      "trigger": null,
+      "prose": "Reports from various sources indicate that sleep is unsettled.",
+      "statements": [
+        {
+          "statement": "Sleep is unsettled.",
+          "quote": "sleep is unsettled",
+          "fact_ids": ["f_sleep_1"]
+        }
+      ]
+    }
+  ],
+  "prose": "**Current Status:** Reports from various sources indicate that sleep is unsettled.",
+  "statements": [
+    {
+      "statement": "Sleep is unsettled.",
+      "quote": "sleep is unsettled",
+      "fact_ids": ["f_sleep_1"]
+    }
+  ]
+}

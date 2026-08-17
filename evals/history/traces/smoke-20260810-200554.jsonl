@@ -1,0 +1,580 @@
+{
+  "ts": "2026-08-10T20:06:48.080587+00:00",
+  "fixture_id": "fixture_001",
+  "structure_spec_id": "provisional_tj_v1",
+  "structure_spec_hash": "52782f818bf00cbfeb68c2793c3bfcacdc8fe4327e51648e2ad3b1c662ea3d1e",
+  "policy_hash": "cd6a3570de3894b48071f3345f6a3e0c2ff2537976fe16ca0b25526aa9218520",
+  "prompt_hash": "9db0b06d6736f70aba03cd01114ac4161fa946f6a59c01388dcccfe6099c3677",
+  "model": "gpt-4o-mini",
+  "temperature": 1.0,
+  "status": "ok",
+  "section_populated": true,
+  "tokens_used": 34490,
+  "tokens_by_stage": {
+    "draft": 34490,
+    "entailment": 0
+  },
+  "latency_ms": 54034,
+  "cost_usd": 0.006716,
+  "trace_id": null,
+  "langfuse_url": null,
+  "input_schema_gaps": [
+    "social_history: No registered peer/adult-relationship or social-activity predicates; block stays absent until vocabulary supports it.",
+    "nurse_report: SourceType has no nurse value; nurse-report sources cannot be selected without substring inference or schema expansion (out of scope).",
+    "covid_educational_experience: No registered COVID-education predicate; omit unless vocabulary later supports explicit evidence."
+  ],
+  "sections": [
+    {
+      "section_key": "current_status_history",
+      "display_label": "Current Status & History",
+      "purpose": "topic_history",
+      "section_populated": true,
+      "empty_reason": null,
+      "blocks": [
+        {
+          "block_key": "birth_developmental_history",
+          "display_label": "Birth and Developmental History",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_11_006",
+            "f_doc_11_014",
+            "f_doc_25_008",
+            "f_doc_25_015",
+            "f_doc_13_003",
+            "f_doc_26_011",
+            "f_doc_26_017"
+          ]
+        },
+        {
+          "block_key": "health_history",
+          "display_label": "Health History",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_11_008",
+            "f_doc_11_009",
+            "f_doc_11_012",
+            "f_doc_13_005",
+            "f_doc_21_003",
+            "f_doc_25_014"
+          ]
+        }
+      ],
+      "prose": "**Birth and Developmental History:** Emma Rose Callahan demonstrates academic weakness in the areas of math fluency/numerical operations and written language. She met all of her developmental milestones on time except walking at about 19 months and talking at about 2 years. Emma has a complex history including early trauma, adoption, and multiple placements. Her developmental history is remarkable for exposure to trauma, and she is still experiencing symptoms related to her history of trauma.\n\n**Health History:** Emma Rose Callahan does not require a health plan at this time, but if circumstances change, her mother will inform the IEP team or nurse. She is diagnosed with hypothyroid and is currently taking several medications, including Geodon, Trileptal, and Vyvance. Additionally, she has no known allergies. Currently, she reports feeling tired but generally fine. Her health plan is active and crucial for maintaining her safety and preventing escalation of behavioral issues.",
+      "statement_fact_ids": [
+        [
+          "f_doc_11_006"
+        ],
+        [
+          "f_doc_11_014",
+          "f_doc_25_008",
+          "f_doc_25_015"
+        ],
+        [
+          "f_doc_13_003"
+        ],
+        [
+          "f_doc_26_011"
+        ],
+        [
+          "f_doc_26_017"
+        ],
+        [
+          "f_doc_11_008"
+        ],
+        [
+          "f_doc_11_009"
+        ],
+        [
+          "f_doc_11_012"
+        ],
+        [
+          "f_doc_13_005"
+        ],
+        [
+          "f_doc_21_003"
+        ],
+        [
+          "f_doc_25_014"
+        ]
+      ]
+    },
+    {
+      "section_key": "educational_history",
+      "display_label": "Educational History",
+      "purpose": "topic_history",
+      "section_populated": true,
+      "empty_reason": null,
+      "blocks": [
+        {
+          "block_key": "school_history_chart",
+          "display_label": "School History",
+          "kind": "table",
+          "fact_ids": [
+            "f_doc_25_004",
+            "f_doc_11_004",
+            "f_doc_11_007",
+            "f_doc_11_016",
+            "f_doc_11_018"
+          ]
+        },
+        {
+          "block_key": "school_experience",
+          "display_label": "School Experience",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_11_004",
+            "f_doc_11_007",
+            "f_doc_11_016",
+            "f_doc_11_018"
+          ]
+        },
+        {
+          "block_key": "intervention",
+          "display_label": "Intervention",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_11_019",
+            "f_doc_25_006"
+          ]
+        },
+        {
+          "block_key": "iep_services",
+          "display_label": "IEP / Special Education",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_11_005",
+            "f_doc_25_005"
+          ]
+        }
+      ],
+      "prose": "**School History:**\n\n*School History*\n\n| School Year | Grade | Attendance | Basic Reading | Writing Fluency |\n| --- | --- | --- | --- | --- |\n| 2019-2020 | 4 | Good | <75% accuracy, emerging skills |  |\n| 2024-2025 | 9 | Good | 75% accuracy, strong math skills | 75% accuracy, 2 paragraph essays |\n\n**School Experience:** Emma Rose Callahan is currently a ninth grader as of October 2024. She has demonstrated good attendance and is able to follow directions smoothly. Her current academic performance includes showing basic reading skills with at least 75% accuracy while also exhibiting strong skills in mathematics. Emma has shown the ability to write structured essays, achieving at least 75% accuracy in her writing assignments which include creating two-paragraph expository essays with a clear topic sentence and supporting details. These strengths reflect her developing competencies in both literacy and numeracy.\n\n**Intervention:** As of October 2024, Emma Rose Callahan participates in general education with accommodations, as determined by her IEP team. In the past, she has received instruction in small group settings with her teacher. These intervention strategies are in place to support her academic progress and address her educational needs.\n\n**IEP / Special Education:** Emma Rose Callahan has an active Individualized Education Program (IEP) as of October 2, 2024. Her eligibility was previously established on May 29, 2019, reflecting ongoing educational support to meet her learning needs.",
+      "statement_fact_ids": [
+        [
+          "f_doc_25_004"
+        ],
+        [
+          "f_doc_11_004"
+        ],
+        [
+          "f_doc_11_007"
+        ],
+        [
+          "f_doc_11_016"
+        ],
+        [
+          "f_doc_11_018"
+        ],
+        [
+          "f_doc_11_004"
+        ],
+        [
+          "f_doc_11_007"
+        ],
+        [
+          "f_doc_11_016"
+        ],
+        [
+          "f_doc_11_018"
+        ],
+        [
+          "f_doc_11_019"
+        ],
+        [
+          "f_doc_25_006"
+        ],
+        [
+          "f_doc_11_005"
+        ],
+        [
+          "f_doc_25_005"
+        ]
+      ]
+    },
+    {
+      "section_key": "previous_evaluations",
+      "display_label": "History of Previous Evaluations",
+      "purpose": "topic_history",
+      "section_populated": true,
+      "empty_reason": null,
+      "blocks": [
+        {
+          "block_key": "previous_evaluations_narrative",
+          "display_label": "Previous Evaluations",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_26_001",
+            "f_doc_26_002",
+            "f_doc_26_003",
+            "f_doc_26_011",
+            "f_doc_26_005",
+            "f_doc_26_006",
+            "f_doc_26_007",
+            "f_doc_26_008",
+            "f_doc_26_012",
+            "f_doc_26_013",
+            "f_doc_26_015",
+            "f_doc_26_016",
+            "f_doc_26_014"
+          ]
+        }
+      ],
+      "prose": "**Previous Evaluations:** Emma Rose Callahan was evaluated on September 10, 2013, at the age of 3 years and 1 month. Her developmental history was noted to be remarkable for exposure to trauma, with additional concerns identified during early assessments. Specifically, her behavioral concerns included \"meltdowns 2-5 times per week (screaming, hitting hair/bed, inconsolable),\" poor awareness of danger, toe walking, and sensitivity to loud noises. Furthermore, Emma exhibited behavioral ratings in the borderline clinical range for emotional reactivity and oppositional defiant problems, and in the clinically significant range for somatic complaints, withdrawal, and social development problems. Her evaluations indicated lower energy and a slight affect during testing, requiring prompts and motivators to engage more fully. Additionally, her medical history included reported exposure to trauma and alleged in utero exposure to methamphetamines, further complicating her developmental profile. This multifaceted background underscores the need for ongoing support and intervention as she progresses.",
+      "statement_fact_ids": [
+        [
+          "f_doc_26_001",
+          "f_doc_26_002"
+        ],
+        [
+          "f_doc_26_003",
+          "f_doc_26_011"
+        ],
+        [
+          "f_doc_26_005"
+        ],
+        [
+          "f_doc_26_006"
+        ],
+        [
+          "f_doc_26_007"
+        ],
+        [
+          "f_doc_26_008"
+        ],
+        [
+          "f_doc_26_012"
+        ],
+        [
+          "f_doc_26_013"
+        ],
+        [
+          "f_doc_26_015"
+        ],
+        [
+          "f_doc_26_016"
+        ],
+        [
+          "f_doc_26_014"
+        ]
+      ]
+    },
+    {
+      "section_key": "rater_input",
+      "display_label": "Student / Caregiver / Teacher Input",
+      "purpose": "rater_input",
+      "section_populated": true,
+      "empty_reason": null,
+      "blocks": [
+        {
+          "block_key": "student_input:doc_21",
+          "display_label": "Student/Client/Patient Input \u2014 Student profile and interview",
+          "kind": "prose",
+          "fact_ids": [
+            "f_doc_21_001",
+            "f_doc_21_002",
+            "f_doc_21_003",
+            "f_doc_21_004",
+            "f_doc_21_005",
+            "f_doc_21_006"
+          ]
+        }
+      ],
+      "prose": "**Student/Client/Patient Input \u2014 Student profile and interview:** Emma Rose Callahan, born on March 22, 2010, reported feeling tired, stating, \"I\u2019m tired. But fine.\" During the conversation, she also expressed a sense of social awkwardness, saying, \"I felt really awkward at school. I had to talk to people. I am socially awkward with everybody.\" Regarding her experience during testing, she described herself as cooperative, noting that she \"persisted, complained about hard things, but could laugh at herself.\" In addition, she mentioned concerns about her mental health, with her mother believing she is experiencing depression: \"My mom thinks I am depressed. I stay in my room a lot and like listening to music.\"",
+      "statement_fact_ids": [
+        [
+          "f_doc_21_001"
+        ],
+        [
+          "f_doc_21_002"
+        ],
+        [
+          "f_doc_21_003"
+        ],
+        [
+          "f_doc_21_004"
+        ],
+        [
+          "f_doc_21_005"
+        ],
+        [
+          "f_doc_21_006"
+        ]
+      ]
+    }
+  ],
+  "reuse_records": [
+    {
+      "fact_id": "f_doc_11_006",
+      "section_key": "current_status_history",
+      "block_key": "birth_developmental_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_014",
+      "section_key": "current_status_history",
+      "block_key": "birth_developmental_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_008",
+      "section_key": "current_status_history",
+      "block_key": "birth_developmental_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_015",
+      "section_key": "current_status_history",
+      "block_key": "birth_developmental_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_13_003",
+      "section_key": "current_status_history",
+      "block_key": "birth_developmental_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_011",
+      "section_key": "current_status_history",
+      "block_key": "birth_developmental_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_017",
+      "section_key": "current_status_history",
+      "block_key": "birth_developmental_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_008",
+      "section_key": "current_status_history",
+      "block_key": "health_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_009",
+      "section_key": "current_status_history",
+      "block_key": "health_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_012",
+      "section_key": "current_status_history",
+      "block_key": "health_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_13_005",
+      "section_key": "current_status_history",
+      "block_key": "health_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_21_003",
+      "section_key": "current_status_history",
+      "block_key": "health_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_014",
+      "section_key": "current_status_history",
+      "block_key": "health_history",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_004",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_004",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_007",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_016",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_018",
+      "section_key": "educational_history",
+      "block_key": "school_history_chart",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_004",
+      "section_key": "educational_history",
+      "block_key": "school_experience",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_007",
+      "section_key": "educational_history",
+      "block_key": "school_experience",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_016",
+      "section_key": "educational_history",
+      "block_key": "school_experience",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_018",
+      "section_key": "educational_history",
+      "block_key": "school_experience",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_019",
+      "section_key": "educational_history",
+      "block_key": "intervention",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_006",
+      "section_key": "educational_history",
+      "block_key": "intervention",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_11_005",
+      "section_key": "educational_history",
+      "block_key": "iep_services",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_25_005",
+      "section_key": "educational_history",
+      "block_key": "iep_services",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_001",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_002",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_003",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_011",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_005",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_006",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_007",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_008",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_012",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_013",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_015",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_016",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_26_014",
+      "section_key": "previous_evaluations",
+      "block_key": "previous_evaluations_narrative",
+      "purpose": "topic_history"
+    },
+    {
+      "fact_id": "f_doc_21_001",
+      "section_key": "rater_input",
+      "block_key": "student_input:doc_21",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_21_002",
+      "section_key": "rater_input",
+      "block_key": "student_input:doc_21",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_21_003",
+      "section_key": "rater_input",
+      "block_key": "student_input:doc_21",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_21_004",
+      "section_key": "rater_input",
+      "block_key": "student_input:doc_21",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_21_005",
+      "section_key": "rater_input",
+      "block_key": "student_input:doc_21",
+      "purpose": "rater_input"
+    },
+    {
+      "fact_id": "f_doc_21_006",
+      "section_key": "rater_input",
+      "block_key": "student_input:doc_21",
+      "purpose": "rater_input"
+    }
+  ],
+  "conflicts_count": 2,
+  "variance_count": 5,
+  "rendered_prose": "## Current Status & History\n\n**Birth and Developmental History:** Emma Rose Callahan demonstrates academic weakness in the areas of math fluency/numerical operations and written language. She met all of her developmental milestones on time except walking at about 19 months and talking at about 2 years. Emma has a complex history including early trauma, adoption, and multiple placements. Her developmental history is remarkable for exposure to trauma, and she is still experiencing symptoms related to her history of trauma.\n\n**Health History:** Emma Rose Callahan does not require a health plan at this time, but if circumstances change, her mother will inform the IEP team or nurse. She is diagnosed with hypothyroid and is currently taking several medications, including Geodon, Trileptal, and Vyvance. Additionally, she has no known allergies. Currently, she reports feeling tired but generally fine. Her health plan is active and crucial for maintaining her safety and preventing escalation of behavioral issues.\n\n## Educational History\n\n**School History:**\n\n*School History*\n\n| School Year | Grade | Attendance | Basic Reading | Writing Fluency |\n| --- | --- | --- | --- | --- |\n| 2019-2020 | 4 | Good | <75% accuracy, emerging skills |  |\n| 2024-2025 | 9 | Good | 75% accuracy, strong math skills | 75% accuracy, 2 paragraph essays |\n\n**School Experience:** Emma Rose Callahan is currently a ninth grader as of October 2024. She has demonstrated good attendance and is able to follow directions smoothly. Her current academic performance includes showing basic reading skills with at least 75% accuracy while also exhibiting strong skills in mathematics. Emma has shown the ability to write structured essays, achieving at least 75% accuracy in her writing assignments which include creating two-paragraph expository essays with a clear topic sentence and supporting details. These strengths reflect her developing competencies in both literacy and numeracy.\n\n**Intervention:** As of October 2024, Emma Rose Callahan participates in general education with accommodations, as determined by her IEP team. In the past, she has received instruction in small group settings with her teacher. These intervention strategies are in place to support her academic progress and address her educational needs.\n\n**IEP / Special Education:** Emma Rose Callahan has an active Individualized Education Program (IEP) as of October 2, 2024. Her eligibility was previously established on May 29, 2019, reflecting ongoing educational support to meet her learning needs.\n\n## History of Previous Evaluations\n\n**Previous Evaluations:** Emma Rose Callahan was evaluated on September 10, 2013, at the age of 3 years and 1 month. Her developmental history was noted to be remarkable for exposure to trauma, with additional concerns identified during early assessments. Specifically, her behavioral concerns included \"meltdowns 2-5 times per week (screaming, hitting hair/bed, inconsolable),\" poor awareness of danger, toe walking, and sensitivity to loud noises. Furthermore, Emma exhibited behavioral ratings in the borderline clinical range for emotional reactivity and oppositional defiant problems, and in the clinically significant range for somatic complaints, withdrawal, and social development problems. Her evaluations indicated lower energy and a slight affect during testing, requiring prompts and motivators to engage more fully. Additionally, her medical history included reported exposure to trauma and alleged in utero exposure to methamphetamines, further complicating her developmental profile. This multifaceted background underscores the need for ongoing support and intervention as she progresses.\n\n## Student / Caregiver / Teacher Input\n\n**Student/Client/Patient Input \u2014 Student profile and interview:** Emma Rose Callahan, born on March 22, 2010, reported feeling tired, stating, \"I\u2019m tired. But fine.\" During the conversation, she also expressed a sense of social awkwardness, saying, \"I felt really awkward at school. I had to talk to people. I am socially awkward with everybody.\" Regarding her experience during testing, she described herself as cooperative, noting that she \"persisted, complained about hard things, but could laugh at herself.\" In addition, she mentioned concerns about her mental health, with her mother believing she is experiencing depression: \"My mom thinks I am depressed. I stay in my room a lot and like listening to music.\"",
+  "skip_entailment": true
+}

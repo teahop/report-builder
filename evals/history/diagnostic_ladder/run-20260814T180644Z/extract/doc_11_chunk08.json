@@ -1,0 +1,32 @@
+{
+  "source_id": "doc_11",
+  "schema": "SourceExtraction",
+  "temperature": 0.0,
+  "user_sha256": "39a9037ffcfc8e7c5bdbbde9832010c7b1c09424f63134d86066aa687aa363e5",
+  "raw_text": "{\n  \"facts\": [\n    {\n      \"subject\": \"child\",\n      \"predicate\": \"iep_status\",\n      \"proposed_predicate\": null,\n      \"value\": \"in place\",\n      \"value_text\": \"IEP Goals to be Addressed from IEP Dated 10/2/2002.\",\n      \"qualifier\": null,\n      \"assertion\": \"asserted\",\n      \"reporter\": null,\n      \"life_stage\": \"school-age\",\n      \"grade\": null,\n      \"confidence\": \"stated\",\n      \"as_of_date\": \"2002-10-02\",\n      \"valence\": \"neutral\",\n      \"source_section\": null\n    }\n  ]\n}",
+  "parsed": {
+    "facts": [
+      {
+        "subject": "child",
+        "predicate": "iep_status",
+        "proposed_predicate": null,
+        "value": "in place",
+        "value_text": "IEP Goals to be Addressed from IEP Dated 10/2/2002.",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "school-age",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2002-10-02",
+        "valence": "neutral",
+        "source_section": null
+      }
+    ]
+  },
+  "tokens": {
+    "total": 8087,
+    "prompt": 7940,
+    "completion": 147
+  }
+}
