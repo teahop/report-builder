@@ -92,6 +92,7 @@ EDUCATIONAL_SCHOOL_EXPERIENCE_PREDICATES = frozenset(
         "math_fluency",
         "math_reasoning",
         "behavioral_referral",
+        "classroom_engagement",
     }
 )
 

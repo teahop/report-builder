@@ -392,6 +392,18 @@ PREDICATE_VOCABULARY: tuple[PredicateSpec, ...] = (
         "Problem behaviors (aggression, defiance) → behavioral_concern.",
     ),
     _p(
+        "classroom_engagement",
+        "perspectival",
+        "Day-to-day attention, on-task behavior, engagement, or effort during ordinary "
+        "classroom instruction (not a formal test battery).",
+        "as_of",
+        "Proposed name from the provisional extract path; near-duplicate of "
+        "classroom_engagement_impression. Teacher notes about effort, helpfulness, "
+        "or engagement in class go here. "
+        "Examiner notes about cooperation during standardized testing → testing_impression. "
+        "Problem behaviors (aggression, defiance) → behavioral_concern.",
+    ),
+    _p(
         "testing_impression",
         "perspectival",
         "Examiner/observer impression of the child's demeanor during a formal "
