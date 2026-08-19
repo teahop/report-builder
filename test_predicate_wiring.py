@@ -2,23 +2,23 @@
 
 from __future__ import annotations
 
-from history_evidence import HEADER_ONLY_PREDICATES
+from coverage import HISTORY_PREDICATES
 from history_selectors import (
+    COVID_EDUCATIONAL_PREDICATES,
     DELIBERATELY_UNWIRED_PREDICATES,
     headed_selector_predicates,
 )
-from predicates import PREDICATE_VOCABULARY, PROVENANCE_PREDICATES
+from predicate_registration import (
+    COVERAGE_UNDECLARED_PREDICATES,
+    coverage_declaration_gaps,
+    unconsumed_registered_predicates,
+    undeclared_empty_selector_sections,
+)
+from predicates import PREDICATE_VOCABULARY
 
 
 def test_every_registered_predicate_has_a_disposition() -> None:
-    registered = {spec.name for spec in PREDICATE_VOCABULARY}
-    accounted = (
-        headed_selector_predicates()
-        | HEADER_ONLY_PREDICATES
-        | PROVENANCE_PREDICATES
-        | frozenset(DELIBERATELY_UNWIRED_PREDICATES)
-    )
-    missing = registered - accounted
+    missing = unconsumed_registered_predicates()
     assert missing == set(), (
         "registered predicates with no selector, header-only, provenance, "
         f"or deliberately-unwired reason: {sorted(missing)}"
@@ -100,3 +100,36 @@ def test_group_b_and_d_keepers_are_registered() -> None:
     assert "parental_limitations" in FAMILY_HISTORY_PREDICATES
     assert SOCIAL_HISTORY_PREDICATES == frozenset({"peer_relationships"})
     assert "skill_generalization" in EDUCATIONAL_SCHOOL_EXPERIENCE_PREDICATES
+
+
+def test_history_predicates_are_registered() -> None:
+    registered = {spec.name for spec in PREDICATE_VOCABULARY}
+    unknown = HISTORY_PREDICATES - registered
+    assert unknown == set(), f"HISTORY_PREDICATES names not in vocabulary: {sorted(unknown)}"
+
+
+def test_selector_names_missing_from_history_coverage_are_allowlisted() -> None:
+    extra = coverage_declaration_gaps()
+    assert extra == set(), (
+        "headed-selector predicates not in HISTORY_PREDICATES and not on "
+        f"COVERAGE_UNDECLARED_PREDICATES: {sorted(extra)}"
+    )
+
+
+def test_coverage_undeclared_entries_have_reasons() -> None:
+    headed = headed_selector_predicates()
+    for name, reason in COVERAGE_UNDECLARED_PREDICATES.items():
+        assert reason.strip(), f"{name} is coverage-undeclared with an empty reason"
+        assert name in headed, f"{name} is undeclared but not in any selector"
+
+
+def test_coverage_undeclared_cannot_replace_history_predicates() -> None:
+    overlap = HISTORY_PREDICATES & frozenset(COVERAGE_UNDECLARED_PREDICATES)
+    assert overlap == set(), (
+        f"listed as coverage-undeclared but also in HISTORY_PREDICATES: {sorted(overlap)}"
+    )
+
+
+def test_covid_educational_section_stays_an_empty_selector() -> None:
+    assert COVID_EDUCATIONAL_PREDICATES == frozenset()
+    assert "COVID_EDUCATIONAL_PREDICATES" in undeclared_empty_selector_sections()
