@@ -93,10 +93,17 @@ EDUCATIONAL_SCHOOL_EXPERIENCE_PREDICATES = frozenset(
         "math_reasoning",
         "behavioral_referral",
         "classroom_engagement",
+        "classroom_engagement_impression",
+        "homework_completion_impression",
+        "anxiety_impression",
+        "inattention_rating",
+        "hyperactivity_rating",
+        "testing_impression",
+        "interview_impression",
     }
 )
 
-EDUCATIONAL_INTERVENTION_PREDICATES = frozenset({"intervention_tier"})
+EDUCATIONAL_INTERVENTION_PREDICATES = frozenset({"intervention_tier", "private_tutoring"})
 
 EDUCATIONAL_IEP_PREDICATES = frozenset({"iep_status", "plan_504_status"})
 
@@ -136,11 +143,40 @@ PREVIOUS_EVALUATION_SYNTHESIS_PREDICATES = frozenset(
         "plan_504_status",
         "intervention_tier",
         "family_history",
+        "testing_impression",
+        "interview_impression",
     }
 )
 
 # behavioral_concern may enter prior-eval only when it carries instrument-result language.
 PREVIOUS_EVALUATION_CONDITIONAL_PREDICATES = frozenset({"behavioral_concern"})
+
+# Registered names that are not selected into a headed History block, with a
+# reason. An empty reason is not allowed — silence is the §9.4a violation.
+DELIBERATELY_UNWIRED_PREDICATES: dict[str, str] = {
+    "referral_reason": (
+        "Served by the Reason for Referral path, not a History section selector."
+    ),
+}
+
+
+def headed_selector_predicates() -> frozenset[str]:
+    """Every predicate a History selector frozenset can currently read."""
+
+    return (
+        FAMILY_HISTORY_PREDICATES
+        | BIRTH_DEVELOPMENTAL_SPECIFIC
+        | BIRTH_DEVELOPMENTAL_CATCH_ALL
+        | HEALTH_HISTORY_PREDICATES
+        | SOCIAL_HISTORY_PREDICATES
+        | EDUCATIONAL_SCHOOL_HISTORY_PREDICATES
+        | EDUCATIONAL_SCHOOL_EXPERIENCE_PREDICATES
+        | EDUCATIONAL_INTERVENTION_PREDICATES
+        | EDUCATIONAL_IEP_PREDICATES
+        | COVID_EDUCATIONAL_PREDICATES
+        | PREVIOUS_EVALUATION_SYNTHESIS_PREDICATES
+        | PREVIOUS_EVALUATION_CONDITIONAL_PREDICATES
+    )
 
 
 @dataclass(frozen=True, slots=True)

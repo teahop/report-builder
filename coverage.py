@@ -80,6 +80,10 @@ HISTORY_PREDICATES = frozenset(
         "anxiety_impression",
         "homework_completion_impression",
         "classroom_engagement",
+        "classroom_engagement_impression",
+        "hyperactivity_rating",
+        "testing_impression",
+        "interview_impression",
     }
 )
 
@@ -138,6 +142,9 @@ PREDICATE_STALE_DAYS: dict[str, int] = {
     "homework_completion_impression": 365,
     "classroom_engagement_impression": 365,
     "classroom_engagement": 365,
+    "hyperactivity_rating": 365,
+    "testing_impression": 365,
+    "interview_impression": 365,
 }
 
 
