@@ -47,6 +47,8 @@ def test_operator_assets_served() -> None:
     assert js.status_code == 200, js.text
     assert "OperatorLive" in js.text
     assert "skip_entailment" in js.text
+    assert "Draft is on the page; open Verify." in js.text
+    assert "failed validation after 3 retry attempts" not in js.text
     support = client.get("/operator/support.js")
     assert support.status_code == 200, support.text
 

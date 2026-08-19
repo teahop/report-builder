@@ -454,6 +454,7 @@ class Component extends DCLogic {
         cur.drafts = Object.assign({}, cur.drafts, {
           [section]: Object.assign(OL.emptyDraft("POST /draft/" + section), {
             status: "rejected",
+            banner: "REJECTED — the request failed. This is not a validation verdict.",
             footNote: msg,
             paragraphs: [{ label: "Request failed", text: msg }]
           })
@@ -702,6 +703,7 @@ class Component extends DCLogic {
             ["Fact-id trace coverage","pass","All spans carry fact ids"],
             ["Voice gate","fail","voice.no_meta_narration — draft closes on the narrative itself ('This history paints a picture…')"]
           ],
+          banner: "REJECTED — failed validation after 3 attempts. Not usable. See Verify.",
           reviewItems: [
             ["entailment_failure","'daily private tutoring throughout elementary school' exceeds f_par_004: source states private tutoring in 1st grade only."],
             ["voice_gate","A8 voice.no_meta_narration: closing sentence narrates the history instead of the child."],
@@ -850,9 +852,16 @@ class Component extends DCLogic {
       };
     };
     const bannerFor = (d) => {
-      if (d.status === "accepted") return { t: "ACCEPTED — passed validation", s: "padding:8px 18px;font-size:13px;font-weight:500;background:#8DD9BF;color:#28211E" };
-      if (d.status === "rejected") return { t: "REJECTED — failed validation after 3 attempts. Not usable. See Verify.", s: "padding:10px 18px;font-size:14px;font-weight:700;letter-spacing:.02em;background:#A33D2E;color:#F5F0EB" };
-      return { t: "BLOCKED — context incomplete, no draft produced", s: "padding:8px 18px;font-size:13px;font-weight:500;background:#C4B5A5;color:#28211E" };
+      const acceptedS = "padding:8px 18px;font-size:13px;font-weight:500;background:#8DD9BF;color:#28211E";
+      const rejectedS = "padding:10px 18px;font-size:14px;font-weight:700;letter-spacing:.02em;background:#A33D2E;color:#F5F0EB";
+      const blockedS = "padding:8px 18px;font-size:13px;font-weight:500;background:#C4B5A5;color:#28211E";
+      if (d.banner) {
+        const s = d.status === "accepted" ? acceptedS : d.status === "rejected" ? rejectedS : blockedS;
+        return { t: d.banner, s };
+      }
+      if (d.status === "accepted") return { t: "ACCEPTED — passed validation", s: acceptedS };
+      if (d.status === "rejected") return { t: "REVIEW — voice, entailment, or visible fact-id items. Draft is on the page; open Verify.", s: rejectedS };
+      return { t: "BLOCKED — context incomplete, no draft produced", s: blockedS };
     };
     const stateChipStyle = (st) => st === "conflicting" ? this.chip("#A33D2E", "#F5F0EB") : this.chip("#C4B5A5", "#28211E");
     const draftCards = ["referral", "history"].map((sec) => {

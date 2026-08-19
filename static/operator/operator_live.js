@@ -313,13 +313,30 @@
     const reviewItems = ((resp.review && resp.review.items) || []).map(function (i) {
       return [i.kind, i.summary];
     });
-    const failing = vgChecks.some(function (c) {
+    const voiceFail = vgChecks.some(function (c) {
       return c[1] === "fail";
-    }) || reviewItems.some(function (i) {
-      return i[0] === "entailment_failure" || i[0] === "visible_fact_id";
     });
+    const entailFail = reviewItems.some(function (i) {
+      return i[0] === "entailment_failure";
+    });
+    const visibleIdFail = reviewItems.some(function (i) {
+      return i[0] === "visible_fact_id";
+    });
+    const failing = voiceFail || entailFail || visibleIdFail;
+    const rejectReasons = [];
+    if (voiceFail) rejectReasons.push("voice gate");
+    if (entailFail) rejectReasons.push("entailment");
+    if (visibleIdFail) rejectReasons.push("visible fact ids");
+    const banner = !populated
+      ? null
+      : failing
+        ? "REVIEW — " +
+          rejectReasons.join(", ") +
+          " flagged. Draft is on the page; open Verify."
+        : null;
     return {
       status: !populated ? "blocked" : failing ? "rejected" : "accepted",
+      banner: banner,
       endpoint: "POST /draft/history",
       meta: [
         ["tokens", String(resp.tokens_used ?? "—")],
@@ -338,7 +355,9 @@
       footNote: populated
         ? skipEntailment
           ? "Live History package. Per-statement entailment skipped (demo) — Verify will not have those checks."
-          : "Live History package. Prose view is unlabeled; Verify re-injects evidence ids."
+          : failing
+            ? "Live History package with review items — not a retry-budget failure. Prose is shown; Verify lists the flags."
+            : "Live History package. Prose view is unlabeled; Verify re-injects evidence ids."
         : resp.empty_reason || "History section not populated.",
     };
   }
