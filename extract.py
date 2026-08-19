@@ -36,6 +36,7 @@ from schemas import (
     FactAssertion,
     GapReport,
     Ledger,
+    PredicateProposal,
     Source,
     SourceExtraction,
     Temporality,
@@ -1023,6 +1024,48 @@ def extract_source_to_facts(
     return facts, total_tokens, prompt_tokens, completion_tokens
 
 
+def accumulate_predicate_proposals(
+    prior: list[PredicateProposal],
+    new_facts: list[Fact],
+) -> list[PredicateProposal]:
+    """
+    Dedupe proposed names across runs. Count increments per proposing fact;
+    a run that proposes nothing returns the prior register unchanged.
+    """
+
+    by_name = {p.name: p.model_copy() for p in prior}
+    for fact in new_facts:
+        if not (fact.is_proposed or needs_predicate_review(fact.predicate)):
+            continue
+        name = (fact.predicate or "").strip()
+        if not name or name == UNREGISTERED_PREDICATE:
+            continue
+        seen_at = fact.source_date or fact.as_of_date or ""
+        existing = by_name.get(name)
+        if existing is None:
+            by_name[name] = PredicateProposal(
+                name=name,
+                count=1,
+                first_seen_at=seen_at,
+                last_seen_at=seen_at,
+                example_source_id=fact.source_id,
+            )
+            continue
+        existing.count += 1
+        if seen_at:
+            existing.last_seen_at = seen_at
+
+    out: list[PredicateProposal] = []
+    seen: set[str] = set()
+    for p in prior:
+        out.append(by_name[p.name])
+        seen.add(p.name)
+    for name, proposal in by_name.items():
+        if name not in seen:
+            out.append(proposal)
+    return out
+
+
 def merge_ledger_with_extracted(
     *,
     child: Child,
@@ -1072,6 +1115,7 @@ def merge_ledger_with_extracted(
         built_at=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         sources=sources,
         facts=facts,
+        predicate_proposals=list(prior.predicate_proposals) if prior else [],
     )
 
 
@@ -1098,7 +1142,6 @@ def build_ledger(
     facts_by_source: dict[str, list[Fact]] = {}
     tokens_by_source: dict[str, int] = {}
     prompt_tokens = completion_tokens = 0
-    review: list[str] = []
     subject_review: list[str] = []
 
     known_source_ids = {s.id for s in sources}
@@ -1121,8 +1164,6 @@ def build_ledger(
         completion_tokens += c_tok
 
         for fact in source_facts:
-            if needs_predicate_review(fact.predicate) and fact.predicate not in review:
-                review.append(fact.predicate)
             if (
                 needs_subject_review(fact.subject, known_source_ids=known_source_ids)
                 and fact.subject not in subject_review
@@ -1130,12 +1171,19 @@ def build_ledger(
                 subject_review.append(fact.subject)
         facts_by_source[source.id] = source_facts
 
+    new_facts = [f for facts in facts_by_source.values() for f in facts]
     ledger = merge_ledger_with_extracted(
         child=child,
         prior=prior_ledger,
         new_sources=sources,
         new_facts_by_source=facts_by_source,
     )
+    proposals = accumulate_predicate_proposals(
+        list(prior_ledger.predicate_proposals) if prior_ledger else [],
+        new_facts,
+    )
+    ledger = ledger.model_copy(update={"predicate_proposals": proposals})
+    review = [p.name for p in proposals]
     gap_report = build_gap_report(ledger)
     timelines = compute_timelines(ledger.facts)
     return (

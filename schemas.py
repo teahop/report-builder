@@ -205,6 +205,16 @@ class Fact(BaseModel):
         return self
 
 
+class PredicateProposal(BaseModel):
+    """One proposed predicate name accumulated across extract runs."""
+
+    name: str
+    count: int = 1
+    first_seen_at: str = Field(description="Source date of the first proposing fact")
+    last_seen_at: str = Field(description="Source date of the most recent proposing fact")
+    example_source_id: str
+
+
 class Ledger(BaseModel):
     """
     Case fact ledger returned to the caller — never persisted by this service
@@ -218,6 +228,14 @@ class Ledger(BaseModel):
         description="Input sources carried for entailment checks downstream",
     )
     facts: list[Fact]
+    predicate_proposals: list[PredicateProposal] = Field(
+        default_factory=list,
+        description=(
+            "Unregistered predicate names accumulated across extract runs. "
+            "Deduped by name; count is how many times the hatch fired. "
+            "A run that proposes nothing leaves this list unchanged."
+        ),
+    )
 
 
 class SourcedFact(BaseModel):
