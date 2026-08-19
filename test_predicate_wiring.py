@@ -33,3 +33,22 @@ def test_deliberately_unwired_entries_have_reasons() -> None:
 def test_unwired_reason_cannot_replace_a_selector() -> None:
     overlap = headed_selector_predicates() & frozenset(DELIBERATELY_UNWIRED_PREDICATES)
     assert overlap == set(), f"listed as unwired but also selected: {sorted(overlap)}"
+
+
+def test_group_a_collapses_to_qualified_generics() -> None:
+    from predicates import PREDICATES
+
+    names = set(PREDICATES)
+    banned = {
+        "low_incidence_services_requirement",
+        "low_incidence_services_status",
+        "assistive_technology_requirement",
+        "primary_language_support_requirement",
+        "visual_impairment_status",
+        "hearing_impairment_status",
+        "executive_functioning_deficit",
+        "adaptive_functioning_deficit",
+    }
+    assert banned.isdisjoint(names)
+    for generic in ("service_requirement", "impairment_status", "functioning_deficit"):
+        assert PREDICATES[generic].takes_qualifier

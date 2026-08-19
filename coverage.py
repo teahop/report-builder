@@ -84,6 +84,9 @@ HISTORY_PREDICATES = frozenset(
         "hyperactivity_rating",
         "testing_impression",
         "interview_impression",
+        "service_requirement",
+        "impairment_status",
+        "functioning_deficit",
     }
 )
 
@@ -145,6 +148,9 @@ PREDICATE_STALE_DAYS: dict[str, int] = {
     "hyperactivity_rating": 365,
     "testing_impression": 365,
     "interview_impression": 365,
+    "service_requirement": 365,
+    "impairment_status": 365,
+    "functioning_deficit": 365,
 }
 
 

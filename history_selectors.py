@@ -49,6 +49,7 @@ HEALTH_HISTORY_PREDICATES = frozenset(
         "medications",
         "hospitalizations",
         "sleep",
+        "impairment_status",
     }
 )
 
@@ -100,12 +101,15 @@ EDUCATIONAL_SCHOOL_EXPERIENCE_PREDICATES = frozenset(
         "hyperactivity_rating",
         "testing_impression",
         "interview_impression",
+        "functioning_deficit",
     }
 )
 
 EDUCATIONAL_INTERVENTION_PREDICATES = frozenset({"intervention_tier", "private_tutoring"})
 
-EDUCATIONAL_IEP_PREDICATES = frozenset({"iep_status", "plan_504_status"})
+EDUCATIONAL_IEP_PREDICATES = frozenset(
+    {"iep_status", "plan_504_status", "service_requirement"}
+)
 
 # Provisional; vocabulary has no covid-education predicate.
 COVID_EDUCATIONAL_PREDICATES = frozenset()

@@ -258,6 +258,34 @@ PREDICATE_VOCABULARY: tuple[PredicateSpec, ...] = (
         "arranged tutoring (Molly, worksheet Q5; spec §9.9.1).",
     ),
     _p(
+        "service_requirement",
+        "record",
+        "Whether a named support or service is required or provided.",
+        "as_of",
+        "Put the service kind in qualifier (low_incidence, assistive_technology, "
+        "primary_language). Do not mint low_incidence_services_requirement or "
+        "assistive_technology_requirement.",
+        takes_qualifier=True,
+    ),
+    _p(
+        "impairment_status",
+        "record",
+        "Sensory or physical impairment status as stated.",
+        "as_of",
+        "Put the domain in qualifier (vision, hearing). Do not mint "
+        "visual_impairment_status or hearing_impairment_status.",
+        takes_qualifier=True,
+    ),
+    _p(
+        "functioning_deficit",
+        "record",
+        "A stated deficit in a functioning domain.",
+        "as_of",
+        "Put the domain in qualifier (executive_function, adaptive). Do not mint "
+        "executive_functioning_deficit or adaptive_functioning_deficit.",
+        takes_qualifier=True,
+    ),
+    _p(
         "behavioral_referral",
         "record",
         "Whether behavioral referrals occurred in a stated period.",
