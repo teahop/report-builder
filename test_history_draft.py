@@ -669,36 +669,19 @@ def test_evidence_brief_leads_with_claim_not_corrupted_span() -> None:
     assert "Yes of neglect" in row["value_text"]
 
 
-def test_fixture_001_family_history_brief_leads_with_claim() -> None:
-    """Cached parent stays corrupt; the brief is resilient without rewriting it."""
+def test_fixture_001_cached_parent_is_current_extract() -> None:
+    """Workstream C parent — 23 sources, not the 8/10 77-fact file.
+
+    Checkbox-corrupt family_history wording is covered by the synthetic graft
+    test above; do not pin this parent to that old fact.
+    """
 
     cache = _DIR / "evals" / "cache" / "fixture_001_ledger.json"
     raw = json.loads(cache.read_text(encoding="utf-8"))
     ledger = Ledger.model_validate(raw["ledger"])
-    fact = next(f for f in ledger.facts if f.id == "f_doc_26_008")
-    assert fact.value == "history of neglect, trauma suspected"
-    assert "Yes of neglect" in fact.value_text
-    plan = compile_history_plan(ledger, structure_spec_id="provisional_tj_v1")
-    section = next(s for s in plan.sections if s.section_key == "current_status_history")
-    md = render_evidence_brief_markdown(plan, section, ledger)
-    primary = next(
-        ln
-        for ln in md.splitlines()
-        if ln.startswith("- **family_history**")
-        and "history of neglect, trauma suspected" in ln
-    )
-    assert primary == (
-        "- **family_history** · history of neglect, trauma suspected"
-    )
-    assert "`f_doc_26_008`" not in primary
-    source_line = md.splitlines()[md.splitlines().index(primary) + 1]
-    assert source_line.startswith("  - source wording:")
-    assert "Yes of neglect" in source_line
-    lines = format_fact_evidence_lines(
-        fact.predicate, fact.value, fact.value_text
-    )
-    assert lines[0] == primary
-    assert "source wording" in lines[1]
+    assert ledger.child.name == "Emma Rose Callahan"
+    assert len(ledger.sources) == 23
+    assert len(ledger.facts) > 90
 
 
 def test_markdown_fact_bullets_omit_ledger_ids() -> None:
