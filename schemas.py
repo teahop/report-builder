@@ -459,6 +459,17 @@ class FailedCitationAttempt(BaseModel):
     )
 
 
+class AnchorDriftFinding(BaseModel):
+    """C1: a fact whose claim or containing block is older than source_date, but as_of was not moved."""
+
+    fact_id: str
+    source_id: str
+    source_date: str
+    as_of_date: str
+    block_date: str
+    summary: str
+
+
 class ExtractResponse(BaseModel):
     """Ledger plus cost metadata. Nothing is persisted (spec §4)."""
 
@@ -472,6 +483,13 @@ class ExtractResponse(BaseModel):
         description=(
             "Computed as_of view (subject+predicate+qualifier, sorted by as_of_date). "
             "Not stored — regenerated from the ledger on each request."
+        ),
+    )
+    anchor_drift: list[AnchorDriftFinding] = Field(
+        default_factory=list,
+        description=(
+            "C1 anchor-drift findings: claim or containing block carries an explicit "
+            "date older than source_date while as_of_date still equals source_date."
         ),
     )
     tokens_used: int

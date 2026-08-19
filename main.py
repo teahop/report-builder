@@ -13,6 +13,7 @@ from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import ValidationError
 
+from anchor import check_anchor_drift
 from conflicts import detect_disagreements_from_ledger
 from draft import draft_section
 from extract import build_ledger
@@ -232,7 +233,7 @@ def health() -> dict[str, str]:
 @app.post("/ingest")
 def ingest(body: IngestRequest) -> IngestResponse:
     """
-    Classify one raw document → {source_type, source_date, label} for confirmation.
+    Classify one raw document → {source_type, source_date, label, doc_class} for confirmation.
 
     Never silent: suggestion is returned; caller must confirm before the document
     enters the case packet. A wrong date is a provenance failure.
@@ -299,6 +300,7 @@ def extract(body: ExtractRequest) -> ExtractResponse:
         ledger=ledger,
         gap_report=gap_report,
         timelines=timelines,
+        anchor_drift=check_anchor_drift(ledger),
         tokens_used=tokens_used,
         model=model,
         latency_ms=latency_ms,

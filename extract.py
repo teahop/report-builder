@@ -7,6 +7,7 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
+from anchor import DatedBlock, detect_dated_blocks, resolve_as_of_date
 from coverage import build_gap_report
 from conflicts import compute_timelines
 from derived import (
@@ -145,21 +146,28 @@ def dedupe_facts(facts: list[Fact]) -> list[Fact]:
     return out
 
 
+def _medication_group_key(fact: Fact) -> tuple[str, str]:
+    """Same source + same as_of — do not collapse dated prior-record lists into current."""
+
+    return (fact.source_id, fact.as_of_date or fact.source_date)
+
+
 def consolidate_medications_facts(facts: list[Fact]) -> list[Fact]:
     """
-    Merge same-source partial medications lists into one fact.
+    Merge same-source, same-as_of partial medications lists into one fact.
 
-    Several mentions in one document are not competing values. An explicit
+    Several mentions in one document at the same date are not competing values.
+    Lists inherited from different dated blocks stay separate. An explicit
     ``none`` denial alongside named meds is left intact for conflict detection.
     """
 
-    by_source: dict[str, list[Fact]] = {}
+    by_key: dict[tuple[str, str], list[Fact]] = {}
     for fact in facts:
         if fact.predicate == "medications":
-            by_source.setdefault(fact.source_id, []).append(fact)
+            by_key.setdefault(_medication_group_key(fact), []).append(fact)
 
-    replacements: dict[str, list[Fact]] = {}
-    for source_id, group in by_source.items():
+    replacements: dict[tuple[str, str], list[Fact]] = {}
+    for key, group in by_key.items():
         if len(group) <= 1:
             continue
         named = [f for f in group if (f.value or "").strip().lower() != "none"]
@@ -167,7 +175,7 @@ def consolidate_medications_facts(facts: list[Fact]) -> list[Fact]:
         if nones and named:
             continue  # keep contradiction
         if nones and not named:
-            replacements[source_id] = [nones[0]]
+            replacements[key] = [nones[0]]
             continue
         combined = normalize_value(
             "medications",
@@ -175,7 +183,7 @@ def consolidate_medications_facts(facts: list[Fact]) -> list[Fact]:
             "; ".join(f.value_text for f in named if f.value_text),
         )
         richest = max(named, key=lambda f: len(f.value_text or ""))
-        replacements[source_id] = [
+        replacements[key] = [
             richest.model_copy(
                 update={
                     "value": combined,
@@ -190,15 +198,19 @@ def consolidate_medications_facts(facts: list[Fact]) -> list[Fact]:
         return facts
 
     out: list[Fact] = []
-    flushed: set[str] = set()
+    flushed: set[tuple[str, str]] = set()
     for fact in facts:
-        if fact.predicate != "medications" or fact.source_id not in replacements:
+        if fact.predicate != "medications":
             out.append(fact)
             continue
-        if fact.source_id in flushed:
+        key = _medication_group_key(fact)
+        if key not in replacements:
+            out.append(fact)
             continue
-        out.extend(replacements[fact.source_id])
-        flushed.add(fact.source_id)
+        if key in flushed:
+            continue
+        out.extend(replacements[key])
+        flushed.add(key)
     return out
 
 
@@ -282,28 +294,17 @@ def _finalize_assertion(
     return assertion
 
 
-def _finalize_as_of_date(draft: ExtractedFactDraft, source: Source) -> str:
+def _finalize_as_of_date(
+    draft: ExtractedFactDraft,
+    source: Source,
+    blocks: tuple[DatedBlock, ...] | None = None,
+) -> str:
     """
-    Use model as_of_date when the source text contains an explicit anchor; otherwise
-    source.date. Blocks aggressive inference from vague relative time ('last year').
+    Claim-local date, then containing dated block, then a supported model
+    proposal; otherwise source.date. Vague relative time is not an anchor.
     """
 
-    proposed = (draft.as_of_date or "").strip() or source.date
-    if proposed == source.date:
-        return source.date
-
-    # Anchor evidence may live in the claim wording or the source body
-    # ("Per the 2024 IEP…" often sits outside a short value_text).
-    blob = f"{draft.value_text or ''} {draft.value or ''} {source.content or ''}"
-    if proposed in blob:
-        return proposed
-
-    # Explicit four-digit year in anchor must appear in the source/claim text.
-    year = proposed[:4]
-    if year.isdigit() and re.search(rf"\b{year}\b", blob):
-        return proposed
-
-    return source.date
+    return resolve_as_of_date(draft, source, blocks=blocks)
 
 
 def _finalize_subject(draft: ExtractedFactDraft, source: Source, predicate: str) -> str:
@@ -730,6 +731,7 @@ def draft_to_fact(
     fact_id: str,
     source: Source,
     child: Child,
+    blocks: tuple[DatedBlock, ...] | None = None,
 ) -> Fact:
     del child  # Subject no longer needs child.name for canonicalization.
     predicate = _resolve_predicate_name(draft)
@@ -741,7 +743,7 @@ def draft_to_fact(
         grade = normalize_value("grade", grade, grade)
     reporter = draft.reporter.strip() if draft.reporter and draft.reporter.strip() else None
     qualifier = normalize_qualifier(draft.qualifier)
-    as_of = _finalize_as_of_date(draft, source)
+    as_of = _finalize_as_of_date(draft, source, blocks=blocks)
     subject = _finalize_subject(draft, source, predicate)
     source_section = (
         draft.source_section.strip()
@@ -833,6 +835,7 @@ def extract_source_to_facts(
         prompt_tokens += p_tok
         completion_tokens += c_tok
 
+    blocks = detect_dated_blocks(source.content or "", source.date)
     facts: list[Fact] = []
     for draft in drafts:
         if _draft_is_skippable(draft, source):
@@ -844,6 +847,7 @@ def extract_source_to_facts(
                     fact_id=fact_id_for_source(source.id, len(facts) + 1),
                     source=source,
                     child=child,
+                    blocks=blocks,
                 )
             )
         except ValueError:
