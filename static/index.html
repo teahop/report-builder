@@ -240,9 +240,11 @@
 
     <div class="row">
       <button type="button" id="runBtn">Run pipeline</button>
+      <button type="button" class="ghost" id="runSkipEntailmentBtn">Run pipeline — skip entailment</button>
       <button type="button" class="ghost" id="askBtn">Run /ask only (course contract)</button>
       <span id="status">Empty — load a fixture to start.</span>
     </div>
+    <p class="hint">Skip entailment is the Render-safe demo path: it still drafts History, but skips the per-statement model checks that trip Cloudflare’s ~100s timeout.</p>
 
     <div class="stage" id="stageExtract">
       <div class="stage-label">1 · Extract — ledger &amp; gap report</div>
@@ -293,6 +295,7 @@
     const caseHeaderEl = document.getElementById("caseHeader");
     const sourcesEl = document.getElementById("sources");
     const runBtn = document.getElementById("runBtn");
+    const skipEntailmentBtn = document.getElementById("runSkipEntailmentBtn");
     const askBtn = document.getElementById("askBtn");
     const statusEl = document.getElementById("status");
     const answerEl = document.getElementById("answer");
@@ -739,11 +742,14 @@
       return data;
     }
 
-    runBtn.addEventListener("click", async () => {
+    async function runPipeline(skipEntailment) {
       statusEl.className = "";
-      statusEl.textContent = "Pipeline: extracting…";
+      statusEl.textContent = skipEntailment
+        ? "Pipeline: extracting… (entailment will be skipped)"
+        : "Pipeline: extracting…";
       resetPanels();
       runBtn.disabled = true;
+      skipEntailmentBtn.disabled = true;
       askBtn.disabled = true;
       let body;
       try { body = caseBody(); }
@@ -751,6 +757,7 @@
         statusEl.className = "error";
         statusEl.textContent = String(err.message || err);
         runBtn.disabled = false;
+        skipEntailmentBtn.disabled = false;
         askBtn.disabled = false;
         return;
       }
@@ -787,7 +794,9 @@
         });
         renderBriefs(plan);
 
-        statusEl.textContent = "Pipeline: drafting History…";
+        statusEl.textContent = skipEntailment
+          ? "Pipeline: drafting History (entailment skipped)…"
+          : "Pipeline: drafting History…";
         const draft = await postJson("/draft/history", {
           confirm_synthetic: true,
           ledger: extract.ledger,
@@ -795,6 +804,7 @@
           variance: conf.variance || [],
           model: body.model,
           entailment_model: "gpt-4o-mini",
+          skip_entailment: !!skipEntailment,
         });
         resultEl.textContent = JSON.stringify({ extract_meta: {
           tokens: extract.tokens_used, cost: extract.cost_usd
@@ -822,22 +832,28 @@
           " · Prompt SHA: " + ((draft.prompt_hash || "").slice(0, 12) || "?") +
           " · Voice SHA: " + ((draft.voice_store_sha || "").slice(0, 12) || "?") +
           (draft.langfuse_url ? " · Trace: " + draft.langfuse_url : "");
-        statusEl.textContent = "Done · pipeline complete";
+        statusEl.textContent = skipEntailment
+          ? "Done · pipeline complete (entailment skipped)"
+          : "Done · pipeline complete";
       } catch (err) {
         statusEl.className = "error";
         statusEl.textContent = String(err.message || err);
         answerEl.textContent = String(err.message || err);
       } finally {
         runBtn.disabled = false;
+        skipEntailmentBtn.disabled = false;
         askBtn.disabled = false;
       }
-    });
+    }
+    runBtn.addEventListener("click", () => runPipeline(false));
+    skipEntailmentBtn.addEventListener("click", () => runPipeline(true));
 
     askBtn.addEventListener("click", async () => {
       statusEl.className = "";
       statusEl.textContent = "Running /ask (internal pipeline)…";
       resetPanels();
       runBtn.disabled = true;
+      skipEntailmentBtn.disabled = true;
       askBtn.disabled = true;
       let body;
       try { body = caseBody(); }
@@ -845,6 +861,7 @@
         statusEl.className = "error";
         statusEl.textContent = String(err.message || err);
         runBtn.disabled = false;
+        skipEntailmentBtn.disabled = false;
         askBtn.disabled = false;
         return;
       }
@@ -867,6 +884,7 @@
         statusEl.textContent = String(err.message || err);
       } finally {
         runBtn.disabled = false;
+        skipEntailmentBtn.disabled = false;
         askBtn.disabled = false;
       }
     });

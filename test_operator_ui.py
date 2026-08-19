@@ -26,6 +26,7 @@ def test_operator_page_renders() -> None:
     assert "Add documents" not in body
     assert 'type="file"' not in body
     assert "./operator_live.js" in body
+    assert "Skip entailment" in body
 
 
 def test_operator_redirects_to_trailing_slash() -> None:
@@ -45,6 +46,7 @@ def test_operator_assets_served() -> None:
     js = client.get("/operator/operator_live.js")
     assert js.status_code == 200, js.text
     assert "OperatorLive" in js.text
+    assert "skip_entailment" in js.text
     support = client.get("/operator/support.js")
     assert support.status_code == 200, support.text
 

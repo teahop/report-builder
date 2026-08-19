@@ -282,7 +282,8 @@
     };
   }
 
-  function mapHistory(resp) {
+  function mapHistory(resp, opts) {
+    const skipEntailment = !!(opts && opts.skipEntailment);
     const populated = !!resp.section_populated;
     const sections = (resp.package && resp.package.sections) || [];
     const paragraphs = [];
@@ -327,7 +328,7 @@
         ["model", resp.model || "—"],
         ["prompt", (resp.prompt_hash || "").slice(0, 8) || "—"],
         ["voice", (resp.voice_store_sha || "").slice(0, 8) || "—"],
-      ],
+      ].concat(skipEntailment ? [["entailment", "skipped"]] : []),
       fields: [],
       paragraphs: paragraphs,
       statements: statements,
@@ -335,7 +336,9 @@
       reviewItems: reviewItems,
       unanchored: [],
       footNote: populated
-        ? "Live History package. Prose view is unlabeled; Verify re-injects evidence ids."
+        ? skipEntailment
+          ? "Live History package. Per-statement entailment skipped (demo) — Verify will not have those checks."
+          : "Live History package. Prose view is unlabeled; Verify re-injects evidence ids."
         : resp.empty_reason || "History section not populated.",
     };
   }
@@ -490,7 +493,8 @@
     });
   }
 
-  async function draftHistory(ledger, conflicts, variance) {
+  async function draftHistory(ledger, conflicts, variance, opts) {
+    const skipEntailment = !!(opts && opts.skipEntailment);
     return postJson("/draft/history", {
       confirm_synthetic: true,
       ledger: ledger,
@@ -498,6 +502,7 @@
       variance: variance || [],
       model: "gpt-4o-mini",
       entailment_model: "gpt-4o-mini",
+      skip_entailment: skipEntailment,
     });
   }
 

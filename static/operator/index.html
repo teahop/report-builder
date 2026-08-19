@@ -186,7 +186,12 @@
                 <div style="font-family:Hillman,'DM Sans',sans-serif;font-size:28px">{{ d.title }}</div>
                 <div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#6E6258">{{ d.endpoint }}</div>
               </div>
-              <button onClick="{{ d.run }}" style="{{ d.runStyle }}">{{ d.runLabel }}</button>
+              <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+                <sc-if value="{{ d.showSkip }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ d.runSkip }}" style="{{ d.runSkipStyle }}">{{ d.runSkipLabel }}</button>
+                </sc-if>
+                <button onClick="{{ d.run }}" style="{{ d.runStyle }}">{{ d.runLabel }}</button>
+              </div>
             </div>
             <div style="{{ d.bannerStyle }}">{{ d.bannerText }}</div>
             <div style="display:flex;gap:16px;flex-wrap:wrap;padding:10px 18px;border-bottom:1px solid #EFE8DF;font-size:12px;color:#6E6258">
@@ -407,9 +412,10 @@ class Component extends DCLogic {
     }
   }
 
-  async runLiveDraft(section) {
+  async runLiveDraft(section, opts) {
     const cid = this.state.caseId;
     const key = cid + section;
+    const skipEntailment = !!(opts && opts.skipEntailment);
     const OL = window.OperatorLive;
     const live = (this.state.live || {})[cid] || {};
     if (!live.ledger) {
@@ -417,7 +423,11 @@ class Component extends DCLogic {
       return;
     }
     this.setState((s) => ({ running: Object.assign({}, s.running, { [key]: true }) }));
-    this.patchLive(cid, (cur) => { cur.statusLine = "Running POST /draft/" + section + "…"; });
+    this.patchLive(cid, (cur) => {
+      cur.statusLine = skipEntailment
+        ? "Running POST /draft/" + section + " (entailment skipped)…"
+        : "Running POST /draft/" + section + "…";
+    });
     try {
       let mapped;
       let resp;
@@ -427,8 +437,10 @@ class Component extends DCLogic {
         mapped = OL.mapReferral(resp);
         outcome = mapped.status;
       } else {
-        resp = await OL.draftHistory(live.ledger, live.conflicts, live.variance);
-        mapped = OL.mapHistory(resp);
+        resp = await OL.draftHistory(live.ledger, live.conflicts, live.variance, {
+          skipEntailment: skipEntailment,
+        });
+        mapped = OL.mapHistory(resp, { skipEntailment: skipEntailment });
         outcome = mapped.status;
       }
       this.patchLive(cid, (cur) => {
@@ -826,10 +838,15 @@ class Component extends DCLogic {
     // drafts
     const runBtn = (key, section) => {
       const running = this.state.running[key];
+      const idle = "cursor:pointer;border:none;border-radius:10px;padding:8px 16px;font:500 13px 'DM Sans',sans-serif;";
       return {
-        run: () => this.runLiveDraft(section),
+        run: () => this.runLiveDraft(section, { skipEntailment: false }),
         runLabel: running ? "Running…" : "Run draft",
-        runStyle: `margin-left:auto;cursor:pointer;border:none;border-radius:10px;padding:8px 16px;font:500 13px 'DM Sans',sans-serif;${running ? "background:#C4B5A5;color:#28211E" : "background:#28211E;color:#F5F0EB"}`
+        runStyle: idle + (running ? "background:#C4B5A5;color:#28211E" : "background:#28211E;color:#F5F0EB"),
+        showSkip: section === "history",
+        runSkip: () => this.runLiveDraft(section, { skipEntailment: true }),
+        runSkipLabel: running ? "Running…" : "Skip entailment",
+        runSkipStyle: idle + (running ? "background:#C4B5A5;color:#28211E" : "background:#8DD9BF;color:#28211E"),
       };
     };
     const bannerFor = (d) => {
