@@ -12,6 +12,7 @@ from schemas import (
     DraftBlockKind,
     DraftProseOutput,
     EntailmentJudgment,
+    ExtractEntailmentFinding,
     Fact,
     FailedCitationAttempt,
     Ledger,
@@ -20,7 +21,7 @@ from schemas import (
 )
 from terminology import find_terminology_violations
 from validators import parse_iso_date
-from derived import is_derived_fact
+from derived import is_derived_fact, is_synthetic_source_id
 from predicates import PREDICATES
 
 # Present-tense framing for as_of claims (generic — no clinical topics).
@@ -400,6 +401,100 @@ def check_entailment_one(
         result.prompt_tokens,
         result.completion_tokens,
     )
+
+
+def claim_from_fact(fact: Fact) -> str:
+    """Topic-agnostic claim from ledger fields — extract has no draft statement.
+
+    Built from predicate, optional qualifier, assertion, value, and value_text.
+    No clinical vocabulary; the check is whether the cited source supports
+    this fact's own wording.
+    """
+
+    bits = [fact.predicate]
+    if fact.qualifier:
+        bits.append(f"({fact.qualifier})")
+    copula = "is not" if fact.assertion == "denied" else "is"
+    bits.append(f"{copula} {fact.value}.")
+    quoted = (fact.value_text or "").strip()
+    if quoted:
+        bits.append(quoted)
+    return " ".join(bits)
+
+
+def validate_ledger_entailment(
+    provider: ModelProvider,
+    *,
+    model: str,
+    ledger: Ledger,
+    source_ids: set[str] | None = None,
+) -> tuple[list[ExtractEntailmentFinding], int, int, int]:
+    """
+    §9.3 on extraction: does each fact's cited source support that fact's claim?
+
+    Skips derived / synthetic rows (recomputed, not entailed). When ``source_ids``
+    is set, only facts from those sources are checked — incremental merge does
+    not re-check kept prior facts. Unsupported facts stay on the ledger; this
+    function only lists them. One check exception becomes a finding, not a raise.
+    Returns (findings, total, prompt, completion tokens).
+    """
+
+    by_source = {s.id: s for s in ledger.sources}
+    findings: list[ExtractEntailmentFinding] = []
+    total = prompt_tok = completion_tok = 0
+
+    for fact in ledger.facts:
+        if is_derived_fact(fact) or is_synthetic_source_id(fact.source_id):
+            continue
+        if source_ids is not None and fact.source_id not in source_ids:
+            continue
+        claim = claim_from_fact(fact)
+        source = by_source.get(fact.source_id)
+        if source is None:
+            findings.append(
+                ExtractEntailmentFinding(
+                    fact_id=fact.id,
+                    source_id=fact.source_id,
+                    claim=claim,
+                    rationale="No source row on the ledger for this fact.",
+                    summary=f"No source for fact {fact.id}",
+                )
+            )
+            continue
+        try:
+            supported, rationale, t, p, c = check_entailment_one(
+                provider, model=model, source=source, statement=claim
+            )
+        except Exception as exc:
+            findings.append(
+                ExtractEntailmentFinding(
+                    fact_id=fact.id,
+                    source_id=fact.source_id,
+                    claim=claim,
+                    rationale=str(exc)[:160],
+                    summary=(
+                        f"Entailment check failed for {fact.id}: {str(exc)[:120]}"
+                    ),
+                )
+            )
+            continue
+        total += t
+        prompt_tok += p
+        completion_tok += c
+        if not supported:
+            findings.append(
+                ExtractEntailmentFinding(
+                    fact_id=fact.id,
+                    source_id=source.id,
+                    claim=claim,
+                    rationale=rationale,
+                    summary=(
+                        f"Source {source.id} does not support {fact.id}: "
+                        f"{rationale[:160]}"
+                    ),
+                )
+            )
+    return findings, total, prompt_tok, completion_tok
 
 
 def validate_entailment(

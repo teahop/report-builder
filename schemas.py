@@ -383,6 +383,17 @@ class ExtractRequest(BaseModel):
         ),
     )
     model: str | None = None
+    entailment_model: str | None = Field(
+        default="gpt-4o-mini",
+        description="Cheap model for per-fact §9.3 entailment on extracted claims",
+    )
+    skip_entailment: bool = Field(
+        default=False,
+        description=(
+            "Extract-only: skip per-fact entailment. Defaults false. "
+            "Not the History Skip entailment control."
+        ),
+    )
 
 
 class PredicateFreshness(BaseModel):
@@ -470,6 +481,16 @@ class AnchorDriftFinding(BaseModel):
     summary: str
 
 
+class ExtractEntailmentFinding(BaseModel):
+    """§9.3: a ledger fact whose cited source does not support the fact's own claim."""
+
+    fact_id: str
+    source_id: str
+    claim: str
+    rationale: str
+    summary: str
+
+
 class ExtractResponse(BaseModel):
     """Ledger plus cost metadata. Nothing is persisted (spec §4)."""
 
@@ -490,6 +511,13 @@ class ExtractResponse(BaseModel):
         description=(
             "C1 anchor-drift findings: claim or containing block carries an explicit "
             "date older than source_date while as_of_date still equals source_date."
+        ),
+    )
+    entailment_failures: list[ExtractEntailmentFinding] = Field(
+        default_factory=list,
+        description=(
+            "§9.3 findings: the cited source does not support this ledger fact's claim. "
+            "Facts stay on the ledger — a model 'no' must not drop evidence."
         ),
     )
     tokens_used: int

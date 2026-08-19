@@ -16,6 +16,7 @@ from pydantic import ValidationError
 from anchor import check_anchor_drift
 from conflicts import detect_disagreements_from_ledger
 from draft import draft_section
+from draft_validators import validate_ledger_entailment
 from extract import build_ledger
 from ingest import classify_document
 from provider import DEFAULT_MODEL, ModelProvider, compute_cost_usd
@@ -331,15 +332,31 @@ def extract(body: ExtractRequest) -> ExtractResponse:
     except (ValidationError, ValueError) as exc:
         raise HTTPException(status_code=502, detail=f"Extraction failed: {exc}") from exc
 
-    latency_ms = int((time.perf_counter() - start) * 1000)
     tokens_used = sum(tokens_by_source.values())
     cost_usd = compute_cost_usd(model, prompt_tokens, completion_tokens)
 
+    entailment_failures = []
+    if not body.skip_entailment:
+        entailment_model = body.entailment_model or "gpt-4o-mini"
+        new_source_ids = {s.id for s in body.sources}
+        entailment_failures, e_total, e_prompt, e_completion = (
+            validate_ledger_entailment(
+                provider,
+                model=entailment_model,
+                ledger=ledger,
+                source_ids=new_source_ids,
+            )
+        )
+        tokens_used += e_total
+        cost_usd += compute_cost_usd(entailment_model, e_prompt, e_completion)
+
+    latency_ms = int((time.perf_counter() - start) * 1000)
     return ExtractResponse(
         ledger=ledger,
         gap_report=gap_report,
         timelines=timelines,
         anchor_drift=check_anchor_drift(ledger),
+        entailment_failures=entailment_failures,
         tokens_used=tokens_used,
         model=model,
         latency_ms=latency_ms,
