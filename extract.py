@@ -15,6 +15,7 @@ from derived import (
     is_synthetic_source_id,
     strip_synthetic_facts,
 )
+from layout import is_document_structure_value
 from normalize import clip_value_text, normalize_qualifier, normalize_value
 from predicates import (
     CANONICAL_SUBJECTS,
@@ -329,6 +330,8 @@ def _draft_is_skippable(draft: ExtractedFactDraft, source: Source | None = None)
     if not raw or raw.lower() in {"null", "none-stated", "n/a", "undefined"}:
         return True
     if _is_placeholder_value(draft):
+        return True
+    if source is not None and is_document_structure_value(draft, source):
         return True
     predicate = _resolve_predicate_name(draft)
     if predicate == "dob" and source is not None and _is_garbage_dob(draft, source):
