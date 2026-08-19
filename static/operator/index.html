@@ -60,8 +60,9 @@
               <button onClick="{{ loadPacket }}" style="background:#8DD9BF;color:#28211E;border:none;border-radius:10px;padding:7px 14px;font:500 13px 'DM Sans',sans-serif;cursor:pointer">Load fixture packet</button>
               <button onClick="{{ loadCached }}" style="background:#28211E;color:#F5F0EB;border:none;border-radius:10px;padding:7px 14px;font:500 13px 'DM Sans',sans-serif;cursor:pointer">Load cached ledger</button>
               <button onClick="{{ extractLive }}" style="background:transparent;color:#28211E;border:1px solid #C4B5A5;border-radius:10px;padding:7px 14px;font:500 13px 'DM Sans',sans-serif;cursor:pointer">Extract ledger</button>
+              <button onClick="{{ saveCached }}" style="background:transparent;color:#28211E;border:1px solid #C4B5A5;border-radius:10px;padding:7px 14px;font:500 13px 'DM Sans',sans-serif;cursor:pointer">Save as cached ledger</button>
             </div>
-            <div style="font-size:11px;color:#6E6258;margin:-4px 0 10px">Raw file upload is later. 001 cached ledger is the fixture_001 smoke parent; 005 uses synthetic_history_case. Extract is a model call.</div>
+            <div style="font-size:11px;color:#6E6258;margin:-4px 0 10px">Raw file upload is later. 001 cached ledger is the fixture_001 smoke parent; Save as cached ledger overwrites that file on this machine (001 only, after confirm). 005 uses synthetic_history_case. Extract is a model call.</div>
             <sc-for list="{{ pendingUploads }}" as="p" hint-placeholder-count="0">
               <div style="border:1px solid #8DD9BF;border-radius:10px;padding:10px 12px;margin-bottom:10px;background:#F5F0EB">
                 <div style="font-size:13px;font-weight:500">{{ p.name }}</div>
@@ -406,6 +407,44 @@ class Component extends DCLogic {
         Object.assign(cur, live);
         OL.applyLedger(cur, payload, "Extracted " + n + " facts · $" + (payload.cost_usd ?? "?") + " · then conflicts (no model).");
         cur.runs = [OL.runRow("POST /extract", cid, payload, "ok", "live extract")].concat(cur.runs || []);
+      });
+    } catch (err) {
+      this.patchLive(cid, (live) => { live.statusLine = String(err.message || err); });
+    }
+  }
+
+  async saveCachedLive() {
+    const cid = this.state.caseId;
+    const OL = window.OperatorLive;
+    if (cid !== "001") {
+      this.patchLive(cid, (live) => { live.statusLine = "Save as cached ledger is fixture_001 only."; });
+      return;
+    }
+    const live = (this.state.live || {})[cid] || {};
+    if (!live.ledger) {
+      this.patchLive(cid, (live) => { live.statusLine = "Extract or load a ledger first."; });
+      return;
+    }
+    const ok = window.confirm(
+      "Overwrite evals/cache/fixture_001_ledger.json — the fixture_001 smoke parent — with the ledger currently in this tab?"
+    );
+    if (!ok) {
+      this.patchLive(cid, (cur) => { cur.statusLine = "Save cancelled."; });
+      return;
+    }
+    this.patchLive(cid, (cur) => { cur.statusLine = "Saving live ledger to fixture_001 cache…"; });
+    try {
+      const saved = await OL.saveCached001(live.ledger, live.model);
+      this.patchLive(cid, (cur) => {
+        cur.statusLine =
+          "Saved " +
+          saved.fact_count +
+          " facts to " +
+          saved.path +
+          " (" +
+          saved.built_at +
+          "). Load cached ledger now reads this file.";
+        cur.runs = [OL.runRow("POST /fixtures/cached_ledger_001", cid, saved, "ok", "cache parent replaced")].concat(cur.runs || []);
       });
     } catch (err) {
       this.patchLive(cid, (live) => { live.statusLine = String(err.message || err); });
@@ -918,6 +957,7 @@ class Component extends DCLogic {
       loadPacket: () => this.loadPacketLive(),
       loadCached: () => this.loadCachedLive(),
       extractLive: () => this.extractLiveRun(),
+      saveCached: () => this.saveCachedLive(),
       filesSummary: `${allFiles.length} sources · ${narrative} narrative · ${allFiles.length - narrative} score_report — load a fixture packet, then cached ledger (001) or extract`,
       pendingUploads, files,
       ledgerMeta: C.ledgerMeta, facts,

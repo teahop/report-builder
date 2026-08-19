@@ -574,6 +574,26 @@ class ConflictsRequest(BaseModel):
     ledger: Ledger
 
 
+class SaveCachedLedgerRequest(BaseModel):
+    """Replace evals/cache/fixture_001_ledger.json — confirm_synthetic required."""
+
+    confirm_synthetic: Literal[True] = Field(
+        description="Must be true. Refuses real PHI/PII cases; OpenAI runtime is synthetic-only.",
+    )
+    ledger: Ledger
+    model: str | None = Field(
+        default=None,
+        description="Extract model recorded on the cache wrapper.",
+    )
+
+
+class SaveCachedLedgerResponse(BaseModel):
+    path: str
+    built_at: str
+    fact_count: int
+    child_name: str
+
+
 class ConflictsResponse(BaseModel):
     """
     Deterministic disagreements + as_of timelines. Nothing persisted.

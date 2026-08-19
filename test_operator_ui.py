@@ -22,6 +22,7 @@ def test_operator_page_renders() -> None:
     assert "Load fixture packet" in body
     assert "Load cached ledger" in body
     assert "Extract ledger" in body
+    assert "Save as cached ledger" in body
     assert "Raw file upload is later" in body
     assert "Add documents" not in body
     assert 'type="file"' not in body
@@ -47,6 +48,7 @@ def test_operator_assets_served() -> None:
     assert js.status_code == 200, js.text
     assert "OperatorLive" in js.text
     assert "skip_entailment" in js.text
+    assert "saveCached001" in js.text
     assert "Draft is on the page; open Verify." in js.text
     assert "failed validation after 3 retry attempts" not in js.text
     support = client.get("/operator/support.js")
@@ -68,6 +70,69 @@ def test_cached_ledger_001_is_read_only() -> None:
     assert after == before
 
 
+def test_save_cached_ledger_001_writes_wrapper_not_production_file() -> None:
+    import json
+    import tempfile
+    from pathlib import Path
+
+    import main as main_mod
+
+    original_cache = main_mod._CACHE_LEDGER_001
+    production_bytes = original_cache.read_bytes()
+    ledger = json.loads(production_bytes.decode("utf-8"))["ledger"]
+    with tempfile.TemporaryDirectory() as tmp:
+        dest = Path(tmp) / "fixture_001_ledger.json"
+        main_mod._CACHE_LEDGER_001 = dest
+        try:
+            client = TestClient(main_mod.app)
+            r = client.post(
+                "/fixtures/cached_ledger_001",
+                json={
+                    "confirm_synthetic": True,
+                    "model": "gpt-4o-mini",
+                    "ledger": ledger,
+                },
+            )
+            assert r.status_code == 200, r.text
+            body = r.json()
+            assert body["child_name"] == "Emma Rose Callahan"
+            assert body["fact_count"] == len(ledger["facts"])
+            saved = json.loads(dest.read_text(encoding="utf-8"))
+            assert saved["source"] == "operator_save"
+            assert "ledger" in saved
+            got = client.get("/fixtures/cached_ledger_001")
+            assert got.status_code == 200
+            assert got.json()["child"]["name"] == "Emma Rose Callahan"
+        finally:
+            main_mod._CACHE_LEDGER_001 = original_cache
+    assert original_cache.read_bytes() == production_bytes
+
+
+def test_save_cached_ledger_001_rejects_other_child() -> None:
+    import json
+    import tempfile
+    from pathlib import Path
+
+    import main as main_mod
+
+    original_cache = main_mod._CACHE_LEDGER_001
+    ledger = json.loads(original_cache.read_text(encoding="utf-8"))["ledger"]
+    ledger["child"]["name"] = "Diego Fenton"
+    with tempfile.TemporaryDirectory() as tmp:
+        dest = Path(tmp) / "fixture_001_ledger.json"
+        main_mod._CACHE_LEDGER_001 = dest
+        try:
+            client = TestClient(main_mod.app)
+            r = client.post(
+                "/fixtures/cached_ledger_001",
+                json={"confirm_synthetic": True, "ledger": ledger},
+            )
+            assert r.status_code == 400, r.text
+            assert not dest.exists()
+        finally:
+            main_mod._CACHE_LEDGER_001 = original_cache
+
+
 def test_no_operator_upload_endpoint() -> None:
     import main as main_mod
 
@@ -87,6 +152,8 @@ if __name__ == "__main__":
         test_operator_redirects_to_trailing_slash,
         test_operator_assets_served,
         test_cached_ledger_001_is_read_only,
+        test_save_cached_ledger_001_writes_wrapper_not_production_file,
+        test_save_cached_ledger_001_rejects_other_child,
         test_no_operator_upload_endpoint,
     ]
     failed = 0

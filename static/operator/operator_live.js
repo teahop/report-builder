@@ -398,6 +398,7 @@
   function applyLedger(live, payload, statusLine) {
     live.ledger = payload.ledger;
     live.child = (payload.ledger && payload.ledger.child) || live.child;
+    if (payload.model) live.model = payload.model;
     live.conflicts = payload.conflicts || [];
     live.variance = payload.variance || [];
     live.timelines = payload.timelines || [];
@@ -476,6 +477,14 @@
     };
   }
 
+  async function saveCached001(ledger, model) {
+    return postJson("/fixtures/cached_ledger_001", {
+      confirm_synthetic: true,
+      ledger: ledger,
+      model: model || "gpt-4o-mini",
+    });
+  }
+
   async function extractLedger(child, sources) {
     const extract = await postJson("/extract", {
       confirm_synthetic: true,
@@ -529,6 +538,7 @@
     CASE_FIXTURE: CASE_FIXTURE,
     loadPacket: loadPacket,
     loadCached001: loadCached001,
+    saveCached001: saveCached001,
     extractLedger: extractLedger,
     draftReferral: draftReferral,
     draftHistory: draftHistory,

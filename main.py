@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import time
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -33,6 +33,8 @@ from schemas import (
     IngestRequest,
     IngestResponse,
     ReportSection,
+    SaveCachedLedgerRequest,
+    SaveCachedLedgerResponse,
     Source,
     SourcedFact,
 )
@@ -46,6 +48,7 @@ _DIR = Path(__file__).resolve().parent
 _FIXTURES = _DIR / "fixtures"
 _OPERATOR = _DIR / "static" / "operator"
 _CACHE_LEDGER_001 = _DIR / "evals" / "cache" / "fixture_001_ledger.json"
+_CACHE_001_CHILD_NAME = "Emma Rose Callahan"
 load_dotenv(_DIR / ".env")
 
 app = FastAPI(
@@ -184,7 +187,7 @@ def get_fixture(name: str) -> FileResponse | JSONResponse:
 
 
 def _cached_ledger_001() -> JSONResponse:
-    """Read-only fixture_001 ledger from evals/cache — does not overwrite the file."""
+    """Fixture_001 ledger from evals/cache — GET does not overwrite the file."""
 
     if not _CACHE_LEDGER_001.is_file():
         raise HTTPException(status_code=404, detail="cached fixture_001 ledger not on this deploy")
@@ -193,6 +196,42 @@ def _cached_ledger_001() -> JSONResponse:
     if not isinstance(ledger, dict):
         raise HTTPException(status_code=500, detail="cache file missing ledger")
     return JSONResponse(ledger)
+
+
+@app.post("/fixtures/cached_ledger_001")
+def save_cached_ledger_001(body: SaveCachedLedgerRequest) -> SaveCachedLedgerResponse:
+    """Overwrite the fixture_001 smoke parent. Operator-only; not called by /extract."""
+
+    child_name = (body.ledger.child.name or "").strip()
+    if child_name != _CACHE_001_CHILD_NAME:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                f"cached ledger 001 is { _CACHE_001_CHILD_NAME } only; "
+                f"got {child_name or '(missing name)'}"
+            ),
+        )
+    built_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    payload = {
+        "model": body.model or "gpt-4o-mini",
+        "built_at": built_at,
+        "source": "operator_save",
+        "ledger": body.ledger.model_dump(mode="json"),
+    }
+    _CACHE_LEDGER_001.parent.mkdir(parents=True, exist_ok=True)
+    tmp = _CACHE_LEDGER_001.with_name(_CACHE_LEDGER_001.name + ".tmp")
+    tmp.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    tmp.replace(_CACHE_LEDGER_001)
+    try:
+        shown = str(_CACHE_LEDGER_001.relative_to(_DIR))
+    except ValueError:
+        shown = str(_CACHE_LEDGER_001)
+    return SaveCachedLedgerResponse(
+        path=shown,
+        built_at=built_at,
+        fact_count=len(body.ledger.facts),
+        child_name=child_name,
+    )
 
 
 def _assemble_fixture_001_ask() -> dict:
