@@ -6,7 +6,7 @@
   "notes": [
     "Reaction prototype only — not Molly-confirmed clinical ground truth.",
     "Nurse Report remains in the trigger map; SourceType has no nurse value (input_schema_gap).",
-    "Social History has no registered social-relationship predicates yet (vocabulary gap)."
+    "Social History selects peer_relationships; other social-activity names are still unregistered."
   ],
   "sections": [
     {
@@ -49,8 +49,7 @@
           "emit_when": "any_supported_fact",
           "selector": "social_history",
           "purpose": "topic_history",
-          "confirmation_state": "provisional",
-          "input_schema_gap": "No registered peer/adult-relationship or social-activity predicates; block stays absent until vocabulary supports it."
+          "confirmation_state": "provisional"
         },
         {
           "block_key": "nurse_report",

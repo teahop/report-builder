@@ -52,3 +52,51 @@ def test_group_a_collapses_to_qualified_generics() -> None:
     assert banned.isdisjoint(names)
     for generic in ("service_requirement", "impairment_status", "functioning_deficit"):
         assert PREDICATES[generic].takes_qualifier
+
+
+def test_group_b_and_d_keepers_are_registered() -> None:
+    from history_selectors import (
+        EDUCATIONAL_IEP_PREDICATES,
+        EDUCATIONAL_SCHOOL_EXPERIENCE_PREDICATES,
+        EDUCATIONAL_SCHOOL_HISTORY_PREDICATES,
+        FAMILY_HISTORY_PREDICATES,
+        SOCIAL_HISTORY_PREDICATES,
+    )
+    from predicates import PREDICATES
+
+    keepers = {
+        "anticipated_graduation_date",
+        "alternative_diploma_pathway_eligibility",
+        "caaspp_participation",
+        "conservatorship_status",
+        "peer_relationships",
+        "skill_generalization",
+        "parental_limitations",
+    }
+    rejected = {
+        "unsafe_behaviors_at_home",
+        "school_setting_success",
+        "english_learner_status",
+        "behavior_impedes_learning",
+        "diagnosis_list",
+    }
+    assert keepers <= set(PREDICATES)
+    assert rejected.isdisjoint(PREDICATES)
+    for name in (
+        "anticipated_graduation_date",
+        "alternative_diploma_pathway_eligibility",
+        "caaspp_participation",
+        "conservatorship_status",
+    ):
+        assert PREDICATES[name].predicate_class == "record"
+        assert PREDICATES[name].default_temporality == "as_of"
+    for name in ("peer_relationships", "skill_generalization", "parental_limitations"):
+        assert PREDICATES[name].predicate_class == "perspectival"
+        assert PREDICATES[name].default_temporality == "as_of"
+    assert "anticipated_graduation_date" in EDUCATIONAL_SCHOOL_HISTORY_PREDICATES
+    assert "caaspp_participation" in EDUCATIONAL_SCHOOL_HISTORY_PREDICATES
+    assert "alternative_diploma_pathway_eligibility" in EDUCATIONAL_IEP_PREDICATES
+    assert "conservatorship_status" in FAMILY_HISTORY_PREDICATES
+    assert "parental_limitations" in FAMILY_HISTORY_PREDICATES
+    assert SOCIAL_HISTORY_PREDICATES == frozenset({"peer_relationships"})
+    assert "skill_generalization" in EDUCATIONAL_SCHOOL_EXPERIENCE_PREDICATES

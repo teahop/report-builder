@@ -22,7 +22,9 @@ from schemas import Fact, Ledger, Source
 
 # --- Registered predicate menus (composed from predicates.py vocabulary) ---
 
-FAMILY_HISTORY_PREDICATES = frozenset({"family_history"})
+FAMILY_HISTORY_PREDICATES = frozenset(
+    {"family_history", "parental_limitations", "conservatorship_status"}
+)
 
 # Specific developmental predicates are automatic; catch-all is domain-gated.
 BIRTH_DEVELOPMENTAL_SPECIFIC = frozenset(
@@ -53,8 +55,7 @@ HEALTH_HISTORY_PREDICATES = frozenset(
     }
 )
 
-# No registered social-relationship / social-activity predicates yet.
-SOCIAL_HISTORY_PREDICATES = frozenset()
+SOCIAL_HISTORY_PREDICATES = frozenset({"peer_relationships"})
 
 EDUCATIONAL_SCHOOL_HISTORY_PREDICATES = frozenset(
     {
@@ -72,6 +73,8 @@ EDUCATIONAL_SCHOOL_HISTORY_PREDICATES = frozenset(
         "math_computation",
         "math_fluency",
         "math_reasoning",
+        "anticipated_graduation_date",
+        "caaspp_participation",
     }
 )
 
@@ -102,13 +105,19 @@ EDUCATIONAL_SCHOOL_EXPERIENCE_PREDICATES = frozenset(
         "testing_impression",
         "interview_impression",
         "functioning_deficit",
+        "skill_generalization",
     }
 )
 
 EDUCATIONAL_INTERVENTION_PREDICATES = frozenset({"intervention_tier", "private_tutoring"})
 
 EDUCATIONAL_IEP_PREDICATES = frozenset(
-    {"iep_status", "plan_504_status", "service_requirement"}
+    {
+        "iep_status",
+        "plan_504_status",
+        "service_requirement",
+        "alternative_diploma_pathway_eligibility",
+    }
 )
 
 # Provisional; vocabulary has no covid-education predicate.

@@ -284,11 +284,15 @@ def test_provisional_tj_v1_compiles_exact_order() -> None:
         "birth_developmental_history",
         "health_history",
     ]
-    # social_history and nurse_report unsupported — absent, no filler
+    # social_history and nurse_report unsupported here — absent, no filler.
+    # Social History now has vocabulary (peer_relationships); it stays off this
+    # mini ledger because there is no such fact, not because of a schema gap.
     assert "social_history" not in {b.block_key for b in csh.blocks}
     assert "nurse_report" not in {b.block_key for b in csh.blocks}
     assert any("nurse_report" in g for g in plan.input_schema_gaps)
-    assert any("social_history" in g or "Social History" in g for g in plan.input_schema_gaps)
+    assert not any(
+        "social_history" in g or "Social History" in g for g in plan.input_schema_gaps
+    )
 
 
 def test_unsupported_blocks_absent_no_filler() -> None:

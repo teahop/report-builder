@@ -286,6 +286,30 @@ PREDICATE_VOCABULARY: tuple[PredicateSpec, ...] = (
         takes_qualifier=True,
     ),
     _p(
+        "anticipated_graduation_date",
+        "record",
+        "Stated expected graduation date.",
+        "as_of",
+    ),
+    _p(
+        "alternative_diploma_pathway_eligibility",
+        "record",
+        "Eligibility for an alternative diploma pathway as stated.",
+        "as_of",
+    ),
+    _p(
+        "caaspp_participation",
+        "record",
+        "Statewide assessment participation status as stated.",
+        "as_of",
+    ),
+    _p(
+        "conservatorship_status",
+        "record",
+        "Conservatorship or guardianship status as stated.",
+        "as_of",
+    ),
+    _p(
         "behavioral_referral",
         "record",
         "Whether behavioral referrals occurred in a stated period.",
@@ -394,7 +418,8 @@ PREDICATE_VOCABULARY: tuple[PredicateSpec, ...] = (
         "as_of",
         "Do NOT use for in-session testing demeanor (cooperative, attentive during WISC) — "
         "that is testing_impression. Do NOT use for ordinary on-task engagement in class — "
-        "that is classroom_engagement_impression.",
+        "that is classroom_engagement_impression. Home-context unsafe behavior stays here "
+        "(qualifier home when stated); do not mint unsafe_behaviors_at_home.",
         takes_qualifier=True,
     ),
     _p(
@@ -429,7 +454,30 @@ PREDICATE_VOCABULARY: tuple[PredicateSpec, ...] = (
         "classroom_engagement_impression. Teacher notes about effort, helpfulness, "
         "or engagement in class go here. "
         "Examiner notes about cooperation during standardized testing → testing_impression. "
-        "Problem behaviors (aggression, defiance) → behavioral_concern.",
+        "Problem behaviors (aggression, defiance) → behavioral_concern. "
+        "Do not mint school_setting_success.",
+    ),
+    _p(
+        "peer_relationships",
+        "perspectival",
+        "Peer and social-relationship impressions from a rater or interview.",
+        "as_of",
+        "Fills Social History. Friendships, isolation, and peer conflict go here — "
+        "not classroom_engagement and not behavioral_concern.",
+    ),
+    _p(
+        "skill_generalization",
+        "perspectival",
+        "Whether a skill transfers across settings as described by a rater.",
+        "as_of",
+    ),
+    _p(
+        "parental_limitations",
+        "perspectival",
+        "Stated limitations on a parent's capacity to support the child, in the "
+        "source's own words.",
+        "as_of",
+        "Sensitive. Copy the source wording into value_text; do not invent or sharpen.",
     ),
     _p(
         "testing_impression",

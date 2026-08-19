@@ -87,6 +87,13 @@ HISTORY_PREDICATES = frozenset(
         "service_requirement",
         "impairment_status",
         "functioning_deficit",
+        "anticipated_graduation_date",
+        "alternative_diploma_pathway_eligibility",
+        "caaspp_participation",
+        "conservatorship_status",
+        "peer_relationships",
+        "skill_generalization",
+        "parental_limitations",
     }
 )
 
@@ -151,6 +158,13 @@ PREDICATE_STALE_DAYS: dict[str, int] = {
     "service_requirement": 365,
     "impairment_status": 365,
     "functioning_deficit": 365,
+    "anticipated_graduation_date": 365,
+    "alternative_diploma_pathway_eligibility": 365,
+    "caaspp_participation": 365,
+    "conservatorship_status": 365,
+    "peer_relationships": 365,
+    "skill_generalization": 365,
+    "parental_limitations": 365,
 }
 
 
