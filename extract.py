@@ -17,6 +17,7 @@ from derived import (
 )
 from layout import is_document_structure_value
 from normalize import clip_value_text, normalize_qualifier, normalize_value, value_fits_shape
+from undersplit import stamp_undersplit_flags
 from predicates import (
     CANONICAL_SUBJECTS,
     PREDICATE_VOCABULARY,
@@ -1183,6 +1184,7 @@ def build_ledger(
         new_facts,
     )
     ledger = ledger.model_copy(update={"predicate_proposals": proposals})
+    ledger, _undersplit = stamp_undersplit_flags(ledger)
     review = [p.name for p in proposals]
     gap_report = build_gap_report(ledger)
     timelines = compute_timelines(ledger.facts)

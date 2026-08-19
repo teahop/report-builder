@@ -44,6 +44,7 @@ from validators import (
     validate_age_consistency,
     validate_provenance,
 )
+from undersplit import detect_undersplit_facts
 
 _DIR = Path(__file__).resolve().parent
 _FIXTURES = _DIR / "fixtures"
@@ -357,6 +358,7 @@ def extract(body: ExtractRequest) -> ExtractResponse:
         timelines=timelines,
         anchor_drift=check_anchor_drift(ledger),
         entailment_failures=entailment_failures,
+        undersplit_findings=detect_undersplit_facts(ledger),
         tokens_used=tokens_used,
         model=model,
         latency_ms=latency_ms,

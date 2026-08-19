@@ -197,6 +197,14 @@ class Fact(BaseModel):
             "Not recomputed from the current vocabulary."
         ),
     )
+    needs_claim_split: bool = Field(
+        default=False,
+        description=(
+            "True when this fact packs coordinated list items from one source "
+            "span that were not split into sibling facts. Flag for review — "
+            "the fact stays on the ledger."
+        ),
+    )
 
     @model_validator(mode="after")
     def _default_as_of_date(self) -> Self:
@@ -519,6 +527,15 @@ class ExtractEntailmentFinding(BaseModel):
     summary: str
 
 
+class UndersplitFinding(BaseModel):
+    """Hard rule 2: one source span produced a single fact packing multiple claims."""
+
+    fact_id: str
+    source_id: str
+    span: str
+    summary: str
+
+
 class ExtractResponse(BaseModel):
     """Ledger plus cost metadata. Nothing is persisted (spec §4)."""
 
@@ -546,6 +563,14 @@ class ExtractResponse(BaseModel):
         description=(
             "§9.3 findings: the cited source does not support this ledger fact's claim. "
             "Facts stay on the ledger — a model 'no' must not drop evidence."
+        ),
+    )
+    undersplit_findings: list[UndersplitFinding] = Field(
+        default_factory=list,
+        description=(
+            "Hard rule 2: one source span produced a single fact whose text packs "
+            "coordinated claims. Facts stay on the ledger — flagged, not dropped "
+            "and not re-extracted."
         ),
     )
     tokens_used: int
