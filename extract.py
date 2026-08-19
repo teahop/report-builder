@@ -21,6 +21,7 @@ from predicates import (
     CANONICAL_SUBJECTS,
     PREDICATE_VOCABULARY,
     UNREGISTERED_PREDICATE,
+    VALUE_SHAPES,
     ExtractPredicateName,
     is_provenance_predicate,
     needs_predicate_review,
@@ -43,6 +44,7 @@ from schemas import (
 
 _DIR = Path(__file__).resolve().parent
 _PROMPT_TEMPLATE = (_DIR / "extract_prompt.md").read_text(encoding="utf-8")
+_RESHAPE_TEMPLATE = (_DIR / "extract_reshape_prompt.md").read_text(encoding="utf-8")
 
 LEDGER_VERSION = "1"
 
@@ -232,7 +234,24 @@ def build_extract_system_prompt() -> str:
     return _PROMPT_TEMPLATE.replace("{{PREDICATE_LIST}}", _predicate_list_for_prompt())
 
 
+def _shape_list_for_prompt() -> str:
+    lines = [
+        f"- `{name}`: {', '.join(sorted(shapes))}"
+        for name, shapes in sorted(VALUE_SHAPES.items())
+    ]
+    return "\n".join(lines)
+
+
+def build_reshape_system_prompt() -> str:
+    return (
+        _RESHAPE_TEMPLATE.replace("{{SHAPE_LIST}}", _shape_list_for_prompt()).replace(
+            "{{PREDICATE_LIST}}", _predicate_list_for_prompt()
+        )
+    )
+
+
 EXTRACT_SYSTEM_PROMPT = build_extract_system_prompt()
+RESHAPE_SYSTEM_PROMPT = build_reshape_system_prompt()
 
 
 def _extraction_user_payload(source: Source) -> str:
@@ -323,8 +342,8 @@ def _finalize_subject(draft: ExtractedFactDraft, source: Source, predicate: str)
     return subject if subject in CANONICAL_SUBJECTS else "child"
 
 
-def _draft_is_skippable(draft: ExtractedFactDraft, source: Source | None = None) -> bool:
-    """True when a draft has no usable value — skip, do not abort the source."""
+def _draft_is_unusable(draft: ExtractedFactDraft, source: Source | None = None) -> bool:
+    """Empty, placeholder, or document-structure — not a claim worth re-assigning."""
 
     raw = (draft.value or "").strip()
     if not raw or raw.lower() in {"null", "none-stated", "n/a", "undefined"}:
@@ -333,14 +352,37 @@ def _draft_is_skippable(draft: ExtractedFactDraft, source: Source | None = None)
         return True
     if source is not None and is_document_structure_value(draft, source):
         return True
+    return False
+
+
+def _is_shape_mismatch(draft: ExtractedFactDraft, source: Source | None = None) -> bool:
     predicate = _resolve_predicate_name(draft)
-    if not value_fits_shape(
+    return not value_fits_shape(
         predicate,
         draft.value or "",
         draft.value_text or "",
         source.content if source is not None else "",
-    ):
+    )
+
+
+def _held_for_shape_reassign(
+    draft: ExtractedFactDraft, source: Source | None = None
+) -> bool:
+    """True when the only skip reason is a declared-shape mismatch."""
+
+    if _draft_is_unusable(draft, source):
+        return False
+    return _is_shape_mismatch(draft, source)
+
+
+def _draft_is_skippable(draft: ExtractedFactDraft, source: Source | None = None) -> bool:
+    """True when a draft has no usable value — skip, do not abort the source."""
+
+    if _draft_is_unusable(draft, source):
         return True
+    if _is_shape_mismatch(draft, source):
+        return True
+    predicate = _resolve_predicate_name(draft)
     if predicate == "dob" and source is not None and _is_garbage_dob(draft, source):
         return True
     if predicate == "age_years" and source is not None and _is_spurious_age_years(draft, source):
@@ -816,6 +858,90 @@ def extract_source_facts(
     )
 
 
+def _mismatched_draft_payload(draft: ExtractedFactDraft) -> dict:
+    return {
+        "subject": draft.subject.value if hasattr(draft.subject, "value") else str(draft.subject),
+        "predicate": _resolve_predicate_name(draft),
+        "proposed_predicate": draft.proposed_predicate,
+        "value": draft.value,
+        "value_text": draft.value_text,
+        "qualifier": draft.qualifier,
+        "assertion": draft.assertion,
+        "reporter": draft.reporter,
+        "life_stage": draft.life_stage,
+        "grade": draft.grade,
+        "confidence": draft.confidence,
+        "as_of_date": draft.as_of_date,
+        "valence": draft.valence,
+        "source_section": draft.source_section,
+    }
+
+
+def reassign_shape_mismatched_drafts(
+    provider: ModelProvider,
+    *,
+    source: Source,
+    drafts: list[ExtractedFactDraft],
+    model: str,
+) -> tuple[list[ExtractedFactDraft], int, int, int]:
+    """
+    One follow-up call: re-emit shape-mismatched claims under a fitting predicate.
+
+    Topic-agnostic — the prompt names declared shapes, not clinical subjects.
+    """
+
+    if not drafts:
+        return [], 0, 0, 0
+    packet = {
+        "canonical_subjects": sorted(CANONICAL_SUBJECTS),
+        "source": {
+            "id": source.id,
+            "type": source.type,
+            "date": source.date,
+            "label": source.label,
+            "content": source.content,
+        },
+        "mismatched_drafts": [_mismatched_draft_payload(d) for d in drafts],
+    }
+    result = provider.complete_structured(
+        model=model,
+        system=RESHAPE_SYSTEM_PROMPT,
+        user=json.dumps(packet, indent=2),
+        schema=SourceExtraction,
+        temperature=EXTRACT_TEMPERATURE,
+    )
+    extraction = result.data
+    assert isinstance(extraction, SourceExtraction)
+    return (
+        list(extraction.facts),
+        result.total_tokens,
+        result.prompt_tokens,
+        result.completion_tokens,
+    )
+
+
+def _try_finalize_draft(
+    draft: ExtractedFactDraft,
+    *,
+    source: Source,
+    child: Child,
+    blocks: tuple[DatedBlock, ...] | None,
+    next_index: int,
+) -> Fact | None:
+    if _draft_is_skippable(draft, source):
+        return None
+    try:
+        return draft_to_fact(
+            draft,
+            fact_id=fact_id_for_source(source.id, next_index),
+            source=source,
+            child=child,
+            blocks=blocks,
+        )
+    except ValueError:
+        return None
+
+
 def extract_source_to_facts(
     provider: ModelProvider,
     *,
@@ -829,6 +955,8 @@ def extract_source_to_facts(
 
     Oversized narrative content is chunked; per-chunk drafts are finalized,
     de-duplicated (subject+predicate+qualifier+value+source_id), and renumbered.
+    Drafts skipped only for a declared-shape mismatch get one type-aware
+    re-assignment call — still no topic-specific guard.
     """
 
     chunks = split_source_content(source.content, limit=chunk_limit)
@@ -847,22 +975,35 @@ def extract_source_to_facts(
 
     blocks = detect_dated_blocks(source.content or "", source.date)
     facts: list[Fact] = []
+    held_for_reassign: list[ExtractedFactDraft] = []
     for draft in drafts:
-        if _draft_is_skippable(draft, source):
+        if _held_for_shape_reassign(draft, source):
+            held_for_reassign.append(draft)
             continue
-        try:
-            facts.append(
-                draft_to_fact(
-                    draft,
-                    fact_id=fact_id_for_source(source.id, len(facts) + 1),
-                    source=source,
-                    child=child,
-                    blocks=blocks,
-                )
+        fact = _try_finalize_draft(
+            draft, source=source, child=child, blocks=blocks, next_index=len(facts) + 1
+        )
+        if fact is not None:
+            facts.append(fact)
+
+    if held_for_reassign:
+        reassigned, total, p_tok, c_tok = reassign_shape_mismatched_drafts(
+            provider, source=source, drafts=held_for_reassign, model=model
+        )
+        total_tokens += total
+        prompt_tokens += p_tok
+        completion_tokens += c_tok
+        for draft in reassigned:
+            fact = _try_finalize_draft(
+                draft,
+                source=source,
+                child=child,
+                blocks=blocks,
+                next_index=len(facts) + 1,
             )
-        except ValueError:
-            # One bad draft must not drop the rest of the source.
-            continue
+            if fact is not None:
+                facts.append(fact)
+
     facts = dedupe_facts(facts)
     facts = consolidate_medications_facts(facts)
     facts = [
