@@ -531,6 +531,45 @@ def get_predicate(name: str) -> PredicateSpec | None:
     return PREDICATES.get(name)
 
 
+# Declared value shapes — comparison types, not clinical topics. Unlisted names
+# default to free text (always accepted). A value that fails the declared shape
+# is a type error, not a topic-specific guard.
+ValueShape = Literal[
+    "text",
+    "person_name",
+    "organization",
+    "iso_date",
+    "duration",
+    "grade_level",
+    "count",
+    "status",
+    "score",
+]
+
+VALUE_SHAPES: dict[str, frozenset[str]] = {
+    "legal_name": frozenset({"person_name"}),
+    "school_enrollment": frozenset({"organization"}),
+    "dob": frozenset({"iso_date", "text"}),
+    "age_years": frozenset({"duration"}),
+    "walked_age_months": frozenset({"duration"}),
+    "first_words_age_months": frozenset({"duration"}),
+    "two_word_phrases_age_months": frozenset({"duration"}),
+    "grade": frozenset({"grade_level"}),
+    "retention_year": frozenset({"grade_level", "text"}),
+    "attendance": frozenset({"count", "status"}),
+    "iep_status": frozenset({"status"}),
+    "plan_504_status": frozenset({"status"}),
+    "health_plan_status": frozenset({"status"}),
+    "private_tutoring": frozenset({"status", "text"}),
+    "inattention_rating": frozenset({"score", "text"}),
+    "hyperactivity_rating": frozenset({"score", "text"}),
+}
+
+
+def value_shapes_for(predicate: str) -> frozenset[str]:
+    return VALUE_SHAPES.get(predicate, frozenset({"text"}))
+
+
 def predicate_class_of(name: str) -> PredicateClass | None:
     """Return record/perspectival for known predicates; None if unknown."""
 

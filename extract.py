@@ -16,7 +16,7 @@ from derived import (
     strip_synthetic_facts,
 )
 from layout import is_document_structure_value
-from normalize import clip_value_text, normalize_qualifier, normalize_value
+from normalize import clip_value_text, normalize_qualifier, normalize_value, value_fits_shape
 from predicates import (
     CANONICAL_SUBJECTS,
     PREDICATE_VOCABULARY,
@@ -334,6 +334,13 @@ def _draft_is_skippable(draft: ExtractedFactDraft, source: Source | None = None)
     if source is not None and is_document_structure_value(draft, source):
         return True
     predicate = _resolve_predicate_name(draft)
+    if not value_fits_shape(
+        predicate,
+        draft.value or "",
+        draft.value_text or "",
+        source.content if source is not None else "",
+    ):
+        return True
     if predicate == "dob" and source is not None and _is_garbage_dob(draft, source):
         return True
     if predicate == "age_years" and source is not None and _is_spurious_age_years(draft, source):

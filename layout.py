@@ -68,6 +68,8 @@ def _is_banner_fragment(value_tokens: list[str], lines: list[str]) -> bool:
 
     if not value_tokens or len(value_tokens) > 2:
         return False
+    if any(t.isdigit() for t in value_tokens):
+        return False
     for line in lines[:8]:
         line_tokens = _tokens(line)
         if len(line_tokens) < 4:
@@ -149,6 +151,41 @@ def _is_partial_name_projection(value_tokens: list[str], parts: tuple[str, str, 
     if val == first_s:
         return True
     return False
+
+
+def identity_first_last(content: str) -> tuple[str, str] | None:
+    """First + last cells from a Last/First/Middle identity row, if present."""
+
+    parts = _parse_columnar_name_parts(content)
+    if parts is None:
+        return None
+    last, first, _middle = parts
+    if last and first:
+        return first, last
+    return None
+
+
+def name_field_fill(content: str) -> str | None:
+    """First non-label, non-date fill after a name-field heading, if any."""
+
+    lines = _nonempty_lines(content)
+    for i, line in enumerate(lines):
+        if not re.search(
+            r"(name of individual|student(?:'s)?\s+name|name of student|client name)",
+            line,
+            re.IGNORECASE,
+        ):
+            continue
+        for nxt in lines[i + 1 : i + 8]:
+            toks = _tokens(nxt)
+            if not toks or _is_label_echo(toks):
+                continue
+            if re.fullmatch(r"\d{1,2}/\d{1,2}/\d{2,4}", nxt.strip()):
+                continue
+            if 1 <= len(toks) <= 4:
+                return nxt.strip()
+            break
+    return None
 
 
 def is_document_structure_value(draft: ExtractedFactDraft, source: Source) -> bool:

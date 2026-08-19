@@ -389,3 +389,101 @@ def normalize_value(predicate: str, value: str, value_text: str = "") -> str:
     if m:
         return f"{m.group(1)}/{m.group(2)}"
     return text
+
+
+_PERCENT_RE = re.compile(r"\d+(?:\.\d+)?\s*%|\bpercent(?:age)?\b", re.IGNORECASE)
+_ATTENDANCE_STATUS = frozenset(
+    {
+        "regular",
+        "poor",
+        "irregular",
+        "inconsistent",
+        "excellent",
+        "good",
+        "chronic",
+        "truant",
+        "none",
+    }
+)
+_NAME_FIELD_LABEL_RE = re.compile(
+    r"(name of individual(?: being evaluated)?|student(?:'s)?\s+name|"
+    r"name of student|client name)\s*$",
+    re.IGNORECASE,
+)
+
+
+def _token_set(text: str) -> set[str]:
+    return set(re.findall(r"[a-z0-9]+", (text or "").lower()))
+
+
+def _occupies_name_field(value: str, source_content: str) -> bool:
+    """True when the value is the fill of a name-labeled field or identity first+last."""
+
+    from layout import identity_first_last, name_field_fill
+
+    tokens = _token_set(value)
+    if not tokens:
+        return False
+    pair = identity_first_last(source_content)
+    if pair is not None:
+        first, last = pair
+        if tokens == _token_set(f"{first} {last}"):
+            return True
+    fill = name_field_fill(source_content)
+    if fill is not None and tokens == _token_set(fill):
+        return True
+    return False
+
+
+def value_fits_shape(
+    predicate: str,
+    value: str,
+    value_text: str = "",
+    source_content: str = "",
+) -> bool:
+    """
+    Whether a draft value matches the predicate's declared shape.
+
+    Undeclared predicates accept any value (free text). Percentages are not
+    counts. A person-name occupancy is not an organization.
+    """
+
+    from predicates import value_shapes_for
+
+    shapes = value_shapes_for(predicate)
+    if "text" in shapes and len(shapes) == 1:
+        return True
+
+    raw = (value or "").strip()
+    blob = f"{raw} {value_text or ''}"
+
+    if "count" in shapes or "status" in shapes:
+        if _PERCENT_RE.search(blob):
+            return False
+        ok = False
+        if "count" in shapes and re.search(r"\d", raw):
+            ok = True
+        if "status" in shapes:
+            tokens = _token_set(raw)
+            if tokens & _ATTENDANCE_STATUS or raw.lower() in _ATTENDANCE_STATUS:
+                ok = True
+            elif predicate in _STATUS_PREDICATES and 0 < len(tokens) <= 4:
+                ok = True
+        return ok
+
+    if "organization" in shapes:
+        if _occupies_name_field(raw, source_content):
+            return False
+        return True
+
+    if "duration" in shapes:
+        return bool(re.search(r"\d", raw))
+    if "grade_level" in shapes:
+        return True  # _normalize_grade already runs at write time
+    if "iso_date" in shapes:
+        return True
+    if "score" in shapes:
+        return True
+    if "person_name" in shapes:
+        return True
+    return True
