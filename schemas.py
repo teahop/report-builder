@@ -66,7 +66,9 @@ class Fact(BaseModel):
     valence or source_section. durable facts compare directly; as_of facts form a
     timeline by as_of_date (same-date disagreement only). Prefer predicates from
     predicates.py; unknown predicates must be flagged for review
-    (needs_predicate_review), not silently accepted.
+    (needs_predicate_review), not silently accepted. Facts emitted via the
+    __unregistered__ hatch keep is_proposed=True; the grouping name is the
+    proposed string, not the sentinel.
 
     subject is a canonical entity id (child, mother, father, school, or a source
     id for provenance) — never a display name.
@@ -185,6 +187,14 @@ class Fact(BaseModel):
             "Concerns, Outcome/Interventions) — verbatim, never normalized, "
             "never judged. None when the document has no heading. "
             "Observed provenance; not part of the conflict grouping key."
+        ),
+    )
+    is_proposed: bool = Field(
+        default=False,
+        description=(
+            "True when this fact was emitted via the __unregistered__ hatch. "
+            "predicate still stores the proposed name (the grouping key). "
+            "Not recomputed from the current vocabulary."
         ),
     )
 

@@ -275,12 +275,20 @@ def _extraction_user_payload(source: Source) -> str:
     return json.dumps(packet, indent=2)
 
 
-def _resolve_predicate_name(draft: ExtractedFactDraft) -> str:
-    pred = (
+def _draft_predicate_token(draft: ExtractedFactDraft) -> str:
+    return (
         draft.predicate.value
         if isinstance(draft.predicate, ExtractPredicateName)
         else str(draft.predicate)
     )
+
+
+def _draft_used_unregistered_hatch(draft: ExtractedFactDraft) -> bool:
+    return _draft_predicate_token(draft) == UNREGISTERED_PREDICATE
+
+
+def _resolve_predicate_name(draft: ExtractedFactDraft) -> str:
+    pred = _draft_predicate_token(draft)
     if pred == UNREGISTERED_PREDICATE:
         proposed = (draft.proposed_predicate or "").strip()
         return proposed or "unspecified_proposed_predicate"
@@ -786,6 +794,7 @@ def draft_to_fact(
     blocks: tuple[DatedBlock, ...] | None = None,
 ) -> Fact:
     del child  # Subject no longer needs child.name for canonicalization.
+    is_proposed = _draft_used_unregistered_hatch(draft)
     predicate = _resolve_predicate_name(draft)
     value = normalize_value(predicate, draft.value, draft.value_text)
     if not value or value.strip().lower() == "null":
@@ -830,6 +839,7 @@ def draft_to_fact(
         inherits_dispute=False,
         valence=draft.valence,
         source_section=source_section,
+        is_proposed=is_proposed,
     )
 
 
