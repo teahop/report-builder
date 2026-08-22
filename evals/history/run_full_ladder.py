@@ -194,7 +194,10 @@ def main(argv: list[str] | None = None) -> int:
     sections_dir = run_dir / "sections"
     sections_dir.mkdir()
     briefs_dir = run_dir / "briefs"
-    receipt_run_id = new_run_id("bastion-full-ladder")
+    # Provider-derived, not hardcoded: a run id that says "bastion" on an OpenAI
+    # run is a label that lies, and it is the label the receipts and the Langfuse
+    # session are both keyed on.
+    receipt_run_id = new_run_id(f"{args.provider}-full-ladder")
 
     if args.provider == "bastion":
         inner = ModelProvider(backend="bastion")
