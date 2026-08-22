@@ -18,7 +18,7 @@ from history_schemas import (
 )
 from provider import DEFAULT_MODEL, ModelProvider
 from retries import VALIDATION_RETRY_ATTEMPTS, run_with_validation_retries
-from trace_labels import ENV_APP, label_run
+from trace_labels import app_environment, label_run
 
 
 def build_history_router(provider: ModelProvider) -> APIRouter:
@@ -64,7 +64,7 @@ def build_history_router(provider: ModelProvider) -> APIRouter:
         # clicks on Render out of eval aggregates.
         with label_run(
             tags=["app", "history"],
-            environment=ENV_APP,
+            environment=app_environment(),
             metadata={
                 "package": "history_draft",
                 "model": model,

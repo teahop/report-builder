@@ -1,6 +1,6 @@
 """20-run History writer sweep on a frozen ledger. Writes JSONL + coding xlsx.
 
-Does not re-extract. Does not retune. Does not accept the ledger.
+Does not re-extract. Does not retune. Parent acceptance is interim (2026-08-19).
 Workbook matches evals/templates/Open-coding workbook — TEMPLATE.xlsx.
 """
 
@@ -363,7 +363,7 @@ def main() -> int:
     print(f"eval_run_id={eval_run_id}")
     print(f"ledger={_LEDGER.relative_to(_WEEK1)} sha={ledger_sha[:12]}")
     print(f"writer_calls_per_run={len(requests)} total_writer_calls={len(requests) * _N_RUNS}")
-    print("Does not re-extract. Ledger not accepted. Coding columns empty.")
+    print("Does not re-extract. Parent interim-accepted. Coding columns empty.")
     print()
 
     done = _completed_indexes(jsonl_path)

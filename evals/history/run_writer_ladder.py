@@ -221,7 +221,7 @@ def main(argv: list[str] | None = None) -> int:
     manifest = {
         "banner": DIAGNOSTIC_BANNER,
         "fixture_id": "fixture_001",
-        "upstream_parent": "unaccepted cached ledger/brief",
+        "upstream_parent": "interim-accepted cached ledger/brief",
         "package": "positive_history_writer",
         "provider": args.provider,
         "model": model,
@@ -273,7 +273,7 @@ def main(argv: list[str] | None = None) -> int:
 |---|---|---|
 | source → raw extraction | already reviewed on the seven-item slice | known failures; not rerun |
 | raw extraction → deterministic disposition | drops are visible | correct rejection can still lose useful evidence |
-| disposition → ledger | exact cached parent identifiable | provisional / not accepted; sha `{manifest['cached_ledger_sha256']}` |
+| disposition → ledger | exact cached parent identifiable | interim-accepted; sha `{manifest['cached_ledger_sha256']}` |
 | ledger → brief | section/block routing and omissions inspectable | compiled briefs hashed in manifest; writer received a concise subset |
 | brief → prose | intended short prompt + full example can compose a coherent section | {call_count} writer calls; see assembled.md |
 | prose → trace alignment | not exercised in this task | `{TRACE_ALIGNMENT_STATUS}` |

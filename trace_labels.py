@@ -17,16 +17,39 @@ capped at 200 characters, so hashes belong here and prose does not.
 from __future__ import annotations
 
 import contextlib
+import os
 import subprocess
 import sys
 from pathlib import Path
 from typing import Any, Iterator
 
-# `environment` separates the two kinds of traffic that otherwise pile up in one
-# undifferentiated Langfuse project: controlled eval runs, and demo clicks on the
-# Render instance. Aggregates that mix them are not measurements.
+# `environment` separates the kinds of traffic that otherwise pile up in one
+# undifferentiated Langfuse project. There is no "production" here in the usual
+# sense — there is controlled eval work, there is TJ or an agent driving the code
+# from Claude Code / a terminal / Cursor, there is someone clicking the deployed
+# Render interface, and there are tests. Only the first is a measurement.
 ENV_EVAL = "eval"
-ENV_APP = "production"
+ENV_LOCAL = "local"
+ENV_RENDER = "render"
+ENV_TEST = "test"
+
+# `local` and `render` run the same code, so the router cannot tell them apart on
+# its own — the deployment says which it is. Render sets RENDER=true in its own
+# environment; LANGFUSE_TRACING_ENVIRONMENT overrides both when set explicitly.
+
+
+def app_environment() -> str:
+    """Which non-eval world this process is running in."""
+
+    explicit = os.getenv("LANGFUSE_TRACING_ENVIRONMENT")
+    if explicit:
+        return explicit
+    if os.getenv("PYTEST_CURRENT_TEST"):
+        return ENV_TEST
+    if os.getenv("RENDER"):
+        return ENV_RENDER
+    return ENV_LOCAL
+
 
 # Langfuse coerces metadata values to str and drops any longer than this.
 _MAX_VALUE_CHARS = 200
@@ -148,7 +171,7 @@ def label_run(
     Args:
         session_id: Groups the runs of one sweep. Use the eval run id.
         tags: Coarse filters — stage, package, provider, fixture.
-        environment: ``ENV_EVAL`` for controlled runs, ``ENV_APP`` for the app.
+        environment: ``ENV_EVAL`` for controlled runs, ``app_environment()`` for the app.
         version: Commit sha, so a cohort can be tied to the code that made it.
         metadata: Fine-grained identity — prompt hashes, spec ids, ledger sha.
     """

@@ -399,29 +399,13 @@ def test_whitespace_tolerant_passage_finds_item_06() -> None:
     assert "one-step" in found.lower() or "one-step" in found
 
 
-def test_live_current_state_has_zero_human_progress() -> None:
-    store = ReceiptStore()
-    if not _LIVE_RUN.exists():
-        pytest.skip("corrected diagnostic run not present")
-    summary = json.loads(
-        (_OUT / "extraction_review_summary.json").read_text(encoding="utf-8")
-    )
-    assert summary["human_reviewed_item_count"] == 0
-    assert summary["human_coverage_omission_count"] == 0
-    assert summary["raw_item_count"] == 70
-    page = (_OUT / "doc_11_chunk04.md").read_text(encoding="utf-8")
-    assert "origin=`human`" not in page or "No human item review" in page
-    # Must not attribute current judgment to tj/molly.
-    assert "reviewer=`tj`" not in page
-    assert "reviewer=`molly`" not in page
-    inv = invalidated_sha_set(store, DIAGNOSTIC_RUN_ID, kind="item_review")
-    live_items = load_item_reviews(store, DIAGNOSTIC_RUN_ID)
-    assert live_items
-    for rec in live_items:
-        assert record_content_sha(rec) in inv
-    assert summary["invalidated_item_review_count"] == len(live_items)
-    assert summary["human_reviewed_item_count"] == 0
-    assert summary["synthetic_active_item_review_count"] == 0
+# `test_live_current_state_has_zero_human_progress` was removed 2026-08-21.
+# It pinned the *live* receipt store at "no human review has happened yet" — a
+# premise TJ retired by actually reviewing (7 items, reviewer `tj`). What it
+# uniquely asserted is now false; what it usefully asserted, that synthetic
+# records never present as human judgment, is covered against an isolated store
+# by test_automation_cannot_create_human_tj_molly_item_review and
+# test_summary_human_progress_ignores_synthetic_and_invalidated above.
 
 
 def test_suite_no_network_keys_required() -> None:

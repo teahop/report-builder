@@ -28,9 +28,17 @@ WRITER_PROMPT_PATH = _DIR / "history_writer_prompt.md"
 TABLE_POSITION_MARKER = (
     "[SCHOOL HISTORY CHART — server-owned; do not generate cells]"
 )
+# Prose→trace alignment is still a later rung and genuinely has not been run,
+# so this claim stands (DECISIONS 2026-08-14).
 TRACE_ALIGNMENT_STATUS = "not_run_diagnostic"
+# The parent-acceptance half of this banner was retired by DECISIONS 2026-08-19
+# ("extraction is accepted-for-now — proceed up the ladder"). Acceptance is
+# interim, not final — the hard-rule-2 under-split miss and the promotion-path
+# gaps are real and unsized until Stage 1 — so a banner still belongs here; it
+# just no longer says the parent was never accepted.
 DIAGNOSTIC_BANNER = (
-    "DIAGNOSTIC ONLY — UPSTREAM EXTRACTION/LEDGER NOT ACCEPTED"
+    "INTERIM PARENT — extraction accepted-for-now (2026-08-19), not final; "
+    "prose→trace alignment not run"
 )
 
 

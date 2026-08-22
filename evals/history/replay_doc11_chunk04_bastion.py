@@ -36,7 +36,7 @@ from provider import (  # noqa: E402
     json_mode_system,
 )
 from schemas import Source, SourceExtraction  # noqa: E402
-from test_all_stages import load_case_manifest  # noqa: E402
+from fixtures.case_manifest import load_case_manifest  # noqa: E402
 
 _BASELINE = _WEEK1 / "evals" / "history" / "extraction_audit" / "doc_11_chunk04.json"
 _REPAIRED = (

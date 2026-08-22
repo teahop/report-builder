@@ -213,7 +213,7 @@ def render_evals_panel() -> None:
         f"Before: {comparison.before_label}. After: {comparison.after_label}. "
         "Top coded failure was History opening with DOB/age (20/20). "
         "The after-set is the positive History writer on a frozen Bastion ledger — "
-        "extraction still not accepted."
+        "extraction is accepted-for-now (2026-08-19), not final."
     )
     metric_cols = st.columns(2)
     with metric_cols[0]:

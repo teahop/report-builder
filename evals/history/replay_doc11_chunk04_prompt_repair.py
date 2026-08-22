@@ -30,7 +30,7 @@ from extract import (  # noqa: E402
 )
 from provider import EXTRACT_TEMPERATURE, ModelProvider, compute_cost_usd  # noqa: E402
 from schemas import Source, SourceExtraction  # noqa: E402
-from test_all_stages import load_case_manifest  # noqa: E402
+from fixtures.case_manifest import load_case_manifest  # noqa: E402
 
 _BASELINE = _WEEK1 / "evals" / "history" / "extraction_audit" / "doc_11_chunk04.json"
 _MANIFEST = _WEEK1 / "fixtures" / "fixture_001" / "manifest.json"

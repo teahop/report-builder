@@ -11,7 +11,7 @@ from provider import DEFAULT_MODEL, ModelProvider
 from referral_draft import draft_referral_section
 from referral_schemas import ReferralDraftRequest, ReferralDraftResponse
 from retries import VALIDATION_RETRY_ATTEMPTS, run_with_validation_retries
-from trace_labels import ENV_APP, label_run
+from trace_labels import app_environment, label_run
 
 
 def build_referral_router(provider: ModelProvider) -> APIRouter:
@@ -53,7 +53,7 @@ def build_referral_router(provider: ModelProvider) -> APIRouter:
 
         with label_run(
             tags=["app", "referral"],
-            environment=ENV_APP,
+            environment=app_environment(),
             metadata={"package": "referral_draft", "model": model},
         ):
             return run_with_validation_retries(

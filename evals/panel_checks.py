@@ -35,7 +35,7 @@ HISTORY_BASELINE_SAMPLE = (
     HISTORY_TRACES_DIR / "baseline_sample_sweep-20260807.jsonl"
 )
 HISTORY_BANNER = (
-    "DIAGNOSTIC — unaccepted upstream parent (extraction not accepted)"
+    "INTERIM PARENT — extraction accepted-for-now (2026-08-19), not final"
 )
 
 # Same client-quote span finder as validate_referral_draft.

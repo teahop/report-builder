@@ -8,6 +8,8 @@ import traceback
 from pathlib import Path
 from typing import Callable
 
+import pytest
+
 _WEEK1 = Path(__file__).resolve().parents[2]
 if str(_WEEK1) not in sys.path:
     sys.path.insert(0, str(_WEEK1))
@@ -17,6 +19,19 @@ from referral_schemas import ReferralContext
 from schemas import Ledger
 
 _CACHE = _WEEK1 / "evals" / "cache"
+_FIXTURE_005 = _CACHE / "fixture_005_ledger_pruned.json"
+
+# The Case 005 checks below are real acceptance criteria, but their ledger was
+# left uncommitted in Session 4 and exists in neither this repo nor frozen
+# ~/ai-eng-bootcamp. They are skipped rather than deleted: rebuild the fixture and
+# the criteria re-arm themselves. Deleting them would lose the criteria too.
+requires_fixture_005 = pytest.mark.skipif(
+    not _FIXTURE_005.is_file(),
+    reason=(
+        "evals/cache/fixture_005_ledger_pruned.json is missing — it was left "
+        "uncommitted in Session 4 and did not survive the migration"
+    ),
+)
 # report-builder/ sits at the workspace root.
 _WORKSPACE_ROOT = _WEEK1.parent
 _EXAMPLE_REPORTS = _WORKSPACE_ROOT / "data" / "approved-anonymized" / "example-reports"
@@ -86,6 +101,7 @@ def test_case_001_does_not_treat_iep_history_as_referral_trigger() -> None:
         assert c.requires_clinician_selection is True
 
 
+@requires_fixture_005
 def test_case_005_source_only_marks_confirmation_work() -> None:
     ledger = _load_cached_ledger("fixture_005_ledger_pruned.json")
     pre = prepare_referral_context(ledger, ReferralContext())
@@ -106,6 +122,7 @@ def test_case_005_source_only_marks_confirmation_work() -> None:
     assert pre.selected_context.evaluation_type is None
 
 
+@requires_fixture_005
 def test_case_005_misrouted_diagnosis_stays_candidate() -> None:
     ledger = _load_cached_ledger("fixture_005_ledger_pruned.json")
     pre = prepare_referral_context(ledger, ReferralContext())
@@ -125,6 +142,9 @@ def main() -> int:
     print("=== Referral acceptance (source-only) ===")
     results: list[tuple[str, bool]] = []
     for name, fn in TESTS:
+        if getattr(fn, "pytestmark", None) and not _FIXTURE_005.is_file():
+            print(f"  SKIP  {name}: fixture_005 ledger missing")
+            continue
         try:
             fn()
             print(f"  PASS  {name}")

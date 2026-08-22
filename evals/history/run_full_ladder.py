@@ -57,7 +57,7 @@ from provider import (
     ModelProvider,
     compute_cost_usd,
 )
-from test_all_stages import FIXTURE_001_MANIFEST_PATH, load_case_manifest
+from fixtures.case_manifest import FIXTURE_001_MANIFEST_PATH, load_case_manifest
 from trace_labels import ENV_EVAL, label_run
 
 _CACHE = _WEEK1 / "evals" / "cache" / "fixture_001_ledger.json"
@@ -527,7 +527,7 @@ def main(argv: list[str] | None = None) -> int:
         },
         latency_ms=write_ms,
         lineage="evaluable",
-        notes="Positive History writer. Trace alignment not run. Ledger not accepted.",
+        notes="Positive History writer. Trace alignment not run. Parent interim-accepted.",
     )
 
     cached_sha = _sha_file(_CACHE)
@@ -536,7 +536,7 @@ def main(argv: list[str] | None = None) -> int:
         "banner": DIAGNOSTIC_BANNER,
         "fixture_id": "fixture_001",
         "package": "positive_history_full_ladder",
-        "upstream_parent": "this run's unaccepted Bastion extract/ledger",
+        "upstream_parent": "this run's Bastion extract/ledger (interim acceptance)",
         "provider": args.provider,
         "model": model,
         "extract_temperature": EXTRACT_TEMPERATURE,
@@ -612,15 +612,15 @@ def main(argv: list[str] | None = None) -> int:
 
 | Stage | What this run can establish | Current status |
 |---|---|---|
-| source → raw extraction | complete-case Bastion extract; raw text retained per chunk | {extract_call_count} calls; unaccepted |
+| source → raw extraction | complete-case Bastion extract; raw text retained per chunk | {extract_call_count} calls; interim-accepted |
 | raw extraction → deterministic disposition | production extract gates applied | inspect extract/ and ledger.json |
-| disposition → ledger | exact parent identifiable | provisional / not accepted; sha `{ledger_sha}` |
+| disposition → ledger | exact parent identifiable | interim-accepted; sha `{ledger_sha}` |
 | ledger → brief | compiled from this ledger, not the OpenAI cache | hashed in manifest |
 | brief → prose | short prompt + Phase 1 examples | {call_count} writer calls; see assembled.md |
 | prose → trace alignment | not exercised | `{TRACE_ALIGNMENT_STATUS}` |
 | chart composition | not exercised | table position marked |
 
-HARD STOP. No retune. No sweep. Ledger not accepted.
+HARD STOP. No retune. No sweep. Parent is interim-accepted, not final.
 """
     (run_dir / "ladder_report.md").write_text(ladder, encoding="utf-8")
 
@@ -649,7 +649,7 @@ HARD STOP. No retune. No sweep. Ledger not accepted.
     for check in score_history_record(score_record):
         mark = "pass" if check.passed else "fail"
         print(f"  {check.name}: {mark} — {check.detail}")
-    print("HARD STOP — full ladder diagnostic; no retune / no sweep / ledger not accepted.")
+    print("HARD STOP — full ladder; no retune / no sweep / parent interim-accepted.")
     return 0
 
 

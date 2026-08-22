@@ -10,7 +10,16 @@ from __future__ import annotations
 import pytest
 
 import trace_labels
-from trace_labels import ENV_APP, ENV_EVAL, clean_metadata, clean_tags, label_run
+from trace_labels import (
+    ENV_EVAL,
+    ENV_LOCAL,
+    ENV_RENDER,
+    ENV_TEST,
+    app_environment,
+    clean_metadata,
+    clean_tags,
+    label_run,
+)
 
 
 def test_langfuse_still_exposes_the_call_we_label_through() -> None:
@@ -83,7 +92,7 @@ def test_label_run_defaults_version_to_the_commit(monkeypatch: pytest.MonkeyPatc
     )
     monkeypatch.setattr(trace_labels, "git_sha", lambda **_: "cafe123")
 
-    with label_run(session_id="sweep-2", tags=["eval"], environment=ENV_APP):
+    with label_run(session_id="sweep-2", tags=["eval"], environment=ENV_LOCAL):
         pass
 
     assert captured["version"] == "cafe123"
@@ -112,3 +121,32 @@ def test_label_run_does_not_swallow_body_errors() -> None:
     with pytest.raises(ValueError):
         with label_run(session_id="sweep-4", tags=["eval"]):
             raise ValueError("from the body")
+
+
+def test_app_environment_reads_the_deployment(monkeypatch: pytest.MonkeyPatch) -> None:
+    """local and render run the same code — only the environment tells them apart."""
+
+    monkeypatch.delenv("LANGFUSE_TRACING_ENVIRONMENT", raising=False)
+    monkeypatch.delenv("RENDER", raising=False)
+    monkeypatch.delenv("PYTEST_CURRENT_TEST", raising=False)
+    assert app_environment() == ENV_LOCAL
+
+    monkeypatch.setenv("RENDER", "true")
+    assert app_environment() == ENV_RENDER
+
+    monkeypatch.setenv("PYTEST_CURRENT_TEST", "test_x")
+    assert app_environment() == ENV_TEST  # tests win over the deployment
+
+    monkeypatch.setenv("LANGFUSE_TRACING_ENVIRONMENT", "staging")
+    assert app_environment() == "staging"  # an explicit setting wins over all
+
+
+def test_traces_made_during_the_suite_are_labeled_test() -> None:
+    """TJ keeps test traces, so they must be self-identifying rather than absent.
+
+    pytest sets PYTEST_CURRENT_TEST for the duration of each test, so anything
+    the suite drives through the API routers labels itself `test` without a
+    conftest or a flag anyone has to remember.
+    """
+
+    assert app_environment() == ENV_TEST
