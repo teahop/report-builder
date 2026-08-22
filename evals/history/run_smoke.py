@@ -27,10 +27,13 @@ from evals.panel_checks import score_history_record
 from provider import BASTION_MODEL, DRAFT_TEMPERATURE, ModelProvider
 from retries import VALIDATION_RETRY_ATTEMPTS, run_with_validation_retries
 from schemas import Ledger
+from trace_labels import ENV_EVAL, label_run
 
 _DIR = Path(__file__).resolve().parent
 _TRACES = _DIR / "traces"
 _CACHE = _WEEK1 / "evals" / "cache" / "fixture_001_ledger.json"
+_FIXTURE_ID = "fixture_001"
+_STRUCTURE_SPEC_ID = "provisional_tj_v1"
 
 
 def _load_ledger() -> Ledger:
@@ -90,12 +93,24 @@ def _human_readable(package, rendered: str, review_items: list | None = None) ->
 
 
 @observe(name="eval.history.smoke.fixture_001")
-def _run_draft(provider: ModelProvider, body: HistoryDraftRequest):
-    return run_with_validation_retries(
-        lambda _attempt: draft_history_package(provider, body),
-        max_attempts=VALIDATION_RETRY_ATTEMPTS,
-        failure_prefix="History smoke failed validation after retry",
-    )
+def _run_draft(
+    provider: ModelProvider,
+    body: HistoryDraftRequest,
+    *,
+    session_id: str,
+    labels: dict[str, object],
+):
+    with label_run(
+        session_id=session_id,
+        tags=["eval", "history", "smoke", _FIXTURE_ID],
+        environment=ENV_EVAL,
+        metadata=labels,
+    ):
+        return run_with_validation_retries(
+            lambda _attempt: draft_history_package(provider, body),
+            max_attempts=VALIDATION_RETRY_ATTEMPTS,
+            failure_prefix="History smoke failed validation after retry",
+        )
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -134,9 +149,22 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+    session_id = f"smoke-{stamp}"
+    labels = {
+        "package": "history_smoke",
+        "fixture_id": _FIXTURE_ID,
+        "provider": args.provider,
+        "model": model,
+        "temperature": DRAFT_TEMPERATURE,
+        "structure_spec_id": _STRUCTURE_SPEC_ID,
+        "structure_spec_hash": structure_spec_hash(_STRUCTURE_SPEC_ID),
+        "policy_hash": history_policy_hash(),
+        "skip_entailment": True,
+        "confirm_synthetic": True,
+    }
     start = time.perf_counter()
     try:
-        response = _run_draft(provider, body)
+        response = _run_draft(provider, body, session_id=session_id, labels=labels)
     except Exception as exc:
         flush_langfuse()
         latency_ms = int((time.perf_counter() - start) * 1000)

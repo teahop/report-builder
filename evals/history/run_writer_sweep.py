@@ -1,7 +1,7 @@
 """20-run History writer sweep on a frozen ledger. Writes JSONL + coding xlsx.
 
 Does not re-extract. Does not retune. Does not accept the ledger.
-Workbook matches docs/engineering/eval-templates/Open-coding workbook — TEMPLATE.xlsx.
+Workbook matches evals/templates/Open-coding workbook — TEMPLATE.xlsx.
 """
 
 from __future__ import annotations
@@ -10,7 +10,6 @@ import hashlib
 import json
 import re
 import shutil
-import subprocess
 import sys
 import time
 from datetime import datetime, timezone
@@ -44,6 +43,7 @@ from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.styles.numbers import FORMAT_PERCENTAGE_00
 from provider import BASTION_MODEL, DRAFT_TEMPERATURE, ModelProvider
 from schemas import Ledger
+from trace_labels import ENV_EVAL, current_trace_ids, git_sha, label_run
 
 _LEDGER = (
     _WEEK1
@@ -53,14 +53,12 @@ _LEDGER = (
     / "run-20260814T180644Z"
     / "ledger.json"
 )
-_TEMPLATE = (
-    Path("/Users/thopk/ai-eng-bootcamp/docs/engineering/eval-templates")
-    / "Open-coding workbook — TEMPLATE.xlsx"
-)
+_TEMPLATE = _WEEK1 / "evals" / "templates" / "Open-coding workbook — TEMPLATE.xlsx"
 _TRACES = _WEEK1 / "evals" / "traces"
 _CODING = _WEEK1 / "evals" / "coding"
 _N_RUNS = 20
 _FIXTURE_ID = "fixture_001"
+_STRUCTURE_SPEC_ID = "provisional_tj_v1"
 _QUOTE_RE = re.compile(r'"([^"]{2,})"')
 _INPUT_FILL = PatternFill("solid", fgColor="FFF2CC")
 _BAND_FILL = PatternFill("solid", fgColor="F7F7F7")
@@ -70,18 +68,6 @@ _BODY_FONT = Font(name="Arial", size=10)
 
 def _sha_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
-def _git_sha() -> str | None:
-    try:
-        return subprocess.check_output(
-            ["git", "rev-parse", "--short", "HEAD"],
-            cwd=_WEEK1,
-            stderr=subprocess.DEVNULL,
-            text=True,
-        ).strip()
-    except (OSError, subprocess.CalledProcessError):
-        return None
 
 
 def _load_ledger() -> Ledger:
@@ -109,32 +95,6 @@ def _strip_banner(text: str) -> str:
     return body.strip() + "\n"
 
 
-def _langfuse_ids() -> tuple[str | None, str | None]:
-    try:
-        from langfuse import get_client
-
-        lf = get_client()
-        trace_id = lf.get_current_trace_id()
-        url = lf.get_trace_url(trace_id=trace_id) if trace_id else None
-        return trace_id, url
-    except Exception:
-        return None, None
-
-
-def _update_trace(eval_run_id: str, run_index: int, metadata: dict[str, Any]) -> None:
-    try:
-        from langfuse import get_client
-
-        get_client().update_current_trace(
-            name="history_writer_sweep_draft",
-            session_id=eval_run_id,
-            tags=["eval", "history", "positive_writer", "bastion", _FIXTURE_ID],
-            metadata=metadata,
-        )
-    except Exception:
-        pass
-
-
 @observe(name="eval.history.writer_sweep.draft")
 def _draft_one(
     provider: ModelProvider,
@@ -146,17 +106,47 @@ def _draft_one(
     run_index: int,
     ledger_sha: str,
 ) -> dict[str, Any]:
-    _update_trace(
-        eval_run_id,
-        run_index,
-        {
+    """Label the trace, then draft. Labeling wraps the whole span, not part of it."""
+
+    with label_run(
+        session_id=eval_run_id,
+        tags=["eval", "history", "positive_writer", "bastion", _FIXTURE_ID],
+        environment=ENV_EVAL,
+        metadata={
+            "package": "positive_history_writer",
             "fixture_id": _FIXTURE_ID,
             "run_index": run_index,
+            "model": model,
+            "provider": "bastion",
+            "temperature": DRAFT_TEMPERATURE,
+            "writer_prompt_hash": writer_prompt_hash("Current Status & History"),
+            "structure_spec_id": _STRUCTURE_SPEC_ID,
+            "structure_spec_hash": structure_spec_hash(_STRUCTURE_SPEC_ID),
             "ledger_sha": ledger_sha,
-            "package": "positive_history_writer",
             "confirm_synthetic": True,
         },
-    )
+    ):
+        return _draft_once(
+            provider,
+            model=model,
+            plan=plan,
+            requests=requests,
+            eval_run_id=eval_run_id,
+            run_index=run_index,
+            ledger_sha=ledger_sha,
+        )
+
+
+def _draft_once(
+    provider: ModelProvider,
+    *,
+    model: str,
+    plan: Any,
+    requests: list[dict[str, Any]],
+    eval_run_id: str,
+    run_index: int,
+    ledger_sha: str,
+) -> dict[str, Any]:
     tokens_used = prompt_tokens = completion_tokens = 0
     assembled_parts: list[str] = []
     sections: list[dict[str, Any]] = []
@@ -203,7 +193,7 @@ def _draft_one(
     prose = _strip_banner(assembled) if assembled.startswith(DIAGNOSTIC_BANNER) else assembled
     # assembled_parts have no banner; keep them as the readable draft.
     quotes = _QUOTE_RE.findall(prose)
-    trace_id, langfuse_url = _langfuse_ids()
+    trace_id, langfuse_url = current_trace_ids()
     if not trace_id:
         trace_id = uuid4().hex
     return {
@@ -218,8 +208,8 @@ def _draft_one(
         "model": model,
         "temperature": DRAFT_TEMPERATURE,
         "writer_prompt_hash": writer_prompt_hash("Current Status & History"),
-        "structure_spec_id": "provisional_tj_v1",
-        "structure_spec_hash": structure_spec_hash("provisional_tj_v1"),
+        "structure_spec_id": _STRUCTURE_SPEC_ID,
+        "structure_spec_hash": structure_spec_hash(_STRUCTURE_SPEC_ID),
         "ledger_path": str(_LEDGER.relative_to(_WEEK1)),
         "ledger_sha": ledger_sha,
         "trace_alignment_status": TRACE_ALIGNMENT_STATUS,
@@ -236,7 +226,7 @@ def _draft_one(
         "completion_tokens": completion_tokens,
         "cost_usd": None,
         "latency_ms": latency_ms,
-        "git_sha": _git_sha(),
+        "git_sha": git_sha(),
     }
 
 

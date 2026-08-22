@@ -18,6 +18,7 @@ from history_schemas import (
 )
 from provider import DEFAULT_MODEL, ModelProvider
 from retries import VALIDATION_RETRY_ATTEMPTS, run_with_validation_retries
+from trace_labels import ENV_APP, label_run
 
 
 def build_history_router(provider: ModelProvider) -> APIRouter:
@@ -59,10 +60,22 @@ def build_history_router(provider: ModelProvider) -> APIRouter:
                 response.model = model
             return attach_langfuse_ids(response)
 
-        return run_with_validation_retries(
-            _attempt,
-            max_attempts=VALIDATION_RETRY_ATTEMPTS,
-            failure_prefix="History package draft failed validation after retry",
-        )
+        # App traffic, not a measurement. The environment label is what keeps demo
+        # clicks on Render out of eval aggregates.
+        with label_run(
+            tags=["app", "history"],
+            environment=ENV_APP,
+            metadata={
+                "package": "history_draft",
+                "model": model,
+                "structure_spec_id": body.structure_spec_id,
+                "skip_entailment": body.skip_entailment,
+            },
+        ):
+            return run_with_validation_retries(
+                _attempt,
+                max_attempts=VALIDATION_RETRY_ATTEMPTS,
+                failure_prefix="History package draft failed validation after retry",
+            )
 
     return router

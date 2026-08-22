@@ -38,10 +38,13 @@ from evals.panel_checks import score_history_record
 from langfuse import observe
 from provider import BASTION_MODEL, DRAFT_TEMPERATURE, ModelProvider, compute_cost_usd
 from schemas import Ledger
+from trace_labels import ENV_EVAL, label_run
 
 _CACHE = _WEEK1 / "evals" / "cache" / "fixture_001_ledger.json"
 _OUT_ROOT = _WEEK1 / "evals" / "history" / "diagnostic_ladder"
 _BRIEFS = _WEEK1 / "evals" / "history" / "briefs"
+_FIXTURE_ID = "fixture_001"
+_STRUCTURE_SPEC_ID = "provisional_tj_v1"
 
 
 def _sha_file(path: Path) -> str | None:
@@ -55,14 +58,25 @@ def _load_ledger() -> Ledger:
     return Ledger.model_validate(raw["ledger"] if "ledger" in raw else raw)
 
 
+# Filled once in main(); read by the @observe wrapper below.
+_RUN_SESSION_ID: str | None = None
+_RUN_LABELS: dict[str, object] = {}
+
+
 @observe(name="eval.history.writer_ladder.fixture_001")
 def _write_section(provider: ModelProvider, *, model: str, messages: list[dict]) -> object:
-    return provider.complete_structured(
-        model=model,
-        messages=messages,
-        schema=WriterSectionOutput,
-        temperature=DRAFT_TEMPERATURE,
-    )
+    with label_run(
+        session_id=_RUN_SESSION_ID,
+        tags=["eval", "history", "writer_ladder", _FIXTURE_ID],
+        environment=ENV_EVAL,
+        metadata=_RUN_LABELS,
+    ):
+        return provider.complete_structured(
+            model=model,
+            messages=messages,
+            schema=WriterSectionOutput,
+            temperature=DRAFT_TEMPERATURE,
+        )
 
 
 def _banner_page(body: str) -> str:
@@ -102,6 +116,22 @@ def main(argv: list[str] | None = None) -> int:
         provider = ModelProvider()
         model = "gpt-4o-mini"
         cost_usd = 0.0
+
+    global _RUN_SESSION_ID, _RUN_LABELS
+    _RUN_SESSION_ID = run_dir.name
+    _RUN_LABELS = {
+        "package": "positive_history_writer_ladder",
+        "fixture_id": _FIXTURE_ID,
+        "provider": args.provider,
+        "model": model,
+        "temperature": DRAFT_TEMPERATURE,
+        "writer_prompt_hash": writer_prompt_hash("Current Status & History"),
+        "structure_spec_id": _STRUCTURE_SPEC_ID,
+        "structure_spec_hash": structure_spec_hash(_STRUCTURE_SPEC_ID),
+        "ledger_sha": _sha_file(_CACHE),
+        "trace_alignment_status": TRACE_ALIGNMENT_STATUS,
+        "confirm_synthetic": True,
+    }
 
     call_count = 0
     tokens_used = 0

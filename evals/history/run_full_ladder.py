@@ -58,9 +58,12 @@ from provider import (
     compute_cost_usd,
 )
 from test_all_stages import FIXTURE_001_MANIFEST_PATH, load_case_manifest
+from trace_labels import ENV_EVAL, label_run
 
 _CACHE = _WEEK1 / "evals" / "cache" / "fixture_001_ledger.json"
 _OUT_ROOT = _WEEK1 / "evals" / "history" / "diagnostic_ladder"
+_FIXTURE_ID = "fixture_001"
+_STRUCTURE_SPEC_ID = "provisional_tj_v1"
 
 
 class RecordingProvider:
@@ -110,19 +113,41 @@ def _banner_page(body: str) -> str:
     return f"{DIAGNOSTIC_BANNER}\n\n{body.rstrip()}\n"
 
 
+# Filled once in main(); read by the @observe wrappers so every span in the
+# ladder carries the same run identity.
+_RUN_SESSION_ID: str | None = None
+_RUN_LABELS: dict[str, Any] = {}
+
+
+def _stage_labels(stage: str) -> dict[str, Any]:
+    return {**_RUN_LABELS, "stage": stage}
+
+
 @observe(name="eval.history.full_ladder.extract_source")
 def _extract_source(provider: RecordingProvider, **kwargs: Any) -> Any:
-    return build_ledger(provider, **kwargs)  # type: ignore[arg-type]
+    with label_run(
+        session_id=_RUN_SESSION_ID,
+        tags=["eval", "history", "full_ladder", "extract", _FIXTURE_ID],
+        environment=ENV_EVAL,
+        metadata=_stage_labels("extract"),
+    ):
+        return build_ledger(provider, **kwargs)  # type: ignore[arg-type]
 
 
 @observe(name="eval.history.full_ladder.write_section")
 def _write_section(provider: ModelProvider, *, model: str, messages: list[dict]) -> object:
-    return provider.complete_structured(
-        model=model,
-        messages=messages,
-        schema=WriterSectionOutput,
-        temperature=DRAFT_TEMPERATURE,
-    )
+    with label_run(
+        session_id=_RUN_SESSION_ID,
+        tags=["eval", "history", "full_ladder", "writer", _FIXTURE_ID],
+        environment=ENV_EVAL,
+        metadata=_stage_labels("write_section"),
+    ):
+        return provider.complete_structured(
+            model=model,
+            messages=messages,
+            schema=WriterSectionOutput,
+            temperature=DRAFT_TEMPERATURE,
+        )
 
 
 def _compile_briefs(ledger: Any, out_dir: Path) -> dict[str, str | None]:
@@ -180,6 +205,21 @@ def main(argv: list[str] | None = None) -> int:
         model = "gpt-4o-mini"
         cost_usd = 0.0
     provider = RecordingProvider(inner)
+
+    global _RUN_SESSION_ID, _RUN_LABELS
+    _RUN_SESSION_ID = receipt_run_id
+    _RUN_LABELS = {
+        "package": "positive_history_full_ladder",
+        "fixture_id": _FIXTURE_ID,
+        "receipt_run_id": receipt_run_id,
+        "provider": args.provider,
+        "model": model,
+        "run_dir": run_dir.name,
+        "extract_prompt_sha256": sha256_text(EXTRACT_SYSTEM_PROMPT),
+        "structure_spec_id": _STRUCTURE_SPEC_ID,
+        "structure_spec_hash": structure_spec_hash(_STRUCTURE_SPEC_ID),
+        "confirm_synthetic": True,
+    }
 
     child, sources, _keys = load_case_manifest(FIXTURE_001_MANIFEST_PATH)
     ledger = None

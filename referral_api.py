@@ -11,6 +11,7 @@ from provider import DEFAULT_MODEL, ModelProvider
 from referral_draft import draft_referral_section
 from referral_schemas import ReferralDraftRequest, ReferralDraftResponse
 from retries import VALIDATION_RETRY_ATTEMPTS, run_with_validation_retries
+from trace_labels import ENV_APP, label_run
 
 
 def build_referral_router(provider: ModelProvider) -> APIRouter:
@@ -50,10 +51,15 @@ def build_referral_router(provider: ModelProvider) -> APIRouter:
                 response.langfuse_url = None
             return response
 
-        return run_with_validation_retries(
-            _attempt,
-            max_attempts=VALIDATION_RETRY_ATTEMPTS,
-            failure_prefix="Referral draft failed validation after retry",
-        )
+        with label_run(
+            tags=["app", "referral"],
+            environment=ENV_APP,
+            metadata={"package": "referral_draft", "model": model},
+        ):
+            return run_with_validation_retries(
+                _attempt,
+                max_attempts=VALIDATION_RETRY_ATTEMPTS,
+                failure_prefix="Referral draft failed validation after retry",
+            )
 
     return router

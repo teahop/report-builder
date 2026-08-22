@@ -34,10 +34,14 @@ from referral_schemas import (
     SuspectedDisability,
 )
 from retries import VALIDATION_RETRY_ATTEMPTS, run_with_validation_retries
+from history_langfuse import flush_langfuse
 from schemas import Child, Ledger
+from langfuse import observe
+from trace_labels import ENV_EVAL, label_run
 
 _DIR = Path(__file__).resolve().parent
 _TRACES = _DIR / "traces"
+_FIXTURE_ID = "synthetic_referral_smoke"
 
 
 def _synthetic_complete_context() -> tuple[Ledger, ReferralContext]:
@@ -113,6 +117,29 @@ def _synthetic_complete_context() -> tuple[Ledger, ReferralContext]:
     return ledger, context
 
 
+@observe(name="eval.referral.smoke.synthetic")
+def _run_draft(
+    provider: ModelProvider,
+    body: ReferralDraftRequest,
+    *,
+    session_id: str,
+    labels: dict[str, object],
+):
+    """Root span for the smoke — without it the generations arrive parentless."""
+
+    with label_run(
+        session_id=session_id,
+        tags=["eval", "referral", "smoke", _FIXTURE_ID],
+        environment=ENV_EVAL,
+        metadata=labels,
+    ):
+        return run_with_validation_retries(
+            lambda _attempt: draft_referral_section(provider, body),
+            max_attempts=VALIDATION_RETRY_ATTEMPTS,
+            failure_prefix="Referral smoke failed validation after retry",
+        )
+
+
 def main() -> None:
     _TRACES.mkdir(parents=True, exist_ok=True)
     ledger, context = _synthetic_complete_context()
@@ -129,14 +156,21 @@ def main() -> None:
         eval_run_index=0,
     )
 
+    session_id = f"referral-smoke-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}"
+    labels = {
+        "package": "referral_smoke",
+        "fixture_id": _FIXTURE_ID,
+        "provider": "openai",
+        "model": DEFAULT_MODEL,
+        "temperature": DRAFT_TEMPERATURE,
+        "confirm_synthetic": True,
+    }
+
     start = time.perf_counter()
     try:
-        response = run_with_validation_retries(
-            lambda _attempt: draft_referral_section(provider, body),
-            max_attempts=VALIDATION_RETRY_ATTEMPTS,
-            failure_prefix="Referral smoke failed validation after retry",
-        )
+        response = _run_draft(provider, body, session_id=session_id, labels=labels)
     except Exception as exc:
+        flush_langfuse()
         stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
         trace_path = _TRACES / f"smoke-{stamp}.jsonl"
         record = {
@@ -210,6 +244,7 @@ def main() -> None:
     }
     trace_path.write_text(json.dumps(record, ensure_ascii=False) + "\n", encoding="utf-8")
 
+    flush_langfuse()
     print("=== Reason for Referral — one synthetic smoke ===")
     print(f"trace: {trace_path}")
     print(f"model: {response.model}")
