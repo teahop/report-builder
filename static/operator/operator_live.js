@@ -239,6 +239,43 @@
     };
   }
 
+  /* A case before anything is loaded. Every panel reads these empty
+     collections, so an ungated screen renders empty states — never samples. */
+  function emptyCase(reg) {
+    return {
+      name: reg.name,
+      dob: reg.dob,
+      evalDate: reg.evalDate,
+      hasCached: !!reg.hasCached,
+      ledgerMeta: "no ledger loaded",
+      files: [],
+      facts: [],
+      factById: {},
+      conflicts: [],
+      variance: [],
+      timelines: [],
+      heldPredicates: [],
+      heldCandidates: [],
+      gap: { missing: [], freshness: [], stages: "—", sourceTypes: "—" },
+      collectItems: [],
+      drafts: {
+        referral: emptyDraft("POST /draft/referral"),
+        history: emptyDraft("POST /draft/history"),
+      },
+      runs: [],
+    };
+  }
+
+  /* Which gate steps this case has cleared. */
+  function loadState(live) {
+    return {
+      hasPacket: !!(live && live.files && live.files.length),
+      hasLedger: !!(
+        live && live.ledger && live.ledger.facts && live.ledger.facts.length
+      ),
+    };
+  }
+
   function mapReferral(resp) {
     const blocked = !resp.ready_for_draft || !resp.section_populated;
     const rejected = resp.ready_for_draft && !resp.section_populated;
@@ -391,7 +428,9 @@
     live.sources = packet.sources || [];
     live.files = filesFromSources(live.sources);
     live.statusLine =
-      "Fixture packet loaded — " + live.files.length + " sources. Extract or load cached ledger next.";
+      "Fixture packet loaded — " +
+      live.files.length +
+      " sources. No ledger yet — run Extract (step 3) to build one.";
     return live;
   }
 
@@ -417,6 +456,7 @@
 
   function viewFromLive(base, live) {
     const out = Object.assign({}, base);
+    if (!live) return out;
     if (live.child) {
       out.name = live.child.name || out.name;
       out.dob = live.child.dob || out.dob;
@@ -425,6 +465,10 @@
     if (live.files && live.files.length) out.files = live.files;
     if (live.ledger && live.ledger.facts) {
       out.facts = factsFromLedger(live.ledger.facts);
+      out.factById = {};
+      out.facts.forEach(function (f) {
+        out.factById[f[0]] = f;
+      });
       const n = live.ledger.facts.length;
       const ns = (live.ledger.sources || []).length;
       out.ledgerMeta =
@@ -435,21 +479,15 @@
         " sources · " +
         n +
         " facts";
-      out.drafts = Object.assign(
-        {
-          referral: emptyDraft("POST /draft/referral"),
-          history: emptyDraft("POST /draft/history"),
-        },
-        live.drafts || {}
-      );
     }
+    if (live.drafts) out.drafts = Object.assign({}, out.drafts, live.drafts);
     if (live.conflicts) out.conflicts = conflictsFromApi(live.conflicts);
     if (live.variance) out.variance = conflictsFromApi(live.variance);
     if (live.timelines) out.timelines = timelinesFromApi(live.timelines);
     if (live.gap) out.gap = gapFromReport(live.gap);
     const collected = collectFromLive(live);
     if (collected.length) out.collectItems = collected;
-    if (live.predicates_for_review) {
+    if (live.predicates_for_review && live.predicates_for_review.length) {
       out.heldPredicates = live.predicates_for_review.map(function (name) {
         return [name, "unregistered / proposed — awaiting vocabulary ruling"];
       });
@@ -548,6 +586,8 @@
     applyPacket: applyPacket,
     applyLedger: applyLedger,
     viewFromLive: viewFromLive,
+    emptyCase: emptyCase,
+    loadState: loadState,
     filesFromSources: filesFromSources,
     emptyDraft: emptyDraft,
   };
