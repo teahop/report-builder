@@ -452,6 +452,22 @@ from memory_api import build_memory_router  # noqa: E402
 app.include_router(build_memory_router())
 
 
+class _RevalidatingStatic(StaticFiles):
+    """Operator assets revalidate on every load.
+
+    Without an explicit Cache-Control the browser caches heuristically, so a
+    deploy can pair a fresh index.html with a stale operator_live.js — the
+    console then dies on a helper the cached script has never heard of.
+    `no-cache` still allows a 304 via the existing ETag, so this costs a
+    conditional request, not a re-download.
+    """
+
+    def file_response(self, *args, **kwargs):  # type: ignore[no-untyped-def]
+        response = super().file_response(*args, **kwargs)
+        response.headers["Cache-Control"] = "no-cache"
+        return response
+
+
 @app.get("/operator", include_in_schema=False)
 def operator_redirect() -> RedirectResponse:
     return RedirectResponse(url="/operator/", status_code=307)
@@ -460,6 +476,6 @@ def operator_redirect() -> RedirectResponse:
 if _OPERATOR.is_dir():
     app.mount(
         "/operator",
-        StaticFiles(directory=str(_OPERATOR), html=True),
+        _RevalidatingStatic(directory=str(_OPERATOR), html=True),
         name="operator",
     )
