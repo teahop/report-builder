@@ -44,6 +44,9 @@ MODEL_PRICES_PER_1K: dict[str, tuple[float, float]] = {
     "gpt-4o": (0.0025, 0.01),
     "gpt-4o-mini": (0.00015, 0.0006),
     "o3-mini": (0.0011, 0.0044),
+    # Bastion is BAA/subscription — not per-token billed to this app. Report 0.0
+    # rather than a fabricated OpenAI-priced figure; token counts stay real.
+    "bastiongpt-api-v2.0": (0.0, 0.0),
 }
 
 _JSON_MODE_SUFFIX = (

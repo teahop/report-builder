@@ -8,7 +8,8 @@ from fastapi import APIRouter
 from langfuse import get_client, observe
 
 from data_gate import assert_request_permitted
-from provider import DEFAULT_MODEL, ModelProvider
+from profile import active_model_label
+from provider import ModelProvider
 from referral_draft import draft_referral_section
 from referral_schemas import ReferralDraftRequest, ReferralDraftResponse
 from retries import VALIDATION_RETRY_ATTEMPTS, run_with_validation_retries
@@ -33,7 +34,7 @@ def build_referral_router(provider: ModelProvider) -> APIRouter:
 
         def _run() -> ReferralDraftResponse:
             assert_request_permitted(body)
-            model = body.model or DEFAULT_MODEL
+            model = body.model or active_model_label("gpt-4o")
 
             def _attempt(_attempt_i: int) -> ReferralDraftResponse:
                 start = time.perf_counter()

@@ -17,7 +17,8 @@ from history_schemas import (
     HistoryPlanRequest,
     HistoryPlanResponse,
 )
-from provider import DEFAULT_MODEL, ModelProvider
+from profile import active_model_label
+from provider import ModelProvider
 from retries import VALIDATION_RETRY_ATTEMPTS, run_with_validation_retries
 from stage_log import run_logged_stage
 from trace_labels import app_environment, label_run
@@ -51,13 +52,13 @@ def build_history_router(provider: ModelProvider) -> APIRouter:
 
         def _run() -> HistoryDraftResponse:
             assert_request_permitted(body)
-            model = body.model or DEFAULT_MODEL
+            model = body.model or active_model_label("gpt-4o-mini")
 
             def _attempt(_attempt_i: int) -> HistoryDraftResponse:
                 start = time.perf_counter()
                 req = body
                 if body.model is None:
-                    req = body.model_copy(update={"model": "gpt-4o-mini"})
+                    req = body.model_copy(update={"model": active_model_label("gpt-4o-mini")})
                 response = draft_history_package(provider, req)
                 response.latency_ms = int((time.perf_counter() - start) * 1000)
                 if not response.model:

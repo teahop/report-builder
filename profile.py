@@ -47,6 +47,13 @@ def restricted_allowed() -> bool:
     return profile() == "production" and active_backend() == "bastion"
 
 
+def active_model_label(openai_model: str) -> str:
+    """Provenance/cost label for the reported model: the Bastion runtime label
+    when the active backend is Bastion, else the OpenAI model actually used.
+    Bastion has no per-request model field, so the label names the API version."""
+    return "bastiongpt-api-v2.0" if active_backend() == "bastion" else openai_model
+
+
 def posture() -> dict[str, object]:
     """Secret-free snapshot for /health and the operator console."""
     name = profile()
