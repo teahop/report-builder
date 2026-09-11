@@ -1,0 +1,775 @@
+{
+  "child": {
+    "dob": "2010-03-22",
+    "evaluation_date": "2025-07-11",
+    "name": "Emma Rose Callahan"
+  },
+  "display_label": "History of Previous Evaluations",
+  "eligible_blocks": [
+    {
+      "block_key": "previous_evaluations_narrative",
+      "display_label": "Previous Evaluations",
+      "fact_ids": [
+        "f_doc_26_004",
+        "f_doc_26_005",
+        "f_doc_26_007",
+        "f_doc_26_009",
+        "f_doc_26_010"
+      ],
+      "kind": "prose",
+      "legacy_trigger": null,
+      "purpose": "topic_history"
+    }
+  ],
+  "episodes_by_block": {
+    "previous_evaluations_narrative": [
+      {
+        "as_of_date": "2013-09-10",
+        "episode_id": "ep_doc_26_01",
+        "fact_ids": [
+          "f_doc_26_004",
+          "f_doc_26_005",
+          "f_doc_26_007",
+          "f_doc_26_009",
+          "f_doc_26_010"
+        ],
+        "source_date": "2013-09-10",
+        "source_id": "doc_26",
+        "source_label": "Prior early childhood diagnostic assessment (age 3)",
+        "source_section": null
+      }
+    ]
+  },
+  "exclusions": [
+    {
+      "as_of_date": "2010-03-22",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_001",
+      "predicate": "dob",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "DOB: 3/22/10"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_002",
+      "predicate": "age_years",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "Age: 3y 1m 23d"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_003",
+      "predicate": "behavioral_concern",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "Behavior: Slow to react with directions/commands, sensory issues (e.g. sensitive to loud noises or temperature changes), toe walking, and meltdowns 2-5 times per week."
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_006",
+      "predicate": "school_enrollment",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "Emma Rose Callahan attends the Sunshine Bilingual Chinese/English preschool"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_008",
+      "predicate": "legal_name",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "Emma Rose Callahan"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_011",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "showing significant signs of sensory processing difficulties"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_012",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "having difficulty sustaining her attention to tasks when her arousal/attention level was low"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_013",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "experiences meltdowns 2-5 times per week during which she screams, hits furniture, and is difficult to console"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_014",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "appeared withdrawn and had lower energy and a slight affect"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_015",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "still experiencing symptoms related to her history of trauma"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_016",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "meet the criteria for Adjustment Disorder with Depressed Mood (309.0)"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_017",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "demonstrates above average fine motor skills"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_018",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "gross motor skills fell well within the average range"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_019",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "is toilet trained during the day, yet has frequent accidents"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_020",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "has difficulty getting food to her mouth with a spoon"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_021",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "is able to dress herself except for managing fasteners such as buttons"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_022",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "is able to unzip a zipper"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_023",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "her adoptive mother reports that Emma Rose Callahan falls frequently at home"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_024",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "has difficulty balancing on one foot"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_025",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "has difficulty placing her arms correctly in front of her body to catch a playground size ball"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_026",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "benefits from sensory movement breaks to help her sustain attention"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_027",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "has progressed developmentally since being in the care of her adoptive parents"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_028",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "still experiencing symptoms related to her history of trauma"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_029",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "required prompts and motivators"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_030",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "demonstrated Average abilities in all areas"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_031",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "scored as having difficulties processing sensory information in most areas on the Sensory Profile"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_032",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "has trouble processing information coming through her senses, such as tactile or auditory information"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_033",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "having difficulty transitioning between sedentary tasks and movement tasks"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_034",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "Etiology of her condition is unknown"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_035",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "unknown genetic loading"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_036",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "history of neglect may be contributory factors"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_037",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "does not meet criteria for a full Fetal Alcohol Syndrome diagnosis"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_038",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "current growth percentiles are > 50th percentile"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_039",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "has a fairly well formed philtrum and a normal vermillion (upper lip)"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_040",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "does not have all 3 FAS features"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_041",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "the effects of prenatal methamphetamine exposure may contribute to developmental and behavioral problems"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_042",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "her family is supportive, active in her life and willing to work with her to help her succeed"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_043",
+      "predicate": "functioning_deficit",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "recommended that Emma Rose Callahan be re-evaluated in approximately 12 to 18 months from the date of this evaluation"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_044",
+      "predicate": "sensory_processing_recommendations",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "it is recommended that Emma Rose Callahan's caregivers read the books, The Out of Sync Child, and The Out of Sync Child Has Fun, by Carol Stock Kranowitz"
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_045",
+      "predicate": "heavy_work_activities",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "it is recommended that her caregivers provide opportunities for \"heavy work\""
+    },
+    {
+      "as_of_date": "2013-09-10",
+      "destination": "previous_evaluations",
+      "fact_id": "f_doc_26_046",
+      "predicate": "safety_recommendations",
+      "reason": "outside_prior_evaluation_synthesis_contract",
+      "source_date": "2013-09-10",
+      "source_id": "doc_26",
+      "source_label": "Prior early childhood diagnostic assessment (age 3)",
+      "value_text": "Family is encouraged to address safety issues created by running behaviors and escape"
+    }
+  ],
+  "facts_by_block": {
+    "previous_evaluations_narrative": [
+      {
+        "as_of_date": "2013-09-10",
+        "assertion": "asserted",
+        "attribution": "Prior early childhood diagnostic assessment (age 3)",
+        "claim": "delays in speech and language, suspected cognitive delays",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_26_004",
+        "grade": null,
+        "life_stage": "infancy",
+        "predicate": "developmental_history",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2013-09-10",
+        "source_id": "doc_26",
+        "source_label": "Prior early childhood diagnostic assessment (age 3)",
+        "source_section": null,
+        "source_wording": "Development: delays in speech and languages and suspected delays in overall cognitive development.",
+        "subject": "child",
+        "temporality": "durable",
+        "value": "delays in speech and language, suspected cognitive delays",
+        "value_text": "Development: delays in speech and languages and suspected delays in overall cognitive development."
+      },
+      {
+        "as_of_date": "2013-09-10",
+        "assertion": "asserted",
+        "attribution": "Prior early childhood diagnostic assessment (age 3)",
+        "claim": "19",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_26_005",
+        "grade": null,
+        "life_stage": "infancy",
+        "predicate": "walked_age_months",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2013-09-10",
+        "source_id": "doc_26",
+        "source_label": "Prior early childhood diagnostic assessment (age 3)",
+        "source_section": null,
+        "source_wording": "she was walking at 19 months of age",
+        "subject": "child",
+        "temporality": "durable",
+        "value": "19",
+        "value_text": "she was walking at 19 months of age"
+      },
+      {
+        "as_of_date": "2013-09-10",
+        "assertion": "asserted",
+        "attribution": "Prior early childhood diagnostic assessment (age 3)",
+        "claim": "history of neglect, trauma suspected",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_26_007",
+        "grade": null,
+        "life_stage": "infancy",
+        "predicate": "family_history",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2013-09-10",
+        "source_id": "doc_26",
+        "source_label": "Prior early childhood diagnostic assessment (age 3)",
+        "source_section": null,
+        "source_wording": "History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected.",
+        "subject": "child",
+        "temporality": "durable",
+        "value": "history of neglect, trauma suspected",
+        "value_text": "History of trauma (including abuse, neglect, molest, or domestic violence): Yes of neglect, trauma suspected."
+      },
+      {
+        "as_of_date": "2013-09-10",
+        "assertion": "asserted",
+        "attribution": "Prior early childhood diagnostic assessment (age 3)",
+        "claim": "borderline clinical",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_26_009",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "behavioral_concern",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2013-09-10",
+        "source_id": "doc_26",
+        "source_label": "Prior early childhood diagnostic assessment (age 3)",
+        "source_section": null,
+        "source_wording": "scored in the borderline clinical range (concerns were endorsed) in the areas of emotional reactivity and oppositional defiant problems",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "borderline clinical",
+        "value_text": "scored in the borderline clinical range (concerns were endorsed) in the areas of emotional reactivity and oppositional defiant problems"
+      },
+      {
+        "as_of_date": "2013-09-10",
+        "assertion": "asserted",
+        "attribution": "Prior early childhood diagnostic assessment (age 3)",
+        "claim": "clinically significant",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_26_010",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "behavioral_concern",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2013-09-10",
+        "source_id": "doc_26",
+        "source_label": "Prior early childhood diagnostic assessment (age 3)",
+        "source_section": null,
+        "source_wording": "scored in the clinically significant range for somatic complaints, withdrawal, and social development problems",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "clinically significant",
+        "value_text": "scored in the clinically significant range for somatic complaints, withdrawal, and social development problems"
+      }
+    ]
+  },
+  "fewshots": [],
+  "instruction": "Draft only the eligible_blocks, in order, using exact display_label values as DraftBlock.label. Do not invent blocks or absence filler. Evidence is grouped into source-local episodes \u2014 keep related facts together. reuse_context lists facts already used earlier \u2014 reuse for this section's purpose is allowed; copied prose is not. review_queue facts are dated after evaluation_date and must not be stated as current case evidence.",
+  "must_mention_conflicts": [
+    {
+      "fact_ids": [
+        "f_doc_26_004"
+      ],
+      "predicate": "developmental_history",
+      "predicate_class": "record",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "developmental_history",
+      "versions": [
+        {
+          "assertion": "asserted",
+          "fact_id": "f_doc_26_004",
+          "reporter": null,
+          "source_date": "2013-09-10",
+          "source_id": "doc_26",
+          "value": "delays in speech and language, suspected cognitive delays"
+        }
+      ]
+    }
+  ],
+  "purpose": "topic_history",
+  "reuse_context": [],
+  "review_queue": [],
+  "section_key": "previous_evaluations",
+  "source_labels": {
+    "doc_01": {
+      "date": "2025-12-27",
+      "label": "Assessment invoice",
+      "type": "other"
+    },
+    "doc_02": {
+      "date": "2025-04-26",
+      "label": "BASC-3 Self-report",
+      "type": "assessment"
+    },
+    "doc_03": {
+      "date": "2025-05-10",
+      "label": "Sensory Profile-2 (self)",
+      "type": "assessment"
+    },
+    "doc_04": {
+      "date": "2024-12-01",
+      "label": "ABAS Adaptive Behavior \u2014 Parent",
+      "type": "parent"
+    },
+    "doc_05": {
+      "date": "2025-02-01",
+      "label": "ABAS Adaptive Behavior \u2014 Teacher",
+      "type": "teacher"
+    },
+    "doc_06": {
+      "date": "2025-05-15",
+      "label": "BASC-3 Teacher",
+      "type": "teacher"
+    },
+    "doc_07": {
+      "date": "2025-04-19",
+      "label": "BASC-3 Parent",
+      "type": "parent"
+    },
+    "doc_08": {
+      "date": "2025-04-26",
+      "label": "Brown EF/A Scales \u2014 Self-report",
+      "type": "assessment"
+    },
+    "doc_09": {
+      "date": "2025-06-19",
+      "label": "D-REF Executive Functions \u2014 Teacher",
+      "type": "teacher"
+    },
+    "doc_10": {
+      "date": "2025-04-22",
+      "label": "DAS-II cognitive score report",
+      "type": "assessment"
+    },
+    "doc_11": {
+      "date": "2024-10-02",
+      "label": "IEP \u2014 current school records",
+      "type": "school"
+    },
+    "doc_12": {
+      "date": "2025-04-26",
+      "label": "KTEA-3 achievement score report",
+      "type": "assessment"
+    },
+    "doc_13": {
+      "date": "2025-12-15",
+      "label": "WRAP services need letter",
+      "type": "other"
+    },
+    "doc_14": {
+      "date": "2025-05-27",
+      "label": "Permission to exchange information",
+      "type": "other"
+    },
+    "doc_17": {
+      "date": "2025-06-23",
+      "label": "RIAS-2 memory and processing speed (PDF)",
+      "type": "assessment"
+    },
+    "doc_20": {
+      "date": "2025-04-19",
+      "label": "SRS Social Responsiveness \u2014 Parent",
+      "type": "parent"
+    },
+    "doc_21": {
+      "date": "2025-04-19",
+      "label": "Student profile and interview",
+      "type": "observation"
+    },
+    "doc_22": {
+      "date": "2025-04-12",
+      "label": "Assessment plan and contract for services",
+      "type": "other"
+    },
+    "doc_23": {
+      "date": "2025-04-22",
+      "label": "Brown EF/A Scales \u2014 Multirater",
+      "type": "assessment"
+    },
+    "doc_24": {
+      "date": "2025-04-22",
+      "label": "Brown EF/A Scales \u2014 Parent",
+      "type": "parent"
+    },
+    "doc_25": {
+      "date": "2019-05-29",
+      "label": "IEP \u2014 Fairhaven initial (4th grade)",
+      "type": "school"
+    },
+    "doc_26": {
+      "date": "2013-09-10",
+      "label": "Prior early childhood diagnostic assessment (age 3)",
+      "type": "prior_eval"
+    },
+    "doc_28": {
+      "date": "2025-04-26",
+      "label": "SSIS-SEL self-report",
+      "type": "assessment"
+    }
+  },
+  "structure_spec_id": "provisional_tj_v1",
+  "timelines": [
+    {
+      "fact_ids": [
+        "f_doc_26_009",
+        "f_doc_26_010"
+      ],
+      "latest_fact_id": "f_doc_26_010",
+      "predicate": "behavioral_concern",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "behavioral_concern"
+    }
+  ],
+  "variance": []
+}

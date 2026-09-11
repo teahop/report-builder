@@ -1,0 +1,32 @@
+{
+  "source_id": "doc_11",
+  "schema": "SourceExtraction",
+  "temperature": 0.0,
+  "user_sha256": "39a9037ffcfc8e7c5bdbbde9832010c7b1c09424f63134d86066aa687aa363e5",
+  "raw_text": null,
+  "parsed": {
+    "facts": [
+      {
+        "subject": "child",
+        "predicate": "iep_status",
+        "proposed_predicate": null,
+        "value": "none",
+        "value_text": "This Emergency Services Plan does not constitute a change to the District’s offer of FAPE during non-emergency school days.",
+        "qualifier": null,
+        "assertion": "denied",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2024-10-02",
+        "valence": "concern",
+        "source_section": "IEP Goals to be Addressed"
+      }
+    ]
+  },
+  "tokens": {
+    "total": 8662,
+    "prompt": 8552,
+    "completion": 110
+  }
+}

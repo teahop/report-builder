@@ -598,31 +598,31 @@ def test_model_payload_has_display_name_not_header_fields() -> None:
     assert goals[0]["client_language_use"] == "evidence_for_paraphrase_only"
 
 
-def test_confirm_synthetic_false_fails_validation() -> None:
-    try:
-        ReferralDraftRequest.model_validate(
-            {
-                "confirm_synthetic": False,
-                "ledger": _empty_ledger().model_dump(),
-                "context": {},
-            }
-        )
-    except ValidationError:
-        return
-    raise AssertionError("expected ValidationError")
+def test_confirm_synthetic_false_is_restricted_not_schema_error() -> None:
+    body = ReferralDraftRequest.model_validate(
+        {
+            "confirm_synthetic": False,
+            "ledger": _empty_ledger().model_dump(),
+            "context": {},
+        }
+    )
+    assert body.confirm_synthetic is False
+    from data_gate import resolve_data_class
+
+    assert resolve_data_class(body.data_class, body.confirm_synthetic) == "restricted"
 
 
-def test_confirm_synthetic_missing_fails_validation() -> None:
-    try:
-        ReferralDraftRequest.model_validate(
-            {
-                "ledger": _empty_ledger().model_dump(),
-                "context": {},
-            }
-        )
-    except ValidationError:
-        return
-    raise AssertionError("expected ValidationError")
+def test_confirm_synthetic_missing_is_restricted_not_schema_error() -> None:
+    body = ReferralDraftRequest.model_validate(
+        {
+            "ledger": _empty_ledger().model_dump(),
+            "context": {},
+        }
+    )
+    assert body.confirm_synthetic is None
+    from data_gate import resolve_data_class
+
+    assert resolve_data_class(body.data_class, body.confirm_synthetic) == "restricted"
 
 
 def test_one_paragraph_simple_render() -> None:
@@ -974,7 +974,7 @@ def test_api_incomplete_context_zero_spend() -> None:
     assert body["missing_fields"]
 
 
-def test_api_confirm_synthetic_false_422() -> None:
+def test_api_confirm_synthetic_false_403() -> None:
     import main as main_mod
 
     client = TestClient(main_mod.app)
@@ -986,7 +986,8 @@ def test_api_confirm_synthetic_false_422() -> None:
             "context": {},
         },
     )
-    assert r.status_code == 422
+    assert r.status_code == 403
+    assert "Restricted data refused" in r.json()["detail"]
 
 
 def test_api_valid_complete_returns_typed_draft() -> None:
@@ -1038,6 +1039,7 @@ def test_existing_routes_still_registered() -> None:
     assert "/extract" in openapi_paths
     assert "/conflicts" in openapi_paths
     assert "/ask" in openapi_paths
+    assert "/case/purge" in openapi_paths
     health = client.get("/health")
     assert health.status_code == 200
     referral = client.post(

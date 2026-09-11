@@ -1,0 +1,116 @@
+{
+  "banner": "INTERIM PARENT \u2014 extraction accepted-for-now (2026-08-19), not final; prose\u2192trace alignment not run",
+  "fixture_id": "fixture_001",
+  "package": "positive_history_full_ladder",
+  "upstream_parent": "this run's Bastion extract/ledger (interim acceptance)",
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "extract_temperature": 0.0,
+  "draft_temperature": 1.0,
+  "extract_call_count": 22,
+  "writer_call_count": 4,
+  "extract_tokens": {
+    "total": 230317,
+    "prompt": 213264,
+    "completion": 17053
+  },
+  "writer_tokens": {
+    "total": 26971,
+    "prompt": 25333,
+    "completion": 1638
+  },
+  "cost_usd": 0.004783,
+  "extract_latency_ms": 187759,
+  "writer_latency_ms": 18508,
+  "facts": 129,
+  "predicates_for_review": [
+    "psycho_educational_assessment",
+    "initial_retainer",
+    "sensory_processing_recommendations",
+    "heavy_work_activities",
+    "safety_recommendations"
+  ],
+  "subjects_for_review": [],
+  "writer_prompt_hash": "ee4fcaf68adb4a7589748f69fcf7fdcb784d0997fb13a2a2636d4c5802a73b0e",
+  "extract_prompt_sha256": "797f38f377dd69a52849e4cc6d7adc82c1b835e64097376545e8aa3e56b538d6",
+  "structure_spec_id": "provisional_tj_v1",
+  "structure_spec_hash": "99f1b5d0656a8f7697bb8ab1614349bd1066ae6605f2344509b3d52cd62d9102",
+  "did_not_overwrite_cache": true,
+  "cached_openai_ledger_sha256": "2b534d0f7f7ba2486a40f03b275f1702157306cb0007b9a9f8fe5371c910d768",
+  "this_run_ledger_path": "evals/history/diagnostic_ladder/run-20260822T010349Z/ledger.json",
+  "this_run_ledger_sha256": "169845ee84cbc6b9a83b1c734a2ca76a09435ca0ab53794b2c76c1f0b14151c3",
+  "compiled_brief_sha256": {
+    "current_status_history.json": "3754f4bd1c70bece30bed50f8442aae3f00e1853eb119877288fc62979a4f610",
+    "educational_history.json": "104a2b710e2bcef71ec901209195277bb9c35fc39843142ea0317178b669a949",
+    "previous_evaluations.json": "fa82013e1f846ec4c7ae931b6a0abf68d5ac5d7955c64511fa5ee501c782a617",
+    "rater_input.json": "a4190df877bf4d45a5702b711dd4097a6f05b7b09da7a394294d67755f5a9d11"
+  },
+  "receipt_run_id": "bastion-full-ladder-20260822T010349Z-ec56fe2b",
+  "receipts": {
+    "extract_raw": "art_extract_raw_ce50b28cfcc1",
+    "ledger": "art_ledger_65aec3ee865b",
+    "brief": "art_brief_60c15d037043",
+    "draft": "art_draft_902d39d88203"
+  },
+  "example_hashes": [
+    {
+      "section_key": "current_status_history",
+      "example_id": "phase1_A_current_status_case_003",
+      "example_text_sha256": "1d465d911208de528d7656bbe84dd3457490c744881174f4e3f3246d76fd2619",
+      "evidence_brief_sha256": "67332be54c91d9b3cb32871368a12d14cffa0500088da7abcea52c9d560e6d45"
+    },
+    {
+      "section_key": "educational_history",
+      "example_id": "phase1_B_educational_history_case_005",
+      "example_text_sha256": "f040296c8837e76902429bd3dd0990457cf61627d9c9b66dbfc6770c65255184",
+      "evidence_brief_sha256": "3d4315e7109a0bf433e77a94569365307350f868327437b79fbdab5a97ccc391"
+    },
+    {
+      "section_key": "previous_evaluations",
+      "example_id": "phase1_C_previous_evaluations_case_006",
+      "example_text_sha256": "112c8be886362112615699665dc963011b08772dffed4a10445f0a36873989fa",
+      "evidence_brief_sha256": "386b14a806912e7a07b136196182dc9a6014c4458925bbc1096d2dd970cab5ab"
+    },
+    {
+      "section_key": "rater_input",
+      "example_id": "phase1_D_rater_input_case_004",
+      "example_text_sha256": "c1233d018260239d83714ff8029108bf4e2822c24c921782fc1d859631013694",
+      "evidence_brief_sha256": "e5bbbeacd15aa0d2ff53952f4a8a1c31baaa638b7e180d79adec55426a03859c"
+    }
+  ],
+  "trace_alignment_status": "not_run_diagnostic",
+  "skip_entailment": true,
+  "chart_composer": "not_exercised",
+  "table_position_marker": "[SCHOOL HISTORY CHART \u2014 server-owned; do not generate cells]",
+  "section_keys": [
+    "current_status_history",
+    "educational_history",
+    "previous_evaluations",
+    "rater_input"
+  ],
+  "tokens_by_source": {
+    "doc_01": 7894,
+    "doc_02": 0,
+    "doc_03": 0,
+    "doc_04": 0,
+    "doc_05": 0,
+    "doc_06": 0,
+    "doc_07": 0,
+    "doc_08": 0,
+    "doc_09": 0,
+    "doc_10": 0,
+    "doc_11": 113665,
+    "doc_12": 0,
+    "doc_13": 8919,
+    "doc_14": 7518,
+    "doc_17": 0,
+    "doc_20": 0,
+    "doc_21": 9705,
+    "doc_22": 8470,
+    "doc_23": 0,
+    "doc_24": 0,
+    "doc_25": 40784,
+    "doc_26": 33362,
+    "doc_28": 0
+  }
+}

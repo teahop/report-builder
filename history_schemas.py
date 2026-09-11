@@ -11,6 +11,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+from data_gate import DataClassification
 from schemas import (
     DraftBlock,
     DraftProseOutput,
@@ -63,12 +64,9 @@ class HistoryDraftPackage(BaseModel):
     input_schema_gaps: list[str] = Field(default_factory=list)
 
 
-class HistoryDraftRequest(BaseModel):
+class HistoryDraftRequest(DataClassification):
     """Isolated History-package request for POST /draft/history."""
 
-    confirm_synthetic: Literal[True] = Field(
-        description="Must be true. Synthetic/anonymized OpenAI path only.",
-    )
     ledger: Ledger
     conflicts: list[Disagreement] = Field(default_factory=list)
     variance: list[Disagreement] = Field(default_factory=list)
@@ -82,12 +80,9 @@ class HistoryDraftRequest(BaseModel):
     )
 
 
-class HistoryPlanRequest(BaseModel):
+class HistoryPlanRequest(DataClassification):
     """Compile inspectable History briefs — no model call."""
 
-    confirm_synthetic: Literal[True] = Field(
-        description="Must be true. Synthetic/anonymized OpenAI path only.",
-    )
     ledger: Ledger
     conflicts: list[Disagreement] = Field(default_factory=list)
     variance: list[Disagreement] = Field(default_factory=list)

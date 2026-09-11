@@ -1,0 +1,48 @@
+{
+  "source_id": "doc_11",
+  "schema": "SourceExtraction",
+  "temperature": 0.0,
+  "user_sha256": "e752baad90d413467bfa436c96ae588abf80366fe1388ecf36f07918add756f2",
+  "raw_text": null,
+  "parsed": {
+    "facts": [
+      {
+        "subject": "child",
+        "predicate": "legal_name",
+        "proposed_predicate": null,
+        "value": "Emma Rose Callahan",
+        "value_text": "Student Name: Emma Rose Callahan",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2024-10-02",
+        "valence": "neutral",
+        "source_section": null
+      },
+      {
+        "subject": "child",
+        "predicate": "dob",
+        "proposed_predicate": null,
+        "value": "2010-03-22",
+        "value_text": "Birthdate: 3/22/10",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2024-10-02",
+        "valence": "neutral",
+        "source_section": null
+      }
+    ]
+  },
+  "tokens": {
+    "total": 8910,
+    "prompt": 8732,
+    "completion": 178
+  }
+}

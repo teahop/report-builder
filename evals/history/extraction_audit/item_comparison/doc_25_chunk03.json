@@ -230,16 +230,8 @@
         "valence": "neutral",
         "source_section": "OFFER OF FAPE - EDUCATIONAL SETTING"
       },
-      "legacy_match": "value_text_match",
-      "legacy_ledger_fact": {
-        "id": "f_doc_25_010",
-        "predicate": "medications",
-        "value": "1mg guanfacine, 2.5mg melatonin, 5mg singular",
-        "value_text": "She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night",
-        "assertion": "asserted",
-        "as_of_date": "2019-05-29",
-        "reporter": null
-      },
+      "legacy_match": "fact_id_collision_different_content",
+      "legacy_ledger_fact": null,
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     },
@@ -296,12 +288,12 @@
       },
       "legacy_match": "value_text_match",
       "legacy_ledger_fact": {
-        "id": "f_doc_25_008",
+        "id": "f_doc_25_022",
         "predicate": "developmental_history",
-        "value": "typical",
-        "value_text": "met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs",
+        "value": "met all developmental milestones on time except walking at about 19 mos and talking at about 2 yrs",
+        "value_text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.",
         "assertion": "asserted",
-        "as_of_date": "2019-05-29",
+        "as_of_date": "2019-04-25",
         "reporter": null
       },
       "latest_human_item_review": null,
@@ -360,12 +352,12 @@
       },
       "legacy_match": "value_text_match",
       "legacy_ledger_fact": {
-        "id": "f_doc_25_019",
+        "id": "f_doc_25_023",
         "predicate": "trauma_history",
         "value": "adopted at 19 months",
         "value_text": "Emma Rose Callahan was adopted at 19 months so information on birth is limited.",
         "assertion": "asserted",
-        "as_of_date": "2019-05-29",
+        "as_of_date": "2019-04-25",
         "reporter": null
       },
       "latest_human_item_review": null,

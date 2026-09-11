@@ -129,7 +129,7 @@
         "value": "2010-03-22",
         "value_text": "Date of Birth: 3/22/10",
         "assertion": "asserted",
-        "as_of_date": "2019-05-29",
+        "as_of_date": "2010-03-22",
         "reporter": null
       },
       "latest_human_item_review": null,
@@ -318,16 +318,8 @@
         "valence": "neutral",
         "source_section": null
       },
-      "legacy_match": "value_text_match",
-      "legacy_ledger_fact": {
-        "id": "f_doc_25_005",
-        "predicate": "school_enrollment",
-        "value": "oak meadow school",
-        "value_text": "Residence School: Oak Meadow School",
-        "assertion": "asserted",
-        "as_of_date": "2019-05-29",
-        "reporter": null
-      },
+      "legacy_match": "fact_id_collision_different_content",
+      "legacy_ledger_fact": null,
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     },
@@ -386,16 +378,8 @@
         "valence": "neutral",
         "source_section": null
       },
-      "legacy_match": "value_text_match",
-      "legacy_ledger_fact": {
-        "id": "f_doc_25_006",
-        "predicate": "iep_status",
-        "value": "active",
-        "value_text": "Not Eligible for Special Education   Exiting from Special Education (returned to reg. ed/no longer eligible)",
-        "assertion": "asserted",
-        "as_of_date": "2019-05-29",
-        "reporter": null
-      },
+      "legacy_match": "fact_id_collision_different_content",
+      "legacy_ledger_fact": null,
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     },
@@ -450,8 +434,16 @@
         "valence": "concern",
         "source_section": null
       },
-      "legacy_match": "fact_id_collision_different_content",
-      "legacy_ledger_fact": null,
+      "legacy_match": "value_text_match",
+      "legacy_ledger_fact": {
+        "id": "f_doc_25_009",
+        "predicate": "attendance",
+        "value": "some difficulty",
+        "value_text": "maintains some difficulty in the following areas: attention to instruction, following class standards, interacting with peers, and following directions",
+        "assertion": "asserted",
+        "as_of_date": "2019-05-29",
+        "reporter": "teacher"
+      },
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     },
@@ -562,7 +554,7 @@
         "valence": "concern",
         "source_section": null
       },
-      "legacy_match": "no_legacy_match",
+      "legacy_match": "fact_id_collision_different_content",
       "legacy_ledger_fact": null,
       "latest_human_item_review": null,
       "invalidated_review_count": 0

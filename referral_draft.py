@@ -7,6 +7,7 @@ import json
 import re
 from pathlib import Path
 
+from profile import active_model_label
 from provider import DRAFT_TEMPERATURE, ModelProvider, compute_cost_usd
 from referral_context import (
     build_referral_model_payload,
@@ -324,7 +325,7 @@ def draft_referral_section(
 ) -> ReferralDraftResponse:
     """Preflight → (optional) model draft → validate → render."""
 
-    model = body.model or "gpt-4o"
+    model = body.model or active_model_label("gpt-4o")
     preflight = prepare_referral_context(body.ledger, body.context)
 
     if not preflight.ready_for_draft:

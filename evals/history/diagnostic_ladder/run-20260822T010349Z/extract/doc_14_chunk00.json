@@ -1,0 +1,32 @@
+{
+  "source_id": "doc_14",
+  "schema": "SourceExtraction",
+  "temperature": 0.0,
+  "user_sha256": "b004f2198dc88fa02887fcc048c345a586ac4ccc44281c01b8857875d85e183c",
+  "raw_text": null,
+  "parsed": {
+    "facts": [
+      {
+        "subject": "child",
+        "predicate": "dob",
+        "proposed_predicate": null,
+        "value": "2010-03-22",
+        "value_text": "DOB 3/22/10",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": "Diane Callahan",
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2025-05-27",
+        "valence": "neutral",
+        "source_section": "PERMISSION TO EXCHANGE OF INFORMATION"
+      }
+    ]
+  },
+  "tokens": {
+    "total": 7518,
+    "prompt": 7418,
+    "completion": 100
+  }
+}
