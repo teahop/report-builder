@@ -523,9 +523,10 @@
     });
   }
 
-  async function extractLedger(child, sources) {
+  async function extractLedger(child, sources, caseId) {
     const extract = await postJson("/extract", {
       confirm_synthetic: true,
+      case_id: caseId || null,
       child: child,
       sources: sources,
       model: "gpt-4o-mini",
@@ -550,9 +551,10 @@
     };
   }
 
-  async function draftReferral(ledger) {
+  async function draftReferral(ledger, caseId) {
     return postJson("/draft/referral", {
       confirm_synthetic: true,
+      case_id: caseId || null,
       ledger: ledger,
       context: defaultReferralContext(),
       eval_fixture_id: "operator_ui",
@@ -563,12 +565,21 @@
     const skipEntailment = !!(opts && opts.skipEntailment);
     return postJson("/draft/history", {
       confirm_synthetic: true,
+      case_id: (opts && opts.caseId) || null,
       ledger: ledger,
       conflicts: conflicts || [],
       variance: variance || [],
       model: "gpt-4o-mini",
       entailment_model: "gpt-4o-mini",
       skip_entailment: skipEntailment,
+    });
+  }
+
+  async function purgeCase(caseId) {
+    if (!caseId) throw new Error("No case selected");
+    return postJson("/case/purge", {
+      confirm_synthetic: true,
+      case_id: caseId,
     });
   }
 
@@ -580,6 +591,7 @@
     extractLedger: extractLedger,
     draftReferral: draftReferral,
     draftHistory: draftHistory,
+    purgeCase: purgeCase,
     mapReferral: mapReferral,
     mapHistory: mapHistory,
     runRow: runRow,

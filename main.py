@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
+from langfuse import observe
 from pydantic import ValidationError
 
 from anchor import check_anchor_drift
@@ -20,6 +21,9 @@ from draft import draft_section
 from draft_validators import validate_ledger_entailment
 from extract import build_ledger
 from ingest import classify_document
+from case_purge import CasePurgeRequest, CasePurgeResponse, purge_case
+from data_gate import assert_request_permitted
+from stage_log import run_logged_stage
 from provider import DEFAULT_MODEL, ModelProvider, compute_cost_usd
 from retries import VALIDATION_RETRY_ATTEMPTS, run_with_validation_retries
 from schemas import (
@@ -45,7 +49,14 @@ from validators import (
     validate_age_consistency,
     validate_provenance,
 )
+from profile import (
+    backend_for_profile,
+    env_file_for_profile,
+    posture,
+    set_active_backend,
+)
 from undersplit import detect_undersplit_facts
+from trace_labels import app_environment, label_run
 
 _DIR = Path(__file__).resolve().parent
 _FIXTURES = _DIR / "fixtures"
@@ -53,25 +64,22 @@ _OPERATOR = _DIR / "static" / "operator"
 _CACHE_LEDGER_001 = _DIR / "evals" / "cache" / "fixture_001_ledger.json"
 _CACHE_001_CHILD_NAME = "Emma Rose Callahan"
 
-
-def env_file_for_profile(profile: str | None) -> str:
-    """Demo `.env` unless APP_PROFILE is exactly production."""
-    return ".env.production" if profile == "production" else ".env"
-
-
 load_dotenv(_DIR / env_file_for_profile(os.getenv("APP_PROFILE", "demo")))
 
 app = FastAPI(
-    title="Molly History Draft (synthetic OpenAI build)",
+    title="Molly History Draft",
     description=(
-        "Learning/build runtime on OpenAI — synthetic data only. "
+        "Demo profile (APP_PROFILE unset): OpenAI, synthetic data only. "
+        "Production profile (APP_PROFILE=production): BastionGPT API v2.0 under BAA. "
         "Pipeline: /extract → /conflicts → /draft/history. "
         "/ask runs that pipeline under the course-assignment contract. "
         "/ingest classifies a raw document for user confirmation (never silent). "
-        "Production drafting for real cases runs on BastionGPT (BAA), not this repo."
+        "POST /case/purge deletes local artifacts and Langfuse traces for a case_id."
     ),
 )
-provider = ModelProvider()
+_backend = backend_for_profile()
+set_active_backend(_backend)
+provider = ModelProvider(backend=_backend)
 
 
 def _plant_bad_age_section(body: AskRequest) -> ReportSection:
@@ -270,16 +278,40 @@ def _assemble_fixture_001_ask() -> dict:
 
 
 @app.get("/health")
-def health() -> dict[str, str]:
+def health() -> dict[str, object]:
+    snap = posture()
+    bastion = snap["backend"] == "bastion"
     return {
         "status": "ok",
-        "runtime": "openai-synthetic-only",
-        "production": "bastiongpt-baa-not-this-repo",
+        "runtime": "bastiongpt-api-v2.0" if bastion else "openai-synthetic-only",
+        "production": (
+            "bastiongpt-baa-this-instance" if bastion else "bastiongpt-baa-not-this-repo"
+        ),
         "pipeline": "extract→conflicts→draft",
+        "profile": snap["profile"],
+        "backend": snap["backend"],
+        "restricted_allowed": snap["restricted_allowed"],
+        "posture": snap["label"],
     }
 
 
+@app.post("/case/purge")
+def case_purge_endpoint(body: CasePurgeRequest) -> CasePurgeResponse:
+    """Delete local artifacts and Langfuse traces for one case_id."""
+
+    def _run() -> CasePurgeResponse:
+        assert_request_permitted(body)
+        try:
+            result = purge_case(body.case_id)
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail="invalid case_id") from exc
+        return CasePurgeResponse.model_validate(result)
+
+    return run_logged_stage("case_purge", _run)
+
+
 @app.post("/ingest")
+@observe(name="stage.ingest")
 def ingest(body: IngestRequest) -> IngestResponse:
     """
     Classify one raw document → {source_type, source_date, label, doc_class} for confirmation.
@@ -288,28 +320,42 @@ def ingest(body: IngestRequest) -> IngestResponse:
     enters the case packet. A wrong date is a provenance failure.
     """
 
-    model = body.model or "gpt-4o-mini"
-    start = time.perf_counter()
-    try:
-        suggestion, tokens, prompt_tok, completion_tok = classify_document(
-            provider,
-            content=body.content,
-            model=model,
-            today=date.today().isoformat(),
-        )
-    except (ValidationError, ValueError) as exc:
-        raise HTTPException(status_code=502, detail=f"Ingest failed: {exc}") from exc
+    def _run() -> IngestResponse:
+        assert_request_permitted(body)
+        model = body.model or "gpt-4o-mini"
 
-    return IngestResponse(
-        suggestion=suggestion,
-        tokens_used=tokens,
-        model=model,
-        latency_ms=int((time.perf_counter() - start) * 1000),
-        cost_usd=round(compute_cost_usd(model, prompt_tok, completion_tok), 6),
-    )
+        def _attempt(_attempt_i: int) -> IngestResponse:
+            start = time.perf_counter()
+            suggestion, tokens, prompt_tok, completion_tok = classify_document(
+                provider,
+                content=body.content,
+                model=model,
+                today=date.today().isoformat(),
+            )
+            return IngestResponse(
+                suggestion=suggestion,
+                tokens_used=tokens,
+                model=model,
+                latency_ms=int((time.perf_counter() - start) * 1000),
+                cost_usd=round(compute_cost_usd(model, prompt_tok, completion_tok), 6),
+            )
+
+        with label_run(
+            session_id=body.case_id,
+            tags=["app", "ingest"],
+            environment=app_environment(),
+            metadata={"package": "ingest", "model": model, "case_id": body.case_id},
+        ):
+            return run_with_validation_retries(
+                _attempt,
+                failure_prefix="Ingest failed validation after retry",
+            )
+
+    return run_logged_stage("ingest", _run)
 
 
 @app.post("/extract")
+@observe(name="stage.extract")
 def extract(body: ExtractRequest) -> ExtractResponse:
     """
     Build or grow a case Ledger: one model call per new source, atomic facts only.
@@ -319,62 +365,75 @@ def extract(body: ExtractRequest) -> ExtractResponse:
     Returns ledger + gap_report + timelines (computed view). Nothing persisted.
     """
 
-    model = body.model or DEFAULT_MODEL
-    start = time.perf_counter()
-    try:
-        (
-            ledger,
-            tokens_by_source,
-            prompt_tokens,
-            completion_tokens,
-            review,
-            subject_review,
-            gap_report,
-            timelines,
-        ) = build_ledger(
-            provider,
-            child=body.child,
-            sources=body.sources,
-            model=model,
-            prior_ledger=body.prior_ledger,
-        )
-    except (ValidationError, ValueError) as exc:
-        raise HTTPException(status_code=502, detail=f"Extraction failed: {exc}") from exc
+    def _run() -> ExtractResponse:
+        assert_request_permitted(body)
+        model = body.model or DEFAULT_MODEL
 
-    tokens_used = sum(tokens_by_source.values())
-    cost_usd = compute_cost_usd(model, prompt_tokens, completion_tokens)
-
-    entailment_failures = []
-    if not body.skip_entailment:
-        entailment_model = body.entailment_model or "gpt-4o-mini"
-        new_source_ids = {s.id for s in body.sources}
-        entailment_failures, e_total, e_prompt, e_completion = (
-            validate_ledger_entailment(
+        def _attempt(_attempt_i: int) -> ExtractResponse:
+            start = time.perf_counter()
+            (
+                ledger,
+                tokens_by_source,
+                prompt_tokens,
+                completion_tokens,
+                review,
+                subject_review,
+                gap_report,
+                timelines,
+            ) = build_ledger(
                 provider,
-                model=entailment_model,
-                ledger=ledger,
-                source_ids=new_source_ids,
+                child=body.child,
+                sources=body.sources,
+                model=model,
+                prior_ledger=body.prior_ledger,
             )
-        )
-        tokens_used += e_total
-        cost_usd += compute_cost_usd(entailment_model, e_prompt, e_completion)
+            tokens_used = sum(tokens_by_source.values())
+            cost_usd = compute_cost_usd(model, prompt_tokens, completion_tokens)
 
-    latency_ms = int((time.perf_counter() - start) * 1000)
-    return ExtractResponse(
-        ledger=ledger,
-        gap_report=gap_report,
-        timelines=timelines,
-        anchor_drift=check_anchor_drift(ledger),
-        entailment_failures=entailment_failures,
-        undersplit_findings=detect_undersplit_facts(ledger),
-        tokens_used=tokens_used,
-        model=model,
-        latency_ms=latency_ms,
-        cost_usd=round(cost_usd, 6),
-        tokens_by_source=tokens_by_source,
-        predicates_for_review=review,
-        subjects_for_review=subject_review,
-    )
+            entailment_failures = []
+            if not body.skip_entailment:
+                entailment_model = body.entailment_model or "gpt-4o-mini"
+                new_source_ids = {s.id for s in body.sources}
+                entailment_failures, e_total, e_prompt, e_completion = (
+                    validate_ledger_entailment(
+                        provider,
+                        model=entailment_model,
+                        ledger=ledger,
+                        source_ids=new_source_ids,
+                    )
+                )
+                tokens_used += e_total
+                cost_usd += compute_cost_usd(entailment_model, e_prompt, e_completion)
+
+            latency_ms = int((time.perf_counter() - start) * 1000)
+            return ExtractResponse(
+                ledger=ledger,
+                gap_report=gap_report,
+                timelines=timelines,
+                anchor_drift=check_anchor_drift(ledger),
+                entailment_failures=entailment_failures,
+                undersplit_findings=detect_undersplit_facts(ledger),
+                tokens_used=tokens_used,
+                model=model,
+                latency_ms=latency_ms,
+                cost_usd=round(cost_usd, 6),
+                tokens_by_source=tokens_by_source,
+                predicates_for_review=review,
+                subjects_for_review=subject_review,
+            )
+
+        with label_run(
+            session_id=body.case_id,
+            tags=["app", "extract"],
+            environment=app_environment(),
+            metadata={"package": "extract", "model": model, "case_id": body.case_id},
+        ):
+            return run_with_validation_retries(
+                _attempt,
+                failure_prefix="Extraction failed validation after retry",
+            )
+
+    return run_logged_stage("extract", _run)
 
 
 @app.post("/conflicts")
@@ -398,6 +457,7 @@ def conflicts(body: ConflictsRequest) -> ConflictsResponse:
 
 
 @app.post("/ask")
+@observe(name="stage.ask")
 def ask(body: AskRequest) -> AskResponse:
     """
     Course-assignment contract: AskRequest in → answer + tokens_used + cost_usd.
@@ -406,42 +466,52 @@ def ask(body: AskRequest) -> AskResponse:
     in the pipeline (including per-fact entailment). Nothing persisted.
     """
 
-    model = body.model or DEFAULT_MODEL
+    def _run() -> AskResponse:
+        assert_request_permitted(body)
+        model = body.model or DEFAULT_MODEL
 
-    # force_bad_age burns attempt 0; keep headroom for age/provenance retries.
-    max_attempts = 3 if body.force_bad_age else VALIDATION_RETRY_ATTEMPTS
+        # force_bad_age burns attempt 0; keep headroom for age/provenance retries.
+        max_attempts = 3 if body.force_bad_age else VALIDATION_RETRY_ATTEMPTS
 
-    def _attempt(attempt: int) -> AskResponse:
-        start = time.perf_counter()
+        def _attempt(attempt: int) -> AskResponse:
+            start = time.perf_counter()
 
-        if body.force_bad_age and attempt == 0:
-            section = _plant_bad_age_section(body)
-            tokens_used = 0
-            cost_usd = 0.0
-            expected_age = validate_age_consistency(
-                section,
-                dob=body.child.dob,
-                evaluation_date=body.child.evaluation_date,
+            if body.force_bad_age and attempt == 0:
+                section = _plant_bad_age_section(body)
+                tokens_used = 0
+                cost_usd = 0.0
+                expected_age = validate_age_consistency(
+                    section,
+                    dob=body.child.dob,
+                    evaluation_date=body.child.evaluation_date,
+                )
+                validate_provenance(section, body.sources)
+            else:
+                section, tokens_used, cost_usd, expected_age = _run_pipeline(body, model)
+
+            latency_ms = int((time.perf_counter() - start) * 1000)
+            return AskResponse(
+                answer=section,
+                tokens_used=tokens_used,
+                model=model,
+                latency_ms=latency_ms,
+                cost_usd=round(cost_usd, 6),
+                age_years_expected=expected_age,
             )
-            validate_provenance(section, body.sources)
-        else:
-            section, tokens_used, cost_usd, expected_age = _run_pipeline(body, model)
 
-        latency_ms = int((time.perf_counter() - start) * 1000)
-        return AskResponse(
-            answer=section,
-            tokens_used=tokens_used,
-            model=model,
-            latency_ms=latency_ms,
-            cost_usd=round(cost_usd, 6),
-            age_years_expected=expected_age,
-        )
+        with label_run(
+            session_id=body.case_id,
+            tags=["app", "ask"],
+            environment=app_environment(),
+            metadata={"package": "ask", "model": model, "case_id": body.case_id},
+        ):
+            return run_with_validation_retries(
+                _attempt,
+                max_attempts=max_attempts,
+                failure_prefix="Draft failed validation after retry",
+            )
 
-    return run_with_validation_retries(
-        _attempt,
-        max_attempts=max_attempts,
-        failure_prefix="Draft failed validation after retry",
-    )
+    return run_logged_stage("ask", _run)
 
 
 # Reason for Referral vertical slice — separate router; do not fold into /draft.

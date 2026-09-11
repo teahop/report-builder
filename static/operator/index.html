@@ -36,6 +36,7 @@
     </div>
     <div style="margin-left:auto;display:flex;align-items:center;gap:16px">
       <span style="font-size:12px;color:#6E6258">{{ liveStatus }}</span>
+      <button onClick="{{ purgeCase }}" style="{{ purgeStyle }}">Delete case data</button>
       <a href="/brief" style="font-size:13px;font-weight:500;color:#6E6258;border:1px solid #DCD2C6;border-radius:999px;padding:4px 12px;text-decoration:none">brief</a>
       <a href="/memory" title="read-only voice store" style="font-size:13px;font-weight:500;color:#6E6258;border:1px solid #DCD2C6;border-radius:999px;padding:4px 12px;text-decoration:none">voice store → read-only</a>
     </div>
@@ -444,7 +445,7 @@ class Component extends DCLogic {
         const packet = await OL.loadPacket(cid);
         live = OL.applyPacket(live, packet);
       }
-      const payload = await OL.extractLedger(live.child, live.sources);
+      const payload = await OL.extractLedger(live.child, live.sources, cid);
       const n = (payload.ledger.facts || []).length;
       this.patchLive(cid, (cur) => {
         Object.assign(cur, live);
@@ -515,12 +516,13 @@ class Component extends DCLogic {
       let resp;
       let outcome = "accepted";
       if (section === "referral") {
-        resp = await OL.draftReferral(live.ledger);
+        resp = await OL.draftReferral(live.ledger, cid);
         mapped = OL.mapReferral(resp);
         outcome = mapped.status;
       } else {
         resp = await OL.draftHistory(live.ledger, live.conflicts, live.variance, {
           skipEntailment: skipEntailment,
+          caseId: cid,
         });
         mapped = OL.mapHistory(resp, { skipEntailment: skipEntailment });
         outcome = mapped.status;
@@ -545,6 +547,51 @@ class Component extends DCLogic {
       });
     } finally {
       this.setState((s) => ({ running: Object.assign({}, s.running, { [key]: false }) }));
+    }
+  }
+
+  async purgeCaseLive() {
+    const cid = this.state.caseId;
+    const OL = window.OperatorLive;
+    if (!cid) return;
+    const ok = window.confirm(
+      "Delete all local artifacts and Langfuse traces for case " +
+        cid +
+        "? This cannot be undone."
+    );
+    if (!ok) {
+      this.patchLive(cid, (cur) => { cur.statusLine = "Delete cancelled."; });
+      return;
+    }
+    this.patchLive(cid, (cur) => { cur.statusLine = "Deleting case data…"; });
+    try {
+      const result = await OL.purgeCase(cid);
+      this.setState((s) => {
+        const live = Object.assign({}, s.live || {});
+        delete live[cid];
+        const extra = Object.assign({}, s.extraFiles || {});
+        extra[cid] = [];
+        const running = Object.assign({}, s.running || {});
+        Object.keys(running).forEach((k) => {
+          if (k.indexOf(cid) === 0) delete running[k];
+        });
+        return {
+          live,
+          extraFiles: extra,
+          running,
+          pin: null,
+          tab: "ingest",
+          liveStatus:
+            "Deleted case " +
+            result.case_id +
+            " · local " +
+            (result.local_deleted || []).length +
+            " · traces " +
+            result.langfuse_traces_deleted,
+        };
+      });
+    } catch (err) {
+      this.patchLive(cid, (cur) => { cur.statusLine = String(err.message || err); });
     }
   }
 
@@ -808,6 +855,10 @@ class Component extends DCLogic {
       loadCached: () => { if (canCached) this.loadCachedLive(); },
       extractLive: () => { if (gate.hasPacket) this.extractLiveRun(); },
       saveCached: () => { if (canSave) this.saveCachedLive(); },
+      purgeCase: () => { if (hasCase) this.purgeCaseLive(); },
+      purgeStyle: hasCase
+        ? "font-size:13px;font-weight:500;color:#A33D2E;border:1px solid #DCD2C6;border-radius:999px;padding:4px 12px;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif"
+        : "font-size:13px;font-weight:500;color:#C4B5A5;border:1px solid #EFE8DF;border-radius:999px;padding:4px 12px;background:transparent;cursor:not-allowed;font-family:'DM Sans',sans-serif",
       filesSummary: loaded
         ? `${allFiles.length} sources · ${narrative} narrative · ${allFiles.length - narrative} score_report`
         : "No sources loaded.",

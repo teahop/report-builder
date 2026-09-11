@@ -12,6 +12,7 @@ from typing import Literal, Self
 from pydantic import BaseModel, Field, field_validator, model_validator
 
 from predicates import ExtractPredicateName, ExtractSubjectName, UNREGISTERED_PREDICATE
+from data_gate import DataClassification
 
 
 LifeStage = Literal["birth", "infancy", "preschool", "school-age", "current"]
@@ -392,17 +393,15 @@ class SourceExtraction(BaseModel):
     facts: list[ExtractedFactDraft] = Field(default_factory=list)
 
 
-class ExtractRequest(BaseModel):
+class ExtractRequest(DataClassification):
     """
     Domain request for /extract.
 
-    confirm_synthetic must be true — this OpenAI build never accepts real cases.
+    data_class=restricted is permitted only on the production Bastion profile.
+    confirm_synthetic=true remains a transitional alias for data_class=synthetic.
     Optional prior_ledger enables incremental merge (Rev 2.2 / Stage 6.1).
     """
 
-    confirm_synthetic: Literal[True] = Field(
-        description="Must be true. Refuses real PHI/PII cases; OpenAI runtime is synthetic-only.",
-    )
     child: Child
     sources: list[Source] = Field(
         min_length=1,
@@ -976,16 +975,13 @@ class DraftResponse(BaseModel):
     age_years_expected: int | None = None
 
 
-class AskRequest(BaseModel):
+class AskRequest(DataClassification):
     """
     Domain request for /ask.
 
-    confirm_synthetic must be true — this OpenAI build never accepts real cases.
+    data_class=restricted is permitted only on the production Bastion profile.
     """
 
-    confirm_synthetic: Literal[True] = Field(
-        description="Must be true. Refuses real PHI/PII cases; OpenAI runtime is synthetic-only.",
-    )
     section: SectionName = "history"
     child: Child
     sources: list[Source] = Field(min_length=1)
@@ -1006,16 +1002,13 @@ class AskResponse(BaseModel):
     )
 
 
-class IngestRequest(BaseModel):
+class IngestRequest(DataClassification):
     """
     Classify one raw document for user confirmation before it becomes a Source.
 
     Never applied silently — caller must confirm type/date/label.
     """
 
-    confirm_synthetic: Literal[True] = Field(
-        description="Must be true. Refuses real PHI/PII cases; OpenAI runtime is synthetic-only.",
-    )
     content: str = Field(min_length=1, description="Raw document text")
     model: str | None = Field(
         default="gpt-4o-mini",

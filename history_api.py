@@ -7,6 +7,7 @@ import time
 from fastapi import APIRouter
 from langfuse import observe
 
+from data_gate import assert_request_permitted
 from history_compiler import compile_section_briefs
 from history_draft import draft_history_package
 from history_langfuse import attach_langfuse_ids
@@ -18,6 +19,7 @@ from history_schemas import (
 )
 from provider import DEFAULT_MODEL, ModelProvider
 from retries import VALIDATION_RETRY_ATTEMPTS, run_with_validation_retries
+from stage_log import run_logged_stage
 from trace_labels import app_environment, label_run
 
 
@@ -47,35 +49,39 @@ def build_history_router(provider: ModelProvider) -> APIRouter:
         are set.
         """
 
-        model = body.model or DEFAULT_MODEL
+        def _run() -> HistoryDraftResponse:
+            assert_request_permitted(body)
+            model = body.model or DEFAULT_MODEL
 
-        def _attempt(_attempt_i: int) -> HistoryDraftResponse:
-            start = time.perf_counter()
-            req = body
-            if body.model is None:
-                req = body.model_copy(update={"model": "gpt-4o-mini"})
-            response = draft_history_package(provider, req)
-            response.latency_ms = int((time.perf_counter() - start) * 1000)
-            if not response.model:
-                response.model = model
-            return attach_langfuse_ids(response)
+            def _attempt(_attempt_i: int) -> HistoryDraftResponse:
+                start = time.perf_counter()
+                req = body
+                if body.model is None:
+                    req = body.model_copy(update={"model": "gpt-4o-mini"})
+                response = draft_history_package(provider, req)
+                response.latency_ms = int((time.perf_counter() - start) * 1000)
+                if not response.model:
+                    response.model = model
+                return attach_langfuse_ids(response)
 
-        # App traffic, not a measurement. The environment label is what keeps demo
-        # clicks on Render out of eval aggregates.
-        with label_run(
-            tags=["app", "history"],
-            environment=app_environment(),
-            metadata={
-                "package": "history_draft",
-                "model": model,
-                "structure_spec_id": body.structure_spec_id,
-                "skip_entailment": body.skip_entailment,
-            },
-        ):
-            return run_with_validation_retries(
-                _attempt,
-                max_attempts=VALIDATION_RETRY_ATTEMPTS,
-                failure_prefix="History package draft failed validation after retry",
-            )
+            with label_run(
+                session_id=body.case_id,
+                tags=["app", "history"],
+                environment=app_environment(),
+                metadata={
+                    "package": "history_draft",
+                    "model": model,
+                    "structure_spec_id": body.structure_spec_id,
+                    "skip_entailment": body.skip_entailment,
+                    "case_id": body.case_id,
+                },
+            ):
+                return run_with_validation_retries(
+                    _attempt,
+                    max_attempts=VALIDATION_RETRY_ATTEMPTS,
+                    failure_prefix="History package draft failed validation after retry",
+                )
+
+        return run_logged_stage("draft_history", _run)
 
     return router

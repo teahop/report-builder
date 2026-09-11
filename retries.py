@@ -40,7 +40,7 @@ def run_with_validation_retries(
         try:
             return operation(attempt)
         except (ValidationError, ValueError) as exc:
-            last_error = str(exc)
+            last_error = type(exc).__name__
             continue
 
     raise HTTPException(

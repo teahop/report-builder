@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from main import env_file_for_profile
+from profile import env_file_for_profile
 
 
 def test_production_profile_loads_production_env() -> None:

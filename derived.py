@@ -1,8 +1,13 @@
 """Derived facts — general provenance for values computed from other inputs.
 
+**Live. Not deprecated.** WP2b (2026-09-11) disposition: keep.
+
 Age is the first instance; the same path covers elapsed time, grade-for-age,
 index discrepancies, and composite scores later. Extraction never invents these
 rows — they are injected at ledger-build time.
+
+Callers: ``extract.py`` (inject at ledger-build), ``validators.py`` (recompute),
+``coverage.py``, ``undersplit.py``, ``draft_validators.py``, ``history_align.py``.
 
 Verification:
   extracted facts  → entailment against source text

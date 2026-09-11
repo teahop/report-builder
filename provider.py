@@ -22,7 +22,8 @@ from pydantic import BaseModel, ValidationError
 T = TypeVar("T", bound=BaseModel)
 
 DEFAULT_MODEL = "gpt-4o"
-BASTION_MODEL = "bastiongpt-auto"
+BASTION_MODEL = "bastiongpt-auto"  # Label only — the API has no model field.
+BASTION_API_VERSION = "2.0"
 BASTION_BASE_URL = "https://api.bastiongpt.com"
 BASTION_CHAT_PATH = "/v1/ChatCompletion"
 BASTION_DEFAULT_MAX_TOKENS = 8192
@@ -191,6 +192,10 @@ class ModelProvider:
         else:
             self._client = client
 
+    @property
+    def backend(self) -> str:
+        return self._backend
+
     def complete_structured(
         self,
         *,
@@ -215,6 +220,12 @@ class ModelProvider:
                 schema=schema,
                 temperature=temperature,
                 max_tokens=max_tokens,
+            )
+        from profile import profile as app_profile
+
+        if app_profile() == "production":
+            raise RuntimeError(
+                "production profile cannot call OpenAI; Bastion is the only production backend"
             )
         kwargs: dict = {
             "model": model,
@@ -314,7 +325,7 @@ class ModelProvider:
             parsed = schema.model_validate(obj)
         except (ValueError, ValidationError, json.JSONDecodeError) as exc:
             raise BastionParseError(
-                f"BastionGPT JSON-mode parse failed for {schema.__name__}: {exc}",
+                f"BastionGPT JSON-mode parse failed for {schema.__name__}",
                 raw_text=raw_text,
                 finish_reason=finish_reason,
                 response_id=response_id,

@@ -10,11 +10,11 @@ She reviews and signs — the tool drafts, never decides.
 
 | Runtime | What it is | What data it may see |
 |---------|------------|----------------------|
-| **This repo (OpenAI via `OPENAI_API_KEY`)** | Learning / build sandbox | **Synthetic / de-identified fixtures only** |
-| **BastionGPT (BAA)** | Production drafting for real cases | Covered under your BAA — **not this repo** |
+| **Demo profile** (`APP_PROFILE` unset; Render) | OpenAI via `OPENAI_API_KEY` | **Synthetic / de-identified fixtures only** |
+| **Production profile** (`APP_PROFILE=production`; Molly's machine) | BastionGPT API v2.0 (BAA) | Real case files. OpenAI is never used on this profile. |
 
-Every request must set `"confirm_synthetic": true`. Missing/false → refuse before any model call.
-Nothing is persisted — the ledger is returned to the caller, never stored.
+Restricted data is permitted only on the production Bastion profile. `confirm_synthetic: true` remains a transitional alias for `data_class: "synthetic"`. Missing/unknown class fails closed.
+Nothing is persisted by the service — the ledger is returned to the caller. Use `POST /case/purge` to delete local artifacts and Langfuse traces for a `case_id`.
 
 **Stranger brief (live):** [https://report-builder-wc2k.onrender.com/brief](https://report-builder-wc2k.onrender.com/brief) — problem, architecture, stack, TRACE, memory, Demo Day walkthrough.
 
@@ -39,14 +39,15 @@ sources → /extract → LEDGER + gap_report + timelines
 | Draft | `POST /draft/history` | one call per populated section + entailment | History package + voice gate + review |
 | Referral draft | `POST /draft/referral` | 0 if incomplete; else 1 draft call | Reason for Referral prose **or** typed context-completion items |
 | Ask | `POST /ask` | full pipeline | Course contract: `answer`, `tokens_used`, `cost_usd` (internally `/draft/history`) |
+| Purge | `POST /case/purge` | none | Delete local `local_store/cases/{case_id}` artifacts and Langfuse traces for that session |
 
-`/ask` keeps its request/response shape, but internally runs extract → conflicts → `/draft/history`. Legacy `POST /draft` is retired.
+`/ask` keeps its request/response shape, but internally runs extract → conflicts → `/draft/history`. Legacy `POST /draft` is retired. `derived.py` is **live** (age/DOB rows at ledger-build) — not a WP2b delete candidate.
 
 The ruling ledger (`DECISIONS.md`) stays in the parent workspace, outside this repository, by design; `voice_store.json` is what ships. Runtime `/memory` treats a missing ledger as local-by-design.
 
 ## Stack
 
-FastAPI · OpenAI (synthetic-only on this host) · Langfuse · `voice_store.json` · pytest and smoke traces · Render. Not LangGraph, not ADK, not a vector RAG store. The case “memory” for a request is the fact ledger; clinician voice rules are the compiled store.
+FastAPI · OpenAI (**demo/synthetic only**) · BastionGPT (**production**) · Langfuse · `voice_store.json` · pytest and smoke traces · Render (demo). Not LangGraph, not ADK, not a vector RAG store. The case “memory” for a request is the fact ledger; clinician voice rules are the compiled store.
 
 ## Setup
 
@@ -159,15 +160,16 @@ History smoke (cached fixture_001 ledger): `python evals/history/run_smoke.py`
 
 ```
 .
-├── main.py                 # /ingest /extract /conflicts /draft/history /draft/referral /ask /memory /operator
+├── main.py                 # /ingest /extract /conflicts /draft/history /draft/referral /ask /case/purge /memory /operator
 ├── extract.py / conflicts.py / draft.py / ingest.py / coverage.py / derived.py
+├── case_purge.py / data_gate.py / profile.py / stage_log.py
 ├── history_draft.py / history_compiler.py / history_api.py / draft_output.py
 ├── voice_store.py / voice_store.json
 ├── voice_recall.py / prove_voice_recall.py
 ├── memory_api.py / static/memory.html
 ├── history_fewshots/       # phase-1 approved excerpts (positive voice channel)
 ├── schemas.py / predicates.py / validators.py / draft_validators.py
-├── provider.py             # sole OpenAI client import (default); Bastion opt-in
+├── provider.py             # demo OpenAI; production Bastion API v2.0 (no model field)
 ├── static/index.html       # pipeline-visible demo UI
 ├── static/brief.html       # Demo Day one-pager (GET /brief)
 ├── static/operator/        # Phase 1 operator console (GET /operator/)
