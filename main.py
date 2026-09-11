@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import time
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -51,7 +52,14 @@ _FIXTURES = _DIR / "fixtures"
 _OPERATOR = _DIR / "static" / "operator"
 _CACHE_LEDGER_001 = _DIR / "evals" / "cache" / "fixture_001_ledger.json"
 _CACHE_001_CHILD_NAME = "Emma Rose Callahan"
-load_dotenv(_DIR / ".env")
+
+
+def env_file_for_profile(profile: str | None) -> str:
+    """Demo `.env` unless APP_PROFILE is exactly production."""
+    return ".env.production" if profile == "production" else ".env"
+
+
+load_dotenv(_DIR / env_file_for_profile(os.getenv("APP_PROFILE", "demo")))
 
 app = FastAPI(
     title="Molly History Draft (synthetic OpenAI build)",
