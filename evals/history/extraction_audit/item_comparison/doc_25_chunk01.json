@@ -180,10 +180,10 @@
       },
       "legacy_match": "value_text_match",
       "legacy_ledger_fact": {
-        "id": "f_doc_25_008",
+        "id": "f_doc_25_012",
         "predicate": "developmental_history",
         "value": "typical",
-        "value_text": "met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs",
+        "value_text": "Emma Rose Callahan met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs",
         "assertion": "asserted",
         "as_of_date": "2019-05-29",
         "reporter": null
@@ -242,8 +242,16 @@
         "valence": "neutral",
         "source_section": null
       },
-      "legacy_match": "fact_id_collision_different_content",
-      "legacy_ledger_fact": null,
+      "legacy_match": "value_text_match",
+      "legacy_ledger_fact": {
+        "id": "f_doc_25_011",
+        "predicate": "medications",
+        "value": "1mg guanfacine, 2.5mg melatonin, 5mg singular",
+        "value_text": "Emma Rose Callahan takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night",
+        "assertion": "asserted",
+        "as_of_date": "2019-05-29",
+        "reporter": null
+      },
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     },
@@ -300,12 +308,12 @@
       },
       "legacy_match": "value_text_match",
       "legacy_ledger_fact": {
-        "id": "f_doc_25_011",
+        "id": "f_doc_25_010",
         "predicate": "allergy_status",
         "value": "known",
         "value_text": "Emma Rose Callahan has a history of seasonal allergies",
         "assertion": "asserted",
-        "as_of_date": "2019-05-29",
+        "as_of_date": "2019-04-25",
         "reporter": null
       },
       "latest_human_item_review": null,
@@ -362,16 +370,8 @@
         "valence": "concern",
         "source_section": null
       },
-      "legacy_match": "value_text_match",
-      "legacy_ledger_fact": {
-        "id": "f_doc_25_013",
-        "predicate": "behavioral_concern",
-        "value": "learning problems",
-        "value_text": "ongoing concerns with difficulty sustaining attention, following directions, and focusing in the classroom",
-        "assertion": "asserted",
-        "as_of_date": "2019-05-29",
-        "reporter": null
-      },
+      "legacy_match": "fact_id_collision_different_content",
+      "legacy_ledger_fact": null,
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     },
@@ -428,10 +428,10 @@
       },
       "legacy_match": "value_text_match",
       "legacy_ledger_fact": {
-        "id": "f_doc_25_012",
+        "id": "f_doc_25_013",
         "predicate": "behavioral_concern",
         "value": "inattention",
-        "value_text": "demonstrates clinically significant levels of inattention in both the home and school setting",
+        "value_text": "Emma Rose Callahan demonstrates clinically significant levels of inattention in both the home and school setting",
         "assertion": "asserted",
         "as_of_date": "2019-05-29",
         "reporter": null
@@ -592,7 +592,7 @@
         "valence": "neutral",
         "source_section": null
       },
-      "legacy_match": "no_legacy_match",
+      "legacy_match": "fact_id_collision_different_content",
       "legacy_ledger_fact": null,
       "latest_human_item_review": null,
       "invalidated_review_count": 0

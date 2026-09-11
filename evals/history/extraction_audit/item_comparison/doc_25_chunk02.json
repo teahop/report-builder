@@ -290,8 +290,16 @@
         "valence": "neutral",
         "source_section": null
       },
-      "legacy_match": "fact_id_collision_different_content",
-      "legacy_ledger_fact": null,
+      "legacy_match": "value_text_match",
+      "legacy_ledger_fact": {
+        "id": "f_doc_25_020",
+        "predicate": "intervention_tier",
+        "value": "general education with accommodations and specialized academic instruction",
+        "value_text": "The IEP team concluded the least restrictive placement is a combination of General Education with accommodations and Specialized Academic Instruction (SAI) support outside of the General Education classroom",
+        "assertion": "asserted",
+        "as_of_date": "2019-04-25",
+        "reporter": null
+      },
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     },
@@ -384,8 +392,16 @@
         "valence": "neutral",
         "source_section": null
       },
-      "legacy_match": "fact_id_collision_different_content",
-      "legacy_ledger_fact": null,
+      "legacy_match": "value_text_match",
+      "legacy_ledger_fact": {
+        "id": "f_doc_25_021",
+        "predicate": "service_requirement",
+        "value": "short-term counseling",
+        "value_text": "Short-term counseling with the school psychologist/counselor to review self-regulation strategies, coping techniques, and check-in during transition for fourth grade year",
+        "assertion": "asserted",
+        "as_of_date": "2019-04-25",
+        "reporter": null
+      },
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     }

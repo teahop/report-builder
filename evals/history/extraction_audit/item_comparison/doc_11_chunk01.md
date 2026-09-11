@@ -219,7 +219,7 @@ _None recorded yet. Use the complete source chunk above to find omissions._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_001` · predicate=`legal_name` · value=`Emma Rose Callahan` · value_text="Emma Rose Callahan is a pleasure to have in class." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (fact_id_collision_different_content): _none_
+- legacy cache (value_text_match): `f_doc_11_007` · predicate=`legal_name` · value=`Emma Rose Callahan` · value_text="Emma Rose Callahan is a pleasure to have in class." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
 
 ### 5. Human item review (append-only)
 
@@ -247,7 +247,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_002` · predicate=`age_years` · value=`14` · value_text="Birthdate: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (value_text_match): `f_doc_11_002` · predicate=`dob` · value=`2010-03-22` · value_text="Birthdate: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
+- legacy cache (value_text_match): `f_doc_11_001` · predicate=`dob` · value=`2010-03-22` · value_text="Birthdate: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2010-03-22`
 
 ### 5. Human item review (append-only)
 
@@ -362,7 +362,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_006` · predicate=`medications` · value=`hypothyroid medication` · value_text="Emma Rose Callahan was diagnosed with hypothyroid and is on medication." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (value_text_match): `f_doc_11_010` · predicate=`medications` · value=`geodon, gum, hypothyroid medication, trileptal, vyvance` · value_text="Emma Rose Callahan was diagnosed with hypothyroid and is on medication.; She takes the medications Geodon, Trileptal, and Vyvance.; gum - to help with focus/attention/alertness" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
+- legacy cache (value_text_match): `f_doc_11_010` · predicate=`medications` · value=`geodon, hypothyroid medication, trileptal, vyvance` · value_text="Emma Rose Callahan was diagnosed with hypothyroid and is on medication.; She takes the medications Geodon, Trileptal, and Vyvance." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
 
 ### 5. Human item review (append-only)
 
@@ -390,7 +390,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_007` · predicate=`behavioral_concern` · value=`shy` · value_text="Emma Rose Callahan's behavior is adaptive and does not impede her learning. She is shy which impacts her ability to ask for help." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (value_text_match): `f_doc_11_012` · predicate=`basic_reading` · value=`average` · value_text="Emma Rose Callahan's behavior is adaptive and does not impede her learning." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
+- legacy cache (fact_id_collision_different_content): _none_
 
 ### 5. Human item review (append-only)
 

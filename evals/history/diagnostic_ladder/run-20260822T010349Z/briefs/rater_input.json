@@ -1,0 +1,1482 @@
+{
+  "child": {
+    "dob": "2010-03-22",
+    "evaluation_date": "2025-07-11",
+    "name": "Emma Rose Callahan"
+  },
+  "display_label": "Student / Caregiver / Teacher Input",
+  "eligible_blocks": [
+    {
+      "block_key": "student_input:doc_21",
+      "display_label": "Student/Client/Patient Input \u2014 Student profile and interview",
+      "fact_ids": [
+        "f_doc_21_003",
+        "f_doc_21_004",
+        "f_doc_21_005",
+        "f_doc_21_006",
+        "f_doc_21_007",
+        "f_doc_21_008"
+      ],
+      "kind": "prose",
+      "legacy_trigger": null,
+      "purpose": "rater_input"
+    },
+    {
+      "block_key": "caregiver_input:mom",
+      "display_label": "Parent/Caregiver Input \u2014 Mom",
+      "fact_ids": [
+        "f_doc_25_004",
+        "f_doc_25_005",
+        "f_doc_25_006",
+        "f_doc_25_007",
+        "f_doc_25_008",
+        "f_doc_25_009",
+        "f_doc_25_010",
+        "f_doc_25_011",
+        "f_doc_25_012",
+        "f_doc_25_013",
+        "f_doc_25_014",
+        "f_doc_25_015",
+        "f_doc_25_016",
+        "f_doc_25_017",
+        "f_doc_25_018",
+        "f_doc_25_019",
+        "f_doc_25_020",
+        "f_doc_25_021",
+        "f_doc_25_022",
+        "f_doc_25_023",
+        "f_doc_25_024",
+        "f_doc_25_025",
+        "f_doc_25_026",
+        "f_doc_25_027",
+        "f_doc_25_028",
+        "f_doc_25_029",
+        "f_doc_25_030",
+        "f_doc_25_031"
+      ],
+      "kind": "prose",
+      "legacy_trigger": null,
+      "purpose": "rater_input"
+    }
+  ],
+  "episodes_by_block": {
+    "caregiver_input:mom": [
+      {
+        "as_of_date": "2019-04-25",
+        "episode_id": "ep_doc_25_01",
+        "fact_ids": [
+          "f_doc_25_022",
+          "f_doc_25_023",
+          "f_doc_25_024",
+          "f_doc_25_027",
+          "f_doc_25_028"
+        ],
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null
+      },
+      {
+        "as_of_date": "2019-04-25",
+        "episode_id": "ep_doc_25_02",
+        "fact_ids": [
+          "f_doc_25_030",
+          "f_doc_25_031"
+        ],
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP TEAM MEETING NOTES"
+      },
+      {
+        "as_of_date": "2019-04-25",
+        "episode_id": "ep_doc_25_03",
+        "fact_ids": [
+          "f_doc_25_015"
+        ],
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP \u2014 Fairhaven initial (4th grade)"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "episode_id": "ep_doc_25_04",
+        "fact_ids": [
+          "f_doc_25_004",
+          "f_doc_25_005",
+          "f_doc_25_006",
+          "f_doc_25_007",
+          "f_doc_25_008",
+          "f_doc_25_009",
+          "f_doc_25_010",
+          "f_doc_25_011",
+          "f_doc_25_012",
+          "f_doc_25_013",
+          "f_doc_25_025",
+          "f_doc_25_026"
+        ],
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "episode_id": "ep_doc_25_05",
+        "fact_ids": [
+          "f_doc_25_014",
+          "f_doc_25_016",
+          "f_doc_25_017",
+          "f_doc_25_019",
+          "f_doc_25_020",
+          "f_doc_25_021"
+        ],
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP \u2014 Fairhaven initial (4th grade)"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "episode_id": "ep_doc_25_06",
+        "fact_ids": [
+          "f_doc_25_029"
+        ],
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "OFFER OF FAPE - EDUCATIONAL SETTING"
+      },
+      {
+        "as_of_date": "2019-11-19",
+        "episode_id": "ep_doc_25_07",
+        "fact_ids": [
+          "f_doc_25_018"
+        ],
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP \u2014 Fairhaven initial (4th grade)"
+      }
+    ],
+    "student_input:doc_21": [
+      {
+        "as_of_date": "2025-04-19",
+        "episode_id": "ep_doc_21_01",
+        "fact_ids": [
+          "f_doc_21_003",
+          "f_doc_21_004",
+          "f_doc_21_005",
+          "f_doc_21_006",
+          "f_doc_21_007",
+          "f_doc_21_008"
+        ],
+        "source_date": "2025-04-19",
+        "source_id": "doc_21",
+        "source_label": "Student profile and interview",
+        "source_section": null
+      }
+    ]
+  },
+  "exclusions": [
+    {
+      "as_of_date": "2025-04-19",
+      "destination": "rater_input:doc_21",
+      "fact_id": "f_doc_21_001",
+      "predicate": "legal_name",
+      "reason": "header_only_identity_or_current_age",
+      "source_date": "2025-04-19",
+      "source_id": "doc_21",
+      "source_label": "Student profile and interview",
+      "value_text": "Name:  \tEmma Rose Callahan"
+    },
+    {
+      "as_of_date": "2010-03-22",
+      "destination": "rater_input:doc_21",
+      "fact_id": "f_doc_21_002",
+      "predicate": "dob",
+      "reason": "header_only_identity_or_current_age",
+      "source_date": "2025-04-19",
+      "source_id": "doc_21",
+      "source_label": "Student profile and interview",
+      "value_text": "Birthday: 3/22/10"
+    },
+    {
+      "as_of_date": "2019-05-29",
+      "destination": "rater_input:mom",
+      "fact_id": "f_doc_25_001",
+      "predicate": "legal_name",
+      "reason": "header_only_identity_or_current_age",
+      "source_date": "2019-05-29",
+      "source_id": "doc_25",
+      "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+      "value_text": "Student Legal Name: Emma Rose Callahan"
+    },
+    {
+      "as_of_date": "2010-03-22",
+      "destination": "rater_input:mom",
+      "fact_id": "f_doc_25_002",
+      "predicate": "dob",
+      "reason": "header_only_identity_or_current_age",
+      "source_date": "2019-05-29",
+      "source_id": "doc_25",
+      "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+      "value_text": "Date of Birth: 3/22/10"
+    },
+    {
+      "as_of_date": "2019-05-29",
+      "destination": "rater_input:mom",
+      "fact_id": "f_doc_25_003",
+      "predicate": "age_years",
+      "reason": "header_only_identity_or_current_age",
+      "source_date": "2019-05-29",
+      "source_id": "doc_25",
+      "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+      "value_text": "Age: 8 year(s) 10 months"
+    }
+  ],
+  "facts_by_block": {
+    "caregiver_input:mom": [
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "4",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_004",
+        "grade": "4",
+        "life_stage": "school-age",
+        "predicate": "grade",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Grade: 04 Fourth grade",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "4",
+        "value_text": "Grade: 04 Fourth grade"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "active",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_005",
+        "grade": "4",
+        "life_stage": "school-age",
+        "predicate": "iep_status",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Emma Rose Callahan is eligible for special education services",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "active",
+        "value_text": "Emma Rose Callahan is eligible for special education services"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "none",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_006",
+        "grade": "4",
+        "life_stage": "school-age",
+        "predicate": "allergy_status",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "No allergies stated",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "none",
+        "value_text": "No allergies stated"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "Mom",
+        "claim": "attention deficits",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_007",
+        "grade": "4",
+        "life_stage": "school-age",
+        "predicate": "behavioral_concern",
+        "qualifier": null,
+        "reporter": "Mom",
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "attention deficits associated with her diagnosis of AD/HD",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "attention deficits",
+        "value_text": "attention deficits associated with her diagnosis of AD/HD"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "fluid reasoning",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_008",
+        "grade": "4",
+        "life_stage": "school-age",
+        "predicate": "functioning_deficit",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "weaknesses in the areas of fluid reasoning and short term recall",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "fluid reasoning",
+        "value_text": "weaknesses in the areas of fluid reasoning and short term recall"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "short term memory",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_009",
+        "grade": "4",
+        "life_stage": "school-age",
+        "predicate": "functioning_deficit",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "weaknesses in the areas of fluid reasoning and short term recall",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "short term memory",
+        "value_text": "weaknesses in the areas of fluid reasoning and short term recall"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "Mom",
+        "claim": "concern about struggles with memorization",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_010",
+        "grade": "4",
+        "life_stage": "school-age",
+        "predicate": "parental_limitations",
+        "qualifier": null,
+        "reporter": "Mom",
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Mom is concerned about her struggles with memorization",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "concern about struggles with memorization",
+        "value_text": "Mom is concerned about her struggles with memorization"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "Mom",
+        "claim": "concern about confidence",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_011",
+        "grade": "4",
+        "life_stage": "school-age",
+        "predicate": "parental_limitations",
+        "qualifier": null,
+        "reporter": "Mom",
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Mom is concerned about her confidence when it comes to pursuing a new task",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "concern about confidence",
+        "value_text": "Mom is concerned about her confidence when it comes to pursuing a new task"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "Mom",
+        "claim": "concern about processing information",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_012",
+        "grade": "4",
+        "life_stage": "school-age",
+        "predicate": "parental_limitations",
+        "qualifier": null,
+        "reporter": "Mom",
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Mom is also concerned about how Emma Rose Callahan processes information",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "concern about processing information",
+        "value_text": "Mom is also concerned about how Emma Rose Callahan processes information"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "Mom",
+        "claim": "concern about expressing herself",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_013",
+        "grade": "4",
+        "life_stage": "school-age",
+        "predicate": "parental_limitations",
+        "qualifier": null,
+        "reporter": "Mom",
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Mom mentioned that sometimes Emma Rose Callahan will have difficulty with expressing herself",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "concern about expressing herself",
+        "value_text": "Mom mentioned that sometimes Emma Rose Callahan will have difficulty with expressing herself"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "active",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_014",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "health_plan_status",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_wording": "Emma Rose Callahan takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "active",
+        "value_text": "Emma Rose Callahan takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night."
+      },
+      {
+        "as_of_date": "2019-04-25",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "known",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_015",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "allergy_status",
+        "qualifier": "seasonal",
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_wording": "Emma Rose Callahan has a history of seasonal allergies.",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "known",
+        "value_text": "Emma Rose Callahan has a history of seasonal allergies."
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "typical",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_016",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "developmental_history",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_wording": "Emma Rose Callahan met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.",
+        "subject": "child",
+        "temporality": "durable",
+        "value": "typical",
+        "value_text": "Emma Rose Callahan met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs."
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "19",
+        "confidence": "hedged",
+        "derivation": null,
+        "fact_id": "f_doc_25_017",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "walked_age_months",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_wording": "Emma Rose Callahan walked at about 19 mos.",
+        "subject": "child",
+        "temporality": "durable",
+        "value": "19",
+        "value_text": "Emma Rose Callahan walked at about 19 mos."
+      },
+      {
+        "as_of_date": "2019-11-19",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "24",
+        "confidence": "hedged",
+        "derivation": null,
+        "fact_id": "f_doc_25_018",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "first_words_age_months",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_wording": "Emma Rose Callahan talked at about 2 yrs.",
+        "subject": "child",
+        "temporality": "durable",
+        "value": "24",
+        "value_text": "Emma Rose Callahan talked at about 2 yrs."
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "36",
+        "confidence": "hedged",
+        "derivation": null,
+        "fact_id": "f_doc_25_019",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "two_word_phrases_age_months",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_wording": "Emma Rose Callahan used sentences at about 3 yrs.",
+        "subject": "child",
+        "temporality": "durable",
+        "value": "36",
+        "value_text": "Emma Rose Callahan used sentences at about 3 yrs."
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "elevated",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_020",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "behavioral_concern",
+        "qualifier": "depression",
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_wording": "Emma Rose Callahan expressed elevated levels of thoughts and behaviors associated with depression.",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "elevated",
+        "value_text": "Emma Rose Callahan expressed elevated levels of thoughts and behaviors associated with depression."
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "elevated",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_021",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "behavioral_concern",
+        "qualifier": "inattention",
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_wording": "Emma Rose Callahan demonstrates clinically significant levels of inattention in both the home and school setting.",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "elevated",
+        "value_text": "Emma Rose Callahan demonstrates clinically significant levels of inattention in both the home and school setting."
+      },
+      {
+        "as_of_date": "2019-04-25",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "4",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_022",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "written_expression",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Emma Rose Callahan will write an opinion piece with no more than 4 errors in 4 out of 5 opportunities",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "4",
+        "value_text": "Emma Rose Callahan will write an opinion piece with no more than 4 errors in 4 out of 5 opportunities"
+      },
+      {
+        "as_of_date": "2019-04-25",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "80",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_023",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "math_computation",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Emma Rose Callahan can add within 100 with 80% accuracy in 4 out of 5 opportunities",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "80",
+        "value_text": "Emma Rose Callahan can add within 100 with 80% accuracy in 4 out of 5 opportunities"
+      },
+      {
+        "as_of_date": "2019-04-25",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "93",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_024",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "math_computation",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Emma Rose Callahan can add within 100 with 93% accuracy",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "93",
+        "value_text": "Emma Rose Callahan can add within 100 with 93% accuracy"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "83",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_025",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "math_computation",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Emma Rose Callahan can subtract within 100 with 83% accuracy",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "83",
+        "value_text": "Emma Rose Callahan can subtract within 100 with 83% accuracy"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "88",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_026",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "math_computation",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Emma Rose Callahan can multiply within 100 with 88% accuracy",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "88",
+        "value_text": "Emma Rose Callahan can multiply within 100 with 88% accuracy"
+      },
+      {
+        "as_of_date": "2019-04-25",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "general education with accommodations and specialized academic instruction",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_027",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "intervention_tier",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "The IEP team concluded the least restrictive placement is a combination of General Education with accommodations and Specialized Academic Instruction (SAI) support outside of the General Education classroom",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "general education with accommodations and specialized academic instruction",
+        "value_text": "The IEP team concluded the least restrictive placement is a combination of General Education with accommodations and Specialized Academic Instruction (SAI) support outside of the General Education classroom"
+      },
+      {
+        "as_of_date": "2019-04-25",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "short-term counseling",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_028",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "service_requirement",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": null,
+        "source_wording": "Short-term counseling with the school psychologist/counselor to review self-regulation strategies, coping techniques, and check-in during transition for fourth grade year",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "short-term counseling",
+        "value_text": "Short-term counseling with the school psychologist/counselor to review self-regulation strategies, coping techniques, and check-in during transition for fourth grade year"
+      },
+      {
+        "as_of_date": "2019-05-29",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "1mg guanfacine, 2.5mg melatonin, 5mg singular",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_029",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "medications",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "OFFER OF FAPE - EDUCATIONAL SETTING",
+        "source_wording": "She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night.",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "1mg guanfacine, 2.5mg melatonin, 5mg singular",
+        "value_text": "She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night."
+      },
+      {
+        "as_of_date": "2019-04-25",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "met all developmental milestones on time except walking at about 19 mos and talking at about 2 yrs",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_030",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "developmental_history",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP TEAM MEETING NOTES",
+        "source_wording": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs.",
+        "subject": "child",
+        "temporality": "durable",
+        "value": "met all developmental milestones on time except walking at about 19 mos and talking at about 2 yrs",
+        "value_text": "She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs."
+      },
+      {
+        "as_of_date": "2019-04-25",
+        "assertion": "asserted",
+        "attribution": "IEP \u2014 Fairhaven initial (4th grade)",
+        "claim": "adopted at 19 months",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_25_031",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "trauma_history",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2019-05-29",
+        "source_id": "doc_25",
+        "source_label": "IEP \u2014 Fairhaven initial (4th grade)",
+        "source_section": "IEP TEAM MEETING NOTES",
+        "source_wording": "Emma Rose Callahan was adopted at 19 months so information on birth is limited.",
+        "subject": "child",
+        "temporality": "durable",
+        "value": "adopted at 19 months",
+        "value_text": "Emma Rose Callahan was adopted at 19 months so information on birth is limited."
+      }
+    ],
+    "student_input:doc_21": [
+      {
+        "as_of_date": "2025-04-19",
+        "assertion": "asserted",
+        "attribution": "Student profile and interview",
+        "claim": "options for youth",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_21_003",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "school_enrollment",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2025-04-19",
+        "source_id": "doc_21",
+        "source_label": "Student profile and interview",
+        "source_section": null,
+        "source_wording": "Mom, used to go to dad\u2019s and do for school- Options for Youth home school.",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "options for youth",
+        "value_text": "Mom, used to go to dad\u2019s and do for school- Options for Youth home school."
+      },
+      {
+        "as_of_date": "2025-04-19",
+        "assertion": "asserted",
+        "attribution": "Student profile and interview",
+        "claim": "social awkwardness",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_21_004",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "behavioral_concern",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2025-04-19",
+        "source_id": "doc_21",
+        "source_label": "Student profile and interview",
+        "source_section": null,
+        "source_wording": "I felt really awkward at school. I had to talk to people. I am socially awkward with everybody.",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "social awkwardness",
+        "value_text": "I felt really awkward at school. I had to talk to people. I am socially awkward with everybody."
+      },
+      {
+        "as_of_date": "2025-04-19",
+        "assertion": "denied",
+        "attribution": "Student profile and interview",
+        "claim": "none",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_21_005",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "medications",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2025-04-19",
+        "source_id": "doc_21",
+        "source_label": "Student profile and interview",
+        "source_section": null,
+        "source_wording": "Without meds it\u2019s really hard, with meds it\u2019s fine.",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "none",
+        "value_text": "Without meds it\u2019s really hard, with meds it\u2019s fine."
+      },
+      {
+        "as_of_date": "2025-04-19",
+        "assertion": "asserted",
+        "attribution": "Student profile and interview",
+        "claim": "attention",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_21_006",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "functioning_deficit",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2025-04-19",
+        "source_id": "doc_21",
+        "source_label": "Student profile and interview",
+        "source_section": null,
+        "source_wording": "cautious, yet could be impulsive often self-corrected and made errors at time due to poor attention",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "attention",
+        "value_text": "cautious, yet could be impulsive often self-corrected and made errors at time due to poor attention"
+      },
+      {
+        "as_of_date": "2025-04-19",
+        "assertion": "asserted",
+        "attribution": "Student profile and interview",
+        "claim": "learning concerns",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_21_007",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "referral_reason",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2025-04-19",
+        "source_id": "doc_21",
+        "source_label": "Student profile and interview",
+        "source_section": null,
+        "source_wording": "My mom thinks I am depressed. I stay in my room a lot and like listening to music.",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "learning concerns",
+        "value_text": "My mom thinks I am depressed. I stay in my room a lot and like listening to music."
+      },
+      {
+        "as_of_date": "2025-04-19",
+        "assertion": "asserted",
+        "attribution": "Student profile and interview",
+        "claim": "positive",
+        "confidence": "stated",
+        "derivation": null,
+        "fact_id": "f_doc_21_008",
+        "grade": null,
+        "life_stage": "current",
+        "predicate": "peer_relationships",
+        "qualifier": null,
+        "reporter": null,
+        "source_date": "2025-04-19",
+        "source_id": "doc_21",
+        "source_label": "Student profile and interview",
+        "source_section": null,
+        "source_wording": "Yes, two Mo and Samantha. I see Mo but Samantha it\u2019s harder to line up a lot.",
+        "subject": "child",
+        "temporality": "as_of",
+        "value": "positive",
+        "value_text": "Yes, two Mo and Samantha. I see Mo but Samantha it\u2019s harder to line up a lot."
+      }
+    ]
+  },
+  "fewshots": [],
+  "instruction": "Draft only the eligible_blocks, in order, using exact display_label values as DraftBlock.label. Do not invent blocks or absence filler. Evidence is grouped into source-local episodes \u2014 keep related facts together. reuse_context lists facts already used earlier \u2014 reuse for this section's purpose is allowed; copied prose is not. review_queue facts are dated after evaluation_date and must not be stated as current case evidence.",
+  "must_mention_conflicts": [
+    {
+      "fact_ids": [
+        "f_doc_25_016",
+        "f_doc_25_030"
+      ],
+      "predicate": "developmental_history",
+      "predicate_class": "record",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "developmental_history",
+      "versions": [
+        {
+          "assertion": "asserted",
+          "fact_id": "f_doc_25_016",
+          "reporter": null,
+          "source_date": "2019-05-29",
+          "source_id": "doc_25",
+          "value": "typical"
+        },
+        {
+          "assertion": "asserted",
+          "fact_id": "f_doc_25_030",
+          "reporter": null,
+          "source_date": "2019-05-29",
+          "source_id": "doc_25",
+          "value": "met all developmental milestones on time except walking at about 19 mos and talking at about 2 yrs"
+        }
+      ]
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_023",
+        "f_doc_25_024"
+      ],
+      "predicate": "math_computation",
+      "predicate_class": "record",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "math_computation",
+      "versions": [
+        {
+          "assertion": "asserted",
+          "fact_id": "f_doc_25_023",
+          "reporter": null,
+          "source_date": "2019-05-29",
+          "source_id": "doc_25",
+          "value": "80"
+        },
+        {
+          "assertion": "asserted",
+          "fact_id": "f_doc_25_024",
+          "reporter": null,
+          "source_date": "2019-05-29",
+          "source_id": "doc_25",
+          "value": "93"
+        }
+      ]
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_025",
+        "f_doc_25_026"
+      ],
+      "predicate": "math_computation",
+      "predicate_class": "record",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "math_computation",
+      "versions": [
+        {
+          "assertion": "asserted",
+          "fact_id": "f_doc_25_025",
+          "reporter": null,
+          "source_date": "2019-05-29",
+          "source_id": "doc_25",
+          "value": "83"
+        },
+        {
+          "assertion": "asserted",
+          "fact_id": "f_doc_25_026",
+          "reporter": null,
+          "source_date": "2019-05-29",
+          "source_id": "doc_25",
+          "value": "88"
+        }
+      ]
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_022"
+      ],
+      "predicate": "written_expression",
+      "predicate_class": "record",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "written_expression",
+      "versions": [
+        {
+          "assertion": "asserted",
+          "fact_id": "f_doc_25_022",
+          "reporter": null,
+          "source_date": "2019-05-29",
+          "source_id": "doc_25",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_008",
+        "f_doc_25_009"
+      ],
+      "predicate": "functioning_deficit",
+      "predicate_class": "record",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "functioning_deficit",
+      "versions": [
+        {
+          "assertion": "asserted",
+          "fact_id": "f_doc_25_008",
+          "reporter": null,
+          "source_date": "2019-05-29",
+          "source_id": "doc_25",
+          "value": "fluid reasoning"
+        },
+        {
+          "assertion": "asserted",
+          "fact_id": "f_doc_25_009",
+          "reporter": null,
+          "source_date": "2019-05-29",
+          "source_id": "doc_25",
+          "value": "short term memory"
+        }
+      ]
+    }
+  ],
+  "purpose": "rater_input",
+  "reuse_context": [],
+  "review_queue": [],
+  "section_key": "rater_input",
+  "source_labels": {
+    "doc_01": {
+      "date": "2025-12-27",
+      "label": "Assessment invoice",
+      "type": "other"
+    },
+    "doc_02": {
+      "date": "2025-04-26",
+      "label": "BASC-3 Self-report",
+      "type": "assessment"
+    },
+    "doc_03": {
+      "date": "2025-05-10",
+      "label": "Sensory Profile-2 (self)",
+      "type": "assessment"
+    },
+    "doc_04": {
+      "date": "2024-12-01",
+      "label": "ABAS Adaptive Behavior \u2014 Parent",
+      "type": "parent"
+    },
+    "doc_05": {
+      "date": "2025-02-01",
+      "label": "ABAS Adaptive Behavior \u2014 Teacher",
+      "type": "teacher"
+    },
+    "doc_06": {
+      "date": "2025-05-15",
+      "label": "BASC-3 Teacher",
+      "type": "teacher"
+    },
+    "doc_07": {
+      "date": "2025-04-19",
+      "label": "BASC-3 Parent",
+      "type": "parent"
+    },
+    "doc_08": {
+      "date": "2025-04-26",
+      "label": "Brown EF/A Scales \u2014 Self-report",
+      "type": "assessment"
+    },
+    "doc_09": {
+      "date": "2025-06-19",
+      "label": "D-REF Executive Functions \u2014 Teacher",
+      "type": "teacher"
+    },
+    "doc_10": {
+      "date": "2025-04-22",
+      "label": "DAS-II cognitive score report",
+      "type": "assessment"
+    },
+    "doc_11": {
+      "date": "2024-10-02",
+      "label": "IEP \u2014 current school records",
+      "type": "school"
+    },
+    "doc_12": {
+      "date": "2025-04-26",
+      "label": "KTEA-3 achievement score report",
+      "type": "assessment"
+    },
+    "doc_13": {
+      "date": "2025-12-15",
+      "label": "WRAP services need letter",
+      "type": "other"
+    },
+    "doc_14": {
+      "date": "2025-05-27",
+      "label": "Permission to exchange information",
+      "type": "other"
+    },
+    "doc_17": {
+      "date": "2025-06-23",
+      "label": "RIAS-2 memory and processing speed (PDF)",
+      "type": "assessment"
+    },
+    "doc_20": {
+      "date": "2025-04-19",
+      "label": "SRS Social Responsiveness \u2014 Parent",
+      "type": "parent"
+    },
+    "doc_21": {
+      "date": "2025-04-19",
+      "label": "Student profile and interview",
+      "type": "observation"
+    },
+    "doc_22": {
+      "date": "2025-04-12",
+      "label": "Assessment plan and contract for services",
+      "type": "other"
+    },
+    "doc_23": {
+      "date": "2025-04-22",
+      "label": "Brown EF/A Scales \u2014 Multirater",
+      "type": "assessment"
+    },
+    "doc_24": {
+      "date": "2025-04-22",
+      "label": "Brown EF/A Scales \u2014 Parent",
+      "type": "parent"
+    },
+    "doc_25": {
+      "date": "2019-05-29",
+      "label": "IEP \u2014 Fairhaven initial (4th grade)",
+      "type": "school"
+    },
+    "doc_26": {
+      "date": "2013-09-10",
+      "label": "Prior early childhood diagnostic assessment (age 3)",
+      "type": "prior_eval"
+    },
+    "doc_28": {
+      "date": "2025-04-26",
+      "label": "SSIS-SEL self-report",
+      "type": "assessment"
+    }
+  },
+  "structure_spec_id": "provisional_tj_v1",
+  "timelines": [
+    {
+      "fact_ids": [
+        "f_doc_25_006"
+      ],
+      "latest_fact_id": "f_doc_25_006",
+      "predicate": "allergy_status",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "allergy_status"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_015"
+      ],
+      "latest_fact_id": "f_doc_25_015",
+      "predicate": "allergy_status",
+      "qualifier": "seasonal",
+      "subject": "child",
+      "topic": "allergy_status:seasonal"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_007",
+        "f_doc_21_004"
+      ],
+      "latest_fact_id": "f_doc_21_004",
+      "predicate": "behavioral_concern",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "behavioral_concern"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_020"
+      ],
+      "latest_fact_id": "f_doc_25_020",
+      "predicate": "behavioral_concern",
+      "qualifier": "depression",
+      "subject": "child",
+      "topic": "behavioral_concern:depression"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_021"
+      ],
+      "latest_fact_id": "f_doc_25_021",
+      "predicate": "behavioral_concern",
+      "qualifier": "inattention",
+      "subject": "child",
+      "topic": "behavioral_concern:inattention"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_008",
+        "f_doc_25_009",
+        "f_doc_21_006"
+      ],
+      "latest_fact_id": "f_doc_21_006",
+      "predicate": "functioning_deficit",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "functioning_deficit"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_004"
+      ],
+      "latest_fact_id": "f_doc_25_004",
+      "predicate": "grade",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "grade"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_014"
+      ],
+      "latest_fact_id": "f_doc_25_014",
+      "predicate": "health_plan_status",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "health_plan_status"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_005"
+      ],
+      "latest_fact_id": "f_doc_25_005",
+      "predicate": "iep_status",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "iep_status"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_027"
+      ],
+      "latest_fact_id": "f_doc_25_027",
+      "predicate": "intervention_tier",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "intervention_tier"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_023",
+        "f_doc_25_024",
+        "f_doc_25_025",
+        "f_doc_25_026"
+      ],
+      "latest_fact_id": "f_doc_25_025",
+      "predicate": "math_computation",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "math_computation"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_029",
+        "f_doc_21_005"
+      ],
+      "latest_fact_id": "f_doc_21_005",
+      "predicate": "medications",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "medications"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_010",
+        "f_doc_25_011",
+        "f_doc_25_012",
+        "f_doc_25_013"
+      ],
+      "latest_fact_id": "f_doc_25_013",
+      "predicate": "parental_limitations",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "parental_limitations"
+    },
+    {
+      "fact_ids": [
+        "f_doc_21_008"
+      ],
+      "latest_fact_id": "f_doc_21_008",
+      "predicate": "peer_relationships",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "peer_relationships"
+    },
+    {
+      "fact_ids": [
+        "f_doc_21_007"
+      ],
+      "latest_fact_id": "f_doc_21_007",
+      "predicate": "referral_reason",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "referral_reason"
+    },
+    {
+      "fact_ids": [
+        "f_doc_21_003"
+      ],
+      "latest_fact_id": "f_doc_21_003",
+      "predicate": "school_enrollment",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "school_enrollment"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_028"
+      ],
+      "latest_fact_id": "f_doc_25_028",
+      "predicate": "service_requirement",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "service_requirement"
+    },
+    {
+      "fact_ids": [
+        "f_doc_25_022"
+      ],
+      "latest_fact_id": "f_doc_25_022",
+      "predicate": "written_expression",
+      "qualifier": null,
+      "subject": "child",
+      "topic": "written_expression"
+    }
+  ],
+  "variance": []
+}

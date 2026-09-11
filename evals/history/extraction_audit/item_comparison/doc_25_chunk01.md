@@ -299,7 +299,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_003` · predicate=`developmental_history` · value=`met all developmental milestones on time except walking at about 19 mos and talking at about 2 yrs` · value_text="met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (value_text_match): `f_doc_25_008` · predicate=`developmental_history` · value=`typical` · value_text="met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
+- legacy cache (value_text_match): `f_doc_25_012` · predicate=`developmental_history` · value=`typical` · value_text="Emma Rose Callahan met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
 
 ### 5. Human item review (append-only)
 
@@ -331,7 +331,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_004` · predicate=`health_plan_status` · value=`active` · value_text="Emma Rose Callahan takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (fact_id_collision_different_content): _none_
+- legacy cache (value_text_match): `f_doc_25_011` · predicate=`medications` · value=`1mg guanfacine, 2.5mg melatonin, 5mg singular` · value_text="Emma Rose Callahan takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
 
 ### 5. Human item review (append-only)
 
@@ -359,7 +359,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_005` · predicate=`allergy_status` · value=`known` · value_text="Emma Rose Callahan has a history of seasonal allergies" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (value_text_match): `f_doc_25_011` · predicate=`allergy_status` · value=`known` · value_text="Emma Rose Callahan has a history of seasonal allergies" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
+- legacy cache (value_text_match): `f_doc_25_010` · predicate=`allergy_status` · value=`known` · value_text="Emma Rose Callahan has a history of seasonal allergies" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-04-25`
 
 ### 5. Human item review (append-only)
 
@@ -387,7 +387,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_006` · predicate=`behavioral_concern` · value=`ongoing concerns with difficulty sustaining attention, following directions, and focusing in the classroom` · value_text="ongoing concerns with difficulty sustaining attention, following directions, and focusing in the classroom" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (value_text_match): `f_doc_25_013` · predicate=`behavioral_concern` · value=`learning problems` · value_text="ongoing concerns with difficulty sustaining attention, following directions, and focusing in the classroom" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
+- legacy cache (fact_id_collision_different_content): _none_
 
 ### 5. Human item review (append-only)
 
@@ -415,7 +415,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_007` · predicate=`testing_impression` · value=`demonstrates clinically significant levels of inattention in both the home and school setting` · value_text="demonstrates clinically significant levels of inattention in both the home and school setting" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (value_text_match): `f_doc_25_012` · predicate=`behavioral_concern` · value=`inattention` · value_text="demonstrates clinically significant levels of inattention in both the home and school setting" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
+- legacy cache (value_text_match): `f_doc_25_013` · predicate=`behavioral_concern` · value=`inattention` · value_text="Emma Rose Callahan demonstrates clinically significant levels of inattention in both the home and school setting" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
 
 ### 5. Human item review (append-only)
 
@@ -508,7 +508,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_009` · predicate=`intervention_tier` · value=`goals will be written to address reading fluency/comprehension, writing, and math word problems` · value_text="goals will be written to address the following areas of need: Reading Fluency/Comprehension, Writing, and Math Word Problems" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (no_legacy_match): _none_
+- legacy cache (fact_id_collision_different_content): _none_
 
 ### 5. Human item review (append-only)
 

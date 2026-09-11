@@ -279,7 +279,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_004` · predicate=`health_plan_status` · value=`active` · value_text="She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night." · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (value_text_match): `f_doc_25_010` · predicate=`medications` · value=`1mg guanfacine, 2.5mg melatonin, 5mg singular` · value_text="She takes 1mg of guanfacine, 5mg of Singular and 2.5 mg of melatonin at night" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
+- legacy cache (fact_id_collision_different_content): _none_
 
 ### 5. Human item review (append-only)
 
@@ -307,7 +307,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_005` · predicate=`developmental_history` · value=`typical with delays` · value_text="She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs." · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (value_text_match): `f_doc_25_008` · predicate=`developmental_history` · value=`typical` · value_text="met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
+- legacy cache (value_text_match): `f_doc_25_022` · predicate=`developmental_history` · value=`met all developmental milestones on time except walking at about 19 mos and talking at about 2 yrs` · value_text="She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs." · assertion=`asserted` · reporter=`None` · as_of_date=`2019-04-25`
 
 ### 5. Human item review (append-only)
 
@@ -335,7 +335,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_006` · predicate=`trauma_history` · value=`adopted at 19 months` · value_text="Emma Rose Callahan was adopted at 19 months so information on birth is limited." · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (value_text_match): `f_doc_25_019` · predicate=`trauma_history` · value=`adopted at 19 months` · value_text="Emma Rose Callahan was adopted at 19 months so information on birth is limited." · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
+- legacy cache (value_text_match): `f_doc_25_023` · predicate=`trauma_history` · value=`adopted at 19 months` · value_text="Emma Rose Callahan was adopted at 19 months so information on birth is limited." · assertion=`asserted` · reporter=`None` · as_of_date=`2019-04-25`
 
 ### 5. Human item review (append-only)
 

@@ -1,0 +1,6 @@
+INTERIM PARENT — extraction accepted-for-now (2026-08-19), not final; prose→trace alignment not run
+
+## History of Previous Evaluations
+
+**Previous Evaluations:**
+Emma Rose Callahan was the subject of a prior early childhood diagnostic assessment conducted at age 3 on September 10, 2013. The assessment indicated Emma experienced delays in speech and language as well as suspected overall cognitive delays. Although her developmental history showed that she met most milestones on time, she did walk later than typical at 19 months and began to talk around the age of 2 years. During this evaluation, significant concerns regarding her emotional and behavioral development were noted. Emma scored in the borderline clinical range for emotional reactivity and oppositional defiant problems, and she demonstrated clinically significant issues with somatic complaints, withdrawal, and social development. Additionally, a history of neglect and suspected trauma was documented, further complicating her developmental profile. The assessment highlighted behavioral concerns such as being slow to react to directions, experiencing sensory issues related to loud noises and temperature changes, toe walking, and having meltdowns occurring 2-5 times a week.
