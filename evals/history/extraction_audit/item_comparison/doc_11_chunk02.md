@@ -197,7 +197,7 @@ _None recorded yet. Use the complete source chunk above to find omissions._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_001` · predicate=`legal_name` · value=`Emma Rose Callahan` · value_text="Emma Rose Callahan" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (value_text_match): `f_doc_11_001` · predicate=`legal_name` · value=`Emma Rose Callahan` · value_text="Student Name: Emma Rose Callahan" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
+- legacy cache (value_text_match): `f_doc_11_007` · predicate=`legal_name` · value=`Emma Rose Callahan` · value_text="Emma Rose Callahan is a pleasure to have in class." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
 
 ### 5. Human item review (append-only)
 
@@ -291,7 +291,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_003` · predicate=`medications` · value=`geodon, trileptal, vyvance` · value_text="She takes the medications Geodon, Trileptal, and Vyvance." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (value_text_match): `f_doc_11_010` · predicate=`medications` · value=`geodon, gum, hypothyroid medication, trileptal, vyvance` · value_text="Emma Rose Callahan was diagnosed with hypothyroid and is on medication.; She takes the medications Geodon, Trileptal, and Vyvance.; gum - to help with focus/attention/alertness" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
+- legacy cache (value_text_match): `f_doc_11_010` · predicate=`medications` · value=`geodon, hypothyroid medication, trileptal, vyvance` · value_text="Emma Rose Callahan was diagnosed with hypothyroid and is on medication.; She takes the medications Geodon, Trileptal, and Vyvance." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
 
 ### 5. Human item review (append-only)
 
@@ -379,7 +379,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_006` · predicate=`behavioral_concern` · value=`motivation` · value_text="Emma Rose Callahan appears to struggle with motivation in her classes." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (value_text_match): `f_doc_11_013` · predicate=`behavioral_concern` · value=`motivation` · value_text="Emma Rose Callahan appears to struggle with motivation in her classes." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
+- legacy cache (fact_id_collision_different_content): _none_
 
 ### 5. Human item review (append-only)
 
@@ -410,7 +410,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_007` · predicate=`trauma_history` · value=`rad, adhd` · value_text="She has RAD and ADHD." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (no_legacy_match): _none_
+- legacy cache (fact_id_collision_different_content): _none_
 
 ### 5. Human item review (append-only)
 
@@ -438,7 +438,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_008` · predicate=`developmental_history` · value=`typical` · value_text="met all of her developmental milestones on time" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (value_text_match): `f_doc_11_015` · predicate=`developmental_history` · value=`typical` · value_text="She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
+- legacy cache (value_text_match): `f_doc_11_014` · predicate=`walked_age_months` · value=`19` · value_text="met all of her developmental milestones on time except walking at about 19 mos." · assertion=`asserted` · reporter=`None` · as_of_date=`2019-04-25`
 
 ### 5. Human item review (append-only)
 
@@ -466,7 +466,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_009` · predicate=`walked_age_months` · value=`19` · value_text="walking at about 19 mos" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (value_text_match): `f_doc_11_015` · predicate=`developmental_history` · value=`typical` · value_text="She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
+- legacy cache (value_text_match): `f_doc_11_014` · predicate=`walked_age_months` · value=`19` · value_text="met all of her developmental milestones on time except walking at about 19 mos." · assertion=`asserted` · reporter=`None` · as_of_date=`2019-04-25`
 
 ### 5. Human item review (append-only)
 
@@ -494,7 +494,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_010` · predicate=`first_words_age_months` · value=`24` · value_text="talking at about 2 yrs" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (value_text_match): `f_doc_11_015` · predicate=`developmental_history` · value=`typical` · value_text="She met all of her developmental milestones on time except walking at about 19 mos and talking at about 2 yrs." · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
+- legacy cache (value_text_match): `f_doc_11_015` · predicate=`first_words_age_months` · value=`24` · value_text="talking at about 2 yrs." · assertion=`asserted` · reporter=`None` · as_of_date=`2019-04-25`
 
 ### 5. Human item review (append-only)
 
@@ -522,7 +522,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_011` · predicate=`two_word_phrases_age_months` · value=`36` · value_text="used sentences at about 3 yrs" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (fact_id_collision_different_content): _none_
+- legacy cache (value_text_match): `f_doc_11_016` · predicate=`two_word_phrases_age_months` · value=`36` · value_text="used sentences at about 3 yrs." · assertion=`asserted` · reporter=`None` · as_of_date=`2019-04-25`
 
 ### 5. Human item review (append-only)
 

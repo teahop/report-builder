@@ -327,7 +327,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_005` · predicate=`intervention_tier` · value=`general education with accommodations and specialized academic instruction` · value_text="the IEP team concluded the least restrictive placement is a combination of General Education with accommodations and Specialized Academic Instruction (SAI) support outside of the General Education classroom" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (fact_id_collision_different_content): _none_
+- legacy cache (value_text_match): `f_doc_25_020` · predicate=`intervention_tier` · value=`general education with accommodations and specialized academic instruction` · value_text="The IEP team concluded the least restrictive placement is a combination of General Education with accommodations and Specialized Academic Instruction (SAI) support outside of the General Education classroom" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-04-25`
 
 ### 5. Human item review (append-only)
 
@@ -390,7 +390,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_006` · predicate=`behavioral_concern` · value=`self-regulation strategies` · value_text="to review self-regulation strategies, coping techniques, and check-in during transition for fourth grade year" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (fact_id_collision_different_content): _none_
+- legacy cache (value_text_match): `f_doc_25_021` · predicate=`service_requirement` · value=`short-term counseling` · value_text="Short-term counseling with the school psychologist/counselor to review self-regulation strategies, coping techniques, and check-in during transition for fourth grade year" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-04-25`
 
 ### 5. Human item review (append-only)
 

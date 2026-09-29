@@ -261,7 +261,7 @@ _None recorded yet. Use the complete source chunk above to find omissions._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_001` · predicate=`legal_name` · value=`Emma Rose Callahan` · value_text="Student Name: Emma Rose Callahan" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (value_text_match): `f_doc_11_001` · predicate=`legal_name` · value=`Emma Rose Callahan` · value_text="Student Name: Emma Rose Callahan" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
+- legacy cache (fact_id_collision_different_content): _none_
 
 ### 5. Human item review (append-only)
 
@@ -289,7 +289,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_002` · predicate=`dob` · value=`2010-03-22` · value_text="Birthdate: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (value_text_match): `f_doc_11_002` · predicate=`dob` · value=`2010-03-22` · value_text="Birthdate: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
+- legacy cache (value_text_match): `f_doc_11_001` · predicate=`dob` · value=`2010-03-22` · value_text="Birthdate: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2010-03-22`
 
 ### 5. Human item review (append-only)
 
@@ -435,7 +435,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_11_005` · predicate=`math_fluency` · value=`90` · value_text="can solve 5 one-step equations with whole number coefficients with at least 90% accuracy in 1/2 trials" · assertion=`asserted` · reporter=`None` · as_of_date=`2024-10-02`
-- legacy cache (fact_id_collision_different_content): _none_
+- legacy cache (value_text_match): `f_doc_11_023` · predicate=`math_computation` · value=`90` · value_text="at least 90% accuracy in 1/2 trials" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-04-25`
 
 ### 5. Human item review (append-only)
 

@@ -264,7 +264,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_002` · predicate=`dob` · value=`2010-03-22` · value_text="Date of Birth: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (value_text_match): `f_doc_25_002` · predicate=`dob` · value=`2010-03-22` · value_text="Date of Birth: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
+- legacy cache (value_text_match): `f_doc_25_002` · predicate=`dob` · value=`2010-03-22` · value_text="Date of Birth: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2010-03-22`
 
 ### 5. Human item review (append-only)
 
@@ -351,7 +351,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_005` · predicate=`school_enrollment` · value=`oak meadow school` · value_text="Residence School: Oak Meadow School" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (value_text_match): `f_doc_25_005` · predicate=`school_enrollment` · value=`oak meadow school` · value_text="Residence School: Oak Meadow School" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
+- legacy cache (fact_id_collision_different_content): _none_
 
 ### 5. Human item review (append-only)
 
@@ -382,7 +382,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_006` · predicate=`iep_status` · value=`active` · value_text="Not Eligible for Special Education   Exiting from Special Education (returned to reg. ed/no longer eligible)" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
-- legacy cache (value_text_match): `f_doc_25_006` · predicate=`iep_status` · value=`active` · value_text="Not Eligible for Special Education   Exiting from Special Education (returned to reg. ed/no longer eligible)" · assertion=`asserted` · reporter=`None` · as_of_date=`2019-05-29`
+- legacy cache (fact_id_collision_different_content): _none_
 
 ### 5. Human item review (append-only)
 
@@ -410,7 +410,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_007` · predicate=`behavioral_concern` · value=`difficulty with attention to instruction` · value_text="Emma Rose Callahan maintains some difficulty in the following areas: attention to instruction, following class standards, interacting with peers, and following directions." · assertion=`asserted` · reporter=`teacher` · as_of_date=`2019-05-29`
-- legacy cache (fact_id_collision_different_content): _none_
+- legacy cache (value_text_match): `f_doc_25_009` · predicate=`attendance` · value=`some difficulty` · value_text="maintains some difficulty in the following areas: attention to instruction, following class standards, interacting with peers, and following directions" · assertion=`asserted` · reporter=`teacher` · as_of_date=`2019-05-29`
 
 ### 5. Human item review (append-only)
 
@@ -466,7 +466,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_25_009` · predicate=`behavioral_concern` · value=`hesitant to pursue new tasks` · value_text="Mom is concerned about her confidence when it comes to pursuing a new task, she will be hesitant and express that as well." · assertion=`asserted` · reporter=`mother` · as_of_date=`2019-05-29`
-- legacy cache (no_legacy_match): _none_
+- legacy cache (fact_id_collision_different_content): _none_
 
 ### 5. Human item review (append-only)
 

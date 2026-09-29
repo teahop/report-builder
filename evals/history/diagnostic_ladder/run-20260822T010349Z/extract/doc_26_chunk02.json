@@ -1,0 +1,96 @@
+{
+  "source_id": "doc_26",
+  "schema": "SourceExtraction",
+  "temperature": 0.0,
+  "user_sha256": "545659a7d0e1992534319963f149aed5145389cda6f8a84aab391e9fc144c01b",
+  "raw_text": null,
+  "parsed": {
+    "facts": [
+      {
+        "subject": "child",
+        "predicate": "dob",
+        "proposed_predicate": null,
+        "value": "2010-03-22",
+        "value_text": "DOB: 3/22/10",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "infancy",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2013-09-10",
+        "valence": "neutral",
+        "source_section": null
+      },
+      {
+        "subject": "child",
+        "predicate": "age_years",
+        "proposed_predicate": null,
+        "value": "3",
+        "value_text": "Age: 3y 1m 23d",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "infancy",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2013-09-10",
+        "valence": "neutral",
+        "source_section": null
+      },
+      {
+        "subject": "child",
+        "predicate": "__unregistered__",
+        "proposed_predicate": "sensory_processing_recommendations",
+        "value": "books recommended for sensory processing",
+        "value_text": "it is recommended that Emma Rose Callahan's caregivers read the books, The Out of Sync Child, and The Out of Sync Child Has Fun, by Carol Stock Kranowitz",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "infancy",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2013-09-10",
+        "valence": "neutral",
+        "source_section": null
+      },
+      {
+        "subject": "child",
+        "predicate": "__unregistered__",
+        "proposed_predicate": "heavy_work_activities",
+        "value": "activities to help calm and focus",
+        "value_text": "it is recommended that her caregivers provide opportunities for \"heavy work\"",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "infancy",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2013-09-10",
+        "valence": "neutral",
+        "source_section": null
+      },
+      {
+        "subject": "child",
+        "predicate": "__unregistered__",
+        "proposed_predicate": "safety_recommendations",
+        "value": "safety measures for running behaviors",
+        "value_text": "Family is encouraged to address safety issues created by running behaviors and escape",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "infancy",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2013-09-10",
+        "valence": "concern",
+        "source_section": null
+      }
+    ]
+  },
+  "tokens": {
+    "total": 9136,
+    "prompt": 8633,
+    "completion": 503
+  }
+}

@@ -14,6 +14,8 @@ from pathlib import Path
 import re
 from typing import Self
 
+from profile import active_model_label
+
 from pydantic import BaseModel, Field, model_validator
 
 from draft_output import (
@@ -491,7 +493,7 @@ def draft_history_package(
     ModelProvider nest under it when LANGFUSE_* keys are set.
     """
 
-    model = body.model or "gpt-4o-mini"
+    model = body.model or active_model_label("gpt-4o-mini")
     entailment_model = body.entailment_model or "gpt-4o-mini"
     spec_hash = structure_spec_hash(body.structure_spec_id)
     policy_hash = history_policy_hash()

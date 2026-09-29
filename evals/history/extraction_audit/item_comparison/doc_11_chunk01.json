@@ -58,8 +58,16 @@
         "valence": "neutral",
         "source_section": "KNOWING THE STUDENT"
       },
-      "legacy_match": "fact_id_collision_different_content",
-      "legacy_ledger_fact": null,
+      "legacy_match": "value_text_match",
+      "legacy_ledger_fact": {
+        "id": "f_doc_11_007",
+        "predicate": "legal_name",
+        "value": "Emma Rose Callahan",
+        "value_text": "Emma Rose Callahan is a pleasure to have in class.",
+        "assertion": "asserted",
+        "as_of_date": "2024-10-02",
+        "reporter": null
+      },
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     },
@@ -116,12 +124,12 @@
       },
       "legacy_match": "value_text_match",
       "legacy_ledger_fact": {
-        "id": "f_doc_11_002",
+        "id": "f_doc_11_001",
         "predicate": "dob",
         "value": "2010-03-22",
         "value_text": "Birthdate: 3/22/10",
         "assertion": "asserted",
-        "as_of_date": "2024-10-02",
+        "as_of_date": "2010-03-22",
         "reporter": null
       },
       "latest_human_item_review": null,
@@ -362,8 +370,8 @@
       "legacy_ledger_fact": {
         "id": "f_doc_11_010",
         "predicate": "medications",
-        "value": "geodon, gum, hypothyroid medication, trileptal, vyvance",
-        "value_text": "Emma Rose Callahan was diagnosed with hypothyroid and is on medication.; She takes the medications Geodon, Trileptal, and Vyvance.; gum - to help with focus/attention/alertness",
+        "value": "geodon, hypothyroid medication, trileptal, vyvance",
+        "value_text": "Emma Rose Callahan was diagnosed with hypothyroid and is on medication.; She takes the medications Geodon, Trileptal, and Vyvance.",
         "assertion": "asserted",
         "as_of_date": "2024-10-02",
         "reporter": null
@@ -422,16 +430,8 @@
         "valence": "neutral",
         "source_section": "COMMUNICATION DEVELOPMENT"
       },
-      "legacy_match": "value_text_match",
-      "legacy_ledger_fact": {
-        "id": "f_doc_11_012",
-        "predicate": "basic_reading",
-        "value": "average",
-        "value_text": "Emma Rose Callahan's behavior is adaptive and does not impede her learning.",
-        "assertion": "asserted",
-        "as_of_date": "2024-10-02",
-        "reporter": null
-      },
+      "legacy_match": "fact_id_collision_different_content",
+      "legacy_ledger_fact": null,
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     }

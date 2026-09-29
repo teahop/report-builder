@@ -28,6 +28,7 @@ def test_operator_page_renders() -> None:
     assert 'type="file"' not in body
     assert "./operator_live.js" in body
     assert "Skip entailment" in body
+    assert "Delete case data" in body
 
 
 def test_operator_redirects_to_trailing_slash() -> None:
@@ -49,6 +50,8 @@ def test_operator_assets_served() -> None:
     assert "OperatorLive" in js.text
     assert "skip_entailment" in js.text
     assert "saveCached001" in js.text
+    assert "purgeCase" in js.text
+    assert "case_id" in js.text
     assert "Draft is on the page; open Verify." in js.text
     assert "failed validation after 3 retry attempts" not in js.text
     support = client.get("/operator/support.js")

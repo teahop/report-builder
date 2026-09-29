@@ -11,6 +11,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field, model_validator
 
+from data_gate import DataClassification
 from schemas import Ledger, ReviewQueue
 
 CaptureMethod = Literal[
@@ -247,14 +248,9 @@ class ReferralDraftOutput(BaseModel):
     )
 
 
-class ReferralDraftRequest(BaseModel):
+class ReferralDraftRequest(DataClassification):
     """Dedicated referral draft request — not an extension of DraftRequest."""
 
-    confirm_synthetic: Literal[True] = Field(
-        description=(
-            "Must be true. Refuses real PHI/PII cases; OpenAI runtime is synthetic-only."
-        ),
-    )
     ledger: Ledger
     context: ReferralContext
     model: str | None = None

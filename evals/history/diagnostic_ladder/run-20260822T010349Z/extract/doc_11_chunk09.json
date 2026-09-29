@@ -1,0 +1,48 @@
+{
+  "source_id": "doc_11",
+  "schema": "SourceExtraction",
+  "temperature": 0.0,
+  "user_sha256": "c1e54ac6aa648c6151b25e8be0dcad71f9eee2bfa52ae68f6955fd4cdfabc29d",
+  "raw_text": null,
+  "parsed": {
+    "facts": [
+      {
+        "subject": "child",
+        "predicate": "attendance",
+        "proposed_predicate": null,
+        "value": "87",
+        "value_text": "87 % of time student is in the regular class & extracurricular & non academic activities",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2024-10-02",
+        "valence": "neutral",
+        "source_section": "IEP — current school records"
+      },
+      {
+        "subject": "child",
+        "predicate": "attendance",
+        "proposed_predicate": null,
+        "value": "13",
+        "value_text": "13 % of time student is outside the regular class & extracurricular & non academic activities",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2024-10-02",
+        "valence": "neutral",
+        "source_section": "IEP — current school records"
+      }
+    ]
+  },
+  "tokens": {
+    "total": 24969,
+    "prompt": 24774,
+    "completion": 195
+  }
+}

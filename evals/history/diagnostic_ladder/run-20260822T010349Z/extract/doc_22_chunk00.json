@@ -1,0 +1,80 @@
+{
+  "source_id": "doc_22",
+  "schema": "SourceExtraction",
+  "temperature": 0.0,
+  "user_sha256": "56d25597d65ceee92aae47668efacbf395b145246f24381eb53f53b7253e3abe",
+  "raw_text": null,
+  "parsed": {
+    "facts": [
+      {
+        "subject": "child",
+        "predicate": "legal_name",
+        "proposed_predicate": null,
+        "value": "Emma Rose Callahan",
+        "value_text": "Client’s child, Emma Rose Callahan",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": null,
+        "valence": "neutral",
+        "source_section": null
+      },
+      {
+        "subject": "child",
+        "predicate": "dob",
+        "proposed_predicate": null,
+        "value": "",
+        "value_text": "date of birth ___________",
+        "qualifier": null,
+        "assertion": "denied",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": null,
+        "valence": "neutral",
+        "source_section": null
+      },
+      {
+        "subject": "child",
+        "predicate": "__unregistered__",
+        "proposed_predicate": "psycho_educational_assessment",
+        "value": "4500",
+        "value_text": "The estimate for this evaluation is $4500.",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2025-04-12",
+        "valence": "neutral",
+        "source_section": null
+      },
+      {
+        "subject": "child",
+        "predicate": "__unregistered__",
+        "proposed_predicate": "initial_retainer",
+        "value": "2000",
+        "value_text": "Client agrees to pay an initial retainer of $2000 on 4/12/25 when assessment will commence.",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2025-04-12",
+        "valence": "neutral",
+        "source_section": null
+      }
+    ]
+  },
+  "tokens": {
+    "total": 8470,
+    "prompt": 8116,
+    "completion": 354
+  }
+}

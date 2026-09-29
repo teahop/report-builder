@@ -189,7 +189,7 @@ _None recorded yet. Use the complete source chunk above to find omissions._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_26_001` · predicate=`dob` · value=`2010-03-22` · value_text="DOB: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
-- legacy cache (value_text_match): `f_doc_26_001` · predicate=`dob` · value=`2010-03-22` · value_text="DOB: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
+- legacy cache (value_text_match): `f_doc_26_001` · predicate=`dob` · value=`2010-03-22` · value_text="DOB: 3/22/10" · assertion=`asserted` · reporter=`None` · as_of_date=`2010-03-22`
 
 ### 5. Human item review (append-only)
 
@@ -276,7 +276,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_26_003` · predicate=`developmental_history` · value=`alleged intrauterine exposure to methamphetamine` · value_text="Medical history is remarkable for alleged intrauterine exposure to methamphetamine." · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
-- legacy cache (no_legacy_match): _none_
+- legacy cache (fact_id_collision_different_content): _none_
 
 ### 5. Human item review (append-only)
 
@@ -304,7 +304,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_26_004` · predicate=`behavioral_concern` · value=`slow to react with directions/commands` · value_text="Behavior: Slow to react with directions/commands, sensory issues (e.g. sensitive to loud noises or temperature changes), toe walking, and meltdowns 2-5 times per week." · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
-- legacy cache (value_text_match): `f_doc_26_004` · predicate=`behavioral_concern` · value=`slow to react with directions, sensory issues, toe walking, meltdowns` · value_text="Behavior: Slow to react with directions/commands, sensory issues (e.g. sensitive to loud noises or temperature changes), toe walking, and meltdowns 2-5 times per week." · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
+- legacy cache (value_text_match): `f_doc_26_003` · predicate=`behavioral_concern` · value=`slow to react with directions, sensory issues, toe walking, meltdowns` · value_text="Behavior: Slow to react with directions/commands, sensory issues (e.g. sensitive to loud noises or temperature changes), toe walking, and meltdowns 2-5 times per week." · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
 
 ### 5. Human item review (append-only)
 
@@ -360,7 +360,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_26_006` · predicate=`walked_age_months` · value=`19` · value_text="she was walking at 19 months of age" · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
-- legacy cache (value_text_match): `f_doc_26_006` · predicate=`walked_age_months` · value=`19` · value_text="she was walking at 19 months of age" · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
+- legacy cache (value_text_match): `f_doc_26_005` · predicate=`walked_age_months` · value=`19` · value_text="she was walking at 19 months of age" · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
 
 ### 5. Human item review (append-only)
 
@@ -388,7 +388,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_26_007` · predicate=`sleep` · value=`sleeps well from 8 - 6.30am` · value_text="She sleeps well from 8 -6.30am without snoring." · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
-- legacy cache (value_text_match): `f_doc_26_009` · predicate=`sleep` · value=`sleeps well from 8 - 6.30am` · value_text="She sleeps well from 8 -6.30am without snoring." · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
+- legacy cache (value_text_match): `f_doc_26_007` · predicate=`sleep` · value=`sleeps well from 8 - 6.30am` · value_text="she sleeps well from 8 -6.30am without snoring" · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
 
 ### 5. Human item review (append-only)
 
@@ -419,7 +419,7 @@ _No human item review recorded yet._
 ### 4. Ledger / retained fact
 
 - chunk-local: `f_doc_26_008` · predicate=`school_enrollment` · value=`sunshine bilingual chinese/ english preschool` · value_text="Emma Rose Callahan attends the Sunshine Bilingual Chinese/ English preschool" · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
-- legacy cache (value_text_match): `f_doc_26_007` · predicate=`school_enrollment` · value=`sunshine bilingual chinese/ english preschool` · value_text="Emma Rose Callahan attends the Sunshine Bilingual Chinese/ English preschool" · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
+- legacy cache (value_text_match): `f_doc_26_006` · predicate=`school_enrollment` · value=`sunshine bilingual chinese/english preschool` · value_text="Emma Rose Callahan attends the Sunshine Bilingual Chinese/ English preschool" · assertion=`asserted` · reporter=`None` · as_of_date=`2013-09-10`
 
 ### 5. Human item review (append-only)
 

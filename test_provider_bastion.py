@@ -160,6 +160,7 @@ def test_bastion_non_json_raises_parse_error_with_raw_text() -> None:
         )
     assert exc.value.raw_text == "I cannot emit JSON."
     assert exc.value.total_tokens == 3
+    assert "I cannot emit JSON." not in str(exc.value)
 
 
 def test_coerce_unknown_predicates_onto_unregistered_escape() -> None:
@@ -215,3 +216,23 @@ def test_bastion_unknown_predicate_parses_as_unregistered() -> None:
     fact = result.data.facts[0]
     assert fact.predicate.value == "__unregistered__"
     assert fact.proposed_predicate == "vision"
+
+
+def test_production_profile_cannot_complete_on_openai(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setenv("APP_PROFILE", "production")
+    provider = ModelProvider(backend="openai", client=object())  # type: ignore[arg-type]
+    with pytest.raises(RuntimeError, match="cannot call OpenAI"):
+        provider.complete_structured(
+            model="gpt-4o",
+            system="s",
+            user="u",
+            schema=SourceExtraction,
+        )
+
+
+def test_production_provider_does_not_construct_openai_client() -> None:
+    provider = ModelProvider(backend="bastion", bastion_api_key="test-key")
+    assert provider.backend == "bastion"
+    assert provider._client is None

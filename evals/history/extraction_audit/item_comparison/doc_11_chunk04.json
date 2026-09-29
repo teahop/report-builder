@@ -58,16 +58,8 @@
         "valence": "neutral",
         "source_section": "IEP \u2014 current school records"
       },
-      "legacy_match": "value_text_match",
-      "legacy_ledger_fact": {
-        "id": "f_doc_11_001",
-        "predicate": "legal_name",
-        "value": "Emma Rose Callahan",
-        "value_text": "Student Name: Emma Rose Callahan",
-        "assertion": "asserted",
-        "as_of_date": "2024-10-02",
-        "reporter": null
-      },
+      "legacy_match": "fact_id_collision_different_content",
+      "legacy_ledger_fact": null,
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     },
@@ -124,12 +116,12 @@
       },
       "legacy_match": "value_text_match",
       "legacy_ledger_fact": {
-        "id": "f_doc_11_002",
+        "id": "f_doc_11_001",
         "predicate": "dob",
         "value": "2010-03-22",
         "value_text": "Birthdate: 3/22/10",
         "assertion": "asserted",
-        "as_of_date": "2024-10-02",
+        "as_of_date": "2010-03-22",
         "reporter": null
       },
       "latest_human_item_review": null,
@@ -374,8 +366,16 @@
         "valence": "strength",
         "source_section": "IEP \u2014 current school records"
       },
-      "legacy_match": "fact_id_collision_different_content",
-      "legacy_ledger_fact": null,
+      "legacy_match": "value_text_match",
+      "legacy_ledger_fact": {
+        "id": "f_doc_11_023",
+        "predicate": "math_computation",
+        "value": "90",
+        "value_text": "at least 90% accuracy in 1/2 trials",
+        "assertion": "asserted",
+        "as_of_date": "2019-04-25",
+        "reporter": null
+      },
       "latest_human_item_review": null,
       "invalidated_review_count": 0
     }

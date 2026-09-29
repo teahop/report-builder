@@ -1,0 +1,48 @@
+{
+  "source_id": "doc_01",
+  "schema": "SourceExtraction",
+  "temperature": 0.0,
+  "user_sha256": "85249ffa052cb6fdf34bf8d42c3cbfa0ae38604c00682d13d20cbb374c8f2367",
+  "raw_text": null,
+  "parsed": {
+    "facts": [
+      {
+        "subject": "child",
+        "predicate": "dob",
+        "proposed_predicate": null,
+        "value": "2010-03-22",
+        "value_text": "DOB 3/22/10",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2025-12-27",
+        "valence": "neutral",
+        "source_section": null
+      },
+      {
+        "subject": "child",
+        "predicate": "legal_name",
+        "proposed_predicate": null,
+        "value": "Emma Rose Callahan",
+        "value_text": "Follow up from Psych-Educational Evaluation for Emma Rose Callahan",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2025-12-27",
+        "valence": "neutral",
+        "source_section": null
+      }
+    ]
+  },
+  "tokens": {
+    "total": 7894,
+    "prompt": 7712,
+    "completion": 182
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "source_id": "doc_11",
+  "schema": "SourceExtraction",
+  "temperature": 0.0,
+  "user_sha256": "fe1e717a56a3739f49d46a4a6e94a66aee7037cdceb280af4253cc4fe0b1ff31",
+  "raw_text": null,
+  "parsed": {
+    "facts": [
+      {
+        "subject": "child",
+        "predicate": "legal_name",
+        "proposed_predicate": null,
+        "value": "Emma Rose Callahan",
+        "value_text": "Name: Emma Rose Callahan",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": "9",
+        "confidence": "stated",
+        "as_of_date": "2024-10-02",
+        "valence": "neutral",
+        "source_section": "IEP — current school records"
+      },
+      {
+        "subject": "child",
+        "predicate": "dob",
+        "proposed_predicate": null,
+        "value": "2010-03-22",
+        "value_text": "Birthdate: 3/22/10",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2024-10-02",
+        "valence": "neutral",
+        "source_section": "IEP — current school records"
+      },
+      {
+        "subject": "child",
+        "predicate": "grade",
+        "proposed_predicate": null,
+        "value": "9",
+        "value_text": "Grade: 09 Ninth grade",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": "9",
+        "confidence": "stated",
+        "as_of_date": "2024-10-02",
+        "valence": "neutral",
+        "source_section": "IEP — current school records"
+      },
+      {
+        "subject": "child",
+        "predicate": "iep_status",
+        "proposed_predicate": null,
+        "value": "none",
+        "value_text": "I understand that my child is not eligible for special education.",
+        "qualifier": null,
+        "assertion": "denied",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2024-10-02",
+        "valence": "concern",
+        "source_section": "IEP — current school records"
+      },
+      {
+        "subject": "child",
+        "predicate": "attendance",
+        "proposed_predicate": null,
+        "value": "87",
+        "value_text": "87 % of time student is in the regular class & extracurricular & non academic activities",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2024-10-02",
+        "valence": "neutral",
+        "source_section": "IEP — current school records"
+      },
+      {
+        "subject": "child",
+        "predicate": "attendance",
+        "proposed_predicate": null,
+        "value": "13",
+        "value_text": "13 % of time student is outside the regular class & extracurricular & non academic activities",
+        "qualifier": null,
+        "assertion": "asserted",
+        "reporter": null,
+        "life_stage": "current",
+        "grade": null,
+        "confidence": "stated",
+        "as_of_date": "2024-10-02",
+        "valence": "neutral",
+        "source_section": "IEP — current school records"
+      }
+    ]
+  },
+  "tokens": {
+    "total": 9804,
+    "prompt": 9250,
+    "completion": 554
+  }
+}

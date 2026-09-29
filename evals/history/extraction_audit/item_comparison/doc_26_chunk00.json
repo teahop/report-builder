@@ -65,7 +65,7 @@
         "value": "2010-03-22",
         "value_text": "DOB: 3/22/10",
         "assertion": "asserted",
-        "as_of_date": "2013-09-10",
+        "as_of_date": "2010-03-22",
         "reporter": null
       },
       "latest_human_item_review": null,
@@ -224,7 +224,7 @@
         "valence": "concern",
         "source_section": "CONCERNS OF REFERRAL SOURCE"
       },
-      "legacy_match": "no_legacy_match",
+      "legacy_match": "fact_id_collision_different_content",
       "legacy_ledger_fact": null,
       "latest_human_item_review": null,
       "invalidated_review_count": 0
@@ -282,7 +282,7 @@
       },
       "legacy_match": "value_text_match",
       "legacy_ledger_fact": {
-        "id": "f_doc_26_004",
+        "id": "f_doc_26_003",
         "predicate": "behavioral_concern",
         "value": "slow to react with directions, sensory issues, toe walking, meltdowns",
         "value_text": "Behavior: Slow to react with directions/commands, sensory issues (e.g. sensitive to loud noises or temperature changes), toe walking, and meltdowns 2-5 times per week.",
@@ -402,7 +402,7 @@
       },
       "legacy_match": "value_text_match",
       "legacy_ledger_fact": {
-        "id": "f_doc_26_006",
+        "id": "f_doc_26_005",
         "predicate": "walked_age_months",
         "value": "19",
         "value_text": "she was walking at 19 months of age",
@@ -466,10 +466,10 @@
       },
       "legacy_match": "value_text_match",
       "legacy_ledger_fact": {
-        "id": "f_doc_26_009",
+        "id": "f_doc_26_007",
         "predicate": "sleep",
         "value": "sleeps well from 8 - 6.30am",
-        "value_text": "She sleeps well from 8 -6.30am without snoring.",
+        "value_text": "she sleeps well from 8 -6.30am without snoring",
         "assertion": "asserted",
         "as_of_date": "2013-09-10",
         "reporter": null
@@ -534,9 +534,9 @@
       },
       "legacy_match": "value_text_match",
       "legacy_ledger_fact": {
-        "id": "f_doc_26_007",
+        "id": "f_doc_26_006",
         "predicate": "school_enrollment",
-        "value": "sunshine bilingual chinese/ english preschool",
+        "value": "sunshine bilingual chinese/english preschool",
         "value_text": "Emma Rose Callahan attends the Sunshine Bilingual Chinese/ English preschool",
         "assertion": "asserted",
         "as_of_date": "2013-09-10",
